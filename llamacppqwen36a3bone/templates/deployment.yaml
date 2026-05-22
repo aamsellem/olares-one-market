@@ -36,7 +36,7 @@ spec:
     spec:
       containers:
         - name: llamacpp-mtp-server
-          image: "docker.io/aamsellem/llama-cpp-mtp:master-ad27757"
+          image: "docker.io/aamsellem/llama-cpp-mtp:master-bb28c1f"
           command: ["/bin/bash", "-c"]
           args:
             - |

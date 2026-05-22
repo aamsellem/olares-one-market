@@ -8,7 +8,7 @@ metadata:
   description: "Qwen3.6 35B-A3B MTP — 246 t/s @ FULL 262K context on Olares One"
   appid: llamacppqwen36a3bone
   title: Qwen36 35B-A3B MTP One
-  version: '1.0.2'
+  version: '1.0.3'
   categories:
     - AI
 entrances:
@@ -20,8 +20,10 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.0.2'
+  versionName: '1.0.3'
   upgradeDescription: |
+    v1.0.3: bump image `aamsellem/llama-cpp-mtp:master-ad27757` → `master-bb28c1f`. Picks up am17an's PR [#23461](https://github.com/ggml-org/llama.cpp/pull/23461) "server: free draft/MTP resources on sleep to fix VRAM leak" (community Reddit thread confirms necessity on b9274) + #23433 "mtp: use inp_out_ids for skipping logit computation" + #23131 SWA null-buffer fix. Bench re-validated 2026-05-22: 250.08 t/s AVG (10 runs, +0.3% vs ad27757 — noise). Real value is sustained-load stability (VRAM leak fix matters for agentic sessions hours-long).
+
     v1.0.2: bump default `CTX_SIZE` from 32K to **262144 (full native Qwen3.6 35B-A3B context window)**. Context sweep validated 2026-05-21 on Olares One showing essentially zero throughput regression across context sizes:
 
     | Context | t/s AVG | runs | delta vs 32K |
