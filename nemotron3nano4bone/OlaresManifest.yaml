@@ -4,7 +4,7 @@ olaresManifest.type: app
 apiVersion: 'v2'
 metadata:
   name: nemotron3nano4bone
-  icon: https://orales-one-market.aamsellem.workers.dev/icons/nemotron3nano4bone.png
+  icon: https://orales-one-market.markus-albrecht.workers.dev/icons/nemotron3nano4bone.png
   description: "Nemotron 3 Nano 4B Q8 via llama.cpp — fast edge AI, optimised for Olares One"
   appid: nemotron3nano4bone
   title: Nemotron 3 Nano 4B One
@@ -16,7 +16,7 @@ entrances:
     port: 8080
     host: nemotron3nano4bone
     title: Nemotron Nano 4B One
-    icon: https://orales-one-market.aamsellem.workers.dev/icons/nemotron3nano4bone.png
+    icon: https://orales-one-market.markus-albrecht.workers.dev/icons/nemotron3nano4bone.png
     openMethod: window
     authLevel: internal
 spec:
@@ -31,10 +31,10 @@ spec:
     Downloads the GGUF model on first launch (~4.2GB) and caches it.
     Exposes an OpenAI-compatible API on port 8080.
 
-  developer: aamsellem
-  website: https://github.com/aamsellem/olares-one-market
-  sourceCode: https://github.com/aamsellem/olares-one-market
-  submitter: aamsellem
+  developer: markus-albrecht
+  website: https://github.com/markus-albrecht/olares-one-market
+  sourceCode: https://github.com/markus-albrecht/olares-one-market
+  submitter: markus-albrecht
   locale:
     - en-US
   license:

@@ -45,7 +45,7 @@ spec:
               memory: 64Mi
       containers:
         - name: acestep
-          image: "docker.io/aamsellem/acestepxl:v1.1.1"
+          image: "docker.io/markus-albrecht/acestepxl:v1.1.1"
           command: ["/bin/bash", "-c"]
           args:
             - |

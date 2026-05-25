@@ -4,7 +4,7 @@ olaresManifest.type: app
 apiVersion: 'v2'
 metadata:
   name: nemotronlabselastic30bnvfp4one
-  icon: https://orales-one-market.aamsellem.workers.dev/icons/nemotronlabselastic30bnvfp4one.png
+  icon: https://orales-one-market.markus-albrecht.workers.dev/icons/nemotronlabselastic30bnvfp4one.png
   description: "NVIDIA Nemotron-Labs Elastic 30B-A3B NVFP4 — 182 t/s via FlashInfer SM120 (PR #40082) on Olares One"
   appid: nemotronlabselastic30bnvfp4one
   title: Nemotron-Labs 30B NVFP4 One
@@ -16,7 +16,7 @@ entrances:
     port: 8000
     host: nemotronlabselastic30bnvfp4one
     title: Nemotron-Labs 30B NVFP4
-    icon: https://orales-one-market.aamsellem.workers.dev/icons/nemotronlabselastic30bnvfp4one.png
+    icon: https://orales-one-market.markus-albrecht.workers.dev/icons/nemotronlabselastic30bnvfp4one.png
     openMethod: window
     authLevel: internal
 spec:
@@ -46,7 +46,7 @@ spec:
     - Model: `nvidia/NVIDIA-Nemotron-Labs-3-Elastic-30B-A3B-NVFP4` (HF, ~19 GB, NVIDIA Open Model License, public download — no HF token required)
     - First launch downloads ~19 GB of safetensors. OpenAI-compatible chat API on port 8000.
 
-    Reference: [Blog post EN](https://aamsellem.com/blog/en/nemotron-nvfp4-blackwell-mobile-166-tps/) | [FR](https://aamsellem.com/blog/fr/nemotron-nvfp4-blackwell-mobile-166-tps/)
+    Reference: [Blog post EN](https://markus-albrecht.com/blog/en/nemotron-nvfp4-blackwell-mobile-166-tps/) | [FR](https://markus-albrecht.com/blog/fr/nemotron-nvfp4-blackwell-mobile-166-tps/)
   fullDescription: |
     NVIDIA Nemotron-Labs Elastic 30B-A3B NVFP4 — the fastest local LLM on Olares One.
     RTX 5090M (24 GB GDDR7, sm_120 Blackwell consumer mobile) + 96 GB DDR5 + Core Ultra 9 275HX.
@@ -74,10 +74,10 @@ spec:
 
     First launch downloads ~19 GB. OpenAI-compatible API on port 8000.
 
-  developer: aamsellem
+  developer: markus-albrecht
   website: https://huggingface.co/nvidia/NVIDIA-Nemotron-Labs-3-Elastic-30B-A3B-NVFP4
-  sourceCode: https://github.com/aamsellem/orales-one-market
-  submitter: aamsellem
+  sourceCode: https://github.com/markus-albrecht/orales-one-market
+  submitter: markus-albrecht
   locale:
     - en-US
   license:

@@ -5,7 +5,7 @@ metadata:
 spec:
   fullDescription: |
     Qwen3.6 27B with DFlash speculative decoding + TurboQuant turbo3 KV cache via spiritbuun/buun-llama-cpp fork (forked from TheTom/llama-cpp-turboquant).
-    Image: aamsellem/buun-llama-cpp-dflash:0.2.0
+    Image: markus-albrecht/buun-llama-cpp-dflash:0.2.0
     Target: unsloth/Qwen3.6-27B-Q4_K_M.gguf (15.6 GB, standard quant — NOT MTP variant which buun rejects)
     Drafter: spiritbuun/Qwen3.6-27B-DFlash-GGUF/dflash-draft-3.6-q4_k_m.gguf (986 MB)
     Spec config: --spec-type dflash, gamma=6, KV turbo3 (3-bit Hadamard, 4.5x compression vs f16)

@@ -2,7 +2,7 @@
 # Core Ultra 9 275HX (AVX-512, AMX) + RTX 5090M (sm_120 Blackwell)
 #
 # MUST be built on x86_64 machine (ideally the Olares One itself)
-# docker build -t aamsellem/llamacpp-one:latest .
+# docker build -t markus-albrecht/llamacpp-one:latest .
 
 # ---- Stage 1: Build ----
 FROM nvidia/cuda:12.8.1-devel-ubuntu24.04 AS builder

@@ -36,7 +36,7 @@ spec:
     spec:
       containers:
         - name: vllm-server
-          image: "docker.io/aamsellem/vllm-qwen36-blackwell:0.20.0-genesis-v3"
+          image: "docker.io/markus-albrecht/vllm-qwen36-blackwell:0.20.0-genesis-v3"
           command: ["/entrypoint.sh"]
           args:
             - "serve"

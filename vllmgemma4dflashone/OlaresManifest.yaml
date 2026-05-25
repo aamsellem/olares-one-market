@@ -4,7 +4,7 @@ olaresManifest.type: app
 apiVersion: 'v2'
 metadata:
   name: vllmgemma4dflashone
-  icon: https://orales-one-market.aamsellem.workers.dev/icons/vllmgemma4dflashone.png
+  icon: https://orales-one-market.markus-albrecht.workers.dev/icons/vllmgemma4dflashone.png
   description: "Gemma 4 26B-A4B + DFlash + AWQ via vLLM — Olares One (fastest Gemma 4 path)"
   appid: vllmgemma4dflashone
   title: Gemma 4 26B DFlash One
@@ -16,7 +16,7 @@ entrances:
     port: 8000
     host: vllmgemma4dflashone
     title: Gemma 4 26B DFlash One
-    icon: https://orales-one-market.aamsellem.workers.dev/icons/vllmgemma4dflashone.png
+    icon: https://orales-one-market.markus-albrecht.workers.dev/icons/vllmgemma4dflashone.png
     openMethod: window
     authLevel: internal
 spec:
@@ -40,10 +40,10 @@ spec:
     For the MTP variant (140 t/s, llama.cpp + AtomicChat fork) see gemma426ba4bone.
     Apache 2.0 license. OpenAI-compatible API on port 8000.
 
-  developer: aamsellem
-  website: https://github.com/aamsellem/olares-one-market
-  sourceCode: https://github.com/aamsellem/olares-one-market
-  submitter: aamsellem
+  developer: markus-albrecht
+  website: https://github.com/markus-albrecht/olares-one-market
+  sourceCode: https://github.com/markus-albrecht/olares-one-market
+  submitter: markus-albrecht
   locale:
     - en-US
   license:

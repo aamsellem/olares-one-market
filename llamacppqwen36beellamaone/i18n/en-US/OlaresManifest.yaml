@@ -5,7 +5,7 @@ metadata:
 spec:
   fullDescription: |
     Qwen3.6 27B served via Anbeeld/beellama.cpp v0.1.1 fork (chain: ggml-org → TheTom/turboquant → spiritbuun/buun → Anbeeld).
-    Image: aamsellem/beellama-cpp:0.1.1 (custom amd64 + CUDA 13 + sm_120 build)
+    Image: markus-albrecht/beellama-cpp:0.1.1 (custom amd64 + CUDA 13 + sm_120 build)
     Target: unsloth/Qwen3.6-27B-GGUF UD-Q3_K_XL (14.5 GB, non-MTP variant)
     Drafter: spiritbuun/Qwen3.6-27B-DFlash-GGUF dflash-draft-3.6-q8_0 (1.85 GB)
     KV cache: turbo3 (3-bit Walsh-Hadamard rotated, ~25% smaller than q4_0)

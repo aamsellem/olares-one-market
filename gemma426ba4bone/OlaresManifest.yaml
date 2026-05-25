@@ -4,7 +4,7 @@ olaresManifest.type: app
 apiVersion: 'v2'
 metadata:
   name: gemma426ba4bone
-  icon: https://orales-one-market.aamsellem.workers.dev/icons/gemma426ba4bone.png
+  icon: https://orales-one-market.markus-albrecht.workers.dev/icons/gemma426ba4bone.png
   description: "Gemma 4 26B-A4B (MoE) with MTP speculative decoding via Atomic Chat llama.cpp fork — Olares One"
   appid: gemma426ba4bone
   title: Gemma 4 26B-A4B One
@@ -16,14 +16,14 @@ entrances:
     port: 8080
     host: gemma426ba4bone
     title: Gemma 4 26B One
-    icon: https://orales-one-market.aamsellem.workers.dev/icons/gemma426ba4bone.png
+    icon: https://orales-one-market.markus-albrecht.workers.dev/icons/gemma426ba4bone.png
     openMethod: window
     authLevel: internal
 spec:
   versionName: '1.0.10'
   upgradeDescription: |
     v1.0.10: bump context window 65K → 128K. With turbo3 KV (3-bit Hadamard rotation), 128K KV ~4 GB → fits comfortably alongside the 17 GB UD-Q4_K_XL target + 0.3 GB MTP drafter (~21 GB total, 3 GB headroom on 24 GB). No throughput regression expected vs 65K (validated 140 t/s @ 78% accept).
-    v1.0.9: switch to Atomic Chat llama.cpp fork (`AtomicBot-ai/atomic-llama-cpp-turboquant`) which adds the `gemma4_assistant` MTP drafter arch + TurboQuant KV cache (`turbo3`). Image: aamsellem/llamacpp-atomic-mtp:0.1.0. Adds AtomicChat/gemma-4-26B-A4B-it-assistant-GGUF Q4_K_M (325 MB) as MTP drafter alongside the unsloth UD-Q4_K_XL target. Reference bench from AtomicChat (M5Max): Gemma 4 26B = 97 → 138 t/s = +40% with MTP. Vision (mmproj) NOT enabled in this version (the atomic fork doesn't yet wire mmproj alongside MTP — text-only). If you need vision use v1.0.8. KV cache turbo3 (TurboQuant 3-bit Hadamard, much more efficient than q4_0).
+    v1.0.9: switch to Atomic Chat llama.cpp fork (`AtomicBot-ai/atomic-llama-cpp-turboquant`) which adds the `gemma4_assistant` MTP drafter arch + TurboQuant KV cache (`turbo3`). Image: markus-albrecht/llamacpp-atomic-mtp:0.1.0. Adds AtomicChat/gemma-4-26B-A4B-it-assistant-GGUF Q4_K_M (325 MB) as MTP drafter alongside the unsloth UD-Q4_K_XL target. Reference bench from AtomicChat (M5Max): Gemma 4 26B = 97 → 138 t/s = +40% with MTP. Vision (mmproj) NOT enabled in this version (the atomic fork doesn't yet wire mmproj alongside MTP — text-only). If you need vision use v1.0.8. KV cache turbo3 (TurboQuant 3-bit Hadamard, much more efficient than q4_0).
   fullDescription: |
     Google Gemma 4 26B-A4B (MoE, 3.8B active, 128 experts) with native vision — served via llama.cpp, optimised for Olares One.
     RTX 5090M (24GB) + 96GB DDR5 + Core Ultra 9 275HX.
@@ -36,10 +36,10 @@ spec:
     Downloads model on first launch (~17GB) and caches it.
     Exposes an OpenAI-compatible API on port 8080.
 
-  developer: aamsellem
-  website: https://github.com/aamsellem/olares-one-market
-  sourceCode: https://github.com/aamsellem/olares-one-market
-  submitter: aamsellem
+  developer: markus-albrecht
+  website: https://github.com/markus-albrecht/olares-one-market
+  sourceCode: https://github.com/markus-albrecht/olares-one-market
+  submitter: markus-albrecht
   locale:
     - en-US
   license:

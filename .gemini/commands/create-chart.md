@@ -48,10 +48,10 @@ No Helm template conditionals needed — single deployment, single service.
 
 4. **OlaresManifest.yaml**: Use the template from existing app (`llamacppqwen35a3bone/`) as reference. Key fields:
    - Resource requirements based on model size + backend needs
-   - Icon URL: `https://orales-one-market.aamsellem.workers.dev/icons/<app-name>.png`
+   - Icon URL: `https://orales-one-market.markus-albrecht.workers.dev/icons/<app-name>.png`
    - Categories: `AI`
-   - Developer: `aamsellem`
-   - Website/sourceCode: `https://github.com/aamsellem/olares-one-market`
+   - Developer: `markus-albrecht`
+   - Website/sourceCode: `https://github.com/markus-albrecht/olares-one-market`
    - License URL: use `ggml-org` (NOT `ggerganov`) for llama.cpp
 
 5. **templates/deployment.yaml**: Contains:
@@ -70,7 +70,7 @@ No Helm template conditionals needed — single deployment, single service.
 
 7. **i18n/en-US/OlaresManifest.yaml**: Localized metadata and spec.
 
-8. **owners**: `aamsellem`
+8. **owners**: `markus-albrecht`
 
 9. **.helmignore**: Exclude `docker/`, `*.tgz`, `.DS_Store`
 

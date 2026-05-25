@@ -4,7 +4,7 @@ olaresManifest.type: app
 apiVersion: 'v2'
 metadata:
   name: llamacppqwen35a3bone
-  icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen35a3bone.png
+  icon: https://orales-one-market.markus-albrecht.workers.dev/icons/llamacppqwen35a3bone.png
   description: "Qwen3.5 35B-A3B via llama.cpp — optimised for Olares One"
   appid: llamacppqwen35a3bone
   title: Qwen3.5 35B-A3B (Olares One)
@@ -16,7 +16,7 @@ entrances:
     port: 8080
     host: llamacppqwen35a3bone
     title: Qwen 35B-A3B One
-    icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen35a3bone.png
+    icon: https://orales-one-market.markus-albrecht.workers.dev/icons/llamacppqwen35a3bone.png
     openMethod: window
     authLevel: internal
 spec:
@@ -33,10 +33,10 @@ spec:
     Downloads the GGUF model on first launch (~22GB) and caches it.
     Exposes an OpenAI-compatible API on port 8080.
 
-  developer: aamsellem
-  website: https://github.com/aamsellem/olares-one-market
-  sourceCode: https://github.com/aamsellem/olares-one-market
-  submitter: aamsellem
+  developer: markus-albrecht
+  website: https://github.com/markus-albrecht/olares-one-market
+  sourceCode: https://github.com/markus-albrecht/olares-one-market
+  submitter: markus-albrecht
   locale:
     - en-US
   license:

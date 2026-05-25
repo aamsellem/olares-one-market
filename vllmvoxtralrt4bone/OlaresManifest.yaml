@@ -4,7 +4,7 @@ olaresManifest.type: app
 apiVersion: 'v2'
 metadata:
   name: vllmvoxtralrt4bone
-  icon: https://orales-one-market.aamsellem.workers.dev/icons/vllmvoxtralrt4bone.png
+  icon: https://orales-one-market.markus-albrecht.workers.dev/icons/vllmvoxtralrt4bone.png
   description: "Voxtral Realtime 4B streaming ASR via vLLM — real-time speech transcription, optimised for Olares One"
   appid: vllmvoxtralrt4bone
   title: Voxtral Realtime 4B One
@@ -16,7 +16,7 @@ entrances:
     port: 8000
     host: vllmvoxtralrt4bone
     title: Voxtral RT 4B One
-    icon: https://orales-one-market.aamsellem.workers.dev/icons/vllmvoxtralrt4bone.png
+    icon: https://orales-one-market.markus-albrecht.workers.dev/icons/vllmvoxtralrt4bone.png
     openMethod: window
     authLevel: internal
 spec:
@@ -32,10 +32,10 @@ spec:
     Downloads model on first launch (~9GB) and caches it.
     Exposes WebSocket /v1/realtime + OpenAI-compatible API on port 8000.
 
-  developer: aamsellem
-  website: https://github.com/aamsellem/olares-one-market
-  sourceCode: https://github.com/aamsellem/olares-one-market
-  submitter: aamsellem
+  developer: markus-albrecht
+  website: https://github.com/markus-albrecht/olares-one-market
+  sourceCode: https://github.com/markus-albrecht/olares-one-market
+  submitter: markus-albrecht
   locale:
     - en-US
   license:

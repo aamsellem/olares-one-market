@@ -4,7 +4,7 @@ olaresManifest.type: app
 apiVersion: 'v2'
 metadata:
   name: vllmgemma4e4bone
-  icon: https://orales-one-market.aamsellem.workers.dev/icons/vllmgemma4e4bone.png
+  icon: https://orales-one-market.markus-albrecht.workers.dev/icons/vllmgemma4e4bone.png
   description: "Gemma 4 E4B (Vision + Audio) via vLLM — optimised for Olares One"
   appid: vllmgemma4e4bone
   title: Gemma 4 E4B Voice One
@@ -16,7 +16,7 @@ entrances:
     port: 8000
     host: vllmgemma4e4bone
     title: Gemma 4 E4B Voice One
-    icon: https://orales-one-market.aamsellem.workers.dev/icons/vllmgemma4e4bone.png
+    icon: https://orales-one-market.markus-albrecht.workers.dev/icons/vllmgemma4e4bone.png
     openMethod: window
     authLevel: internal
 spec:
@@ -36,10 +36,10 @@ spec:
     Downloads model on first launch (~10GB) and caches it.
     Exposes an OpenAI-compatible API on port 8000.
 
-  developer: aamsellem
-  website: https://github.com/aamsellem/olares-one-market
-  sourceCode: https://github.com/aamsellem/olares-one-market
-  submitter: aamsellem
+  developer: markus-albrecht
+  website: https://github.com/markus-albrecht/olares-one-market
+  sourceCode: https://github.com/markus-albrecht/olares-one-market
+  submitter: markus-albrecht
   locale:
     - en-US
   license:

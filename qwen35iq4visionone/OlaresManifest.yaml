@@ -4,7 +4,7 @@ olaresManifest.type: app
 apiVersion: 'v2'
 metadata:
   name: qwen35iq4visionone
-  icon: https://orales-one-market.aamsellem.workers.dev/icons/qwen35iq4visionone.png
+  icon: https://orales-one-market.markus-albrecht.workers.dev/icons/qwen35iq4visionone.png
   description: "Qwen3.5 35B-A3B Vision IQ4_XS via llama.cpp — long context, optimised for Olares One"
   appid: qwen35iq4visionone
   title: Qwen3.5 Vision IQ4 64K One
@@ -16,7 +16,7 @@ entrances:
     port: 8080
     host: qwen35iq4visionone
     title: Qwen Vision IQ4 64K One
-    icon: https://orales-one-market.aamsellem.workers.dev/icons/qwen35iq4visionone.png
+    icon: https://orales-one-market.markus-albrecht.workers.dev/icons/qwen35iq4visionone.png
     openMethod: window
     authLevel: internal
 spec:
@@ -34,10 +34,10 @@ spec:
     Downloads the GGUF model (~17.5GB) and mmproj (~0.9GB) on first launch.
     Exposes an OpenAI-compatible API on port 8080.
 
-  developer: aamsellem
-  website: https://github.com/aamsellem/olares-one-market
-  sourceCode: https://github.com/aamsellem/olares-one-market
-  submitter: aamsellem
+  developer: markus-albrecht
+  website: https://github.com/markus-albrecht/olares-one-market
+  sourceCode: https://github.com/markus-albrecht/olares-one-market
+  submitter: markus-albrecht
   locale:
     - en-US
   license:

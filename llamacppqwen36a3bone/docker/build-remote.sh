@@ -7,7 +7,7 @@ echo "=== Build llama.cpp optimisé pour Olares One ==="
 echo ""
 
 WORKDIR="/tmp/llamacpp-build"
-IMAGE="aamsellem/llamacpp-one"
+IMAGE="markus-albrecht/llamacpp-one"
 TAG="b8234"
 
 rm -rf "$WORKDIR"

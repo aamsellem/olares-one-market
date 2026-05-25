@@ -39,7 +39,7 @@ spec:
     spec:
       containers:
         - name: beellama-vision-server
-          image: "docker.io/aamsellem/beellama-cpp:0.1.3-rc1"
+          image: "docker.io/markus-albrecht/beellama-cpp:0.1.3-rc1"
           command: ["/bin/bash", "-c"]
           args:
             - |

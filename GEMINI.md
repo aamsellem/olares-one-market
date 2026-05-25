@@ -4,7 +4,7 @@
 
 A Cloudflare Worker serving as a **custom Olares Market source** — an alternative app store optimised for the **Olares One** device (the only Olares hardware product).
 
-The user is **aamsellem**, the only external contributor to `beclab/apps` (the official Olares app store).
+The user is **markus-albrecht**, the only external contributor to `beclab/apps` (the official Olares app store).
 
 ## Global Standards
 
@@ -88,7 +88,7 @@ npm run dev              # Build + wrangler dev (localhost:8787)
 npm run deploy           # Build + wrangler deploy (Cloudflare)
 ```
 
-Deployed at: `https://orales-one-market.aamsellem.workers.dev`
+Deployed at: `https://orales-one-market.markus-albrecht.workers.dev`
 
 The build script:
 - Scans the repo root for directories containing both `Chart.yaml` and `OlaresManifest.yaml`
@@ -382,8 +382,8 @@ COPY torchaudio_shim.py /app/torchaudio_shim.py
 RUN sed -i 's/^import torchaudio$/import torchaudio_shim as torchaudio/' /app/<module>/audio_utils.py
 ```
 
-Build for amd64 from Mac: `docker buildx build --platform linux/amd64 -t aamsellem/<name>:<tag> . --load`
-Push: `docker push aamsellem/<name>:<tag>`
+Build for amd64 from Mac: `docker buildx build --platform linux/amd64 -t markus-albrecht/<name>:<tag> . --load`
+Push: `docker push markus-albrecht/<name>:<tag>`
 
 ### Olares One SSH Access
 
@@ -394,7 +394,7 @@ ssh olares@192.168.1.32
 ## TODO
 
 - [x] ~~Investigate chart `.tgz` download mechanism~~ — resolved: `{BaseURL}/api/v1/applications/{appName}/chart?fileName={chartName}`
-- [x] ~~Deploy to Cloudflare~~ — live at `https://orales-one-market.aamsellem.workers.dev`
+- [x] ~~Deploy to Cloudflare~~ — live at `https://orales-one-market.markus-albrecht.workers.dev`
 - [x] ~~Test with actual Olares device as market source~~ — working, all metadata displays correctly
 - [x] ~~Custom-compiled llama.cpp~~ — NOT worth it. CPU has no AVX-512/AMX (Arrow Lake-HX). Generic image already uses AVX2+FMA. No docker on Olares One (only containerd).
 - [ ] Add GitHub Action for auto-deploy on push

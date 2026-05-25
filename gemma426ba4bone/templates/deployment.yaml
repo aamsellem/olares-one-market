@@ -76,7 +76,7 @@ spec:
               name: models
       containers:
         - name: llamacpp-server
-          image: "docker.io/aamsellem/llamacpp-atomic-mtp:0.1.0"
+          image: "docker.io/markus-albrecht/llamacpp-atomic-mtp:0.1.0"
           command: ["llama-server"]
           args:
             - "--host"

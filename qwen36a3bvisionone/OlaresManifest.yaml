@@ -4,7 +4,7 @@ olaresManifest.type: app
 apiVersion: 'v2'
 metadata:
   name: qwen36a3bvisionone
-  icon: https://orales-one-market.aamsellem.workers.dev/icons/qwen36a3bvisionone.png
+  icon: https://orales-one-market.markus-albrecht.workers.dev/icons/qwen36a3bvisionone.png
   description: "Qwen3.6 35B-A3B Vision via llama.cpp — image + text, optimised for Olares One"
   appid: qwen36a3bvisionone
   title: Qwen3.6 Vision (Olares One)
@@ -16,7 +16,7 @@ entrances:
     port: 8080
     host: qwen36a3bvisionone
     title: Qwen 36B Vision One
-    icon: https://orales-one-market.aamsellem.workers.dev/icons/qwen36a3bvisionone.png
+    icon: https://orales-one-market.markus-albrecht.workers.dev/icons/qwen36a3bvisionone.png
     openMethod: window
     authLevel: internal
 spec:
@@ -34,10 +34,10 @@ spec:
     Context 32K (fits model + mmproj + KV q4_0 in 24GB VRAM).
     Exposes an OpenAI-compatible API on port 8080.
 
-  developer: aamsellem
-  website: https://github.com/aamsellem/olares-one-market
-  sourceCode: https://github.com/aamsellem/olares-one-market
-  submitter: aamsellem
+  developer: markus-albrecht
+  website: https://github.com/markus-albrecht/olares-one-market
+  sourceCode: https://github.com/markus-albrecht/olares-one-market
+  submitter: markus-albrecht
   locale:
     - en-US
   license:

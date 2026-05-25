@@ -1,5 +1,5 @@
 {
-  "hash": "7badd8d6619760641c737d162774f48a",
+  "hash": "c7e1fe1db8fa1dcac1df291e76cbb3d3",
   "summaries": {
     "33102786": {
       "id": "33102786",
@@ -7,12 +7,12 @@
       "version": "1.0.7",
       "category": "AI",
       "description": "Qwen3.5 35B-A3B IQ4_XS via llama.cpp — long context, optimised for Olares One",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen35iq4one.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/llamacppqwen35iq4one.png",
       "screenshots": null,
       "tags": null,
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-05-25T15:10:04.653Z"
+      "updated_at": "2026-05-25T15:23:51.496Z"
     },
     "e1311c4c": {
       "id": "e1311c4c",
@@ -20,12 +20,12 @@
       "version": "1.1.7",
       "category": "AI",
       "description": "ACE-Step 1.5 XL — AI music generation (4B DiT, Turbo+SFT modes), optimised for Olares One",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/acestepxlone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/acestepxlone.png",
       "screenshots": null,
       "tags": null,
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-05-25T15:10:04.645Z"
+      "updated_at": "2026-05-25T15:23:51.487Z"
     },
     "f9902972": {
       "id": "f9902972",
@@ -33,12 +33,12 @@
       "version": "1.0.6",
       "category": "AI",
       "description": "Nemotron Cascade 2 30B-A3B via llama.cpp — math and code, optimised for Olares One",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppnemotron30a3bone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/llamacppnemotron30a3bone.png",
       "screenshots": null,
       "tags": null,
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-05-25T15:10:04.647Z"
+      "updated_at": "2026-05-25T15:23:51.489Z"
     },
     "8a7e4366": {
       "id": "8a7e4366",
@@ -46,12 +46,12 @@
       "version": "1.0.6",
       "category": "AI",
       "description": "Devstral Small 2507 via llama.cpp — coding agent optimised for Olares One",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/devstralsmallone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/devstralsmallone.png",
       "screenshots": null,
       "tags": null,
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-05-25T15:10:04.647Z"
+      "updated_at": "2026-05-25T15:23:51.490Z"
     },
     "cf587666": {
       "id": "cf587666",
@@ -59,12 +59,12 @@
       "version": "1.0.15",
       "category": "AI",
       "description": "Qwen3.5 35B-A3B EXL3 4bpw via TabbyAPI + ExLlamaV3 — optimised for Olares One",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen35a3bone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/llamacppqwen35a3bone.png",
       "screenshots": null,
       "tags": null,
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-05-25T15:10:04.648Z"
+      "updated_at": "2026-05-25T15:23:51.491Z"
     },
     "a4f8515c": {
       "id": "a4f8515c",
@@ -72,12 +72,12 @@
       "version": "1.0.10",
       "category": "AI",
       "description": "Gemma 4 26B-A4B (MoE) with MTP speculative decoding via Atomic Chat llama.cpp fork — Olares One",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/gemma426ba4bone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/gemma426ba4bone.png",
       "screenshots": null,
       "tags": null,
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-05-25T15:10:04.649Z"
+      "updated_at": "2026-05-25T15:23:51.491Z"
     },
     "65b82978": {
       "id": "65b82978",
@@ -85,12 +85,12 @@
       "version": "1.0.2",
       "category": "AI",
       "description": "Gemma 4 E2B (ultra-fast 2.3B) via llama.cpp — voice pipeline brain for Olares One",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/gemma426ba4bone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/gemma426ba4bone.png",
       "screenshots": null,
       "tags": null,
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-05-25T15:10:04.650Z"
+      "updated_at": "2026-05-25T15:23:51.492Z"
     },
     "8c6443a7": {
       "id": "8c6443a7",
@@ -98,12 +98,12 @@
       "version": "1.0.0",
       "category": "AI",
       "description": "Gemma 4 E4B with native audio input (USM Conformer encoder, llama.cpp PR #21421) — Olares One",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppgemma4audione.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/llamacppgemma4audione.png",
       "screenshots": null,
       "tags": null,
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-05-25T15:10:04.650Z"
+      "updated_at": "2026-05-25T15:23:51.493Z"
     },
     "c1ca229f": {
       "id": "c1ca229f",
@@ -111,12 +111,12 @@
       "version": "1.0.11",
       "category": "AI",
       "description": "GLM-4.7-Flash 30B-A3B via llama.cpp — optimised for Olares One",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppglm47flash.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/llamacppglm47flash.png",
       "screenshots": null,
       "tags": null,
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-05-25T15:10:04.651Z"
+      "updated_at": "2026-05-25T15:23:51.494Z"
     },
     "491be3cd": {
       "id": "491be3cd",
@@ -124,12 +124,12 @@
       "version": "1.0.10",
       "category": "AI",
       "description": "Nemotron 3 Nano 30B-A3B via llama.cpp — optimised for Olares One",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppnemotron30a3bone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/llamacppnemotron30a3bone.png",
       "screenshots": null,
       "tags": null,
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-05-25T15:10:04.652Z"
+      "updated_at": "2026-05-25T15:23:51.494Z"
     },
     "4ef430dd": {
       "id": "4ef430dd",
@@ -137,12 +137,12 @@
       "version": "1.0.29",
       "category": "AI",
       "description": "Qwen3.5 35B-A3B via llama.cpp — optimised for Olares One",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen35a3bone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/llamacppqwen35a3bone.png",
       "screenshots": null,
       "tags": null,
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-05-25T15:10:04.652Z"
+      "updated_at": "2026-05-25T15:23:51.495Z"
     },
     "059cd05d": {
       "id": "059cd05d",
@@ -150,12 +150,12 @@
       "version": "1.0.3",
       "category": "AI",
       "description": "Qwen3.6 35B-A3B MTP — 246 t/s @ FULL 262K context on Olares One",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen36a3bone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/llamacppqwen36a3bone.png",
       "screenshots": null,
       "tags": null,
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-05-25T15:10:04.655Z"
+      "updated_at": "2026-05-25T15:23:51.498Z"
     },
     "9ca1356f": {
       "id": "9ca1356f",
@@ -163,12 +163,12 @@
       "version": "1.0.4",
       "category": "AI",
       "description": "Qwen3.6 27B fastest + longest local — 106 t/s @ FULL 262K via BeeLlama.cpp + DFlash + turbo3 KV",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen36beellamaone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/llamacppqwen36beellamaone.png",
       "screenshots": null,
       "tags": null,
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-05-25T15:10:04.656Z"
+      "updated_at": "2026-05-25T15:23:51.499Z"
     },
     "376c02dd": {
       "id": "376c02dd",
@@ -176,12 +176,12 @@
       "version": "1.0.2",
       "category": "AI",
       "description": "Qwen3.6 27B vision-capable — 106 t/s @ 200K via BeeLlama.cpp + mmproj F16 + DFlash + turbo3 KV",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen36beellamavisionone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/llamacppqwen36beellamavisionone.png",
       "screenshots": null,
       "tags": null,
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-05-25T15:10:04.657Z"
+      "updated_at": "2026-05-25T15:23:51.500Z"
     },
     "49ed4ea2": {
       "id": "49ed4ea2",
@@ -189,12 +189,12 @@
       "version": "1.0.1",
       "category": "AI",
       "description": "Qwen3.6 27B + DFlash speculative + TurboQuant turbo3 KV — 76 t/s @ 96K via buun-llama-cpp fork",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen36dflashone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/llamacppqwen36dflashone.png",
       "screenshots": null,
       "tags": null,
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-05-25T15:10:04.658Z"
+      "updated_at": "2026-05-25T15:23:51.501Z"
     },
     "43e83ecd": {
       "id": "43e83ecd",
@@ -202,12 +202,12 @@
       "version": "1.0.10",
       "category": "AI",
       "description": "Qwen3.6 27B longest context — 74 t/s / 86.7% accept @ full 262K (unsloth UD-Q3_K_XL + MTP master ad27757)",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen36mtpone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/llamacppqwen36mtpone.png",
       "screenshots": null,
       "tags": null,
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-05-25T15:10:04.660Z"
+      "updated_at": "2026-05-25T15:23:51.503Z"
     },
     "fa4ef911": {
       "id": "fa4ef911",
@@ -215,12 +215,12 @@
       "version": "1.0.5",
       "category": "AI",
       "description": "Nemotron 3 Nano 4B Q8 via llama.cpp — fast edge AI, optimised for Olares One",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/nemotron3nano4bone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/nemotron3nano4bone.png",
       "screenshots": null,
       "tags": null,
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-05-25T15:10:04.660Z"
+      "updated_at": "2026-05-25T15:23:51.503Z"
     },
     "99dafa10": {
       "id": "99dafa10",
@@ -228,12 +228,12 @@
       "version": "1.0.1",
       "category": "AI",
       "description": "NVIDIA Nemotron-Labs Elastic 30B-A3B NVFP4 — 182 t/s via FlashInfer SM120 (PR #40082) on Olares One",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/nemotronlabselastic30bnvfp4one.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/nemotronlabselastic30bnvfp4one.png",
       "screenshots": null,
       "tags": null,
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-05-25T15:10:04.661Z"
+      "updated_at": "2026-05-25T15:23:51.504Z"
     },
     "e74eca98": {
       "id": "e74eca98",
@@ -241,12 +241,12 @@
       "version": "1.1.1",
       "category": "AI",
       "description": "OmniVoice TTS (646 languages, voice cloning, voice design, 0.6B) — optimised for Olares One",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/omnivoiceone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/omnivoiceone.png",
       "screenshots": null,
       "tags": null,
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-05-25T15:10:04.662Z"
+      "updated_at": "2026-05-25T15:23:51.505Z"
     },
     "2c5c39c9": {
       "id": "2c5c39c9",
@@ -254,12 +254,12 @@
       "version": "1.0.9",
       "category": "AI",
       "description": "Qwen3.5 35B-A3B Vision via llama.cpp — image + text, optimised for Olares One",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/qwen35a3bvisionone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/qwen35a3bvisionone.png",
       "screenshots": null,
       "tags": null,
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-05-25T15:10:04.663Z"
+      "updated_at": "2026-05-25T15:23:51.506Z"
     },
     "ed18683c": {
       "id": "ed18683c",
@@ -267,12 +267,12 @@
       "version": "1.0.7",
       "category": "AI",
       "description": "Qwen3.5 35B-A3B Vision IQ4_XS via llama.cpp — long context, optimised for Olares One",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/qwen35iq4visionone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/qwen35iq4visionone.png",
       "screenshots": null,
       "tags": null,
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-05-25T15:10:04.663Z"
+      "updated_at": "2026-05-25T15:23:51.506Z"
     },
     "14fdab3c": {
       "id": "14fdab3c",
@@ -280,12 +280,12 @@
       "version": "1.0.2",
       "category": "AI",
       "description": "Qwen3.6 35B-A3B Vision via llama.cpp — image + text, optimised for Olares One",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/qwen36a3bvisionone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/qwen36a3bvisionone.png",
       "screenshots": null,
       "tags": null,
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-05-25T15:10:04.664Z"
+      "updated_at": "2026-05-25T15:23:51.507Z"
     },
     "da30d532": {
       "id": "da30d532",
@@ -293,12 +293,12 @@
       "version": "1.0.0",
       "category": "AI",
       "description": "Qwen3 Coder 30B-A3B via llama.cpp — coding agent optimised for Olares One",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/qwen3coder30a3bone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/qwen3coder30a3bone.png",
       "screenshots": null,
       "tags": null,
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-05-25T15:10:04.664Z"
+      "updated_at": "2026-05-25T15:23:51.508Z"
     },
     "49c5b493": {
       "id": "49c5b493",
@@ -306,12 +306,12 @@
       "version": "1.0.9",
       "category": "AI",
       "description": "Qwen3-TTS 1.7B — text-to-speech with voice cloning, optimised for Olares One",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/qwen3ttstone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/qwen3ttstone.png",
       "screenshots": null,
       "tags": null,
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-05-25T15:10:04.665Z"
+      "updated_at": "2026-05-25T15:23:51.508Z"
     },
     "b3078d17": {
       "id": "b3078d17",
@@ -319,12 +319,12 @@
       "version": "1.0.2",
       "category": "AI",
       "description": "Gemma 4 26B-A4B vision-capable via vLLM — 135 t/s @ 128K context on Olares One",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/vllmgemma426ba4bvisionone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/vllmgemma426ba4bvisionone.png",
       "screenshots": null,
       "tags": null,
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-05-25T15:10:04.665Z"
+      "updated_at": "2026-05-25T15:23:51.508Z"
     },
     "18a6f781": {
       "id": "18a6f781",
@@ -332,12 +332,12 @@
       "version": "1.0.4",
       "category": "AI",
       "description": "Gemma 4 26B-A4B + DFlash + AWQ via vLLM — Olares One (fastest Gemma 4 path)",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/vllmgemma4dflashone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/vllmgemma4dflashone.png",
       "screenshots": null,
       "tags": null,
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-05-25T15:10:04.666Z"
+      "updated_at": "2026-05-25T15:23:51.509Z"
     },
     "be32d4df": {
       "id": "be32d4df",
@@ -345,12 +345,12 @@
       "version": "1.0.12",
       "category": "AI",
       "description": "Gemma 4 E4B (Vision + Audio) via vLLM — optimised for Olares One",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/vllmgemma4e4bone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/vllmgemma4e4bone.png",
       "screenshots": null,
       "tags": null,
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-05-25T15:10:04.666Z"
+      "updated_at": "2026-05-25T15:23:51.509Z"
     },
     "cdd8e3d5": {
       "id": "cdd8e3d5",
@@ -363,7 +363,7 @@
       "tags": null,
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-05-25T15:10:04.667Z"
+      "updated_at": "2026-05-25T15:23:51.510Z"
     },
     "285e9d99": {
       "id": "285e9d99",
@@ -371,12 +371,12 @@
       "version": "1.0.3",
       "category": "AI",
       "description": "Qwen3.5 27B NVFP4 via vLLM — optimised for Olares One",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/vllmqwen3527bone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/vllmqwen3527bone.png",
       "screenshots": null,
       "tags": null,
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-05-25T15:10:04.668Z"
+      "updated_at": "2026-05-25T15:23:51.511Z"
     },
     "901d20e0": {
       "id": "901d20e0",
@@ -384,12 +384,12 @@
       "version": "2.5.7",
       "category": "AI",
       "description": "Qwen3.6 27B fastest stack — vLLM Turbo + Genesis on 24GB",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/vllmqwen36turbo27bone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/vllmqwen36turbo27bone.png",
       "screenshots": null,
       "tags": null,
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-05-25T15:10:04.668Z"
+      "updated_at": "2026-05-25T15:23:51.511Z"
     },
     "af406293": {
       "id": "af406293",
@@ -397,12 +397,12 @@
       "version": "1.0.8",
       "category": "AI",
       "description": "Voxtral Mini 3B ASR via vLLM — audio transcription and understanding, optimised for Olares One",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/vllmvoxtral3bone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/vllmvoxtral3bone.png",
       "screenshots": null,
       "tags": null,
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-05-25T15:10:04.669Z"
+      "updated_at": "2026-05-25T15:23:51.512Z"
     },
     "13db403f": {
       "id": "13db403f",
@@ -410,12 +410,12 @@
       "version": "1.0.9",
       "category": "AI",
       "description": "Voxtral Realtime 4B streaming ASR via vLLM — real-time speech transcription, optimised for Olares One",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/vllmvoxtralrt4bone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/vllmvoxtralrt4bone.png",
       "screenshots": null,
       "tags": null,
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-05-25T15:10:04.669Z"
+      "updated_at": "2026-05-25T15:23:51.512Z"
     },
     "efd72908": {
       "id": "efd72908",
@@ -423,12 +423,12 @@
       "version": "1.0.13",
       "category": "AI",
       "description": "Voxtral 4B TTS via vLLM-Omni — text-to-speech with 20 voices, optimised for Olares One",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/vllmvoxtraltts4bone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/vllmvoxtraltts4bone.png",
       "screenshots": null,
       "tags": null,
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-05-25T15:10:04.670Z"
+      "updated_at": "2026-05-25T15:23:51.513Z"
     }
   },
   "details": {
@@ -437,7 +437,7 @@
       "name": "llamacppqwen35iq4one",
       "cfgType": "app",
       "chartName": "llamacppqwen35iq4one-1.0.7.tgz",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen35iq4one.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/llamacppqwen35iq4one.png",
       "description": "Qwen3.5 35B-A3B IQ4_XS via llama.cpp — long context, optimised for Olares One",
       "appID": "33102786",
       "title": "Qwen3.5 35B IQ4 128K One",
@@ -454,7 +454,7 @@
       "locale": [
         "en-US"
       ],
-      "developer": "aamsellem",
+      "developer": "markus-albrecht",
       "requiredMemory": "25769803776",
       "requiredDisk": "32212254720",
       "supportClient": {},
@@ -474,7 +474,7 @@
           "host": "llamacppqwen35iq4one",
           "port": 8080,
           "title": "Qwen 35B IQ4 128K One",
-          "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen35iq4one.png",
+          "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/llamacppqwen35iq4one.png",
           "authLevel": "internal",
           "invisible": false,
           "openMethod": "window",
@@ -492,11 +492,11 @@
           }
         ]
       },
-      "submitter": "aamsellem",
+      "submitter": "markus-albrecht",
       "doc": "",
-      "website": "https://github.com/aamsellem/olares-one-market",
+      "website": "https://github.com/markus-albrecht/olares-one-market",
       "featuredImage": "",
-      "sourceCode": "https://github.com/aamsellem/olares-one-market",
+      "sourceCode": "https://github.com/markus-albrecht/olares-one-market",
       "license": [
         {
           "text": "MIT",
@@ -528,21 +528,21 @@
           "appName": "llamacppqwen35iq4one",
           "version": "1.0.7",
           "versionName": "1.0.6",
-          "mergedAt": "2026-05-25T15:10:04.653Z",
+          "mergedAt": "2026-05-25T15:23:51.496Z",
           "upgradeDescription": ""
         }
       ],
       "screenshots": null,
       "tags": null,
       "metadata": null,
-      "updated_at": "2026-05-25T15:10:04.653Z"
+      "updated_at": "2026-05-25T15:23:51.496Z"
     },
     "e1311c4c": {
       "id": "e1311c4c",
       "name": "acestepxlone",
       "cfgType": "app",
       "chartName": "acestepxlone-1.1.7.tgz",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/acestepxlone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/acestepxlone.png",
       "description": "ACE-Step 1.5 XL — AI music generation (4B DiT, Turbo+SFT modes), optimised for Olares One",
       "appID": "e1311c4c",
       "title": "ACE-Step XL One",
@@ -559,7 +559,7 @@
       "locale": [
         "en-US"
       ],
-      "developer": "aamsellem",
+      "developer": "markus-albrecht",
       "requiredMemory": "12884901888",
       "requiredDisk": "85899345920",
       "supportClient": {},
@@ -579,7 +579,7 @@
           "host": "acestepxlone",
           "port": 7860,
           "title": "ACE-Step XL One",
-          "icon": "https://orales-one-market.aamsellem.workers.dev/icons/acestepxlone.png",
+          "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/acestepxlone.png",
           "authLevel": "internal",
           "invisible": false,
           "openMethod": "window",
@@ -597,7 +597,7 @@
           }
         ]
       },
-      "submitter": "aamsellem",
+      "submitter": "markus-albrecht",
       "doc": "",
       "website": "https://github.com/ace-step/ACE-Step-1.5",
       "featuredImage": "",
@@ -633,21 +633,21 @@
           "appName": "acestepxlone",
           "version": "1.1.7",
           "versionName": "1.1.7",
-          "mergedAt": "2026-05-25T15:10:04.646Z",
+          "mergedAt": "2026-05-25T15:23:51.488Z",
           "upgradeDescription": ""
         }
       ],
       "screenshots": null,
       "tags": null,
       "metadata": null,
-      "updated_at": "2026-05-25T15:10:04.646Z"
+      "updated_at": "2026-05-25T15:23:51.488Z"
     },
     "f9902972": {
       "id": "f9902972",
       "name": "cascade230a3bone",
       "cfgType": "app",
       "chartName": "cascade230a3bone-1.0.6.tgz",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppnemotron30a3bone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/llamacppnemotron30a3bone.png",
       "description": "Nemotron Cascade 2 30B-A3B via llama.cpp — math and code, optimised for Olares One",
       "appID": "f9902972",
       "title": "Cascade 2 30B-A3B One",
@@ -664,7 +664,7 @@
       "locale": [
         "en-US"
       ],
-      "developer": "aamsellem",
+      "developer": "markus-albrecht",
       "requiredMemory": "25769803776",
       "requiredDisk": "32212254720",
       "supportClient": {},
@@ -684,7 +684,7 @@
           "host": "cascade230a3bone",
           "port": 8080,
           "title": "Cascade 2 30B One",
-          "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppnemotron30a3bone.png",
+          "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/llamacppnemotron30a3bone.png",
           "authLevel": "internal",
           "invisible": false,
           "openMethod": "window",
@@ -702,11 +702,11 @@
           }
         ]
       },
-      "submitter": "aamsellem",
+      "submitter": "markus-albrecht",
       "doc": "",
-      "website": "https://github.com/aamsellem/olares-one-market",
+      "website": "https://github.com/markus-albrecht/olares-one-market",
       "featuredImage": "",
-      "sourceCode": "https://github.com/aamsellem/olares-one-market",
+      "sourceCode": "https://github.com/markus-albrecht/olares-one-market",
       "license": [
         {
           "text": "NVIDIA Open Model License",
@@ -738,21 +738,21 @@
           "appName": "cascade230a3bone",
           "version": "1.0.6",
           "versionName": "1.0.5",
-          "mergedAt": "2026-05-25T15:10:04.647Z",
+          "mergedAt": "2026-05-25T15:23:51.489Z",
           "upgradeDescription": ""
         }
       ],
       "screenshots": null,
       "tags": null,
       "metadata": null,
-      "updated_at": "2026-05-25T15:10:04.647Z"
+      "updated_at": "2026-05-25T15:23:51.489Z"
     },
     "8a7e4366": {
       "id": "8a7e4366",
       "name": "devstralsmallone",
       "cfgType": "app",
       "chartName": "devstralsmallone-1.0.6.tgz",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/devstralsmallone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/devstralsmallone.png",
       "description": "Devstral Small 2507 via llama.cpp — coding agent optimised for Olares One",
       "appID": "8a7e4366",
       "title": "Devstral Small Code One",
@@ -769,7 +769,7 @@
       "locale": [
         "en-US"
       ],
-      "developer": "aamsellem",
+      "developer": "markus-albrecht",
       "requiredMemory": "25769803776",
       "requiredDisk": "32212254720",
       "supportClient": {},
@@ -789,7 +789,7 @@
           "host": "devstralsmallone",
           "port": 8080,
           "title": "Devstral Code One",
-          "icon": "https://orales-one-market.aamsellem.workers.dev/icons/devstralsmallone.png",
+          "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/devstralsmallone.png",
           "authLevel": "internal",
           "invisible": false,
           "openMethod": "window",
@@ -807,11 +807,11 @@
           }
         ]
       },
-      "submitter": "aamsellem",
+      "submitter": "markus-albrecht",
       "doc": "",
-      "website": "https://github.com/aamsellem/olares-one-market",
+      "website": "https://github.com/markus-albrecht/olares-one-market",
       "featuredImage": "",
-      "sourceCode": "https://github.com/aamsellem/olares-one-market",
+      "sourceCode": "https://github.com/markus-albrecht/olares-one-market",
       "license": [
         {
           "text": "Apache-2.0",
@@ -843,21 +843,21 @@
           "appName": "devstralsmallone",
           "version": "1.0.6",
           "versionName": "1.0.4",
-          "mergedAt": "2026-05-25T15:10:04.648Z",
+          "mergedAt": "2026-05-25T15:23:51.490Z",
           "upgradeDescription": ""
         }
       ],
       "screenshots": null,
       "tags": null,
       "metadata": null,
-      "updated_at": "2026-05-25T15:10:04.648Z"
+      "updated_at": "2026-05-25T15:23:51.490Z"
     },
     "cf587666": {
       "id": "cf587666",
       "name": "exl3qwen35a3bone",
       "cfgType": "app",
       "chartName": "exl3qwen35a3bone-1.0.15.tgz",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen35a3bone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/llamacppqwen35a3bone.png",
       "description": "Qwen3.5 35B-A3B EXL3 4bpw via TabbyAPI + ExLlamaV3 — optimised for Olares One",
       "appID": "cf587666",
       "title": "Qwen3.5 35B EXL3 One",
@@ -874,7 +874,7 @@
       "locale": [
         "en-US"
       ],
-      "developer": "aamsellem",
+      "developer": "markus-albrecht",
       "requiredMemory": "25769803776",
       "requiredDisk": "32212254720",
       "supportClient": {},
@@ -894,7 +894,7 @@
           "host": "exl3qwen35a3bone",
           "port": 8080,
           "title": "Qwen 35B EXL3 One",
-          "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen35a3bone.png",
+          "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/llamacppqwen35a3bone.png",
           "authLevel": "internal",
           "invisible": false,
           "openMethod": "window",
@@ -912,11 +912,11 @@
           }
         ]
       },
-      "submitter": "aamsellem",
+      "submitter": "markus-albrecht",
       "doc": "",
-      "website": "https://github.com/aamsellem/olares-one-market",
+      "website": "https://github.com/markus-albrecht/olares-one-market",
       "featuredImage": "",
-      "sourceCode": "https://github.com/aamsellem/olares-one-market",
+      "sourceCode": "https://github.com/markus-albrecht/olares-one-market",
       "license": [
         {
           "text": "MIT",
@@ -948,21 +948,21 @@
           "appName": "exl3qwen35a3bone",
           "version": "1.0.15",
           "versionName": "1.0.15",
-          "mergedAt": "2026-05-25T15:10:04.648Z",
+          "mergedAt": "2026-05-25T15:23:51.491Z",
           "upgradeDescription": ""
         }
       ],
       "screenshots": null,
       "tags": null,
       "metadata": null,
-      "updated_at": "2026-05-25T15:10:04.648Z"
+      "updated_at": "2026-05-25T15:23:51.491Z"
     },
     "a4f8515c": {
       "id": "a4f8515c",
       "name": "gemma426ba4bone",
       "cfgType": "app",
       "chartName": "gemma426ba4bone-1.0.10.tgz",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/gemma426ba4bone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/gemma426ba4bone.png",
       "description": "Gemma 4 26B-A4B (MoE) with MTP speculative decoding via Atomic Chat llama.cpp fork — Olares One",
       "appID": "a4f8515c",
       "title": "Gemma 4 26B-A4B One",
@@ -972,14 +972,14 @@
       ],
       "versionName": "1.0.10",
       "fullDescription": "Google Gemma 4 26B-A4B (MoE, 3.8B active, 128 experts) with native vision — served via llama.cpp, optimised for Olares One.\nRTX 5090M (24GB) + 96GB DDR5 + Core Ultra 9 275HX.\nUnsloth Dynamic Q4_K_XL quantization (16GB model + 1.1GB vision projector = ~17GB, ~7GB free for KV cache).\n128K context with TurboQuant turbo3 KV cache (3-bit Hadamard rotation).\nNative multimodal: text + image + video understanding (no separate mmproj download needed by user).\nLMArena 1441 (vs Qwen3.5-35B-A3B 1400). AIME 2026 88.3%. LiveCodeBench 77.1%.\nApache 2.0 license. Thinking mode with tool calling support.\nllama.cpp b8667 with flash attention, CUDA graph optimisation, and op-offload.\nDownloads model on first launch (~17GB) and caches it.\nExposes an OpenAI-compatible API on port 8080.\n",
-      "upgradeDescription": "v1.0.10: bump context window 65K → 128K. With turbo3 KV (3-bit Hadamard rotation), 128K KV ~4 GB → fits comfortably alongside the 17 GB UD-Q4_K_XL target + 0.3 GB MTP drafter (~21 GB total, 3 GB headroom on 24 GB). No throughput regression expected vs 65K (validated 140 t/s @ 78% accept).\nv1.0.9: switch to Atomic Chat llama.cpp fork (`AtomicBot-ai/atomic-llama-cpp-turboquant`) which adds the `gemma4_assistant` MTP drafter arch + TurboQuant KV cache (`turbo3`). Image: aamsellem/llamacpp-atomic-mtp:0.1.0. Adds AtomicChat/gemma-4-26B-A4B-it-assistant-GGUF Q4_K_M (325 MB) as MTP drafter alongside the unsloth UD-Q4_K_XL target. Reference bench from AtomicChat (M5Max): Gemma 4 26B = 97 → 138 t/s = +40% with MTP. Vision (mmproj) NOT enabled in this version (the atomic fork doesn't yet wire mmproj alongside MTP — text-only). If you need vision use v1.0.8. KV cache turbo3 (TurboQuant 3-bit Hadamard, much more efficient than q4_0).\n",
+      "upgradeDescription": "v1.0.10: bump context window 65K → 128K. With turbo3 KV (3-bit Hadamard rotation), 128K KV ~4 GB → fits comfortably alongside the 17 GB UD-Q4_K_XL target + 0.3 GB MTP drafter (~21 GB total, 3 GB headroom on 24 GB). No throughput regression expected vs 65K (validated 140 t/s @ 78% accept).\nv1.0.9: switch to Atomic Chat llama.cpp fork (`AtomicBot-ai/atomic-llama-cpp-turboquant`) which adds the `gemma4_assistant` MTP drafter arch + TurboQuant KV cache (`turbo3`). Image: markus-albrecht/llamacpp-atomic-mtp:0.1.0. Adds AtomicChat/gemma-4-26B-A4B-it-assistant-GGUF Q4_K_M (325 MB) as MTP drafter alongside the unsloth UD-Q4_K_XL target. Reference bench from AtomicChat (M5Max): Gemma 4 26B = 97 → 138 t/s = +40% with MTP. Vision (mmproj) NOT enabled in this version (the atomic fork doesn't yet wire mmproj alongside MTP — text-only). If you need vision use v1.0.8. KV cache turbo3 (TurboQuant 3-bit Hadamard, much more efficient than q4_0).\n",
       "promoteImage": null,
       "promoteVideo": "",
       "subCategory": "",
       "locale": [
         "en-US"
       ],
-      "developer": "aamsellem",
+      "developer": "markus-albrecht",
       "requiredMemory": "4294967296",
       "requiredDisk": "32212254720",
       "supportClient": {},
@@ -999,7 +999,7 @@
           "host": "gemma426ba4bone",
           "port": 8080,
           "title": "Gemma 4 26B One",
-          "icon": "https://orales-one-market.aamsellem.workers.dev/icons/gemma426ba4bone.png",
+          "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/gemma426ba4bone.png",
           "authLevel": "internal",
           "invisible": false,
           "openMethod": "window",
@@ -1017,11 +1017,11 @@
           }
         ]
       },
-      "submitter": "aamsellem",
+      "submitter": "markus-albrecht",
       "doc": "",
-      "website": "https://github.com/aamsellem/olares-one-market",
+      "website": "https://github.com/markus-albrecht/olares-one-market",
       "featuredImage": "",
-      "sourceCode": "https://github.com/aamsellem/olares-one-market",
+      "sourceCode": "https://github.com/markus-albrecht/olares-one-market",
       "license": [
         {
           "text": "Apache 2.0",
@@ -1053,21 +1053,21 @@
           "appName": "gemma426ba4bone",
           "version": "1.0.10",
           "versionName": "1.0.10",
-          "mergedAt": "2026-05-25T15:10:04.649Z",
+          "mergedAt": "2026-05-25T15:23:51.492Z",
           "upgradeDescription": ""
         }
       ],
       "screenshots": null,
       "tags": null,
       "metadata": null,
-      "updated_at": "2026-05-25T15:10:04.649Z"
+      "updated_at": "2026-05-25T15:23:51.492Z"
     },
     "65b82978": {
       "id": "65b82978",
       "name": "gemma4e2bone",
       "cfgType": "app",
       "chartName": "gemma4e2bone-1.0.2.tgz",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/gemma426ba4bone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/gemma426ba4bone.png",
       "description": "Gemma 4 E2B (ultra-fast 2.3B) via llama.cpp — voice pipeline brain for Olares One",
       "appID": "65b82978",
       "title": "Gemma 4 E2B Voice Brain One",
@@ -1077,14 +1077,14 @@
       ],
       "versionName": "1.0.2",
       "fullDescription": "Google Gemma 4 E2B (5.1B params, 2.3B effective) served via llama.cpp — ultra-fast voice pipeline brain for Olares One.\nRTX 5090M (24GB) + 96GB DDR5 + Core Ultra 9 275HX.\nQ8_0 quantization (4.7GB model, near-lossless quality). 8K context.\nDesigned to run alongside Kyutai STT + TTS for a complete French voice pipeline (~12GB total).\nq4_0 KV cache with Hadamard rotation. llama.cpp b8720.\nApache 2.0 license.\nDownloads model on first launch (~4.7GB) and caches it.\nExposes an OpenAI-compatible API on port 8080.\n",
-      "upgradeDescription": "v1.0.2: switch to Atomic Chat llama.cpp fork (`AtomicBot-ai/atomic-llama-cpp-turboquant` feature/turboquant-kv-cache branch) which adds the `gemma4_assistant` MTP drafter arch (custom centroid LM head for E2B/E4B) AND TurboQuant KV cache (`turbo3`). Image: aamsellem/llamacpp-atomic-mtp:0.1.0. Adds AtomicChat/gemma-4-E2B-it-assistant-GGUF Q4_K_M (75 MB) as MTP drafter alongside the unsloth target. Reference bench from AtomicChat (M5Max): Gemma 4 26B = 97 → 138 t/s = +40% with MTP. Expected on Olares 5090M: comparable speedup over baseline. Bumps CONTEXT_SIZE 8192 → 131072 (full native 128K) — Gemma 4 E2B target Q8_0 = 4.7 GB + drafter 75 MB leaves ~19 GB for KV cache, plenty for max context with turbo3 (3-bit). Vision NOT enabled (Gemma 4 mmproj not yet wired through this fork). Same Apache 2.0 license as upstream llama.cpp + Gemma Terms of Use for the model.\n",
+      "upgradeDescription": "v1.0.2: switch to Atomic Chat llama.cpp fork (`AtomicBot-ai/atomic-llama-cpp-turboquant` feature/turboquant-kv-cache branch) which adds the `gemma4_assistant` MTP drafter arch (custom centroid LM head for E2B/E4B) AND TurboQuant KV cache (`turbo3`). Image: markus-albrecht/llamacpp-atomic-mtp:0.1.0. Adds AtomicChat/gemma-4-E2B-it-assistant-GGUF Q4_K_M (75 MB) as MTP drafter alongside the unsloth target. Reference bench from AtomicChat (M5Max): Gemma 4 26B = 97 → 138 t/s = +40% with MTP. Expected on Olares 5090M: comparable speedup over baseline. Bumps CONTEXT_SIZE 8192 → 131072 (full native 128K) — Gemma 4 E2B target Q8_0 = 4.7 GB + drafter 75 MB leaves ~19 GB for KV cache, plenty for max context with turbo3 (3-bit). Vision NOT enabled (Gemma 4 mmproj not yet wired through this fork). Same Apache 2.0 license as upstream llama.cpp + Gemma Terms of Use for the model.\n",
       "promoteImage": null,
       "promoteVideo": "",
       "subCategory": "",
       "locale": [
         "en-US"
       ],
-      "developer": "aamsellem",
+      "developer": "markus-albrecht",
       "requiredMemory": "4294967296",
       "requiredDisk": "16106127360",
       "supportClient": {},
@@ -1104,7 +1104,7 @@
           "host": "gemma4e2bone",
           "port": 8080,
           "title": "Gemma 4 E2B One",
-          "icon": "https://orales-one-market.aamsellem.workers.dev/icons/gemma426ba4bone.png",
+          "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/gemma426ba4bone.png",
           "authLevel": "internal",
           "invisible": false,
           "openMethod": "window",
@@ -1122,11 +1122,11 @@
           }
         ]
       },
-      "submitter": "aamsellem",
+      "submitter": "markus-albrecht",
       "doc": "",
-      "website": "https://github.com/aamsellem/olares-one-market",
+      "website": "https://github.com/markus-albrecht/olares-one-market",
       "featuredImage": "",
-      "sourceCode": "https://github.com/aamsellem/olares-one-market",
+      "sourceCode": "https://github.com/markus-albrecht/olares-one-market",
       "license": [
         {
           "text": "Apache 2.0",
@@ -1158,21 +1158,21 @@
           "appName": "gemma4e2bone",
           "version": "1.0.2",
           "versionName": "1.0.2",
-          "mergedAt": "2026-05-25T15:10:04.650Z",
+          "mergedAt": "2026-05-25T15:23:51.492Z",
           "upgradeDescription": ""
         }
       ],
       "screenshots": null,
       "tags": null,
       "metadata": null,
-      "updated_at": "2026-05-25T15:10:04.650Z"
+      "updated_at": "2026-05-25T15:23:51.492Z"
     },
     "8c6443a7": {
       "id": "8c6443a7",
       "name": "llamacppgemma4audione",
       "cfgType": "app",
       "chartName": "llamacppgemma4audione-1.0.0.tgz",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppgemma4audione.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/llamacppgemma4audione.png",
       "description": "Gemma 4 E4B with native audio input (USM Conformer encoder, llama.cpp PR #21421) — Olares One",
       "appID": "8c6443a7",
       "title": "Gemma 4 Audio One",
@@ -1189,7 +1189,7 @@
       "locale": [
         "en-US"
       ],
-      "developer": "aamsellem",
+      "developer": "markus-albrecht",
       "requiredMemory": "4294967296",
       "requiredDisk": "10737418240",
       "supportClient": {},
@@ -1209,7 +1209,7 @@
           "host": "llamacppgemma4audione",
           "port": 8080,
           "title": "Gemma 4 Audio One",
-          "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppgemma4audione.png",
+          "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/llamacppgemma4audione.png",
           "authLevel": "internal",
           "invisible": false,
           "openMethod": "window",
@@ -1227,11 +1227,11 @@
           }
         ]
       },
-      "submitter": "aamsellem",
+      "submitter": "markus-albrecht",
       "doc": "",
       "website": "https://github.com/ggml-org/llama.cpp/pull/21421",
       "featuredImage": "",
-      "sourceCode": "https://github.com/aamsellem/olares-one-market",
+      "sourceCode": "https://github.com/markus-albrecht/olares-one-market",
       "license": [
         {
           "text": "Gemma Terms of Use",
@@ -1267,21 +1267,21 @@
           "appName": "llamacppgemma4audione",
           "version": "1.0.0",
           "versionName": "1.0.0",
-          "mergedAt": "2026-05-25T15:10:04.651Z",
+          "mergedAt": "2026-05-25T15:23:51.493Z",
           "upgradeDescription": ""
         }
       ],
       "screenshots": null,
       "tags": null,
       "metadata": null,
-      "updated_at": "2026-05-25T15:10:04.651Z"
+      "updated_at": "2026-05-25T15:23:51.493Z"
     },
     "c1ca229f": {
       "id": "c1ca229f",
       "name": "llamacppglm47flash",
       "cfgType": "app",
       "chartName": "llamacppglm47flash-1.0.11.tgz",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppglm47flash.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/llamacppglm47flash.png",
       "description": "GLM-4.7-Flash 30B-A3B via llama.cpp — optimised for Olares One",
       "appID": "c1ca229f",
       "title": "GLM-4.7-Flash (Olares One)",
@@ -1298,7 +1298,7 @@
       "locale": [
         "en-US"
       ],
-      "developer": "aamsellem",
+      "developer": "markus-albrecht",
       "requiredMemory": "21474836480",
       "requiredDisk": "26843545600",
       "supportClient": {},
@@ -1318,7 +1318,7 @@
           "host": "llamacppglm47flash",
           "port": 8080,
           "title": "GLM-47-Flash One",
-          "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppglm47flash.png",
+          "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/llamacppglm47flash.png",
           "authLevel": "internal",
           "invisible": false,
           "openMethod": "window",
@@ -1336,11 +1336,11 @@
           }
         ]
       },
-      "submitter": "aamsellem",
+      "submitter": "markus-albrecht",
       "doc": "",
-      "website": "https://github.com/aamsellem/olares-one-market",
+      "website": "https://github.com/markus-albrecht/olares-one-market",
       "featuredImage": "",
-      "sourceCode": "https://github.com/aamsellem/olares-one-market",
+      "sourceCode": "https://github.com/markus-albrecht/olares-one-market",
       "license": [
         {
           "text": "MIT",
@@ -1372,21 +1372,21 @@
           "appName": "llamacppglm47flash",
           "version": "1.0.11",
           "versionName": "1.0.10",
-          "mergedAt": "2026-05-25T15:10:04.651Z",
+          "mergedAt": "2026-05-25T15:23:51.494Z",
           "upgradeDescription": ""
         }
       ],
       "screenshots": null,
       "tags": null,
       "metadata": null,
-      "updated_at": "2026-05-25T15:10:04.651Z"
+      "updated_at": "2026-05-25T15:23:51.494Z"
     },
     "491be3cd": {
       "id": "491be3cd",
       "name": "llamacppnemotron30a3bone",
       "cfgType": "app",
       "chartName": "llamacppnemotron30a3bone-1.0.10.tgz",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppnemotron30a3bone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/llamacppnemotron30a3bone.png",
       "description": "Nemotron 3 Nano 30B-A3B via llama.cpp — optimised for Olares One",
       "appID": "491be3cd",
       "title": "Nemotron 30B-A3B Olares One",
@@ -1403,7 +1403,7 @@
       "locale": [
         "en-US"
       ],
-      "developer": "aamsellem",
+      "developer": "markus-albrecht",
       "requiredMemory": "25769803776",
       "requiredDisk": "32212254720",
       "supportClient": {},
@@ -1423,7 +1423,7 @@
           "host": "llamacppnemotron30a3bone",
           "port": 8080,
           "title": "Nemotron 30B-A3B One",
-          "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppnemotron30a3bone.png",
+          "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/llamacppnemotron30a3bone.png",
           "authLevel": "internal",
           "invisible": false,
           "openMethod": "window",
@@ -1441,11 +1441,11 @@
           }
         ]
       },
-      "submitter": "aamsellem",
+      "submitter": "markus-albrecht",
       "doc": "",
-      "website": "https://github.com/aamsellem/olares-one-market",
+      "website": "https://github.com/markus-albrecht/olares-one-market",
       "featuredImage": "",
-      "sourceCode": "https://github.com/aamsellem/olares-one-market",
+      "sourceCode": "https://github.com/markus-albrecht/olares-one-market",
       "license": [
         {
           "text": "NVIDIA Nemotron Open Model License",
@@ -1477,21 +1477,21 @@
           "appName": "llamacppnemotron30a3bone",
           "version": "1.0.10",
           "versionName": "1.0.9",
-          "mergedAt": "2026-05-25T15:10:04.652Z",
+          "mergedAt": "2026-05-25T15:23:51.494Z",
           "upgradeDescription": ""
         }
       ],
       "screenshots": null,
       "tags": null,
       "metadata": null,
-      "updated_at": "2026-05-25T15:10:04.652Z"
+      "updated_at": "2026-05-25T15:23:51.494Z"
     },
     "4ef430dd": {
       "id": "4ef430dd",
       "name": "llamacppqwen35a3bone",
       "cfgType": "app",
       "chartName": "llamacppqwen35a3bone-1.0.29.tgz",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen35a3bone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/llamacppqwen35a3bone.png",
       "description": "Qwen3.5 35B-A3B via llama.cpp — optimised for Olares One",
       "appID": "4ef430dd",
       "title": "Qwen3.5 35B-A3B (Olares One)",
@@ -1508,7 +1508,7 @@
       "locale": [
         "en-US"
       ],
-      "developer": "aamsellem",
+      "developer": "markus-albrecht",
       "requiredMemory": "25769803776",
       "requiredDisk": "32212254720",
       "supportClient": {},
@@ -1528,7 +1528,7 @@
           "host": "llamacppqwen35a3bone",
           "port": 8080,
           "title": "Qwen 35B-A3B One",
-          "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen35a3bone.png",
+          "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/llamacppqwen35a3bone.png",
           "authLevel": "internal",
           "invisible": false,
           "openMethod": "window",
@@ -1546,11 +1546,11 @@
           }
         ]
       },
-      "submitter": "aamsellem",
+      "submitter": "markus-albrecht",
       "doc": "",
-      "website": "https://github.com/aamsellem/olares-one-market",
+      "website": "https://github.com/markus-albrecht/olares-one-market",
       "featuredImage": "",
-      "sourceCode": "https://github.com/aamsellem/olares-one-market",
+      "sourceCode": "https://github.com/markus-albrecht/olares-one-market",
       "license": [
         {
           "text": "MIT",
@@ -1582,21 +1582,21 @@
           "appName": "llamacppqwen35a3bone",
           "version": "1.0.29",
           "versionName": "1.0.28",
-          "mergedAt": "2026-05-25T15:10:04.653Z",
+          "mergedAt": "2026-05-25T15:23:51.495Z",
           "upgradeDescription": ""
         }
       ],
       "screenshots": null,
       "tags": null,
       "metadata": null,
-      "updated_at": "2026-05-25T15:10:04.653Z"
+      "updated_at": "2026-05-25T15:23:51.495Z"
     },
     "059cd05d": {
       "id": "059cd05d",
       "name": "llamacppqwen36a3bone",
       "cfgType": "app",
       "chartName": "llamacppqwen36a3bone-1.0.3.tgz",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen36a3bone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/llamacppqwen36a3bone.png",
       "description": "Qwen3.6 35B-A3B MTP — 246 t/s @ FULL 262K context on Olares One",
       "appID": "059cd05d",
       "title": "Qwen36 35B-A3B MTP One",
@@ -1606,14 +1606,14 @@
       ],
       "versionName": "1.0.3",
       "fullDescription": "Qwen3.6 35B-A3B (MoE, 3B active) served via llama.cpp — optimised for Olares One.\nRTX 5090M (24GB) + 96GB DDR5 + Core Ultra 9 275HX.\nUnsloth Dynamic Q4_K_XL quantization (important layers upcasted to 8/16-bit).\nllama.cpp b8740 with GATED_DELTA_NET fused op + Hadamard rotation for KV cache.\nKV cache q4_0 (2x smaller than q8_0, same quality via rotation).\nFlash attention, CUDA graph optimisation, and op-offload enabled.\nDownloads the GGUF model on first launch (~22GB) and caches it.\nExposes an OpenAI-compatible API on port 8080.\nNative 262K context, extensible to 1M with YaRN.\n",
-      "upgradeDescription": "v1.0.3: bump image `aamsellem/llama-cpp-mtp:master-ad27757` → `master-bb28c1f`. Picks up am17an's PR [#23461](https://github.com/ggml-org/llama.cpp/pull/23461) \"server: free draft/MTP resources on sleep to fix VRAM leak\" (community Reddit thread confirms necessity on b9274) + #23433 \"mtp: use inp_out_ids for skipping logit computation\" + #23131 SWA null-buffer fix. Bench re-validated 2026-05-22: 250.08 t/s AVG (10 runs, +0.3% vs ad27757 — noise). Real value is sustained-load stability (VRAM leak fix matters for agentic sessions hours-long).\n\nv1.0.2: bump default `CTX_SIZE` from 32K to **262144 (full native Qwen3.6 35B-A3B context window)**. Context sweep validated 2026-05-21 on Olares One showing essentially zero throughput regression across context sizes:\n\n| Context | t/s AVG | runs | delta vs 32K |\n|---------|--------:|-----:|-------------:|\n| 32K | 249.30 | 10 | baseline |\n| 64K | 252.64 | 5 | +1.3% (noise) |\n| 128K | 250.39 | 5 | +0.4% (noise) |\n| **262K (full native)** | **245.71** | 5 | -1.4% |\n\nMemory budget at 262K Q3_K_XL + q4_0 KV + MTP draft buffer:\n- Model: 17.2 GB\n- q4_0 KV @ 262K (32 layers × 262K × 2 KV): ~3.2 GB\n- MTP draft compute buffer: ~1 GB\n- Compute buffer: ~0.5 GB\n- Total: ~21.9 GB / 23.42 GB usable on 24 GB GPU (HAMi overhead-accounted)\n\nComfortable headroom. Full 262K context is essentially free on this stack — the MoE-A3B + MTP path doesn't have the per-token cost scaling with context that dense models exhibit (Mamba-like state-space layers carry constant per-token cost regardless of position).\n\nPractically: this app is now **fastest AND longest-context** Qwen3.6 27B/35B path on Olares One. Beats `llamacppqwen36beellamaone` v1.0.4 (107 t/s @ 262K, dense + DFlash) by **+130%** at the same context window. Beats `llamacppqwen36mtpone` v1.0.9 (74 t/s @ 262K, dense + MTP) by **+232%**. Same image as both (`aamsellem/llama-cpp-mtp:master-ad27757`), different model + architecture pays off entirely.\n\nv1.0.1: complete rebuild. Switch to MTP path with `aamsellem/llama-cpp-mtp:master-ad27757` (ggml-org/llama.cpp master HEAD with PR #22673 MTP + #23269 cleanup + #23287 NVIDIA backend sampling + #22522 PDL Hopper+). Swap target from `unsloth/Qwen3.6-35B-A3B-GGUF` Q4_K_XL → `unsloth/Qwen3.6-35B-A3B-MTP-GGUF` Q3_K_XL (Q4_K_XL=22 GB OOMs with KV at 24 GB; Q3_K_XL=17.2 GB fits comfortably). Args: `--spec-type draft-mtp --spec-draft-n-max 3 --ctx-size 32768 --cache-type-k q4_0 --cache-type-v q4_0 --batch-size 512 --ubatch-size 512 --parallel 1 --flash-attn on --chat-template-kwargs '{\"enable_thinking\": false}'`.\n\n**Bench validated 2026-05-21 on Olares One**: **249.30 t/s AVG** (10 runs, range 10.15, σ ≈ 3.0), **86.6% draft acceptance** (range 83.8–89.0%). NEW absolute champion on Olares One:\n- +37% vs Nemotron-Labs 30B-A3B NVFP4 + vLLM #40082 (182.14 t/s)\n- +83% vs Gemma 4 26B-A4B vLLM (135.97 t/s)\n- +132% vs BeeLlama Qwen3.6 27B + DFlash (107.54 t/s)\n- +236% vs Qwen3.6 27B dense MTP same image (74.28 t/s)\n\nWhy so fast: MoE-A3B = only ~3B params active per token (per-token compute is roughly that of a 3B model) + MTP at 86.6% accept (drafts almost always validate) + NVIDIA backend sampling moves draft sampling onto CUDA backend (fewer host roundtrips). Effective: \"3B-active speed with 35B-breadth quality.\" Context limited to 32K because KV cache + MTP draft buffer fits on 24 GB; higher contexts would need IQ4_XS or larger memory.\n\nTitle renamed \"Qwen 36B-A3B One\" → \"Qwen36 35B-A3B MTP\" for clarity. Port 8080 → 8000 (matches llama-server default in our master image).\n\nv1.0.0: initial release. Qwen3.6-35B-A3B (Apache 2.0, April 2026). Same hybrid SSM/MoE architecture as 3.5 — reuses proven Olares One config (llama.cpp b8740, UD-Q4_K_XL, KV q4_0 with Hadamard rotation, batch 2048/ubatch 1024, 64K ctx). SWE-bench 70.0→73.4, Terminal-Bench 40.5→51.5.\n",
+      "upgradeDescription": "v1.0.3: bump image `markus-albrecht/llama-cpp-mtp:master-ad27757` → `master-bb28c1f`. Picks up am17an's PR [#23461](https://github.com/ggml-org/llama.cpp/pull/23461) \"server: free draft/MTP resources on sleep to fix VRAM leak\" (community Reddit thread confirms necessity on b9274) + #23433 \"mtp: use inp_out_ids for skipping logit computation\" + #23131 SWA null-buffer fix. Bench re-validated 2026-05-22: 250.08 t/s AVG (10 runs, +0.3% vs ad27757 — noise). Real value is sustained-load stability (VRAM leak fix matters for agentic sessions hours-long).\n\nv1.0.2: bump default `CTX_SIZE` from 32K to **262144 (full native Qwen3.6 35B-A3B context window)**. Context sweep validated 2026-05-21 on Olares One showing essentially zero throughput regression across context sizes:\n\n| Context | t/s AVG | runs | delta vs 32K |\n|---------|--------:|-----:|-------------:|\n| 32K | 249.30 | 10 | baseline |\n| 64K | 252.64 | 5 | +1.3% (noise) |\n| 128K | 250.39 | 5 | +0.4% (noise) |\n| **262K (full native)** | **245.71** | 5 | -1.4% |\n\nMemory budget at 262K Q3_K_XL + q4_0 KV + MTP draft buffer:\n- Model: 17.2 GB\n- q4_0 KV @ 262K (32 layers × 262K × 2 KV): ~3.2 GB\n- MTP draft compute buffer: ~1 GB\n- Compute buffer: ~0.5 GB\n- Total: ~21.9 GB / 23.42 GB usable on 24 GB GPU (HAMi overhead-accounted)\n\nComfortable headroom. Full 262K context is essentially free on this stack — the MoE-A3B + MTP path doesn't have the per-token cost scaling with context that dense models exhibit (Mamba-like state-space layers carry constant per-token cost regardless of position).\n\nPractically: this app is now **fastest AND longest-context** Qwen3.6 27B/35B path on Olares One. Beats `llamacppqwen36beellamaone` v1.0.4 (107 t/s @ 262K, dense + DFlash) by **+130%** at the same context window. Beats `llamacppqwen36mtpone` v1.0.9 (74 t/s @ 262K, dense + MTP) by **+232%**. Same image as both (`markus-albrecht/llama-cpp-mtp:master-ad27757`), different model + architecture pays off entirely.\n\nv1.0.1: complete rebuild. Switch to MTP path with `markus-albrecht/llama-cpp-mtp:master-ad27757` (ggml-org/llama.cpp master HEAD with PR #22673 MTP + #23269 cleanup + #23287 NVIDIA backend sampling + #22522 PDL Hopper+). Swap target from `unsloth/Qwen3.6-35B-A3B-GGUF` Q4_K_XL → `unsloth/Qwen3.6-35B-A3B-MTP-GGUF` Q3_K_XL (Q4_K_XL=22 GB OOMs with KV at 24 GB; Q3_K_XL=17.2 GB fits comfortably). Args: `--spec-type draft-mtp --spec-draft-n-max 3 --ctx-size 32768 --cache-type-k q4_0 --cache-type-v q4_0 --batch-size 512 --ubatch-size 512 --parallel 1 --flash-attn on --chat-template-kwargs '{\"enable_thinking\": false}'`.\n\n**Bench validated 2026-05-21 on Olares One**: **249.30 t/s AVG** (10 runs, range 10.15, σ ≈ 3.0), **86.6% draft acceptance** (range 83.8–89.0%). NEW absolute champion on Olares One:\n- +37% vs Nemotron-Labs 30B-A3B NVFP4 + vLLM #40082 (182.14 t/s)\n- +83% vs Gemma 4 26B-A4B vLLM (135.97 t/s)\n- +132% vs BeeLlama Qwen3.6 27B + DFlash (107.54 t/s)\n- +236% vs Qwen3.6 27B dense MTP same image (74.28 t/s)\n\nWhy so fast: MoE-A3B = only ~3B params active per token (per-token compute is roughly that of a 3B model) + MTP at 86.6% accept (drafts almost always validate) + NVIDIA backend sampling moves draft sampling onto CUDA backend (fewer host roundtrips). Effective: \"3B-active speed with 35B-breadth quality.\" Context limited to 32K because KV cache + MTP draft buffer fits on 24 GB; higher contexts would need IQ4_XS or larger memory.\n\nTitle renamed \"Qwen 36B-A3B One\" → \"Qwen36 35B-A3B MTP\" for clarity. Port 8080 → 8000 (matches llama-server default in our master image).\n\nv1.0.0: initial release. Qwen3.6-35B-A3B (Apache 2.0, April 2026). Same hybrid SSM/MoE architecture as 3.5 — reuses proven Olares One config (llama.cpp b8740, UD-Q4_K_XL, KV q4_0 with Hadamard rotation, batch 2048/ubatch 1024, 64K ctx). SWE-bench 70.0→73.4, Terminal-Bench 40.5→51.5.\n",
       "promoteImage": null,
       "promoteVideo": "",
       "subCategory": "",
       "locale": [
         "en-US"
       ],
-      "developer": "aamsellem",
+      "developer": "markus-albrecht",
       "requiredMemory": "25769803776",
       "requiredDisk": "32212254720",
       "supportClient": {},
@@ -1633,7 +1633,7 @@
           "host": "llamacppqwen36a3bone",
           "port": 8000,
           "title": "Qwen36 35B-A3B MTP",
-          "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen36a3bone.png",
+          "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/llamacppqwen36a3bone.png",
           "authLevel": "internal",
           "invisible": false,
           "openMethod": "window",
@@ -1651,11 +1651,11 @@
           }
         ]
       },
-      "submitter": "aamsellem",
+      "submitter": "markus-albrecht",
       "doc": "",
-      "website": "https://github.com/aamsellem/olares-one-market",
+      "website": "https://github.com/markus-albrecht/olares-one-market",
       "featuredImage": "",
-      "sourceCode": "https://github.com/aamsellem/olares-one-market",
+      "sourceCode": "https://github.com/markus-albrecht/olares-one-market",
       "license": [
         {
           "text": "Apache-2.0",
@@ -1687,21 +1687,21 @@
           "appName": "llamacppqwen36a3bone",
           "version": "1.0.3",
           "versionName": "1.0.3",
-          "mergedAt": "2026-05-25T15:10:04.655Z",
+          "mergedAt": "2026-05-25T15:23:51.498Z",
           "upgradeDescription": ""
         }
       ],
       "screenshots": null,
       "tags": null,
       "metadata": null,
-      "updated_at": "2026-05-25T15:10:04.655Z"
+      "updated_at": "2026-05-25T15:23:51.498Z"
     },
     "9ca1356f": {
       "id": "9ca1356f",
       "name": "llamacppqwen36beellamaone",
       "cfgType": "app",
       "chartName": "llamacppqwen36beellamaone-1.0.4.tgz",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen36beellamaone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/llamacppqwen36beellamaone.png",
       "description": "Qwen3.6 27B fastest + longest local — 106 t/s @ FULL 262K via BeeLlama.cpp + DFlash + turbo3 KV",
       "appID": "9ca1356f",
       "title": "Qwen36 27B BeeLlama One",
@@ -1710,15 +1710,15 @@
         "AI"
       ],
       "versionName": "1.0.4",
-      "fullDescription": "Qwen3.6 27B fastest local inference path on Olares One — 107 t/s AVG, peak 133 t/s.\nRTX 5090M (24 GB GDDR7, sm_120 Blackwell mobile) + 96 GB DDR5 + Core Ultra 9 275HX.\n\nStack:\n  - Image: aamsellem/beellama-cpp:0.1.1 (custom build of Anbeeld/beellama.cpp v0.1.1 for amd64+CUDA 13.0+sm_120)\n  - Target: unsloth/Qwen3.6-27B-GGUF UD-Q3_K_XL (14.5 GB, NOT the MTP variant — BeeLlama uses DFlash spec, not MTP)\n  - Drafter: spiritbuun/Qwen3.6-27B-DFlash-GGUF dflash-draft-3.6-q8_0 (1.85 GB)\n  - Spec method: --spec-type dflash with --spec-dflash-cross-ctx 1024\n  - KV cache: turbo3 (3-bit Walsh-Hadamard rotated, ~25% smaller than q4_0)\n  - Context: 96K (per-seq with DFlash dual-buffer)\n  - batch-size 2048, ubatch-size 256, flash-attn on, mlock, no-mmap\n\nBeeLlama.cpp adds over upstream / spiritbuun fork:\n  - DFlash spec decoding (inherited)\n  - TurboQuant turbo2/3/4 KV cache types (inherited from TheTom fork)\n  - CopySpec: model-free speculation via rolling-hash suffix matching\n  - Reasoning-loop protection (Qwen think-loop guard)\n\nPerformance on Olares One (validated 2026-05-14 night-bench):\n  - **107 t/s AVG** (10 clean runs, range 97.84-115.36 t/s)\n  - Peak 133 t/s on single fast run (5-run subset)\n  - ZERO CUDA OOM, NO degradation cycle\n  - +40% vs llamacppqwen36dflashone (76 t/s same drafter, different image)\n  - +27% vs vllmqwen36turbo27bone (88 t/s vLLM Genesis MTP)\n  - +47% vs llamacppqwen36mtpone (72.75 t/s MTP 262K)\n\nWhen to use this app:\n  - You want max speed on Qwen3.6 27B and 96K context is enough\n  - You don't need 262K long context (use llamacppqwen36mtpone for that)\n  - You prefer single binary path over vLLM Genesis 28-patch maintenance burden\n\nFirst launch downloads ~16 GB target + ~2 GB drafter from HuggingFace.\nExposes an OpenAI-compatible API on port 8000.\n\nCustom image source: https://github.com/Anbeeld/beellama.cpp v0.1.1 (commit 2026-05-11)\nBeeLlama is fork chain: ggml-org/llama.cpp → TheTom/llama-cpp-turboquant → spiritbuun/buun-llama-cpp → Anbeeld/beellama.cpp\n",
-      "upgradeDescription": "v1.0.4: swap to `aamsellem/beellama-cpp:0.1.3-rc3` — built from Anbeeld HEAD `0ef12a52c3` (2026-05-17) **without** the `-lcuda` linker-flag workaround used in rc2. Validates Anbeeld's upstream CMake fix for `ggml-cuda` driver propagation: `target_link_libraries(ggml-cuda INTERFACE $<LINK_ONLY:CUDA::cuda_driver>)` (commit `2b9aa77aa6`, closes issue [#18](https://github.com/Anbeeld/beellama.cpp/issues/18)). Also picks up LPFchan PR #19 / commit `e50d29eed4` (DFlash GPU ring hang fix on turbo4 — sync ggml backend after decode). No behavioural or perf change expected vs rc2 (same binary semantics, cleaner build configuration). Same target/drafter/KV stack + `LLAMA_ARG_SPEC_DM_ADAPTIVE=true` env var as v1.0.3.\n\nv1.0.3: upgrade to BeeLlama.cpp HEAD commit `2661abf270` (2026-05-16, built as `aamsellem/beellama-cpp:0.1.3-rc2`). Pulls in 3 post-v0.1.2 commits: `185bc3de` (Fix op table drift, harden GDN kernels, stream-safe DFlash replay), `f1d9677c` (partial revert), `2661abf2` (.kld baseline truncation fix). Critically: re-enables `LLAMA_ARG_SPEC_DM_ADAPTIVE=true` — v1.0.2 had to disable the adaptive profit controller via the env var to work around the HAMI-core UINT64 underflow under sustained agentic load (~50-99K active context). With the stream-safe DFlash replay fix in HEAD, the adaptive controller's allocation pattern should no longer drift the HAMi memory counter. Build also includes upstream CMake fix for `target_link_libraries(ggml-cuda PRIVATE CUDA::cuda_driver)` scope (reported upstream as issue #18; current build uses an equivalent `-DCMAKE_EXE_LINKER_FLAGS=\"-lcuda\"` workaround). Same target/drafter/KV stack as v1.0.2.\n\nv1.0.2: upgrade to BeeLlama.cpp v0.1.2 (commit 633cd34fb, released 2026-05-13). Key fix from release notes: \"Fixed the adaptive profit controller's no-spec baseline path. Profit mode now seeds baseline samples before positive-depth warmup, can shut DFlash fully off when the measured baseline wins, and no longer makes speculative decisions from draft-only telemetry.\" Also fixes multi-GPU DFlash (correctness fallback), EOS handling in reasoning mode, ROCm 7 build. Custom amd64+CUDA13+sm_120 image rebuilt as aamsellem/beellama-cpp:0.1.2. Same config Qwen3.6 27B UD-Q3_K_XL + DFlash drafter q8_0 + turbo3 KV @ 262K. Bench in progress (will update once validated).\nv1.0.1: bump CTX_SIZE 96000 → 262144 (FULL native Qwen3.6 context). Validated 2026-05-14 night: 106.23 t/s AVG (5 clean runs, range 101.34-111.28) at FULL 262K context. Beats llamacppqwen36mtpone v1.0.8 by +47% (72.75 → 106.23 t/s) at same 262K context. Full sweep: 96K=107, 128K=116, 200K=108, 262K=106 — flat performance across context sizes confirms turbo3 KV cache scales gracefully and DFlash drafter doesn't bottleneck. ZERO CUDA OOM tested across all context sizes. This is now the **fastest AND longest-context** Qwen3.6 27B path on Olares One.\nv1.0.0: initial release. Qwen3.6 27B served via Anbeeld/beellama.cpp v0.1.1 fork (built from spiritbuun/buun-llama-cpp + MTP + CopySpec + reasoning-loop protection + TurboQuant turbo3 KV). First public bench on RTX 5090M Blackwell consumer mobile sm_120 — **107 t/s AVG (10 clean runs, range 98-115)** @ 96K context. Stack: unsloth/Qwen3.6-27B-GGUF Q3_K_XL (14.5 GB) + spiritbuun/Qwen3.6-27B-DFlash-GGUF dflash-draft-3.6-q8_0 (1.85 GB) + turbo3 KV (3-bit Walsh-Hadamard) + DFlash spec + batch 2048/ubatch 256 + flash-attn. Custom Docker image aamsellem/beellama-cpp:0.1.1 (build from v0.1.1 source for amd64+CUDA 13+sm_120). +40% vs llamacppqwen36dflashone (76 t/s @ 96K), +27% vs vllmqwen36turbo27bone (88 t/s @ 88K). No degradation cycle, no CUDA OOM, no Genesis patches needed.\n",
+      "fullDescription": "Qwen3.6 27B fastest local inference path on Olares One — 107 t/s AVG, peak 133 t/s.\nRTX 5090M (24 GB GDDR7, sm_120 Blackwell mobile) + 96 GB DDR5 + Core Ultra 9 275HX.\n\nStack:\n  - Image: markus-albrecht/beellama-cpp:0.1.1 (custom build of Anbeeld/beellama.cpp v0.1.1 for amd64+CUDA 13.0+sm_120)\n  - Target: unsloth/Qwen3.6-27B-GGUF UD-Q3_K_XL (14.5 GB, NOT the MTP variant — BeeLlama uses DFlash spec, not MTP)\n  - Drafter: spiritbuun/Qwen3.6-27B-DFlash-GGUF dflash-draft-3.6-q8_0 (1.85 GB)\n  - Spec method: --spec-type dflash with --spec-dflash-cross-ctx 1024\n  - KV cache: turbo3 (3-bit Walsh-Hadamard rotated, ~25% smaller than q4_0)\n  - Context: 96K (per-seq with DFlash dual-buffer)\n  - batch-size 2048, ubatch-size 256, flash-attn on, mlock, no-mmap\n\nBeeLlama.cpp adds over upstream / spiritbuun fork:\n  - DFlash spec decoding (inherited)\n  - TurboQuant turbo2/3/4 KV cache types (inherited from TheTom fork)\n  - CopySpec: model-free speculation via rolling-hash suffix matching\n  - Reasoning-loop protection (Qwen think-loop guard)\n\nPerformance on Olares One (validated 2026-05-14 night-bench):\n  - **107 t/s AVG** (10 clean runs, range 97.84-115.36 t/s)\n  - Peak 133 t/s on single fast run (5-run subset)\n  - ZERO CUDA OOM, NO degradation cycle\n  - +40% vs llamacppqwen36dflashone (76 t/s same drafter, different image)\n  - +27% vs vllmqwen36turbo27bone (88 t/s vLLM Genesis MTP)\n  - +47% vs llamacppqwen36mtpone (72.75 t/s MTP 262K)\n\nWhen to use this app:\n  - You want max speed on Qwen3.6 27B and 96K context is enough\n  - You don't need 262K long context (use llamacppqwen36mtpone for that)\n  - You prefer single binary path over vLLM Genesis 28-patch maintenance burden\n\nFirst launch downloads ~16 GB target + ~2 GB drafter from HuggingFace.\nExposes an OpenAI-compatible API on port 8000.\n\nCustom image source: https://github.com/Anbeeld/beellama.cpp v0.1.1 (commit 2026-05-11)\nBeeLlama is fork chain: ggml-org/llama.cpp → TheTom/llama-cpp-turboquant → spiritbuun/buun-llama-cpp → Anbeeld/beellama.cpp\n",
+      "upgradeDescription": "v1.0.4: swap to `markus-albrecht/beellama-cpp:0.1.3-rc3` — built from Anbeeld HEAD `0ef12a52c3` (2026-05-17) **without** the `-lcuda` linker-flag workaround used in rc2. Validates Anbeeld's upstream CMake fix for `ggml-cuda` driver propagation: `target_link_libraries(ggml-cuda INTERFACE $<LINK_ONLY:CUDA::cuda_driver>)` (commit `2b9aa77aa6`, closes issue [#18](https://github.com/Anbeeld/beellama.cpp/issues/18)). Also picks up LPFchan PR #19 / commit `e50d29eed4` (DFlash GPU ring hang fix on turbo4 — sync ggml backend after decode). No behavioural or perf change expected vs rc2 (same binary semantics, cleaner build configuration). Same target/drafter/KV stack + `LLAMA_ARG_SPEC_DM_ADAPTIVE=true` env var as v1.0.3.\n\nv1.0.3: upgrade to BeeLlama.cpp HEAD commit `2661abf270` (2026-05-16, built as `markus-albrecht/beellama-cpp:0.1.3-rc2`). Pulls in 3 post-v0.1.2 commits: `185bc3de` (Fix op table drift, harden GDN kernels, stream-safe DFlash replay), `f1d9677c` (partial revert), `2661abf2` (.kld baseline truncation fix). Critically: re-enables `LLAMA_ARG_SPEC_DM_ADAPTIVE=true` — v1.0.2 had to disable the adaptive profit controller via the env var to work around the HAMI-core UINT64 underflow under sustained agentic load (~50-99K active context). With the stream-safe DFlash replay fix in HEAD, the adaptive controller's allocation pattern should no longer drift the HAMi memory counter. Build also includes upstream CMake fix for `target_link_libraries(ggml-cuda PRIVATE CUDA::cuda_driver)` scope (reported upstream as issue #18; current build uses an equivalent `-DCMAKE_EXE_LINKER_FLAGS=\"-lcuda\"` workaround). Same target/drafter/KV stack as v1.0.2.\n\nv1.0.2: upgrade to BeeLlama.cpp v0.1.2 (commit 633cd34fb, released 2026-05-13). Key fix from release notes: \"Fixed the adaptive profit controller's no-spec baseline path. Profit mode now seeds baseline samples before positive-depth warmup, can shut DFlash fully off when the measured baseline wins, and no longer makes speculative decisions from draft-only telemetry.\" Also fixes multi-GPU DFlash (correctness fallback), EOS handling in reasoning mode, ROCm 7 build. Custom amd64+CUDA13+sm_120 image rebuilt as markus-albrecht/beellama-cpp:0.1.2. Same config Qwen3.6 27B UD-Q3_K_XL + DFlash drafter q8_0 + turbo3 KV @ 262K. Bench in progress (will update once validated).\nv1.0.1: bump CTX_SIZE 96000 → 262144 (FULL native Qwen3.6 context). Validated 2026-05-14 night: 106.23 t/s AVG (5 clean runs, range 101.34-111.28) at FULL 262K context. Beats llamacppqwen36mtpone v1.0.8 by +47% (72.75 → 106.23 t/s) at same 262K context. Full sweep: 96K=107, 128K=116, 200K=108, 262K=106 — flat performance across context sizes confirms turbo3 KV cache scales gracefully and DFlash drafter doesn't bottleneck. ZERO CUDA OOM tested across all context sizes. This is now the **fastest AND longest-context** Qwen3.6 27B path on Olares One.\nv1.0.0: initial release. Qwen3.6 27B served via Anbeeld/beellama.cpp v0.1.1 fork (built from spiritbuun/buun-llama-cpp + MTP + CopySpec + reasoning-loop protection + TurboQuant turbo3 KV). First public bench on RTX 5090M Blackwell consumer mobile sm_120 — **107 t/s AVG (10 clean runs, range 98-115)** @ 96K context. Stack: unsloth/Qwen3.6-27B-GGUF Q3_K_XL (14.5 GB) + spiritbuun/Qwen3.6-27B-DFlash-GGUF dflash-draft-3.6-q8_0 (1.85 GB) + turbo3 KV (3-bit Walsh-Hadamard) + DFlash spec + batch 2048/ubatch 256 + flash-attn. Custom Docker image markus-albrecht/beellama-cpp:0.1.1 (build from v0.1.1 source for amd64+CUDA 13+sm_120). +40% vs llamacppqwen36dflashone (76 t/s @ 96K), +27% vs vllmqwen36turbo27bone (88 t/s @ 88K). No degradation cycle, no CUDA OOM, no Genesis patches needed.\n",
       "promoteImage": null,
       "promoteVideo": "",
       "subCategory": "",
       "locale": [
         "en-US"
       ],
-      "developer": "aamsellem",
+      "developer": "markus-albrecht",
       "requiredMemory": "21474836480",
       "requiredDisk": "26843545600",
       "supportClient": {},
@@ -1738,7 +1738,7 @@
           "host": "llamacppqwen36beellamaone",
           "port": 8000,
           "title": "Qwen36 27B BeeLlama",
-          "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen36beellamaone.png",
+          "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/llamacppqwen36beellamaone.png",
           "authLevel": "internal",
           "invisible": false,
           "openMethod": "window",
@@ -1756,11 +1756,11 @@
           }
         ]
       },
-      "submitter": "aamsellem",
+      "submitter": "markus-albrecht",
       "doc": "",
       "website": "https://github.com/Anbeeld/beellama.cpp",
       "featuredImage": "",
-      "sourceCode": "https://github.com/aamsellem/olares-one-market",
+      "sourceCode": "https://github.com/markus-albrecht/olares-one-market",
       "license": [
         {
           "text": "MIT",
@@ -1776,7 +1776,7 @@
           },
           "entrances": null,
           "spec": {
-            "fullDescription": "Qwen3.6 27B served via Anbeeld/beellama.cpp v0.1.1 fork (chain: ggml-org → TheTom/turboquant → spiritbuun/buun → Anbeeld).\nImage: aamsellem/beellama-cpp:0.1.1 (custom amd64 + CUDA 13 + sm_120 build)\nTarget: unsloth/Qwen3.6-27B-GGUF UD-Q3_K_XL (14.5 GB, non-MTP variant)\nDrafter: spiritbuun/Qwen3.6-27B-DFlash-GGUF dflash-draft-3.6-q8_0 (1.85 GB)\nKV cache: turbo3 (3-bit Walsh-Hadamard rotated, ~25% smaller than q4_0)\nSpec: DFlash with --spec-dflash-cross-ctx 1024, batch 2048, ubatch 256\nValidated 2026-05-14: 107 t/s AVG over 10 clean runs (range 97.84-115.36 t/s), peak 133 t/s. ZERO CUDA OOM, NO degradation cycle.\n+40% vs llamacppqwen36dflashone (76 t/s), +27% vs vllmqwen36turbo27bone (88 t/s), +47% vs llamacppqwen36mtpone (72.75 t/s).\nFastest Qwen3.6 27B path on Olares One. Use this for max throughput.\nFor 262K context: use llamacppqwen36mtpone instead (96K limit here).\nOpenAI-compatible API on port 8000.\n",
+            "fullDescription": "Qwen3.6 27B served via Anbeeld/beellama.cpp v0.1.1 fork (chain: ggml-org → TheTom/turboquant → spiritbuun/buun → Anbeeld).\nImage: markus-albrecht/beellama-cpp:0.1.1 (custom amd64 + CUDA 13 + sm_120 build)\nTarget: unsloth/Qwen3.6-27B-GGUF UD-Q3_K_XL (14.5 GB, non-MTP variant)\nDrafter: spiritbuun/Qwen3.6-27B-DFlash-GGUF dflash-draft-3.6-q8_0 (1.85 GB)\nKV cache: turbo3 (3-bit Walsh-Hadamard rotated, ~25% smaller than q4_0)\nSpec: DFlash with --spec-dflash-cross-ctx 1024, batch 2048, ubatch 256\nValidated 2026-05-14: 107 t/s AVG over 10 clean runs (range 97.84-115.36 t/s), peak 133 t/s. ZERO CUDA OOM, NO degradation cycle.\n+40% vs llamacppqwen36dflashone (76 t/s), +27% vs vllmqwen36turbo27bone (88 t/s), +47% vs llamacppqwen36mtpone (72.75 t/s).\nFastest Qwen3.6 27B path on Olares One. Use this for max throughput.\nFor 262K context: use llamacppqwen36mtpone instead (96K limit here).\nOpenAI-compatible API on port 8000.\n",
             "upgradeDescription": ""
           }
         }
@@ -1792,21 +1792,21 @@
           "appName": "llamacppqwen36beellamaone",
           "version": "1.0.4",
           "versionName": "1.0.4",
-          "mergedAt": "2026-05-25T15:10:04.656Z",
+          "mergedAt": "2026-05-25T15:23:51.499Z",
           "upgradeDescription": ""
         }
       ],
       "screenshots": null,
       "tags": null,
       "metadata": null,
-      "updated_at": "2026-05-25T15:10:04.656Z"
+      "updated_at": "2026-05-25T15:23:51.499Z"
     },
     "376c02dd": {
       "id": "376c02dd",
       "name": "llamacppqwen36beellamavisionone",
       "cfgType": "app",
       "chartName": "llamacppqwen36beellamavisionone-1.0.2.tgz",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen36beellamavisionone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/llamacppqwen36beellamavisionone.png",
       "description": "Qwen3.6 27B vision-capable — 106 t/s @ 200K via BeeLlama.cpp + mmproj F16 + DFlash + turbo3 KV",
       "appID": "376c02dd",
       "title": "Qwen36 27B BeeLlama Vision One",
@@ -1815,15 +1815,15 @@
         "AI"
       ],
       "versionName": "1.0.2",
-      "fullDescription": "Qwen3.6 27B vision-capable via BeeLlama.cpp on Olares One — 106 t/s with image input @ 200K context.\nRTX 5090M (24 GB GDDR7, sm_120 Blackwell consumer mobile) + 96 GB DDR5 + Core Ultra 9 275HX.\n\nStack:\n  - Image: aamsellem/beellama-cpp:0.1.2 (custom amd64+CUDA13+sm_120 build of Anbeeld/beellama.cpp v0.1.2)\n  - Target: unsloth/Qwen3.6-27B-GGUF UD-Q3_K_XL non-MTP variant (14.5 GB)\n  - Vision projector: unsloth mmproj-F16.gguf (0.93 GB)\n  - DFlash drafter: spiritbuun dflash-draft-3.6-q8_0 (1.85 GB)\n  - KV cache: turbo3 (3-bit Walsh-Hadamard rotated, scales linearly with context)\n  - Spec method: DFlash with --spec-dflash-cross-ctx 1024\n  - Context: 200K (per-seq with DFlash dual-buffer)\n\nBench validated 2026-05-15 (10-run AVG, Space Invaders HTML 2000 tokens):\n  - 106.43 t/s AVG @ 200K context (range 93.29-116.67)\n  - Vision smoke test: PNG gradient → \"Red\" correctly identified\n  - DFlash drafter fires alongside mmproj (~27% accept on vision prompts)\n\nTrade-off vs text-only llamacppqwen36beellamaone:\n  - -1% throughput, -23% max context (200K vs 262K)\n  - +vision capability via OpenAI image_url content type\n\nApache 2.0 license. Thinking mode + tool calling supported.\nFirst launch downloads ~17 GB. OpenAI-compatible API on port 8000.\n",
-      "upgradeDescription": "v1.0.2: upgrade to BeeLlama HEAD commit `75ae2a6af` (built as `aamsellem/beellama-cpp:0.1.3-rc1`) — includes Anbeeld's fix for GPU ring crash in `llm_build_dflash_kv_update` at long context prefill (issue #16, merged 2026-05-15 17:55). This is the upstream resolution for the crash that v1.0.1 worked around via the HAMi-core memory limit bump. The original symptom on RTX 5090M sm_120 + Hermes Agent workload was a HAMi-core UINT64 underflow (`Device 0 OOM 18446744073709500456 / 25480396800`) which we now suspect was a downstream artifact of orphaned ring-buffer allocations after the underlying GPU ring crash — fixed upstream by `75ae2a6af`. Bench validated 2026-05-16 on Olares One: 105.52 t/s AVG @ 200K (10 runs, range 34.92) — perf parity with v1.0.1 (106.43 t/s, range 23.4) within noise. `system_fingerprint: b16-75ae2a6af` confirms commit. Long-context multi-turn validation (Hermes Agent at 100K+ accumulated context) is the real test — pending real-world user session.\n\nKeeping `CUDA_DEVICE_MEMORY_LIMIT_0=30000m` (bumped from 24300m in v1.0.1) as a safety belt until the user's next long agentic session confirms the fix holds. A future v1.0.3 will restore the strict 24300m once we have empirical proof the GPU ring fix eliminates the HAMi underflow downstream.\n\nv1.0.1: workaround HAMi-core UINT64 accounting underflow that crashes the pod after long agentic sessions (~99K active context observed in Hermes Agent usage). The crash signature is `[HAMI-core ERROR]: Device 0 OOM 18446744073709500456 / 25480396800` — that 19-digit number is NOT a real allocation request, it's `2^64 - X` from an unsigned subtraction past zero in HAMi-core's internal allocator counter after many DFlash spec decoding micro-allocations. cublasSgemm_v2 fails → ggml_abort → pod restart.\nWorkaround: bump `CUDA_DEVICE_MEMORY_LIMIT_0` 24300m → 30000m (above physical 24463 MB). HAMi-core stops gating allocations strictly, and BeeLlama hits the real physical VRAM limit cleanly via standard cudaMalloc errors if that ever happens. Tradeoff: HAMi GPU sharing no longer enforces this app's memory budget, so concurrent GPU apps could compete more aggressively. Acceptable since this app needs ~24 GB and any concurrent app would conflict anyway.\nNo bench change vs v1.0.0 (the inference path is identical) — this is purely a stability fix for sustained long-context sessions.\n\nv1.0.0: initial release. Qwen3.6 27B vision-capable served via BeeLlama.cpp v0.1.2 with mmproj F16 vision projector + DFlash spec decoding + turbo3 KV cache. **First public bench of mmproj + DFlash + BeeLlama on consumer Blackwell sm_120**:\n\nValidated 2026-05-15 on Olares One (10-run AVG, Space Invaders HTML prompt 2000 tokens each):\n- **106.43 t/s AVG @ 200K context** (range 93.29-116.67, range 23.38)\n- **101.98 t/s AVG @ 128K context** (10 runs, range 92.69-109.62)\n- Vision smoke test: gradient PNG → correctly identified \"Red\" gradient\n\nTrade-off vs llamacppqwen36beellamaone v1.0.2 (text-only, 107.54 t/s @ 262K):\n- -1% throughput (106.43 vs 107.54)\n- -23% max context (200K vs 262K)\n- **+vision capability** (image input via OpenAI image_url content type)\n- DFlash drafter still firing alongside mmproj (~27% accept rate validated on vision prompts)\n\nStack:\n- Image: docker.io/aamsellem/beellama-cpp:0.1.2 (custom amd64+CUDA13+sm_120 build of Anbeeld/beellama.cpp v0.1.2)\n- Target: unsloth/Qwen3.6-27B-GGUF UD-Q3_K_XL (14.5 GB, non-MTP variant required by DFlash spec mode)\n- Vision projector: unsloth mmproj-F16.gguf (0.93 GB)\n- DFlash drafter: spiritbuun/Qwen3.6-27B-DFlash-GGUF dflash-draft-3.6-q8_0 (1.85 GB)\n- KV cache: turbo3 (3-bit Walsh-Hadamard, scales gracefully — only 6.2 GB @ 200K vs 14 GB f16 KV would be)\n- Spec: --spec-type dflash --spec-dflash-cross-ctx 1024\n- Throughput: --batch-size 2048 --ubatch-size 2048 (mandatory ≥ image_max_tokens for non-causal vision encoder, llama.cpp PR #21550) --parallel 1 --flash-attn on --mlock --no-mmap\n\nVRAM budget on 24 GB (tight): target 14.5 + drafter 1.85 + mmproj 0.93 + turbo3 KV @ 200K ~6.2 = ~23.5 GB used.\n\nWhen to use this app vs llamacppqwen36beellamaone v1.0.2:\n- Need vision input (image_url content type) → use THIS app\n- Pure text @ max context 262K → use llamacppqwen36beellamaone v1.0.2\n- For Gemma 4 vision (different model) → vllmgemma426ba4bvisionone (136 t/s, vLLM path)\n\nFirst launch downloads ~17 GB (target + drafter + mmproj). OpenAI-compatible chat API with image_url multimodal content type on port 8000.\n\nBeeLlama fork chain: ggml-org/llama.cpp → TheTom/llama-cpp-turboquant (turbo3 KV) → spiritbuun/buun-llama-cpp (DFlash for Qwen3.6) → Anbeeld/beellama.cpp v0.1.2 (latest: profit controller fix, EOS handling for tool calling, multi-GPU correctness fallback).\n",
+      "fullDescription": "Qwen3.6 27B vision-capable via BeeLlama.cpp on Olares One — 106 t/s with image input @ 200K context.\nRTX 5090M (24 GB GDDR7, sm_120 Blackwell consumer mobile) + 96 GB DDR5 + Core Ultra 9 275HX.\n\nStack:\n  - Image: markus-albrecht/beellama-cpp:0.1.2 (custom amd64+CUDA13+sm_120 build of Anbeeld/beellama.cpp v0.1.2)\n  - Target: unsloth/Qwen3.6-27B-GGUF UD-Q3_K_XL non-MTP variant (14.5 GB)\n  - Vision projector: unsloth mmproj-F16.gguf (0.93 GB)\n  - DFlash drafter: spiritbuun dflash-draft-3.6-q8_0 (1.85 GB)\n  - KV cache: turbo3 (3-bit Walsh-Hadamard rotated, scales linearly with context)\n  - Spec method: DFlash with --spec-dflash-cross-ctx 1024\n  - Context: 200K (per-seq with DFlash dual-buffer)\n\nBench validated 2026-05-15 (10-run AVG, Space Invaders HTML 2000 tokens):\n  - 106.43 t/s AVG @ 200K context (range 93.29-116.67)\n  - Vision smoke test: PNG gradient → \"Red\" correctly identified\n  - DFlash drafter fires alongside mmproj (~27% accept on vision prompts)\n\nTrade-off vs text-only llamacppqwen36beellamaone:\n  - -1% throughput, -23% max context (200K vs 262K)\n  - +vision capability via OpenAI image_url content type\n\nApache 2.0 license. Thinking mode + tool calling supported.\nFirst launch downloads ~17 GB. OpenAI-compatible API on port 8000.\n",
+      "upgradeDescription": "v1.0.2: upgrade to BeeLlama HEAD commit `75ae2a6af` (built as `markus-albrecht/beellama-cpp:0.1.3-rc1`) — includes Anbeeld's fix for GPU ring crash in `llm_build_dflash_kv_update` at long context prefill (issue #16, merged 2026-05-15 17:55). This is the upstream resolution for the crash that v1.0.1 worked around via the HAMi-core memory limit bump. The original symptom on RTX 5090M sm_120 + Hermes Agent workload was a HAMi-core UINT64 underflow (`Device 0 OOM 18446744073709500456 / 25480396800`) which we now suspect was a downstream artifact of orphaned ring-buffer allocations after the underlying GPU ring crash — fixed upstream by `75ae2a6af`. Bench validated 2026-05-16 on Olares One: 105.52 t/s AVG @ 200K (10 runs, range 34.92) — perf parity with v1.0.1 (106.43 t/s, range 23.4) within noise. `system_fingerprint: b16-75ae2a6af` confirms commit. Long-context multi-turn validation (Hermes Agent at 100K+ accumulated context) is the real test — pending real-world user session.\n\nKeeping `CUDA_DEVICE_MEMORY_LIMIT_0=30000m` (bumped from 24300m in v1.0.1) as a safety belt until the user's next long agentic session confirms the fix holds. A future v1.0.3 will restore the strict 24300m once we have empirical proof the GPU ring fix eliminates the HAMi underflow downstream.\n\nv1.0.1: workaround HAMi-core UINT64 accounting underflow that crashes the pod after long agentic sessions (~99K active context observed in Hermes Agent usage). The crash signature is `[HAMI-core ERROR]: Device 0 OOM 18446744073709500456 / 25480396800` — that 19-digit number is NOT a real allocation request, it's `2^64 - X` from an unsigned subtraction past zero in HAMi-core's internal allocator counter after many DFlash spec decoding micro-allocations. cublasSgemm_v2 fails → ggml_abort → pod restart.\nWorkaround: bump `CUDA_DEVICE_MEMORY_LIMIT_0` 24300m → 30000m (above physical 24463 MB). HAMi-core stops gating allocations strictly, and BeeLlama hits the real physical VRAM limit cleanly via standard cudaMalloc errors if that ever happens. Tradeoff: HAMi GPU sharing no longer enforces this app's memory budget, so concurrent GPU apps could compete more aggressively. Acceptable since this app needs ~24 GB and any concurrent app would conflict anyway.\nNo bench change vs v1.0.0 (the inference path is identical) — this is purely a stability fix for sustained long-context sessions.\n\nv1.0.0: initial release. Qwen3.6 27B vision-capable served via BeeLlama.cpp v0.1.2 with mmproj F16 vision projector + DFlash spec decoding + turbo3 KV cache. **First public bench of mmproj + DFlash + BeeLlama on consumer Blackwell sm_120**:\n\nValidated 2026-05-15 on Olares One (10-run AVG, Space Invaders HTML prompt 2000 tokens each):\n- **106.43 t/s AVG @ 200K context** (range 93.29-116.67, range 23.38)\n- **101.98 t/s AVG @ 128K context** (10 runs, range 92.69-109.62)\n- Vision smoke test: gradient PNG → correctly identified \"Red\" gradient\n\nTrade-off vs llamacppqwen36beellamaone v1.0.2 (text-only, 107.54 t/s @ 262K):\n- -1% throughput (106.43 vs 107.54)\n- -23% max context (200K vs 262K)\n- **+vision capability** (image input via OpenAI image_url content type)\n- DFlash drafter still firing alongside mmproj (~27% accept rate validated on vision prompts)\n\nStack:\n- Image: docker.io/markus-albrecht/beellama-cpp:0.1.2 (custom amd64+CUDA13+sm_120 build of Anbeeld/beellama.cpp v0.1.2)\n- Target: unsloth/Qwen3.6-27B-GGUF UD-Q3_K_XL (14.5 GB, non-MTP variant required by DFlash spec mode)\n- Vision projector: unsloth mmproj-F16.gguf (0.93 GB)\n- DFlash drafter: spiritbuun/Qwen3.6-27B-DFlash-GGUF dflash-draft-3.6-q8_0 (1.85 GB)\n- KV cache: turbo3 (3-bit Walsh-Hadamard, scales gracefully — only 6.2 GB @ 200K vs 14 GB f16 KV would be)\n- Spec: --spec-type dflash --spec-dflash-cross-ctx 1024\n- Throughput: --batch-size 2048 --ubatch-size 2048 (mandatory ≥ image_max_tokens for non-causal vision encoder, llama.cpp PR #21550) --parallel 1 --flash-attn on --mlock --no-mmap\n\nVRAM budget on 24 GB (tight): target 14.5 + drafter 1.85 + mmproj 0.93 + turbo3 KV @ 200K ~6.2 = ~23.5 GB used.\n\nWhen to use this app vs llamacppqwen36beellamaone v1.0.2:\n- Need vision input (image_url content type) → use THIS app\n- Pure text @ max context 262K → use llamacppqwen36beellamaone v1.0.2\n- For Gemma 4 vision (different model) → vllmgemma426ba4bvisionone (136 t/s, vLLM path)\n\nFirst launch downloads ~17 GB (target + drafter + mmproj). OpenAI-compatible chat API with image_url multimodal content type on port 8000.\n\nBeeLlama fork chain: ggml-org/llama.cpp → TheTom/llama-cpp-turboquant (turbo3 KV) → spiritbuun/buun-llama-cpp (DFlash for Qwen3.6) → Anbeeld/beellama.cpp v0.1.2 (latest: profit controller fix, EOS handling for tool calling, multi-GPU correctness fallback).\n",
       "promoteImage": null,
       "promoteVideo": "",
       "subCategory": "",
       "locale": [
         "en-US"
       ],
-      "developer": "aamsellem",
+      "developer": "markus-albrecht",
       "requiredMemory": "21474836480",
       "requiredDisk": "26843545600",
       "supportClient": {},
@@ -1843,7 +1843,7 @@
           "host": "llamacppqwen36beellamavisionone",
           "port": 8000,
           "title": "Qwen36 27B BeeLlama Vision",
-          "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen36beellamavisionone.png",
+          "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/llamacppqwen36beellamavisionone.png",
           "authLevel": "internal",
           "invisible": false,
           "openMethod": "window",
@@ -1861,11 +1861,11 @@
           }
         ]
       },
-      "submitter": "aamsellem",
+      "submitter": "markus-albrecht",
       "doc": "",
       "website": "https://github.com/Anbeeld/beellama.cpp",
       "featuredImage": "",
-      "sourceCode": "https://github.com/aamsellem/olares-one-market",
+      "sourceCode": "https://github.com/markus-albrecht/olares-one-market",
       "license": [
         {
           "text": "MIT",
@@ -1881,7 +1881,7 @@
           },
           "entrances": null,
           "spec": {
-            "fullDescription": "Qwen3.6 27B vision-capable served via Anbeeld/beellama.cpp v0.1.2 fork.\nImage: aamsellem/beellama-cpp:0.1.2 (custom amd64 + CUDA 13 + sm_120 build).\nTarget: unsloth/Qwen3.6-27B-GGUF UD-Q3_K_XL (14.5 GB, non-MTP variant required by DFlash).\nVision projector: unsloth mmproj-F16.gguf (0.93 GB).\nDFlash drafter: spiritbuun/Qwen3.6-27B-DFlash-GGUF dflash-draft-3.6-q8_0 (1.85 GB).\nKV cache: turbo3 (3-bit Walsh-Hadamard rotated, scales linearly with context).\nSpec: DFlash with --spec-dflash-cross-ctx 1024, batch 2048, ubatch 2048 (mandatory ≥ image_max_tokens for non-causal vision encoder).\nValidated 2026-05-15: 106.43 t/s AVG over 10 clean runs @ 200K (range 93.29-116.67). Vision smoke test PNG gradient → \"Red\" correctly. DFlash drafter fires alongside mmproj (~27% accept).\nTrade-off vs llamacppqwen36beellamaone v1.0.2 (text-only): -1% throughput, -23% max ctx (200K vs 262K), +vision capability via OpenAI image_url content type.\nOpenAI-compatible chat API with image_url multimodal content type on port 8000.\n",
+            "fullDescription": "Qwen3.6 27B vision-capable served via Anbeeld/beellama.cpp v0.1.2 fork.\nImage: markus-albrecht/beellama-cpp:0.1.2 (custom amd64 + CUDA 13 + sm_120 build).\nTarget: unsloth/Qwen3.6-27B-GGUF UD-Q3_K_XL (14.5 GB, non-MTP variant required by DFlash).\nVision projector: unsloth mmproj-F16.gguf (0.93 GB).\nDFlash drafter: spiritbuun/Qwen3.6-27B-DFlash-GGUF dflash-draft-3.6-q8_0 (1.85 GB).\nKV cache: turbo3 (3-bit Walsh-Hadamard rotated, scales linearly with context).\nSpec: DFlash with --spec-dflash-cross-ctx 1024, batch 2048, ubatch 2048 (mandatory ≥ image_max_tokens for non-causal vision encoder).\nValidated 2026-05-15: 106.43 t/s AVG over 10 clean runs @ 200K (range 93.29-116.67). Vision smoke test PNG gradient → \"Red\" correctly. DFlash drafter fires alongside mmproj (~27% accept).\nTrade-off vs llamacppqwen36beellamaone v1.0.2 (text-only): -1% throughput, -23% max ctx (200K vs 262K), +vision capability via OpenAI image_url content type.\nOpenAI-compatible chat API with image_url multimodal content type on port 8000.\n",
             "upgradeDescription": ""
           }
         }
@@ -1897,21 +1897,21 @@
           "appName": "llamacppqwen36beellamavisionone",
           "version": "1.0.2",
           "versionName": "1.0.2",
-          "mergedAt": "2026-05-25T15:10:04.657Z",
+          "mergedAt": "2026-05-25T15:23:51.500Z",
           "upgradeDescription": ""
         }
       ],
       "screenshots": null,
       "tags": null,
       "metadata": null,
-      "updated_at": "2026-05-25T15:10:04.657Z"
+      "updated_at": "2026-05-25T15:23:51.500Z"
     },
     "49ed4ea2": {
       "id": "49ed4ea2",
       "name": "llamacppqwen36dflashone",
       "cfgType": "app",
       "chartName": "llamacppqwen36dflashone-1.0.1.tgz",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen36dflashone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/llamacppqwen36dflashone.png",
       "description": "Qwen3.6 27B + DFlash speculative + TurboQuant turbo3 KV — 76 t/s @ 96K via buun-llama-cpp fork",
       "appID": "49ed4ea2",
       "title": "Qwen36 27B DFlash One",
@@ -1920,15 +1920,15 @@
         "AI"
       ],
       "versionName": "1.0.1",
-      "fullDescription": "Qwen3.6 27B with DFlash speculative decoding + TurboQuant turbo3 KV cache via spiritbuun/buun-llama-cpp fork (forked from TheTom/llama-cpp-turboquant), optimised for Olares One.\nRTX 5090M (24 GB GDDR7, sm_120 Blackwell) + 96 GB DDR5 + Core Ultra 9 275HX.\n\nStack:\n  - Image: aamsellem/buun-llama-cpp-dflash:0.2.0 (forked from spiritbuun/buun-llama-cpp)\n  - Target: unsloth/Qwen3.6-27B-Q4_K_M.gguf (15.6 GB, standard quant)\n  - DFlash drafter: Ardenzard/Qwen3.6-27B-DFlash-GGUF/Qwen3.6-27B-DFlash-Q4_K_M.gguf (986 MB, v2 weights from z-lab 2026-04-27 update)\n  - Spec method: --spec-type dflash with gamma=6\n  - KV cache: turbo3 (3-bit Hadamard rotation, 4.5x compression vs f16)\n  - Context: 196608 (96K per-seq with DFlash n_seq_max=2)\n\nPerformance on Olares One (validated 2026-05-09):\n  - 76 t/s avg @ 96K context (Space Invaders 2000 tokens × 3 runs, range 70-84 t/s)\n  - +17% vs llamacppqwen36mtpone Long Context (65 t/s @ 128K MTP path)\n  - Drafter pos-0 acceptance ~25% (DFlash typical 60% — drafter+target alignment limits)\n  - Spec cycle: ~71 ms (draft 18 ms + verify 50 ms + accept 4 ms)\n\nWhen to use this app:\n  - You want Qwen3.6 27B faster than 65 t/s but don't need 128K context\n  - 96K context is sufficient for your agentic / RAG / long-doc workflow\n  - You prefer llama.cpp stack (vs vLLM Turbo's Genesis 28 patches)\n\nFor 128K context: use llamacppqwen36mtpone (Long Context, 65 t/s).\nFor 88 t/s @ 88K: use vllmqwen36turbo27bone (vLLM Turbo).\n\nFirst launch downloads ~16 GB target + 1 GB drafter from HuggingFace.\nExposes an OpenAI-compatible API on port 8000.\n",
-      "upgradeDescription": "v1.0.1: swap DFlash drafter from spiritbuun v1 (2026-04-24, dflash-draft-3.6-q4_k_m.gguf) to Ardenzard v2 (2026-04-28, Qwen3.6-27B-DFlash-Q4_K_M.gguf, derived from z-lab v2 update of 2026-04-27). Acceptance rate 24.67% → 29.72% (+20% relative). Throughput 76 → 77.7 t/s steady state (+2.5%, bench validated 2026-05-09). Q8_0 v2 drafter tested (acceptance 31.54%) but rejected — bigger drafter file (1.85 GB vs 1.03 GB) increases draft step time +33% which outweighs acceptance gain → net 73.2 t/s.\nv1.0.0: initial release. Qwen3.6 27B with DFlash speculative decoding + TurboQuant turbo3 KV cache, served via spiritbuun/buun-llama-cpp fork (image aamsellem/buun-llama-cpp-dflash:0.2.0). Target unsloth/Qwen3.6-27B-Q4_K_M.gguf (15.6 GB, standard quant — NOT the MTP variant which buun rejects). Drafter spiritbuun/Qwen3.6-27B-DFlash-GGUF/dflash-draft-3.6-q4_k_m.gguf (986 MB). Validated bench Olares One 2026-05-09: 76 t/s avg @ 96K context per-seq (Space Invaders 2000 tokens × 3 runs). DFlash drafter pos-0 acceptance ~25%, gamma=6 (5 spec tokens per cycle), spec cycle ~71 ms. Effective context limited to 96K because n_seq_max=2 (DFlash dual-buffer) divides ctx-size 196608 / 2 = 98304 per slot. Pushing ctx-size beyond 196608 OOMs at 24 GB VRAM (target 15.6 GB + KV turbo3 ~3 GB @ 128K + drafter 0.99 GB + buffers > limit). For 128K context use llamacppqwen36mtpone (MTP @ 65 t/s). For 88 t/s @ 88K use vllmqwen36turbo27bone.\n",
+      "fullDescription": "Qwen3.6 27B with DFlash speculative decoding + TurboQuant turbo3 KV cache via spiritbuun/buun-llama-cpp fork (forked from TheTom/llama-cpp-turboquant), optimised for Olares One.\nRTX 5090M (24 GB GDDR7, sm_120 Blackwell) + 96 GB DDR5 + Core Ultra 9 275HX.\n\nStack:\n  - Image: markus-albrecht/buun-llama-cpp-dflash:0.2.0 (forked from spiritbuun/buun-llama-cpp)\n  - Target: unsloth/Qwen3.6-27B-Q4_K_M.gguf (15.6 GB, standard quant)\n  - DFlash drafter: Ardenzard/Qwen3.6-27B-DFlash-GGUF/Qwen3.6-27B-DFlash-Q4_K_M.gguf (986 MB, v2 weights from z-lab 2026-04-27 update)\n  - Spec method: --spec-type dflash with gamma=6\n  - KV cache: turbo3 (3-bit Hadamard rotation, 4.5x compression vs f16)\n  - Context: 196608 (96K per-seq with DFlash n_seq_max=2)\n\nPerformance on Olares One (validated 2026-05-09):\n  - 76 t/s avg @ 96K context (Space Invaders 2000 tokens × 3 runs, range 70-84 t/s)\n  - +17% vs llamacppqwen36mtpone Long Context (65 t/s @ 128K MTP path)\n  - Drafter pos-0 acceptance ~25% (DFlash typical 60% — drafter+target alignment limits)\n  - Spec cycle: ~71 ms (draft 18 ms + verify 50 ms + accept 4 ms)\n\nWhen to use this app:\n  - You want Qwen3.6 27B faster than 65 t/s but don't need 128K context\n  - 96K context is sufficient for your agentic / RAG / long-doc workflow\n  - You prefer llama.cpp stack (vs vLLM Turbo's Genesis 28 patches)\n\nFor 128K context: use llamacppqwen36mtpone (Long Context, 65 t/s).\nFor 88 t/s @ 88K: use vllmqwen36turbo27bone (vLLM Turbo).\n\nFirst launch downloads ~16 GB target + 1 GB drafter from HuggingFace.\nExposes an OpenAI-compatible API on port 8000.\n",
+      "upgradeDescription": "v1.0.1: swap DFlash drafter from spiritbuun v1 (2026-04-24, dflash-draft-3.6-q4_k_m.gguf) to Ardenzard v2 (2026-04-28, Qwen3.6-27B-DFlash-Q4_K_M.gguf, derived from z-lab v2 update of 2026-04-27). Acceptance rate 24.67% → 29.72% (+20% relative). Throughput 76 → 77.7 t/s steady state (+2.5%, bench validated 2026-05-09). Q8_0 v2 drafter tested (acceptance 31.54%) but rejected — bigger drafter file (1.85 GB vs 1.03 GB) increases draft step time +33% which outweighs acceptance gain → net 73.2 t/s.\nv1.0.0: initial release. Qwen3.6 27B with DFlash speculative decoding + TurboQuant turbo3 KV cache, served via spiritbuun/buun-llama-cpp fork (image markus-albrecht/buun-llama-cpp-dflash:0.2.0). Target unsloth/Qwen3.6-27B-Q4_K_M.gguf (15.6 GB, standard quant — NOT the MTP variant which buun rejects). Drafter spiritbuun/Qwen3.6-27B-DFlash-GGUF/dflash-draft-3.6-q4_k_m.gguf (986 MB). Validated bench Olares One 2026-05-09: 76 t/s avg @ 96K context per-seq (Space Invaders 2000 tokens × 3 runs). DFlash drafter pos-0 acceptance ~25%, gamma=6 (5 spec tokens per cycle), spec cycle ~71 ms. Effective context limited to 96K because n_seq_max=2 (DFlash dual-buffer) divides ctx-size 196608 / 2 = 98304 per slot. Pushing ctx-size beyond 196608 OOMs at 24 GB VRAM (target 15.6 GB + KV turbo3 ~3 GB @ 128K + drafter 0.99 GB + buffers > limit). For 128K context use llamacppqwen36mtpone (MTP @ 65 t/s). For 88 t/s @ 88K use vllmqwen36turbo27bone.\n",
       "promoteImage": null,
       "promoteVideo": "",
       "subCategory": "",
       "locale": [
         "en-US"
       ],
-      "developer": "aamsellem",
+      "developer": "markus-albrecht",
       "requiredMemory": "21474836480",
       "requiredDisk": "26843545600",
       "supportClient": {},
@@ -1948,7 +1948,7 @@
           "host": "llamacppqwen36dflashone",
           "port": 8000,
           "title": "Qwen36 27B DFlash",
-          "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen36dflashone.png",
+          "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/llamacppqwen36dflashone.png",
           "authLevel": "internal",
           "invisible": false,
           "openMethod": "window",
@@ -1966,9 +1966,9 @@
           }
         ]
       },
-      "submitter": "aamsellem",
+      "submitter": "markus-albrecht",
       "doc": "",
-      "website": "https://github.com/aamsellem/olares-one-market",
+      "website": "https://github.com/markus-albrecht/olares-one-market",
       "featuredImage": "",
       "sourceCode": "https://github.com/spiritbuun/buun-llama-cpp",
       "license": [
@@ -1986,7 +1986,7 @@
           },
           "entrances": null,
           "spec": {
-            "fullDescription": "Qwen3.6 27B with DFlash speculative decoding + TurboQuant turbo3 KV cache via spiritbuun/buun-llama-cpp fork (forked from TheTom/llama-cpp-turboquant).\nImage: aamsellem/buun-llama-cpp-dflash:0.2.0\nTarget: unsloth/Qwen3.6-27B-Q4_K_M.gguf (15.6 GB, standard quant — NOT MTP variant which buun rejects)\nDrafter: spiritbuun/Qwen3.6-27B-DFlash-GGUF/dflash-draft-3.6-q4_k_m.gguf (986 MB)\nSpec config: --spec-type dflash, gamma=6, KV turbo3 (3-bit Hadamard, 4.5x compression vs f16)\nEffective context: 96K per-seq (n_seq_max=2 dual-buffer divides ctx-size 196608)\nValidated bench Olares One 2026-05-09: 76 t/s avg @ 96K (Space Invaders 2000 tokens × 3 runs).\n+17% vs llamacppqwen36mtpone (65 t/s @ 128K MTP).\nFor 128K context use llamacppqwen36mtpone. For 88 t/s @ 88K use vllmqwen36turbo27bone.\nOpenAI-compatible API on port 8000.\n",
+            "fullDescription": "Qwen3.6 27B with DFlash speculative decoding + TurboQuant turbo3 KV cache via spiritbuun/buun-llama-cpp fork (forked from TheTom/llama-cpp-turboquant).\nImage: markus-albrecht/buun-llama-cpp-dflash:0.2.0\nTarget: unsloth/Qwen3.6-27B-Q4_K_M.gguf (15.6 GB, standard quant — NOT MTP variant which buun rejects)\nDrafter: spiritbuun/Qwen3.6-27B-DFlash-GGUF/dflash-draft-3.6-q4_k_m.gguf (986 MB)\nSpec config: --spec-type dflash, gamma=6, KV turbo3 (3-bit Hadamard, 4.5x compression vs f16)\nEffective context: 96K per-seq (n_seq_max=2 dual-buffer divides ctx-size 196608)\nValidated bench Olares One 2026-05-09: 76 t/s avg @ 96K (Space Invaders 2000 tokens × 3 runs).\n+17% vs llamacppqwen36mtpone (65 t/s @ 128K MTP).\nFor 128K context use llamacppqwen36mtpone. For 88 t/s @ 88K use vllmqwen36turbo27bone.\nOpenAI-compatible API on port 8000.\n",
             "upgradeDescription": ""
           }
         }
@@ -2002,21 +2002,21 @@
           "appName": "llamacppqwen36dflashone",
           "version": "1.0.1",
           "versionName": "1.0.1",
-          "mergedAt": "2026-05-25T15:10:04.658Z",
+          "mergedAt": "2026-05-25T15:23:51.501Z",
           "upgradeDescription": ""
         }
       ],
       "screenshots": null,
       "tags": null,
       "metadata": null,
-      "updated_at": "2026-05-25T15:10:04.658Z"
+      "updated_at": "2026-05-25T15:23:51.501Z"
     },
     "43e83ecd": {
       "id": "43e83ecd",
       "name": "llamacppqwen36mtpone",
       "cfgType": "app",
       "chartName": "llamacppqwen36mtpone-1.0.10.tgz",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen36mtpone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/llamacppqwen36mtpone.png",
       "description": "Qwen3.6 27B longest context — 74 t/s / 86.7% accept @ full 262K (unsloth UD-Q3_K_XL + MTP master ad27757)",
       "appID": "43e83ecd",
       "title": "Qwen36 27B Long Context",
@@ -2025,15 +2025,15 @@
         "AI"
       ],
       "versionName": "1.0.10",
-      "fullDescription": "Qwen3.6 27B with Multi-Token Prediction (MTP) speculative decoding — first reproducible MTP-on-llama.cpp build for Olares One.\nRTX 5090M (24GB) + 96GB DDR5 + Core Ultra 9 275HX.\n\nStack:\n  - llama.cpp am17an/mtp-clean branch (PR #22673, 5 commits)\n  - --spec-type mtp + --spec-draft-n-max 5 + --cache-type-k/v q4_0 + 262K context\n  - Target model: froggeric/Qwen3.6-27B-Q4_K_M-mtp.gguf (16.81 GB, MTP head preserved + 7-fix chat template baked in)\n  - No separate drafter — MTP head is integrated in the GGUF\n  - Custom Docker image: aamsellem/llamacpp-mtp:0.1.0\n\nPerformance on Olares One (validated 2026-05-04):\n  - 78.1 t/s avg, range 74.9-80.6 t/s\n  - +123% vs llama.cpp standard (35 t/s baseline)\n  - Same league as vLLM Turbo (88 t/s) and Lucebox DFlash (88.5 t/s) but ZERO custom patches\n\nWhy this matters:\n  - Reproducible: one docker pull + one huggingface-cli download\n  - Maintainable: switches to upstream llama.cpp the day PR #22673 merges\n  - LM Studio / Open WebUI / Ollama compatible (OpenAI-style API on 8000)\n\nFirst launch downloads the 16.81 GB GGUF from HuggingFace — needs HF token configured in Olares user env.\nExposes an OpenAI-compatible API on port 8000.\n",
-      "upgradeDescription": "v1.0.10: bump image `aamsellem/llama-cpp-mtp:master-ad27757` → `master-bb28c1f`. Picks up am17an's PR [#23461](https://github.com/ggml-org/llama.cpp/pull/23461) \"server: free draft/MTP resources on sleep to fix VRAM leak\" (validated by community Reddit thread on b9274) + #23433 \"mtp: use inp_out_ids for skipping logit computation\" + #23131 SWA null-buffer fix + #23287 NVIDIA backend sampling (same as v1.0.9). Bench re-validated 2026-05-22: 250.08 t/s AVG on Qwen3.6 35B-A3B (10 runs, +0.3% vs ad27757 — within noise). Real win is the VRAM leak fix for sustained agentic load. Same model bits, same flags, same context.\n\nv1.0.9: SWAP to official ggml-org/llama.cpp master HEAD ad27757 (post b9219), drop custom am17an branch image. PR #22673 (MTP support) merged upstream 2026-05-16, then iterated on through three follow-up PRs we now pick up: #23269 (ggerganov 2026-05-19 \"MTP clean-up\") changed the default `--spec-draft-n-max` from 16 → 3, made `--spec-draft-p-min` functional again, fixed graph reuse for MTP drafting graphs (`batch.token && batch.embd` path), fixed ngram-k4v params propagation, and made all spec implementations see the accepted tokens (improving acceptance when chaining). #23287 (gaugarg-nv 2026-05-20 \"Move to backend sampling for MTP draft path\") is the NVIDIA-authored optimisation that moves the draft-path sampling onto the CUDA backend — this is the headline. #22522 (Programmatic Dependent Launch for Hopper+ GPUs, sm_90+/sm_120 included) ships in this build too. Custom image `aamsellem/llama-cpp-mtp:master-ad27757` for amd64+CUDA13+sm_120 (Blackwell consumer mobile), built against ggml-org/llama.cpp upstream-pure (no fork patches). Includes the `-lcuda` linker workaround pending upstream issue [#23357](https://github.com/ggml-org/llama.cpp/issues/23357) which we filed against the same `CUDA::cuda_driver` PRIVATE-scope propagation bug Anbeeld already fixed on his BeeLlama fork (Anbeeld [#18](https://github.com/Anbeeld/beellama.cpp/issues/18)).\n\nBench validated 2026-05-21 on Olares One (10 runs, Space Invaders HTML 2000 tokens each, 262K ctx, q4_0 KV, n_max=3):\n  - **74.28 t/s AVG** (range 72.60–75.14, σ=2.54 — ultra-tight)\n  - **86.7% draft acceptance AVG** (83.4–88.6%)\n  - vs v1.0.8 prod baseline (72.75 t/s / ~64% accept): **+2.1% throughput, +22 points acceptance**\n\nThe acceptance jump is the headline. The combination of n_max=3 (fewer drafts per step but each one validated more carefully) plus NVIDIA's backend-sampling rewrite makes MTP land in a much higher acceptance regime than the n_max=5 setup v1.0.8 used. Throughput is up modestly because the per-token overhead of MTP went down even though we're drafting fewer tokens per step.\n\nAlso bumps source HF repo: `unsloth/Qwen3.6-27B-GGUF-MTP` → `unsloth/Qwen3.6-27B-MTP-GGUF` (the former redirected, the latter is the canonical name post 2026-05-16 Unsloth release). Same `Qwen3.6-27B-UD-Q3_K_XL.gguf` filename — model bits unchanged from v1.0.8.\n\nFlag changes:\n  - `--spec-type mtp` → `--spec-type draft-mtp` (flag renamed upstream 2026-05-13)\n  - `--spec-draft-n-max 5` → `3` (matches new upstream default, validated as the better operating point on Blackwell mobile)\n  - `--n-gpu-layers 99` → `-ngl 99` (cleaner)\n  - default `CTX_SIZE` 128000 → 262144 (production ships at 262K)\n  - `CUDA_DEVICE_MEMORY_LIMIT_0` bumped 24300m → 30000m (HAMI workaround, no impact on inference)\n\nv1.0.8: switch havenoammo Q2_K_XL → unsloth UD-Q3_K_XL. Validated 2026-05-12 on Olares One: 72.75 t/s AVG (10 runs, range 69.30-75.95), ZERO CUDA OOM at FULL 262K context with MTP n=5. Same speed as v1.0.7 (havenoammo Q2 was 72.14 t/s) BUT with Q3 quality tier (+5-8% vs Q2 on benchmarks). Surprising finding: havenoammo's Q3_K_XL (14.92 GB) hit runtime OOM at 262K (v1.0.5 bug), but unsloth's UD-Q3_K_XL (14.8 GB, ~120 MB smaller) is rock-stable at the same context + spec config. Different MTP integration metadata / memory layout. Strict upgrade vs v1.0.7: same context, same speed, better quality. Image still aamsellem/llamacpp-mtp:0.1.0 — will swap to ghcr.io/ggml-org/llama.cpp:server-cuda13-bNNNN once am17an's MTP PR #22673 merges upstream.\nv1.0.7: get 262K back with MTP active. v1.0.6 was the safe-stable 128K fallback after v1.0.5's MTP CUDA OOM at 262K — but real users want both context AND MTP speed. Solution: swap havenoammo target Q3_K_XL (14.9 GB) → Q2_K_XL (12.3 GB), freeing 2.6 GB on top of the 1.9 GB Q3_K_XL already won over Q4_K_M. Total ~4.5 GB headroom recovered for MTP draft compute buffer — comfortably exceeds the ~2.5 GB gap that triggered `ggml_cuda_graph_evaluate_and_capture` exit-139 OOMs during `common_speculative_state_mtp::draft`. Restore CTX_SIZE → 262144, SPEC_DRAFT_N_MAX → 5. Trade-off: Q2_K_XL is a more aggressive Unsloth Dynamic quant (~5-8% quality drop on benchmarks vs Q3_K_XL). Direct bench validated 72.14 t/s STABLE. SUPERSEDED by v1.0.8 (unsloth UD-Q3_K_XL — same stability + Q3 quality).\nv1.0.6: stability fix. v1.0.5's 262K context was boot-stable on our short-prompt validation bench (77 t/s @ 262K confirmed 2026-05-09) but at-runtime users hit CUDA OOM during MTP drafting: `ggml_cuda_graph_evaluate_and_capture` exit 139 inside `common_speculative_state_mtp::draft`. Cause is the same problem documented in v1.0.2: the MTP draft compute buffer grows with the cudagraph capture shapes the prompt actually exercises — boot's static allocator estimate isn't enough headroom even with Q3_K_XL's ~1.9 GB savings vs Q4_K_M. Reduce CTX_SIZE 262144 → 131072 (proven stable in v1.0.3, also a \"long context\" tier vs the fast 88 t/s vllmqwen36turbo27bone option) and SPEC_DRAFT_N_MAX 5 → 4 (one less draft frees a few hundred MB of compute buffer). Target stays havenoammo UD-Q3_K_XL — no rebuild. Users who really want 262K and accept occasional MTP crashes can override CTX_SIZE in their values. Expected: same 65-77 t/s range from v1.0.3/1.0.5, but rock-stable. SUPERSEDED by v1.0.7 (Q2_K_XL frees enough headroom to bring back 262K + MTP).\nv1.0.5: target swap froggeric Q4_K_M-mtp (16.81 GB) → havenoammo UD-Q3_K_XL (14.92 GB, Unsloth Dynamic). Validated 2026-05-09 on Olares One: 77 t/s steady @ FULL 262K context with 75-80% draft acceptance (vs prior 65 t/s @ 128K, 64% accept). +18% speed +105% context +12 pts acceptance — single GGUF swap unlocks the Reddit-reported 80 t/s @ 262K recipe without any image rebuild. Q3_K_XL Unsloth Dynamic preserves critical layers in 6/8-bit while quantizing rest to 3-bit, giving better drafter alignment than standard Q4_K_M. The 1.9 GB target savings free up KV headroom for full 262K native context. Image still aamsellem/llamacpp-mtp:0.1.0 (am17an/mtp-clean), config flags unchanged. WARNING: runtime MTP CUDA OOM reported — fixed in v1.0.6 by reducing context to 128K.\nv1.0.4: rename + description rework — this app is now positioned as the \"long context\" Qwen3.6 27B option (vs `vllmqwen36turbo27bone` \"fast 88 t/s\"). Title: \"Qwen36 27B Long Context\". Add HAMi-core `0m` parsing bug workaround (`CUDA_DEVICE_MEMORY_LIMIT_0=24300m`) as precaution (the llama.cpp MTP path didn't trigger the bug in our tests but the override is harmless). 4 redundant Qwen3.6 27B apps removed from the market in same release: dflashqwen36one, lucedflashqwen36one, vllmqwen36dense27bone, llamacppqwen36dense27bone.\nv1.0.3: bump CTX_SIZE 32000 → 128000 (sweet spot between v1.0.1's failed 262K and v1.0.2's safe 32K). Estimation: KV q4_0 on 16 full-attention layers ≈ 16KB/token → 128K ctx = ~2 GB KV (vs ~4.3 GB at 262K). Leaves ~4 GB free for MTP draft compute buffers (proven 32K worked with ~5.6 GB free at 78 t/s). 4× more context than v1.0.2 for agentic/long-context workflows. If OOM, fall back to v1.0.2 (32K) or move to IQ4_XS quant for more VRAM headroom at full context.\nv1.0.2: revert CTX_SIZE 262144 → 32000. v1.0.1's 262K context made the MTP context allocation OOM at compute buffer stage (`graph_reserve: failed to allocate compute buffers / failed to create MTP context`). After model + KV q4_0 only ~1.8 GiB free, not enough for MTP draft head compute buffers. Pod fell back to non-MTP mode → 37 t/s baseline (vs expected 78 t/s). 32K context proven to fit on 24 GB with MTP active. froggeric's table claim \"24 GB Q4_K_M q4_0 262K = 22.8 GB\" doesn't account for MTP draft compute buffer overhead. Other v1.0.1 changes kept (q4_0 KV cache, spec-draft-n-max 5, batch/ubatch 512, model still froggeric/Qwen3.6-27B-Q4_K_M-mtp.gguf with 7-fix chat template baked in). Future direction: try IQ3_M or IQ4_XS to free more VRAM for higher context.\nv1.0.1: switch to froggeric/Qwen3.6-27B-MTP-GGUF (community-recommended quants per ex-arman68's r/LocalLLaMA post 2026-05-06, 678 upvotes). Uses Qwen3.6-27B-Q4_K_M-mtp.gguf (16.81 GB) with froggeric's 7-fix chat template baked in. Bumps CTX_SIZE 32000 → 262144 (full native 262K context, 8.2× larger), adds q4_0 KV cache (4-bit, quarter the KV memory at minor quality cost), bumps spec-draft-n-max 4 → 5 (community-recommended sweet spot for Qwen3.6 MTP), bumps batch/ubatch 256/64 → 512/512 (better prompt processing). Total VRAM ~22.8 GB at 262K — fits comfortably in 24 GB. Vision NOT enabled (currently crashes llama.cpp when used alongside MTP per upstream report 2026-05-06). Image still aamsellem/llamacpp-mtp:0.1.0 from am17an/mtp-clean PR #22673 branch.\nv1.0.0: initial release. Qwen3.6 27B served via llama.cpp PR #22673 (am17an/mtp-clean, OPEN BLOCKED but tested 2026-05-04). Custom image aamsellem/llamacpp-mtp:0.1.0 built from am17an/mtp-clean branch (5 commits including MTP support + qwen35moe_mtp model wiring + GDN partial seq_rm). Target model RDson/Qwen3.6-27B-MTP-Q4_K_M-GGUF (16.49 GB Q4_K_M with MTP head — standard unsloth quants strip the head, RDson preserved it). Validated 2026-05-04 on Olares One: 78.1 t/s avg over 3 Space Invaders prompts (Run1=74.91, Run2=80.60, Run3=78.78), +123% vs llama.cpp standard baseline (35 t/s). Stack is upstream-pure (one open PR + one HF GGUF) — once PR #22673 merges into ggml-org/llama.cpp master, this app will switch to ghcr.io/ggml-org/llama.cpp:server-cuda13-bNNNN with same flags.\n",
+      "fullDescription": "Qwen3.6 27B with Multi-Token Prediction (MTP) speculative decoding — first reproducible MTP-on-llama.cpp build for Olares One.\nRTX 5090M (24GB) + 96GB DDR5 + Core Ultra 9 275HX.\n\nStack:\n  - llama.cpp am17an/mtp-clean branch (PR #22673, 5 commits)\n  - --spec-type mtp + --spec-draft-n-max 5 + --cache-type-k/v q4_0 + 262K context\n  - Target model: froggeric/Qwen3.6-27B-Q4_K_M-mtp.gguf (16.81 GB, MTP head preserved + 7-fix chat template baked in)\n  - No separate drafter — MTP head is integrated in the GGUF\n  - Custom Docker image: markus-albrecht/llamacpp-mtp:0.1.0\n\nPerformance on Olares One (validated 2026-05-04):\n  - 78.1 t/s avg, range 74.9-80.6 t/s\n  - +123% vs llama.cpp standard (35 t/s baseline)\n  - Same league as vLLM Turbo (88 t/s) and Lucebox DFlash (88.5 t/s) but ZERO custom patches\n\nWhy this matters:\n  - Reproducible: one docker pull + one huggingface-cli download\n  - Maintainable: switches to upstream llama.cpp the day PR #22673 merges\n  - LM Studio / Open WebUI / Ollama compatible (OpenAI-style API on 8000)\n\nFirst launch downloads the 16.81 GB GGUF from HuggingFace — needs HF token configured in Olares user env.\nExposes an OpenAI-compatible API on port 8000.\n",
+      "upgradeDescription": "v1.0.10: bump image `markus-albrecht/llama-cpp-mtp:master-ad27757` → `master-bb28c1f`. Picks up am17an's PR [#23461](https://github.com/ggml-org/llama.cpp/pull/23461) \"server: free draft/MTP resources on sleep to fix VRAM leak\" (validated by community Reddit thread on b9274) + #23433 \"mtp: use inp_out_ids for skipping logit computation\" + #23131 SWA null-buffer fix + #23287 NVIDIA backend sampling (same as v1.0.9). Bench re-validated 2026-05-22: 250.08 t/s AVG on Qwen3.6 35B-A3B (10 runs, +0.3% vs ad27757 — within noise). Real win is the VRAM leak fix for sustained agentic load. Same model bits, same flags, same context.\n\nv1.0.9: SWAP to official ggml-org/llama.cpp master HEAD ad27757 (post b9219), drop custom am17an branch image. PR #22673 (MTP support) merged upstream 2026-05-16, then iterated on through three follow-up PRs we now pick up: #23269 (ggerganov 2026-05-19 \"MTP clean-up\") changed the default `--spec-draft-n-max` from 16 → 3, made `--spec-draft-p-min` functional again, fixed graph reuse for MTP drafting graphs (`batch.token && batch.embd` path), fixed ngram-k4v params propagation, and made all spec implementations see the accepted tokens (improving acceptance when chaining). #23287 (gaugarg-nv 2026-05-20 \"Move to backend sampling for MTP draft path\") is the NVIDIA-authored optimisation that moves the draft-path sampling onto the CUDA backend — this is the headline. #22522 (Programmatic Dependent Launch for Hopper+ GPUs, sm_90+/sm_120 included) ships in this build too. Custom image `markus-albrecht/llama-cpp-mtp:master-ad27757` for amd64+CUDA13+sm_120 (Blackwell consumer mobile), built against ggml-org/llama.cpp upstream-pure (no fork patches). Includes the `-lcuda` linker workaround pending upstream issue [#23357](https://github.com/ggml-org/llama.cpp/issues/23357) which we filed against the same `CUDA::cuda_driver` PRIVATE-scope propagation bug Anbeeld already fixed on his BeeLlama fork (Anbeeld [#18](https://github.com/Anbeeld/beellama.cpp/issues/18)).\n\nBench validated 2026-05-21 on Olares One (10 runs, Space Invaders HTML 2000 tokens each, 262K ctx, q4_0 KV, n_max=3):\n  - **74.28 t/s AVG** (range 72.60–75.14, σ=2.54 — ultra-tight)\n  - **86.7% draft acceptance AVG** (83.4–88.6%)\n  - vs v1.0.8 prod baseline (72.75 t/s / ~64% accept): **+2.1% throughput, +22 points acceptance**\n\nThe acceptance jump is the headline. The combination of n_max=3 (fewer drafts per step but each one validated more carefully) plus NVIDIA's backend-sampling rewrite makes MTP land in a much higher acceptance regime than the n_max=5 setup v1.0.8 used. Throughput is up modestly because the per-token overhead of MTP went down even though we're drafting fewer tokens per step.\n\nAlso bumps source HF repo: `unsloth/Qwen3.6-27B-GGUF-MTP` → `unsloth/Qwen3.6-27B-MTP-GGUF` (the former redirected, the latter is the canonical name post 2026-05-16 Unsloth release). Same `Qwen3.6-27B-UD-Q3_K_XL.gguf` filename — model bits unchanged from v1.0.8.\n\nFlag changes:\n  - `--spec-type mtp` → `--spec-type draft-mtp` (flag renamed upstream 2026-05-13)\n  - `--spec-draft-n-max 5` → `3` (matches new upstream default, validated as the better operating point on Blackwell mobile)\n  - `--n-gpu-layers 99` → `-ngl 99` (cleaner)\n  - default `CTX_SIZE` 128000 → 262144 (production ships at 262K)\n  - `CUDA_DEVICE_MEMORY_LIMIT_0` bumped 24300m → 30000m (HAMI workaround, no impact on inference)\n\nv1.0.8: switch havenoammo Q2_K_XL → unsloth UD-Q3_K_XL. Validated 2026-05-12 on Olares One: 72.75 t/s AVG (10 runs, range 69.30-75.95), ZERO CUDA OOM at FULL 262K context with MTP n=5. Same speed as v1.0.7 (havenoammo Q2 was 72.14 t/s) BUT with Q3 quality tier (+5-8% vs Q2 on benchmarks). Surprising finding: havenoammo's Q3_K_XL (14.92 GB) hit runtime OOM at 262K (v1.0.5 bug), but unsloth's UD-Q3_K_XL (14.8 GB, ~120 MB smaller) is rock-stable at the same context + spec config. Different MTP integration metadata / memory layout. Strict upgrade vs v1.0.7: same context, same speed, better quality. Image still markus-albrecht/llamacpp-mtp:0.1.0 — will swap to ghcr.io/ggml-org/llama.cpp:server-cuda13-bNNNN once am17an's MTP PR #22673 merges upstream.\nv1.0.7: get 262K back with MTP active. v1.0.6 was the safe-stable 128K fallback after v1.0.5's MTP CUDA OOM at 262K — but real users want both context AND MTP speed. Solution: swap havenoammo target Q3_K_XL (14.9 GB) → Q2_K_XL (12.3 GB), freeing 2.6 GB on top of the 1.9 GB Q3_K_XL already won over Q4_K_M. Total ~4.5 GB headroom recovered for MTP draft compute buffer — comfortably exceeds the ~2.5 GB gap that triggered `ggml_cuda_graph_evaluate_and_capture` exit-139 OOMs during `common_speculative_state_mtp::draft`. Restore CTX_SIZE → 262144, SPEC_DRAFT_N_MAX → 5. Trade-off: Q2_K_XL is a more aggressive Unsloth Dynamic quant (~5-8% quality drop on benchmarks vs Q3_K_XL). Direct bench validated 72.14 t/s STABLE. SUPERSEDED by v1.0.8 (unsloth UD-Q3_K_XL — same stability + Q3 quality).\nv1.0.6: stability fix. v1.0.5's 262K context was boot-stable on our short-prompt validation bench (77 t/s @ 262K confirmed 2026-05-09) but at-runtime users hit CUDA OOM during MTP drafting: `ggml_cuda_graph_evaluate_and_capture` exit 139 inside `common_speculative_state_mtp::draft`. Cause is the same problem documented in v1.0.2: the MTP draft compute buffer grows with the cudagraph capture shapes the prompt actually exercises — boot's static allocator estimate isn't enough headroom even with Q3_K_XL's ~1.9 GB savings vs Q4_K_M. Reduce CTX_SIZE 262144 → 131072 (proven stable in v1.0.3, also a \"long context\" tier vs the fast 88 t/s vllmqwen36turbo27bone option) and SPEC_DRAFT_N_MAX 5 → 4 (one less draft frees a few hundred MB of compute buffer). Target stays havenoammo UD-Q3_K_XL — no rebuild. Users who really want 262K and accept occasional MTP crashes can override CTX_SIZE in their values. Expected: same 65-77 t/s range from v1.0.3/1.0.5, but rock-stable. SUPERSEDED by v1.0.7 (Q2_K_XL frees enough headroom to bring back 262K + MTP).\nv1.0.5: target swap froggeric Q4_K_M-mtp (16.81 GB) → havenoammo UD-Q3_K_XL (14.92 GB, Unsloth Dynamic). Validated 2026-05-09 on Olares One: 77 t/s steady @ FULL 262K context with 75-80% draft acceptance (vs prior 65 t/s @ 128K, 64% accept). +18% speed +105% context +12 pts acceptance — single GGUF swap unlocks the Reddit-reported 80 t/s @ 262K recipe without any image rebuild. Q3_K_XL Unsloth Dynamic preserves critical layers in 6/8-bit while quantizing rest to 3-bit, giving better drafter alignment than standard Q4_K_M. The 1.9 GB target savings free up KV headroom for full 262K native context. Image still markus-albrecht/llamacpp-mtp:0.1.0 (am17an/mtp-clean), config flags unchanged. WARNING: runtime MTP CUDA OOM reported — fixed in v1.0.6 by reducing context to 128K.\nv1.0.4: rename + description rework — this app is now positioned as the \"long context\" Qwen3.6 27B option (vs `vllmqwen36turbo27bone` \"fast 88 t/s\"). Title: \"Qwen36 27B Long Context\". Add HAMi-core `0m` parsing bug workaround (`CUDA_DEVICE_MEMORY_LIMIT_0=24300m`) as precaution (the llama.cpp MTP path didn't trigger the bug in our tests but the override is harmless). 4 redundant Qwen3.6 27B apps removed from the market in same release: dflashqwen36one, lucedflashqwen36one, vllmqwen36dense27bone, llamacppqwen36dense27bone.\nv1.0.3: bump CTX_SIZE 32000 → 128000 (sweet spot between v1.0.1's failed 262K and v1.0.2's safe 32K). Estimation: KV q4_0 on 16 full-attention layers ≈ 16KB/token → 128K ctx = ~2 GB KV (vs ~4.3 GB at 262K). Leaves ~4 GB free for MTP draft compute buffers (proven 32K worked with ~5.6 GB free at 78 t/s). 4× more context than v1.0.2 for agentic/long-context workflows. If OOM, fall back to v1.0.2 (32K) or move to IQ4_XS quant for more VRAM headroom at full context.\nv1.0.2: revert CTX_SIZE 262144 → 32000. v1.0.1's 262K context made the MTP context allocation OOM at compute buffer stage (`graph_reserve: failed to allocate compute buffers / failed to create MTP context`). After model + KV q4_0 only ~1.8 GiB free, not enough for MTP draft head compute buffers. Pod fell back to non-MTP mode → 37 t/s baseline (vs expected 78 t/s). 32K context proven to fit on 24 GB with MTP active. froggeric's table claim \"24 GB Q4_K_M q4_0 262K = 22.8 GB\" doesn't account for MTP draft compute buffer overhead. Other v1.0.1 changes kept (q4_0 KV cache, spec-draft-n-max 5, batch/ubatch 512, model still froggeric/Qwen3.6-27B-Q4_K_M-mtp.gguf with 7-fix chat template baked in). Future direction: try IQ3_M or IQ4_XS to free more VRAM for higher context.\nv1.0.1: switch to froggeric/Qwen3.6-27B-MTP-GGUF (community-recommended quants per ex-arman68's r/LocalLLaMA post 2026-05-06, 678 upvotes). Uses Qwen3.6-27B-Q4_K_M-mtp.gguf (16.81 GB) with froggeric's 7-fix chat template baked in. Bumps CTX_SIZE 32000 → 262144 (full native 262K context, 8.2× larger), adds q4_0 KV cache (4-bit, quarter the KV memory at minor quality cost), bumps spec-draft-n-max 4 → 5 (community-recommended sweet spot for Qwen3.6 MTP), bumps batch/ubatch 256/64 → 512/512 (better prompt processing). Total VRAM ~22.8 GB at 262K — fits comfortably in 24 GB. Vision NOT enabled (currently crashes llama.cpp when used alongside MTP per upstream report 2026-05-06). Image still markus-albrecht/llamacpp-mtp:0.1.0 from am17an/mtp-clean PR #22673 branch.\nv1.0.0: initial release. Qwen3.6 27B served via llama.cpp PR #22673 (am17an/mtp-clean, OPEN BLOCKED but tested 2026-05-04). Custom image markus-albrecht/llamacpp-mtp:0.1.0 built from am17an/mtp-clean branch (5 commits including MTP support + qwen35moe_mtp model wiring + GDN partial seq_rm). Target model RDson/Qwen3.6-27B-MTP-Q4_K_M-GGUF (16.49 GB Q4_K_M with MTP head — standard unsloth quants strip the head, RDson preserved it). Validated 2026-05-04 on Olares One: 78.1 t/s avg over 3 Space Invaders prompts (Run1=74.91, Run2=80.60, Run3=78.78), +123% vs llama.cpp standard baseline (35 t/s). Stack is upstream-pure (one open PR + one HF GGUF) — once PR #22673 merges into ggml-org/llama.cpp master, this app will switch to ghcr.io/ggml-org/llama.cpp:server-cuda13-bNNNN with same flags.\n",
       "promoteImage": null,
       "promoteVideo": "",
       "subCategory": "",
       "locale": [
         "en-US"
       ],
-      "developer": "aamsellem",
+      "developer": "markus-albrecht",
       "requiredMemory": "21474836480",
       "requiredDisk": "26843545600",
       "supportClient": {},
@@ -2053,7 +2053,7 @@
           "host": "llamacppqwen36mtpone",
           "port": 8000,
           "title": "Qwen36 27B MTP",
-          "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen36mtpone.png",
+          "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/llamacppqwen36mtpone.png",
           "authLevel": "internal",
           "invisible": false,
           "openMethod": "window",
@@ -2071,9 +2071,9 @@
           }
         ]
       },
-      "submitter": "aamsellem",
+      "submitter": "markus-albrecht",
       "doc": "",
-      "website": "https://github.com/aamsellem/olares-one-market",
+      "website": "https://github.com/markus-albrecht/olares-one-market",
       "featuredImage": "",
       "sourceCode": "https://github.com/am17an/llama.cpp/tree/mtp-clean",
       "license": [
@@ -2091,7 +2091,7 @@
           },
           "entrances": null,
           "spec": {
-            "fullDescription": "Qwen3.6 27B with Multi-Token Prediction (MTP) speculative decoding via llama.cpp PR #22673.\nTarget: havenoammo/Qwen3.6-27B-MTP-UD-GGUF/Qwen3.6-27B-MTP-UD-Q3_K_XL.gguf (14.92 GB, Unsloth Dynamic Q3_K_XL with MTP head preserved).\nImage: aamsellem/llamacpp-mtp:0.1.0 built from am17an/mtp-clean branch.\nConfig: full 262K context, q4_0 KV cache, spec-draft-n-max 5.\nValidated 2026-05-09: 77 t/s steady, 75-80% draft acceptance, full 262K native context.\n+18% speed and +105% context vs prior froggeric Q4_K_M-mtp config (65 t/s @ 128K).\nBeats Reddit-reported 80 t/s @ 262K recipe without any custom image — single GGUF swap.\nOpenAI-compatible API on port 8000.\n",
+            "fullDescription": "Qwen3.6 27B with Multi-Token Prediction (MTP) speculative decoding via llama.cpp PR #22673.\nTarget: havenoammo/Qwen3.6-27B-MTP-UD-GGUF/Qwen3.6-27B-MTP-UD-Q3_K_XL.gguf (14.92 GB, Unsloth Dynamic Q3_K_XL with MTP head preserved).\nImage: markus-albrecht/llamacpp-mtp:0.1.0 built from am17an/mtp-clean branch.\nConfig: full 262K context, q4_0 KV cache, spec-draft-n-max 5.\nValidated 2026-05-09: 77 t/s steady, 75-80% draft acceptance, full 262K native context.\n+18% speed and +105% context vs prior froggeric Q4_K_M-mtp config (65 t/s @ 128K).\nBeats Reddit-reported 80 t/s @ 262K recipe without any custom image — single GGUF swap.\nOpenAI-compatible API on port 8000.\n",
             "upgradeDescription": ""
           }
         }
@@ -2107,21 +2107,21 @@
           "appName": "llamacppqwen36mtpone",
           "version": "1.0.10",
           "versionName": "1.0.10",
-          "mergedAt": "2026-05-25T15:10:04.660Z",
+          "mergedAt": "2026-05-25T15:23:51.503Z",
           "upgradeDescription": ""
         }
       ],
       "screenshots": null,
       "tags": null,
       "metadata": null,
-      "updated_at": "2026-05-25T15:10:04.660Z"
+      "updated_at": "2026-05-25T15:23:51.503Z"
     },
     "fa4ef911": {
       "id": "fa4ef911",
       "name": "nemotron3nano4bone",
       "cfgType": "app",
       "chartName": "nemotron3nano4bone-1.0.5.tgz",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/nemotron3nano4bone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/nemotron3nano4bone.png",
       "description": "Nemotron 3 Nano 4B Q8 via llama.cpp — fast edge AI, optimised for Olares One",
       "appID": "fa4ef911",
       "title": "Nemotron 3 Nano 4B One",
@@ -2138,7 +2138,7 @@
       "locale": [
         "en-US"
       ],
-      "developer": "aamsellem",
+      "developer": "markus-albrecht",
       "requiredMemory": "8589934592",
       "requiredDisk": "10737418240",
       "supportClient": {},
@@ -2158,7 +2158,7 @@
           "host": "nemotron3nano4bone",
           "port": 8080,
           "title": "Nemotron Nano 4B One",
-          "icon": "https://orales-one-market.aamsellem.workers.dev/icons/nemotron3nano4bone.png",
+          "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/nemotron3nano4bone.png",
           "authLevel": "internal",
           "invisible": false,
           "openMethod": "window",
@@ -2176,11 +2176,11 @@
           }
         ]
       },
-      "submitter": "aamsellem",
+      "submitter": "markus-albrecht",
       "doc": "",
-      "website": "https://github.com/aamsellem/olares-one-market",
+      "website": "https://github.com/markus-albrecht/olares-one-market",
       "featuredImage": "",
-      "sourceCode": "https://github.com/aamsellem/olares-one-market",
+      "sourceCode": "https://github.com/markus-albrecht/olares-one-market",
       "license": [
         {
           "text": "NVIDIA Open Model License",
@@ -2212,21 +2212,21 @@
           "appName": "nemotron3nano4bone",
           "version": "1.0.5",
           "versionName": "1.0.3",
-          "mergedAt": "2026-05-25T15:10:04.660Z",
+          "mergedAt": "2026-05-25T15:23:51.503Z",
           "upgradeDescription": ""
         }
       ],
       "screenshots": null,
       "tags": null,
       "metadata": null,
-      "updated_at": "2026-05-25T15:10:04.660Z"
+      "updated_at": "2026-05-25T15:23:51.503Z"
     },
     "99dafa10": {
       "id": "99dafa10",
       "name": "nemotronlabselastic30bnvfp4one",
       "cfgType": "app",
       "chartName": "nemotronlabselastic30bnvfp4one-1.0.1.tgz",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/nemotronlabselastic30bnvfp4one.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/nemotronlabselastic30bnvfp4one.png",
       "description": "NVIDIA Nemotron-Labs Elastic 30B-A3B NVFP4 — 182 t/s via FlashInfer SM120 (PR #40082) on Olares One",
       "appID": "99dafa10",
       "title": "Nemotron-Labs 30B NVFP4 One",
@@ -2236,14 +2236,14 @@
       ],
       "versionName": "1.0.1",
       "fullDescription": "NVIDIA Nemotron-Labs Elastic 30B-A3B NVFP4 — the fastest local LLM on Olares One.\nRTX 5090M (24 GB GDDR7, sm_120 Blackwell consumer mobile) + 96 GB DDR5 + Core Ultra 9 275HX.\n\nBench validated 2026-05-21 (10 runs Space Invaders HTML 2000 tokens, single user, vLLM nightly):\n  - **165.91 t/s AVG post-warmup** (9 runs, range 165.25 – 166.62, σ ≈ 0.5)\n  - First run = 23 t/s warmup (graph capture)\n  - All subsequent runs converge to 165 t/s within 0.5 t/s\n\nStack:\n  - Image: vllm/vllm-openai:nightly\n  - Model: nvidia/NVIDIA-Nemotron-Labs-3-Elastic-30B-A3B-NVFP4 (~19 GB)\n  - NVFP4 GEMM: FlashInferCutlassNvFp4LinearKernel\n  - MoE backend: FLASHINFER_CUTLASS\n  - Attention backend: FLASH_ATTN v2\n  - CUDA graphs: PIECEWISE mode, capture_sizes [1,2,4] (only 40 MB pool)\n  - max_model_len: 4096 (limited by 24 GB KV cache headroom)\n  - max_num_seqs: 1\n\nTrade-off vs other paths on Olares One:\n  - Use for: pure speed, single-shot Q&A, code completion, agentic Hermes calls (4K context fits most)\n  - Don't use for: long-context PDF parsing (use llamacppqwen36beellamaone @ 262K), multi-user concurrency (use vllmgemma426ba4bvisionone), vision (use vllmgemma426ba4bvisionone)\n\nNVIDIA Open Model License. Tool calling NOT yet wired (no parser config). Thinking mode default ON via model template.\n\nFirst launch downloads ~19 GB. OpenAI-compatible API on port 8000.\n",
-      "upgradeDescription": "v1.0.1: swap image `vllm/vllm-openai:nightly` (v0.19.2rc1, 2026-05-20 06:22 UTC) → `vllm/vllm-openai:cu129-nightly-x86_64` (v0.21.1rc1.dev169+ga6682d1d2, 2026-05-21 07:38 UTC). New nightly includes PR [#40082](https://github.com/vllm-project/vllm/pull/40082) (meena-at-work, NVIDIA): \"Integrate flashinfer b12x MoE and FP4 GEMM kernels for SM120/121\". **Bench validated 2026-05-21 on Olares One: 182.14 t/s AVG post-warmup** (9 runs, range 181.85–182.65, σ ≈ 0.3 — even tighter than v1.0.0). **+9.8% vs v1.0.0 (165.91 t/s)** — pure FlashInfer SM120 kernel uplift on NVFP4 MoE. Same model, same compilation-config PIECEWISE graphs, same max_model_len=4096. Confirms the kernel-path matters: PR #40082 specifically targets sm_120/121 (Blackwell consumer) FP4 GEMM, and our hardware is exactly the target.\n\nTrade-off: v0.21 nightly has stricter KV cache memory accounting than v0.19 — Gemma 4 + Q4 AWQ benched -1.5% on same config because v0.21 forces max_model_len from 128K → 8K to leave KV headroom. But the NVFP4-MoE FlashInfer kernels still net +10% throughput on this Nemotron path. For NVFP4 models specifically, v0.21+ is a strict upgrade. For non-NVFP4 (AWQ/GPTQ/GGUF) keep older image.\n\nv1.0.0: initial release. NVIDIA Nemotron-Labs Elastic 30B-A3B with native NVFP4 quantization. **First public bench on consumer Blackwell mobile (sm_120 / RTX 5090M): 165.91 t/s AVG** (9 runs post-warmup, range 1.37, σ ≈ 0.5). NEW Olares One champion — **+22% vs Gemma 4 26B-A4B** (135.97 prior champion), +55% vs BeeLlama Qwen3.6 27B + DFlash (107.54), +124% vs llama.cpp Qwen3.6 27B + MTP master (74.28).\n\nWhy it's so fast on Blackwell:\n- Native NVFP4 tensor core path (no dequantize-and-multiply step). vLLM auto-selects `FlashInferCutlassNvFp4LinearKernel` GEMM + `FLASHINFER_CUTLASS` MoE backend.\n- MoE-A3B routing: 128 experts + 1 shared, only ~3B params active per token — comparable active-compute to a dense 3B model.\n- Hybrid Mamba+Attention (`NemotronHForCausalLM`): half the layers are linear-cost state-space, half are quadratic attention.\n\nThe CUDA-graph trick: vLLM's default `FULL_AND_PIECEWISE` graph capture reserves ~4 GB on top of the 18.78 GB model weights, OOM'ing on 24 GB GPUs. This chart ships with `--compilation-config '{\"cudagraph_mode\": 1, \"max_cudagraph_capture_size\": 4, \"cudagraph_capture_sizes\": [1, 2, 4]}'` which switches to PIECEWISE-only with restricted capture sizes. CUDA graph pool drops from ~4 GB to **40 MB**, leaving enough headroom for the model + KV cache.\n\nConstraints:\n- `max_model_len = 4096` — at 32K context the KV cache wouldn't fit alongside model + graphs. Single-shot Q&A / code completion / agentic calls work fine; long PDFs / multi-turn coding need another app (e.g. `llamacppqwen36beellamaone` at 262K context).\n- `max_num_seqs = 1` — single-stream, no concurrency. Multi-user case wants the Gemma 4 vision app instead.\n- First request after pod boot: ~85s (CUDA graph capture + JIT compile). Subsequent requests hit 165 t/s immediately.\n- NVFP4 quality vs INT4: ModelOpt warns \"experimental\". Kimi K2.5/K2.6 NVFP4 benches show within-1% MMLU divergence vs INT4 baseline. For this 30B I haven't done quality eval yet — recommended for fast prototyping, not (yet) for hard production tasks.\n\nStack:\n- Image: `vllm/vllm-openai:nightly` (vLLM v0.19.2rc1.dev107+g4eafc7292, pinned in chart)\n- Model: `nvidia/NVIDIA-Nemotron-Labs-3-Elastic-30B-A3B-NVFP4` (HF, ~19 GB, NVIDIA Open Model License, public download — no HF token required)\n- First launch downloads ~19 GB of safetensors. OpenAI-compatible chat API on port 8000.\n\nReference: [Blog post EN](https://aamsellem.com/blog/en/nemotron-nvfp4-blackwell-mobile-166-tps/) | [FR](https://aamsellem.com/blog/fr/nemotron-nvfp4-blackwell-mobile-166-tps/)\n",
+      "upgradeDescription": "v1.0.1: swap image `vllm/vllm-openai:nightly` (v0.19.2rc1, 2026-05-20 06:22 UTC) → `vllm/vllm-openai:cu129-nightly-x86_64` (v0.21.1rc1.dev169+ga6682d1d2, 2026-05-21 07:38 UTC). New nightly includes PR [#40082](https://github.com/vllm-project/vllm/pull/40082) (meena-at-work, NVIDIA): \"Integrate flashinfer b12x MoE and FP4 GEMM kernels for SM120/121\". **Bench validated 2026-05-21 on Olares One: 182.14 t/s AVG post-warmup** (9 runs, range 181.85–182.65, σ ≈ 0.3 — even tighter than v1.0.0). **+9.8% vs v1.0.0 (165.91 t/s)** — pure FlashInfer SM120 kernel uplift on NVFP4 MoE. Same model, same compilation-config PIECEWISE graphs, same max_model_len=4096. Confirms the kernel-path matters: PR #40082 specifically targets sm_120/121 (Blackwell consumer) FP4 GEMM, and our hardware is exactly the target.\n\nTrade-off: v0.21 nightly has stricter KV cache memory accounting than v0.19 — Gemma 4 + Q4 AWQ benched -1.5% on same config because v0.21 forces max_model_len from 128K → 8K to leave KV headroom. But the NVFP4-MoE FlashInfer kernels still net +10% throughput on this Nemotron path. For NVFP4 models specifically, v0.21+ is a strict upgrade. For non-NVFP4 (AWQ/GPTQ/GGUF) keep older image.\n\nv1.0.0: initial release. NVIDIA Nemotron-Labs Elastic 30B-A3B with native NVFP4 quantization. **First public bench on consumer Blackwell mobile (sm_120 / RTX 5090M): 165.91 t/s AVG** (9 runs post-warmup, range 1.37, σ ≈ 0.5). NEW Olares One champion — **+22% vs Gemma 4 26B-A4B** (135.97 prior champion), +55% vs BeeLlama Qwen3.6 27B + DFlash (107.54), +124% vs llama.cpp Qwen3.6 27B + MTP master (74.28).\n\nWhy it's so fast on Blackwell:\n- Native NVFP4 tensor core path (no dequantize-and-multiply step). vLLM auto-selects `FlashInferCutlassNvFp4LinearKernel` GEMM + `FLASHINFER_CUTLASS` MoE backend.\n- MoE-A3B routing: 128 experts + 1 shared, only ~3B params active per token — comparable active-compute to a dense 3B model.\n- Hybrid Mamba+Attention (`NemotronHForCausalLM`): half the layers are linear-cost state-space, half are quadratic attention.\n\nThe CUDA-graph trick: vLLM's default `FULL_AND_PIECEWISE` graph capture reserves ~4 GB on top of the 18.78 GB model weights, OOM'ing on 24 GB GPUs. This chart ships with `--compilation-config '{\"cudagraph_mode\": 1, \"max_cudagraph_capture_size\": 4, \"cudagraph_capture_sizes\": [1, 2, 4]}'` which switches to PIECEWISE-only with restricted capture sizes. CUDA graph pool drops from ~4 GB to **40 MB**, leaving enough headroom for the model + KV cache.\n\nConstraints:\n- `max_model_len = 4096` — at 32K context the KV cache wouldn't fit alongside model + graphs. Single-shot Q&A / code completion / agentic calls work fine; long PDFs / multi-turn coding need another app (e.g. `llamacppqwen36beellamaone` at 262K context).\n- `max_num_seqs = 1` — single-stream, no concurrency. Multi-user case wants the Gemma 4 vision app instead.\n- First request after pod boot: ~85s (CUDA graph capture + JIT compile). Subsequent requests hit 165 t/s immediately.\n- NVFP4 quality vs INT4: ModelOpt warns \"experimental\". Kimi K2.5/K2.6 NVFP4 benches show within-1% MMLU divergence vs INT4 baseline. For this 30B I haven't done quality eval yet — recommended for fast prototyping, not (yet) for hard production tasks.\n\nStack:\n- Image: `vllm/vllm-openai:nightly` (vLLM v0.19.2rc1.dev107+g4eafc7292, pinned in chart)\n- Model: `nvidia/NVIDIA-Nemotron-Labs-3-Elastic-30B-A3B-NVFP4` (HF, ~19 GB, NVIDIA Open Model License, public download — no HF token required)\n- First launch downloads ~19 GB of safetensors. OpenAI-compatible chat API on port 8000.\n\nReference: [Blog post EN](https://markus-albrecht.com/blog/en/nemotron-nvfp4-blackwell-mobile-166-tps/) | [FR](https://markus-albrecht.com/blog/fr/nemotron-nvfp4-blackwell-mobile-166-tps/)\n",
       "promoteImage": null,
       "promoteVideo": "",
       "subCategory": "",
       "locale": [
         "en-US"
       ],
-      "developer": "aamsellem",
+      "developer": "markus-albrecht",
       "requiredMemory": "21474836480",
       "requiredDisk": "26843545600",
       "supportClient": {},
@@ -2263,7 +2263,7 @@
           "host": "nemotronlabselastic30bnvfp4one",
           "port": 8000,
           "title": "Nemotron-Labs 30B NVFP4",
-          "icon": "https://orales-one-market.aamsellem.workers.dev/icons/nemotronlabselastic30bnvfp4one.png",
+          "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/nemotronlabselastic30bnvfp4one.png",
           "authLevel": "internal",
           "invisible": false,
           "openMethod": "window",
@@ -2281,11 +2281,11 @@
           }
         ]
       },
-      "submitter": "aamsellem",
+      "submitter": "markus-albrecht",
       "doc": "",
       "website": "https://huggingface.co/nvidia/NVIDIA-Nemotron-Labs-3-Elastic-30B-A3B-NVFP4",
       "featuredImage": "",
-      "sourceCode": "https://github.com/aamsellem/orales-one-market",
+      "sourceCode": "https://github.com/markus-albrecht/orales-one-market",
       "license": [
         {
           "text": "NVIDIA Open Model License",
@@ -2317,21 +2317,21 @@
           "appName": "nemotronlabselastic30bnvfp4one",
           "version": "1.0.1",
           "versionName": "1.0.1",
-          "mergedAt": "2026-05-25T15:10:04.661Z",
+          "mergedAt": "2026-05-25T15:23:51.504Z",
           "upgradeDescription": ""
         }
       ],
       "screenshots": null,
       "tags": null,
       "metadata": null,
-      "updated_at": "2026-05-25T15:10:04.661Z"
+      "updated_at": "2026-05-25T15:23:51.504Z"
     },
     "e74eca98": {
       "id": "e74eca98",
       "name": "omnivoiceone",
       "cfgType": "app",
       "chartName": "omnivoiceone-1.1.1.tgz",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/omnivoiceone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/omnivoiceone.png",
       "description": "OmniVoice TTS (646 languages, voice cloning, voice design, 0.6B) — optimised for Olares One",
       "appID": "e74eca98",
       "title": "OmniVoice TTS One",
@@ -2348,7 +2348,7 @@
       "locale": [
         "en-US"
       ],
-      "developer": "aamsellem",
+      "developer": "markus-albrecht",
       "requiredMemory": "4294967296",
       "requiredDisk": "10737418240",
       "supportClient": {},
@@ -2368,7 +2368,7 @@
           "host": "omnivoiceone",
           "port": 8000,
           "title": "OmniVoice TTS One",
-          "icon": "https://orales-one-market.aamsellem.workers.dev/icons/omnivoiceone.png",
+          "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/omnivoiceone.png",
           "authLevel": "internal",
           "invisible": false,
           "openMethod": "window",
@@ -2386,11 +2386,11 @@
           }
         ]
       },
-      "submitter": "aamsellem",
+      "submitter": "markus-albrecht",
       "doc": "",
       "website": "https://github.com/k2-fsa/OmniVoice",
       "featuredImage": "",
-      "sourceCode": "https://github.com/aamsellem/olares-one-market",
+      "sourceCode": "https://github.com/markus-albrecht/olares-one-market",
       "license": [
         {
           "text": "Apache 2.0",
@@ -2422,21 +2422,21 @@
           "appName": "omnivoiceone",
           "version": "1.1.1",
           "versionName": "1.1.1",
-          "mergedAt": "2026-05-25T15:10:04.662Z",
+          "mergedAt": "2026-05-25T15:23:51.505Z",
           "upgradeDescription": ""
         }
       ],
       "screenshots": null,
       "tags": null,
       "metadata": null,
-      "updated_at": "2026-05-25T15:10:04.662Z"
+      "updated_at": "2026-05-25T15:23:51.505Z"
     },
     "2c5c39c9": {
       "id": "2c5c39c9",
       "name": "qwen35a3bvisionone",
       "cfgType": "app",
       "chartName": "qwen35a3bvisionone-1.0.9.tgz",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/qwen35a3bvisionone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/qwen35a3bvisionone.png",
       "description": "Qwen3.5 35B-A3B Vision via llama.cpp — image + text, optimised for Olares One",
       "appID": "2c5c39c9",
       "title": "Qwen3.5 Vision (Olares One)",
@@ -2453,7 +2453,7 @@
       "locale": [
         "en-US"
       ],
-      "developer": "aamsellem",
+      "developer": "markus-albrecht",
       "requiredMemory": "25769803776",
       "requiredDisk": "37580963840",
       "supportClient": {},
@@ -2473,7 +2473,7 @@
           "host": "qwen35a3bvisionone",
           "port": 8080,
           "title": "Qwen 35B Vision One",
-          "icon": "https://orales-one-market.aamsellem.workers.dev/icons/qwen35a3bvisionone.png",
+          "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/qwen35a3bvisionone.png",
           "authLevel": "internal",
           "invisible": false,
           "openMethod": "window",
@@ -2491,11 +2491,11 @@
           }
         ]
       },
-      "submitter": "aamsellem",
+      "submitter": "markus-albrecht",
       "doc": "",
-      "website": "https://github.com/aamsellem/olares-one-market",
+      "website": "https://github.com/markus-albrecht/olares-one-market",
       "featuredImage": "",
-      "sourceCode": "https://github.com/aamsellem/olares-one-market",
+      "sourceCode": "https://github.com/markus-albrecht/olares-one-market",
       "license": [
         {
           "text": "MIT",
@@ -2527,21 +2527,21 @@
           "appName": "qwen35a3bvisionone",
           "version": "1.0.9",
           "versionName": "1.0.8",
-          "mergedAt": "2026-05-25T15:10:04.663Z",
+          "mergedAt": "2026-05-25T15:23:51.506Z",
           "upgradeDescription": ""
         }
       ],
       "screenshots": null,
       "tags": null,
       "metadata": null,
-      "updated_at": "2026-05-25T15:10:04.663Z"
+      "updated_at": "2026-05-25T15:23:51.506Z"
     },
     "ed18683c": {
       "id": "ed18683c",
       "name": "qwen35iq4visionone",
       "cfgType": "app",
       "chartName": "qwen35iq4visionone-1.0.7.tgz",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/qwen35iq4visionone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/qwen35iq4visionone.png",
       "description": "Qwen3.5 35B-A3B Vision IQ4_XS via llama.cpp — long context, optimised for Olares One",
       "appID": "ed18683c",
       "title": "Qwen3.5 Vision IQ4 64K One",
@@ -2558,7 +2558,7 @@
       "locale": [
         "en-US"
       ],
-      "developer": "aamsellem",
+      "developer": "markus-albrecht",
       "requiredMemory": "25769803776",
       "requiredDisk": "32212254720",
       "supportClient": {},
@@ -2578,7 +2578,7 @@
           "host": "qwen35iq4visionone",
           "port": 8080,
           "title": "Qwen Vision IQ4 64K One",
-          "icon": "https://orales-one-market.aamsellem.workers.dev/icons/qwen35iq4visionone.png",
+          "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/qwen35iq4visionone.png",
           "authLevel": "internal",
           "invisible": false,
           "openMethod": "window",
@@ -2596,11 +2596,11 @@
           }
         ]
       },
-      "submitter": "aamsellem",
+      "submitter": "markus-albrecht",
       "doc": "",
-      "website": "https://github.com/aamsellem/olares-one-market",
+      "website": "https://github.com/markus-albrecht/olares-one-market",
       "featuredImage": "",
-      "sourceCode": "https://github.com/aamsellem/olares-one-market",
+      "sourceCode": "https://github.com/markus-albrecht/olares-one-market",
       "license": [
         {
           "text": "MIT",
@@ -2632,21 +2632,21 @@
           "appName": "qwen35iq4visionone",
           "version": "1.0.7",
           "versionName": "1.0.6",
-          "mergedAt": "2026-05-25T15:10:04.663Z",
+          "mergedAt": "2026-05-25T15:23:51.506Z",
           "upgradeDescription": ""
         }
       ],
       "screenshots": null,
       "tags": null,
       "metadata": null,
-      "updated_at": "2026-05-25T15:10:04.663Z"
+      "updated_at": "2026-05-25T15:23:51.506Z"
     },
     "14fdab3c": {
       "id": "14fdab3c",
       "name": "qwen36a3bvisionone",
       "cfgType": "app",
       "chartName": "qwen36a3bvisionone-1.0.2.tgz",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/qwen36a3bvisionone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/qwen36a3bvisionone.png",
       "description": "Qwen3.6 35B-A3B Vision via llama.cpp — image + text, optimised for Olares One",
       "appID": "14fdab3c",
       "title": "Qwen3.6 Vision (Olares One)",
@@ -2663,7 +2663,7 @@
       "locale": [
         "en-US"
       ],
-      "developer": "aamsellem",
+      "developer": "markus-albrecht",
       "requiredMemory": "25769803776",
       "requiredDisk": "37580963840",
       "supportClient": {},
@@ -2683,7 +2683,7 @@
           "host": "qwen36a3bvisionone",
           "port": 8080,
           "title": "Qwen 36B Vision One",
-          "icon": "https://orales-one-market.aamsellem.workers.dev/icons/qwen36a3bvisionone.png",
+          "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/qwen36a3bvisionone.png",
           "authLevel": "internal",
           "invisible": false,
           "openMethod": "window",
@@ -2701,11 +2701,11 @@
           }
         ]
       },
-      "submitter": "aamsellem",
+      "submitter": "markus-albrecht",
       "doc": "",
-      "website": "https://github.com/aamsellem/olares-one-market",
+      "website": "https://github.com/markus-albrecht/olares-one-market",
       "featuredImage": "",
-      "sourceCode": "https://github.com/aamsellem/olares-one-market",
+      "sourceCode": "https://github.com/markus-albrecht/olares-one-market",
       "license": [
         {
           "text": "Apache-2.0",
@@ -2737,21 +2737,21 @@
           "appName": "qwen36a3bvisionone",
           "version": "1.0.2",
           "versionName": "1.0.2",
-          "mergedAt": "2026-05-25T15:10:04.664Z",
+          "mergedAt": "2026-05-25T15:23:51.507Z",
           "upgradeDescription": ""
         }
       ],
       "screenshots": null,
       "tags": null,
       "metadata": null,
-      "updated_at": "2026-05-25T15:10:04.664Z"
+      "updated_at": "2026-05-25T15:23:51.507Z"
     },
     "da30d532": {
       "id": "da30d532",
       "name": "qwen3coder30a3bone",
       "cfgType": "app",
       "chartName": "qwen3coder30a3bone-1.0.0.tgz",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/qwen3coder30a3bone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/qwen3coder30a3bone.png",
       "description": "Qwen3 Coder 30B-A3B via llama.cpp — coding agent optimised for Olares One",
       "appID": "da30d532",
       "title": "Qwen3 Coder 30B-A3B One",
@@ -2768,7 +2768,7 @@
       "locale": [
         "en-US"
       ],
-      "developer": "aamsellem",
+      "developer": "markus-albrecht",
       "requiredMemory": "25769803776",
       "requiredDisk": "32212254720",
       "supportClient": {},
@@ -2788,7 +2788,7 @@
           "host": "qwen3coder30a3bone",
           "port": 8080,
           "title": "Qwen3 Coder 30B One",
-          "icon": "https://orales-one-market.aamsellem.workers.dev/icons/qwen3coder30a3bone.png",
+          "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/qwen3coder30a3bone.png",
           "authLevel": "internal",
           "invisible": false,
           "openMethod": "window",
@@ -2806,11 +2806,11 @@
           }
         ]
       },
-      "submitter": "aamsellem",
+      "submitter": "markus-albrecht",
       "doc": "",
-      "website": "https://github.com/aamsellem/olares-one-market",
+      "website": "https://github.com/markus-albrecht/olares-one-market",
       "featuredImage": "",
-      "sourceCode": "https://github.com/aamsellem/olares-one-market",
+      "sourceCode": "https://github.com/markus-albrecht/olares-one-market",
       "license": [
         {
           "text": "Apache-2.0",
@@ -2842,21 +2842,21 @@
           "appName": "qwen3coder30a3bone",
           "version": "1.0.0",
           "versionName": "1.0.0",
-          "mergedAt": "2026-05-25T15:10:04.664Z",
+          "mergedAt": "2026-05-25T15:23:51.508Z",
           "upgradeDescription": ""
         }
       ],
       "screenshots": null,
       "tags": null,
       "metadata": null,
-      "updated_at": "2026-05-25T15:10:04.664Z"
+      "updated_at": "2026-05-25T15:23:51.508Z"
     },
     "49c5b493": {
       "id": "49c5b493",
       "name": "qwen3ttstone",
       "cfgType": "app",
       "chartName": "qwen3ttstone-1.0.9.tgz",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/qwen3ttstone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/qwen3ttstone.png",
       "description": "Qwen3-TTS 1.7B — text-to-speech with voice cloning, optimised for Olares One",
       "appID": "49c5b493",
       "title": "Qwen3-TTS 1.7B (Olares One)",
@@ -2873,7 +2873,7 @@
       "locale": [
         "en-US"
       ],
-      "developer": "aamsellem",
+      "developer": "markus-albrecht",
       "requiredMemory": "8589934592",
       "requiredDisk": "16106127360",
       "supportClient": {},
@@ -2893,7 +2893,7 @@
           "host": "qwen3ttstone",
           "port": 8000,
           "title": "Qwen3-TTS One",
-          "icon": "https://orales-one-market.aamsellem.workers.dev/icons/qwen3ttstone.png",
+          "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/qwen3ttstone.png",
           "authLevel": "internal",
           "invisible": false,
           "openMethod": "window",
@@ -2911,7 +2911,7 @@
           }
         ]
       },
-      "submitter": "aamsellem",
+      "submitter": "markus-albrecht",
       "doc": "",
       "website": "https://github.com/QwenLM/Qwen3-TTS",
       "featuredImage": "",
@@ -2947,21 +2947,21 @@
           "appName": "qwen3ttstone",
           "version": "1.0.9",
           "versionName": "1.0.9",
-          "mergedAt": "2026-05-25T15:10:04.665Z",
+          "mergedAt": "2026-05-25T15:23:51.508Z",
           "upgradeDescription": ""
         }
       ],
       "screenshots": null,
       "tags": null,
       "metadata": null,
-      "updated_at": "2026-05-25T15:10:04.665Z"
+      "updated_at": "2026-05-25T15:23:51.508Z"
     },
     "b3078d17": {
       "id": "b3078d17",
       "name": "vllmgemma426ba4bvisionone",
       "cfgType": "app",
       "chartName": "vllmgemma426ba4bvisionone-1.0.2.tgz",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/vllmgemma426ba4bvisionone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/vllmgemma426ba4bvisionone.png",
       "description": "Gemma 4 26B-A4B vision-capable via vLLM — 135 t/s @ 128K context on Olares One",
       "appID": "b3078d17",
       "title": "Gemma 4 26B Vision One",
@@ -2978,7 +2978,7 @@
       "locale": [
         "en-US"
       ],
-      "developer": "aamsellem",
+      "developer": "markus-albrecht",
       "requiredMemory": "4294967296",
       "requiredDisk": "32212254720",
       "supportClient": {},
@@ -2998,7 +2998,7 @@
           "host": "vllmgemma426ba4bvisionone",
           "port": 8000,
           "title": "Gemma 4 26B Vision",
-          "icon": "https://orales-one-market.aamsellem.workers.dev/icons/vllmgemma426ba4bvisionone.png",
+          "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/vllmgemma426ba4bvisionone.png",
           "authLevel": "internal",
           "invisible": false,
           "openMethod": "window",
@@ -3016,11 +3016,11 @@
           }
         ]
       },
-      "submitter": "aamsellem",
+      "submitter": "markus-albrecht",
       "doc": "",
       "website": "https://huggingface.co/cyankiwi/gemma-4-26B-A4B-it-AWQ-4bit",
       "featuredImage": "",
-      "sourceCode": "https://github.com/aamsellem/olares-one-market",
+      "sourceCode": "https://github.com/markus-albrecht/olares-one-market",
       "license": [
         {
           "text": "Apache 2.0",
@@ -3052,21 +3052,21 @@
           "appName": "vllmgemma426ba4bvisionone",
           "version": "1.0.2",
           "versionName": "1.0.2",
-          "mergedAt": "2026-05-25T15:10:04.665Z",
+          "mergedAt": "2026-05-25T15:23:51.509Z",
           "upgradeDescription": ""
         }
       ],
       "screenshots": null,
       "tags": null,
       "metadata": null,
-      "updated_at": "2026-05-25T15:10:04.665Z"
+      "updated_at": "2026-05-25T15:23:51.509Z"
     },
     "18a6f781": {
       "id": "18a6f781",
       "name": "vllmgemma4dflashone",
       "cfgType": "app",
       "chartName": "vllmgemma4dflashone-1.0.4.tgz",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/vllmgemma4dflashone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/vllmgemma4dflashone.png",
       "description": "Gemma 4 26B-A4B + DFlash + AWQ via vLLM — Olares One (fastest Gemma 4 path)",
       "appID": "18a6f781",
       "title": "Gemma 4 26B DFlash One",
@@ -3083,7 +3083,7 @@
       "locale": [
         "en-US"
       ],
-      "developer": "aamsellem",
+      "developer": "markus-albrecht",
       "requiredMemory": "4294967296",
       "requiredDisk": "32212254720",
       "supportClient": {},
@@ -3103,7 +3103,7 @@
           "host": "vllmgemma4dflashone",
           "port": 8000,
           "title": "Gemma 4 26B DFlash One",
-          "icon": "https://orales-one-market.aamsellem.workers.dev/icons/vllmgemma4dflashone.png",
+          "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/vllmgemma4dflashone.png",
           "authLevel": "internal",
           "invisible": false,
           "openMethod": "window",
@@ -3121,11 +3121,11 @@
           }
         ]
       },
-      "submitter": "aamsellem",
+      "submitter": "markus-albrecht",
       "doc": "",
-      "website": "https://github.com/aamsellem/olares-one-market",
+      "website": "https://github.com/markus-albrecht/olares-one-market",
       "featuredImage": "",
-      "sourceCode": "https://github.com/aamsellem/olares-one-market",
+      "sourceCode": "https://github.com/markus-albrecht/olares-one-market",
       "license": [
         {
           "text": "Apache 2.0",
@@ -3157,21 +3157,21 @@
           "appName": "vllmgemma4dflashone",
           "version": "1.0.4",
           "versionName": "1.0.4",
-          "mergedAt": "2026-05-25T15:10:04.666Z",
+          "mergedAt": "2026-05-25T15:23:51.509Z",
           "upgradeDescription": ""
         }
       ],
       "screenshots": null,
       "tags": null,
       "metadata": null,
-      "updated_at": "2026-05-25T15:10:04.666Z"
+      "updated_at": "2026-05-25T15:23:51.509Z"
     },
     "be32d4df": {
       "id": "be32d4df",
       "name": "vllmgemma4e4bone",
       "cfgType": "app",
       "chartName": "vllmgemma4e4bone-1.0.12.tgz",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/vllmgemma4e4bone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/vllmgemma4e4bone.png",
       "description": "Gemma 4 E4B (Vision + Audio) via vLLM — optimised for Olares One",
       "appID": "be32d4df",
       "title": "Gemma 4 E4B Voice One",
@@ -3188,7 +3188,7 @@
       "locale": [
         "en-US"
       ],
-      "developer": "aamsellem",
+      "developer": "markus-albrecht",
       "requiredMemory": "4294967296",
       "requiredDisk": "21474836480",
       "supportClient": {},
@@ -3208,7 +3208,7 @@
           "host": "vllmgemma4e4bone",
           "port": 8000,
           "title": "Gemma 4 E4B Voice One",
-          "icon": "https://orales-one-market.aamsellem.workers.dev/icons/vllmgemma4e4bone.png",
+          "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/vllmgemma4e4bone.png",
           "authLevel": "internal",
           "invisible": false,
           "openMethod": "window",
@@ -3226,11 +3226,11 @@
           }
         ]
       },
-      "submitter": "aamsellem",
+      "submitter": "markus-albrecht",
       "doc": "",
-      "website": "https://github.com/aamsellem/olares-one-market",
+      "website": "https://github.com/markus-albrecht/olares-one-market",
       "featuredImage": "",
-      "sourceCode": "https://github.com/aamsellem/olares-one-market",
+      "sourceCode": "https://github.com/markus-albrecht/olares-one-market",
       "license": [
         {
           "text": "Apache 2.0",
@@ -3262,14 +3262,14 @@
           "appName": "vllmgemma4e4bone",
           "version": "1.0.12",
           "versionName": "1.0.12",
-          "mergedAt": "2026-05-25T15:10:04.666Z",
+          "mergedAt": "2026-05-25T15:23:51.509Z",
           "upgradeDescription": ""
         }
       ],
       "screenshots": null,
       "tags": null,
       "metadata": null,
-      "updated_at": "2026-05-25T15:10:04.666Z"
+      "updated_at": "2026-05-25T15:23:51.509Z"
     },
     "cdd8e3d5": {
       "id": "cdd8e3d5",
@@ -3383,21 +3383,21 @@
           "appName": "vllmministral314brone",
           "version": "1.0.0",
           "versionName": "1.0.0",
-          "mergedAt": "2026-05-25T15:10:04.667Z",
+          "mergedAt": "2026-05-25T15:23:51.510Z",
           "upgradeDescription": ""
         }
       ],
       "screenshots": null,
       "tags": null,
       "metadata": null,
-      "updated_at": "2026-05-25T15:10:04.667Z"
+      "updated_at": "2026-05-25T15:23:51.510Z"
     },
     "285e9d99": {
       "id": "285e9d99",
       "name": "vllmqwen3527bone",
       "cfgType": "app",
       "chartName": "vllmqwen3527bone-1.0.3.tgz",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/vllmqwen3527bone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/vllmqwen3527bone.png",
       "description": "Qwen3.5 27B NVFP4 via vLLM — optimised for Olares One",
       "appID": "285e9d99",
       "title": "Qwen3.5 27B NVFP4 vLLM One",
@@ -3414,7 +3414,7 @@
       "locale": [
         "en-US"
       ],
-      "developer": "aamsellem",
+      "developer": "markus-albrecht",
       "requiredMemory": "25769803776",
       "requiredDisk": "42949672960",
       "supportClient": {},
@@ -3434,7 +3434,7 @@
           "host": "vllmqwen3527bone",
           "port": 8000,
           "title": "Qwen 27B NVFP4 vLLM One",
-          "icon": "https://orales-one-market.aamsellem.workers.dev/icons/vllmqwen3527bone.png",
+          "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/vllmqwen3527bone.png",
           "authLevel": "internal",
           "invisible": false,
           "openMethod": "window",
@@ -3452,11 +3452,11 @@
           }
         ]
       },
-      "submitter": "aamsellem",
+      "submitter": "markus-albrecht",
       "doc": "",
-      "website": "https://github.com/aamsellem/olares-one-market",
+      "website": "https://github.com/markus-albrecht/olares-one-market",
       "featuredImage": "",
-      "sourceCode": "https://github.com/aamsellem/olares-one-market",
+      "sourceCode": "https://github.com/markus-albrecht/olares-one-market",
       "license": [
         {
           "text": "Apache-2.0",
@@ -3488,21 +3488,21 @@
           "appName": "vllmqwen3527bone",
           "version": "1.0.3",
           "versionName": "1.0.3",
-          "mergedAt": "2026-05-25T15:10:04.668Z",
+          "mergedAt": "2026-05-25T15:23:51.511Z",
           "upgradeDescription": ""
         }
       ],
       "screenshots": null,
       "tags": null,
       "metadata": null,
-      "updated_at": "2026-05-25T15:10:04.668Z"
+      "updated_at": "2026-05-25T15:23:51.511Z"
     },
     "901d20e0": {
       "id": "901d20e0",
       "name": "vllmqwen36turbo27bone",
       "cfgType": "app",
       "chartName": "vllmqwen36turbo27bone-2.5.7.tgz",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/vllmqwen36turbo27bone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/vllmqwen36turbo27bone.png",
       "description": "Qwen3.6 27B fastest stack — vLLM Turbo + Genesis on 24GB",
       "appID": "901d20e0",
       "title": "Qwen36 27B Fast",
@@ -3511,15 +3511,15 @@
         "AI"
       ],
       "versionName": "2.5.7",
-      "fullDescription": "Qwen3.6 27B dense served via vLLM 0.20 with Sandermage Genesis patches + TurboQuant K8V4 KV cache — optimised for Olares One.\nRTX 5090M (24GB) + 96GB DDR5 + Core Ultra 9 275HX.\nModel: Lorbus/Qwen3.6-27B-int4-AutoRound (~19GB, hybrid GDN + attention layers).\nCustom vLLM cu130-nightly image (aamsellem/vllm-qwen36-blackwell:0.20.0-genesis) with:\n  - Sandermage Genesis v7.51-stable-2026-04-27: 28 runtime monkey-patches that unblock TurboQuant on hybrid models\n    - Hybrid layer geometry handling (key fix for Qwen3.5/3.6)\n    - max_num_kv_tokens accounting for Mamba state\n    - Excluded layer routing through TQ dispatch\n    - Performance: dual-stream GDN, Triton MoE configs\n  - patch_tolist_cudagraph.py: spec-decode + chunked-prefill warmup fix (idempotent)\nKV cache: turboquant_k8v4 (FP8 keys + 4-bit values, 2.6x compression vs bf16) — validated by Sandermage on Qwen3-Next-35B-A3B + Ampere.\nMTP disabled in v2.0.0 (issue #40880 — degenerate output on hybrid + cudagraph). May re-enable in v2.1.x once Genesis P40+ patches confirm hybrid MTP fix.\nflashinfer attention, AutoRound quantization, prefix caching, chunked prefill, qwen3_coder tool parser, qwen3 reasoning parser.\n128K context window target on 24GB VRAM.\nBest-in-class coding agent benchmarks: SWE-bench Verified 77.2, Terminal-Bench 2.0 59.3, LiveCodeBench v6 83.9.\nFirst launch downloads target (~20GB) from HuggingFace.\nExposes an OpenAI-compatible API on port 8000.\n",
-      "upgradeDescription": "v2.5.7: revert MAX_MODEL_LEN 128000 → 88000. The 128K bump (v2.5.6) was attempted with the new HAMi cap at 24300m hoping for +1.3 GB KV cache headroom, but vLLM still reports the practical cap at 88704 tokens (3.94 GiB KV needed at 128K vs only 2.97 GiB available after model + cudagraphs + mamba state). The KV cache budget calculation is not improved by the HAMi cap bump because vLLM allocates `gpu_memory_utilization=0.97 * total_vram` first and the KV cache fits in what's left — the HAMi cap was already large enough vs `0.97 * 24300m`. To go higher than 88K we'd need either 0.99 GPU util (HAMi-risky) or MTP n=3 → n=1 (-spec speedup). Bonus log finding: Genesis P22 auto-skipped because vLLM PR #40655 merged upstream (bhoomit moved init out) — one less patch to maintain over time.\nv2.5.6: bump MAX_MODEL_LEN 88000 → 128000. Previously 96K and 128K OOMed at gpu_memory_utilization=0.97 with HAMi cap at 23000m (3.17 GiB / 3.94 GiB KV needed vs 2.97 GiB available). With v2.5.2 HAMi override 24300m (+1.3 GB headroom) we should fit 128K (3.94 GiB KV needed, ~4.27 GiB now available). If boot OOMs at KV cache profiling, downgrade to v2.5.5 (88K) or try 96K. Also drop t/s from title and description (reality may vary by hardware/config).\nv2.5.5: revert P5B — `GENESIS_ENABLE_P5B_KV=1` causes CUDA OOM at first inference on 24GB. P5B pre-allocates padded buffers for KV homogenization, which combined with P38 (TQ continuation memory prealloc) overflows the 24300m HAMi cap (512 MiB requested when only 646 MiB free). P5B is incompatible with our stack on 24GB hardware regardless of K8V4 vs 4bit_nc. Sticking with the v2.5.3 config minus P5B as the stable baseline.\nv2.5.4: enable Genesis P5B (KV cache pad-smaller-to-max strategy) — `GENESIS_ENABLE_P5B_KV=1`. Was disabled in v2.2.1 due to TorchDynamo shape mismatch with `turboquant_4bit_nc + MTP` but our current stack uses `turboquant_k8v4` (different code path). Expected ~34% per-block VRAM saving on Mamba blocks → potential context bump or KV cache headroom. If boot crashes with shape mismatch, downgrade to v2.5.3.\nv2.5.3: drop `--prefix-caching-hash-algo xxhash` flag — the Genesis custom image doesn't have the `xxhash` Python package installed and the engine crashes after a few requests with `ModuleNotFoundError: xxhash`. Default hash algorithm (sha256/builtin) works fine, only marginally slower for prefix cache lookup.\nv2.5.2: add HAMi-core `0m` parsing bug workaround — set `CUDA_DEVICE_MEMORY_LIMIT_0=24300m` env var. Olares sets this env to `0m` by default which HAMi parses as \"0 bytes available\", crashing EagleProposer.__init__ → torch.zeros under spec decoding (CUDA driver error: invalid argument). Same fix already applied in `lucedflashqwen36one` v1.4.2+. The 24300m value also gives margin to avoid the cache migration OOM seen on long-context after several requests (~150 MB margin under hardware 24463 MB cap). No functional change — pure crash prevention.\nv2.5.1: bump MAX_MODEL_LEN 80000 → 88000 (the practical hard ceiling at gpu_memory_utilization=0.97 on Olares One — vLLM estimate 88704). Bench results (Space Invaders × 3, max_tokens=800):\n  - 80K: 88.16 t/s avg [80-93]\n  - 88K: 71.13 t/s incl. cold start | 84 t/s steady-state runs 2-3\n  - 96K: OOM (3.17 GiB KV needed vs 2.97 GiB available)\n  - 128K: OOM (3.94 GiB KV needed)\nChart now matches the validated ceiling. To push above 88K, future versions need either gpu_memory_utilization → 0.99 (HAMi-risky) or MTP n=3 → n=1 (loses spec speed) or fp8_e5m2 KV cache (less compression).\nv2.5.0: second attempt at vLLM v0.20.0 official base. Image `aamsellem/vllm-qwen36-blackwell:0.20.0-genesis-v3`. Same Genesis v7.51 patches as v2.3.0 BUT with P8 short-circuited via `disable_p8.py` build-time edit (rewrites apply_patch_8_kv_hybrid_reporting() to early-return _skipped). This bypasses the broken `token_capacity_kv_cache_groups` import that crashed v2.3.0 at engine boot. Other Genesis patches expected to apply normally (28 applied / 31 skipped / 0 failed projected). If boot succeeds, validates that v0.20.0 works for our hybrid TurboQuant + MTP n=3 stack with only one Sandermage compat fix needed. If boot fails again, fall back to v2.4.0 cu130-nightly base.\nv2.4.0: rollback to cu130-nightly base image (`aamsellem/vllm-qwen36-blackwell:0.20.0-genesis`) after v2.3.0 boot crash. Genesis v7.51 P8 (KV hybrid reporting per-token capacity) wires `import token_capacity_kv_cache_groups` from `vllm.v1.core.kv_cache_utils`, but v0.20.0 stable has refactored that function out of the public API — sub-patch kv_cache_utils self-skipped on `required_anchor_missing` but scheduler sub-patch inserted the broken import anyway, causing `ImportError` at engine boot. Same chart spec as v2.2.2 stable (TurboQuant K8V4 + MTP n=3 + 80K context). v2.3.x kept on Hub for the upcoming v3 build that will short-circuit P8 to fix v0.20.0 compat.\nv2.3.0: bump base image to official `vllm/vllm-openai:v0.20.0` (released 2026-04-27) instead of cu130-nightly fe9c3d6. Tag: `aamsellem/vllm-qwen36-blackwell:0.20.0-genesis-v2`. CRASHED at boot — Genesis P8 incompatible with v0.20.0 (see v2.4.0 above for root cause). Image kept on Hub for diagnostic comparison.\nv2.2.2: rollback to TurboQuant K8V4 + MTP n=3 + 80K context (4096 batched_tokens) — proven stable. v2.2.0 / v2.2.1 attempted turboquant_4bit_nc (3.8x compression vs 2.6x for K8V4) which gave 60 t/s avg in one bench run on 2026-04-27 but boot is intermittent: TorchDynamo shape mismatch (FakeTensor mul, 196608 vs 48*s72) at engine init, randomly succeeds or fails depending on cudagraph capture state. K8V4 boots reliably 100% of the time at 38 t/s avg. Trade-off: ~30% slower decode but no crashloop. The 4bit_nc + MTP combo on Blackwell sm_120 hybrid stays a future target — needs upstream fix or different cudagraph_capture_sizes filter.\nv2.2.1: remove GENESIS_ENABLE_P5B_KV. P5B (pad-smaller-to-max KV strategy) is incompatible with turboquant_4bit_nc + MTP n=3 on Blackwell sm_120 — produces TorchDynamo shape mismatch (FakeTensor mul op, 196608 vs 48*s72) at engine init. Same root cause as 3bit_nc + MTP and P65 disabled. v2.2.0 shipped with P5B=1 by mistake (we had measured 60 t/s with P5B=0 during testing); v2.2.0 deploys went into CrashLoopBackOff (Exit 137 → actually shape mismatch + watchdog kill).\nv2.2.0: switch KV cache turboquant_k8v4 → turboquant_4bit_nc (3.8x compression vs 2.6x). Bench 2026-04-27 on Olares One (RTX 5090M sm_120, 24GB): 60 t/s avg [46-73 range, 3 prompts × 800 tokens] vs 38 t/s avg with K8V4. KV pool 177K tokens (vs 120K K8V4) → max_model_len bumped 80K → 100K. max_num_batched_tokens 4096 → 8192 to fit 4bit_nc Mamba block_size. Genesis P64/P60/P62 enabled (qwen3coder MTP streaming + GDN ngram + struct-out timing) — no measurable gain but no harm. Genesis P65 mandatory: without it the engine fails to boot at TorchDynamo shape inference (mul op tensor mismatch with MTP draft + TurboQuant kernel). P5B kept enabled (4bit_nc compatible; only 3bit_nc breaks).\nNegative results documented: 3bit_nc + MTP n=3 = TorchDynamo shape mismatch (RuntimeError); MTP n=1 slower than n=3 (32 vs 37 t/s K8V4); DFlash drafter z-lab too big BF16 to fit on 24GB after target.\nv2.1.1: drop max_model_len 128000 → 80000. MTP n=3 + TurboQuant K8V4 needs 3.94 GiB KV at 128K but only 2.97 GiB available after model + drafter + cudagraphs. 80K still beats v2.2.2 dense (75K) and keeps the MTP speedup.\nv2.1.0: re-enable MTP n=3 speculative decoding. Genesis P65 (TurboQuant spec-decode cudagraph downgrade) + P66 (cudagraph_capture_sizes spec-decode filter) opt-ins should mitigate issue #40880 (degenerate output on hybrid + cudagraph + MTP+TurboQuant). If output is corrupted, downgrade to v2.0.3 which has the same flags minus MTP.\nTarget: ~80-90 t/s @ 128K context (vs 40 t/s in v2.0.3 without MTP). Best of both worlds: hybrid TurboQuant unblocked + MTP speedup retained.\nv2.0.3: perf tuning. Add Sandermage-validated flags: `--performance-mode interactivity`, `--async-scheduling`, `--no-scheduler-reserve-full-isl`, `--prefix-caching-hash-algo xxhash`, `--attention-config.flash_attn_version 2`. Plus Genesis env: GENESIS_ENABLE_P5B_KV (pad-smaller-to-max KV strategy, ~34% per-block VRAM saving), GENESIS_ENABLE_P65 (TurboQuant spec-decode cudagraph downgrade), GENESIS_ENABLE_P66 (cudagraph_capture_sizes spec-decode filter). Target +20-40% over v2.0.2 baseline (~40 t/s → 50-60 t/s expected).\nv2.0.2: bump `--max-num-batched-tokens` 2048 → 4096. Genesis P5 (KV cache page size unification) sets Mamba cache block_size=2080, and vLLM asserts `block_size <= max_num_batched_tokens`. Matches Sandermage's validated config.\nv2.0.1: drop `--attention-backend flashinfer` — flashinfer doesn't support turboquant_k8v4 (\"Selected backend AttentionBackendEnum.FLASHINFER is not valid for this configuration. Reason: ['kv_cache_dtype not supported']\"). Let vLLM auto-pick (will fallback to flash_attn). Matches Sandermage validated stack.\nv2.0.0: complete pivot. v1.0.x failed because vanilla TurboQuant rejects hybrid (attn + GDN/Mamba) models with NotImplementedError. Now uses Sandermage Genesis v7.51-stable-2026-04-27 patches (28 runtime monkey-patches) which fix hybrid layer geometry, max_num_kv_tokens accounting, and excluded layer routing. Tested by Sandermage on Qwen3-Next-35B-A3B-FP8 + TurboQuant K8V4 on Ampere — same patch surface applies on Blackwell.\nKV cache: turboquant_k8v4 (FP8 keys + 4-bit values, 2.6x compression vs bf16) — Sandermage's validated path. Less compression than turboquant_4bit_nc (3.8x) but proven stable.\nMTP disabled (issue #40880 — MTP × TurboQuant × cudagraph degenerate output on hybrid).\nTarget context 128K (vs 75K with fp8 KV).\n",
+      "fullDescription": "Qwen3.6 27B dense served via vLLM 0.20 with Sandermage Genesis patches + TurboQuant K8V4 KV cache — optimised for Olares One.\nRTX 5090M (24GB) + 96GB DDR5 + Core Ultra 9 275HX.\nModel: Lorbus/Qwen3.6-27B-int4-AutoRound (~19GB, hybrid GDN + attention layers).\nCustom vLLM cu130-nightly image (markus-albrecht/vllm-qwen36-blackwell:0.20.0-genesis) with:\n  - Sandermage Genesis v7.51-stable-2026-04-27: 28 runtime monkey-patches that unblock TurboQuant on hybrid models\n    - Hybrid layer geometry handling (key fix for Qwen3.5/3.6)\n    - max_num_kv_tokens accounting for Mamba state\n    - Excluded layer routing through TQ dispatch\n    - Performance: dual-stream GDN, Triton MoE configs\n  - patch_tolist_cudagraph.py: spec-decode + chunked-prefill warmup fix (idempotent)\nKV cache: turboquant_k8v4 (FP8 keys + 4-bit values, 2.6x compression vs bf16) — validated by Sandermage on Qwen3-Next-35B-A3B + Ampere.\nMTP disabled in v2.0.0 (issue #40880 — degenerate output on hybrid + cudagraph). May re-enable in v2.1.x once Genesis P40+ patches confirm hybrid MTP fix.\nflashinfer attention, AutoRound quantization, prefix caching, chunked prefill, qwen3_coder tool parser, qwen3 reasoning parser.\n128K context window target on 24GB VRAM.\nBest-in-class coding agent benchmarks: SWE-bench Verified 77.2, Terminal-Bench 2.0 59.3, LiveCodeBench v6 83.9.\nFirst launch downloads target (~20GB) from HuggingFace.\nExposes an OpenAI-compatible API on port 8000.\n",
+      "upgradeDescription": "v2.5.7: revert MAX_MODEL_LEN 128000 → 88000. The 128K bump (v2.5.6) was attempted with the new HAMi cap at 24300m hoping for +1.3 GB KV cache headroom, but vLLM still reports the practical cap at 88704 tokens (3.94 GiB KV needed at 128K vs only 2.97 GiB available after model + cudagraphs + mamba state). The KV cache budget calculation is not improved by the HAMi cap bump because vLLM allocates `gpu_memory_utilization=0.97 * total_vram` first and the KV cache fits in what's left — the HAMi cap was already large enough vs `0.97 * 24300m`. To go higher than 88K we'd need either 0.99 GPU util (HAMi-risky) or MTP n=3 → n=1 (-spec speedup). Bonus log finding: Genesis P22 auto-skipped because vLLM PR #40655 merged upstream (bhoomit moved init out) — one less patch to maintain over time.\nv2.5.6: bump MAX_MODEL_LEN 88000 → 128000. Previously 96K and 128K OOMed at gpu_memory_utilization=0.97 with HAMi cap at 23000m (3.17 GiB / 3.94 GiB KV needed vs 2.97 GiB available). With v2.5.2 HAMi override 24300m (+1.3 GB headroom) we should fit 128K (3.94 GiB KV needed, ~4.27 GiB now available). If boot OOMs at KV cache profiling, downgrade to v2.5.5 (88K) or try 96K. Also drop t/s from title and description (reality may vary by hardware/config).\nv2.5.5: revert P5B — `GENESIS_ENABLE_P5B_KV=1` causes CUDA OOM at first inference on 24GB. P5B pre-allocates padded buffers for KV homogenization, which combined with P38 (TQ continuation memory prealloc) overflows the 24300m HAMi cap (512 MiB requested when only 646 MiB free). P5B is incompatible with our stack on 24GB hardware regardless of K8V4 vs 4bit_nc. Sticking with the v2.5.3 config minus P5B as the stable baseline.\nv2.5.4: enable Genesis P5B (KV cache pad-smaller-to-max strategy) — `GENESIS_ENABLE_P5B_KV=1`. Was disabled in v2.2.1 due to TorchDynamo shape mismatch with `turboquant_4bit_nc + MTP` but our current stack uses `turboquant_k8v4` (different code path). Expected ~34% per-block VRAM saving on Mamba blocks → potential context bump or KV cache headroom. If boot crashes with shape mismatch, downgrade to v2.5.3.\nv2.5.3: drop `--prefix-caching-hash-algo xxhash` flag — the Genesis custom image doesn't have the `xxhash` Python package installed and the engine crashes after a few requests with `ModuleNotFoundError: xxhash`. Default hash algorithm (sha256/builtin) works fine, only marginally slower for prefix cache lookup.\nv2.5.2: add HAMi-core `0m` parsing bug workaround — set `CUDA_DEVICE_MEMORY_LIMIT_0=24300m` env var. Olares sets this env to `0m` by default which HAMi parses as \"0 bytes available\", crashing EagleProposer.__init__ → torch.zeros under spec decoding (CUDA driver error: invalid argument). Same fix already applied in `lucedflashqwen36one` v1.4.2+. The 24300m value also gives margin to avoid the cache migration OOM seen on long-context after several requests (~150 MB margin under hardware 24463 MB cap). No functional change — pure crash prevention.\nv2.5.1: bump MAX_MODEL_LEN 80000 → 88000 (the practical hard ceiling at gpu_memory_utilization=0.97 on Olares One — vLLM estimate 88704). Bench results (Space Invaders × 3, max_tokens=800):\n  - 80K: 88.16 t/s avg [80-93]\n  - 88K: 71.13 t/s incl. cold start | 84 t/s steady-state runs 2-3\n  - 96K: OOM (3.17 GiB KV needed vs 2.97 GiB available)\n  - 128K: OOM (3.94 GiB KV needed)\nChart now matches the validated ceiling. To push above 88K, future versions need either gpu_memory_utilization → 0.99 (HAMi-risky) or MTP n=3 → n=1 (loses spec speed) or fp8_e5m2 KV cache (less compression).\nv2.5.0: second attempt at vLLM v0.20.0 official base. Image `markus-albrecht/vllm-qwen36-blackwell:0.20.0-genesis-v3`. Same Genesis v7.51 patches as v2.3.0 BUT with P8 short-circuited via `disable_p8.py` build-time edit (rewrites apply_patch_8_kv_hybrid_reporting() to early-return _skipped). This bypasses the broken `token_capacity_kv_cache_groups` import that crashed v2.3.0 at engine boot. Other Genesis patches expected to apply normally (28 applied / 31 skipped / 0 failed projected). If boot succeeds, validates that v0.20.0 works for our hybrid TurboQuant + MTP n=3 stack with only one Sandermage compat fix needed. If boot fails again, fall back to v2.4.0 cu130-nightly base.\nv2.4.0: rollback to cu130-nightly base image (`markus-albrecht/vllm-qwen36-blackwell:0.20.0-genesis`) after v2.3.0 boot crash. Genesis v7.51 P8 (KV hybrid reporting per-token capacity) wires `import token_capacity_kv_cache_groups` from `vllm.v1.core.kv_cache_utils`, but v0.20.0 stable has refactored that function out of the public API — sub-patch kv_cache_utils self-skipped on `required_anchor_missing` but scheduler sub-patch inserted the broken import anyway, causing `ImportError` at engine boot. Same chart spec as v2.2.2 stable (TurboQuant K8V4 + MTP n=3 + 80K context). v2.3.x kept on Hub for the upcoming v3 build that will short-circuit P8 to fix v0.20.0 compat.\nv2.3.0: bump base image to official `vllm/vllm-openai:v0.20.0` (released 2026-04-27) instead of cu130-nightly fe9c3d6. Tag: `markus-albrecht/vllm-qwen36-blackwell:0.20.0-genesis-v2`. CRASHED at boot — Genesis P8 incompatible with v0.20.0 (see v2.4.0 above for root cause). Image kept on Hub for diagnostic comparison.\nv2.2.2: rollback to TurboQuant K8V4 + MTP n=3 + 80K context (4096 batched_tokens) — proven stable. v2.2.0 / v2.2.1 attempted turboquant_4bit_nc (3.8x compression vs 2.6x for K8V4) which gave 60 t/s avg in one bench run on 2026-04-27 but boot is intermittent: TorchDynamo shape mismatch (FakeTensor mul, 196608 vs 48*s72) at engine init, randomly succeeds or fails depending on cudagraph capture state. K8V4 boots reliably 100% of the time at 38 t/s avg. Trade-off: ~30% slower decode but no crashloop. The 4bit_nc + MTP combo on Blackwell sm_120 hybrid stays a future target — needs upstream fix or different cudagraph_capture_sizes filter.\nv2.2.1: remove GENESIS_ENABLE_P5B_KV. P5B (pad-smaller-to-max KV strategy) is incompatible with turboquant_4bit_nc + MTP n=3 on Blackwell sm_120 — produces TorchDynamo shape mismatch (FakeTensor mul op, 196608 vs 48*s72) at engine init. Same root cause as 3bit_nc + MTP and P65 disabled. v2.2.0 shipped with P5B=1 by mistake (we had measured 60 t/s with P5B=0 during testing); v2.2.0 deploys went into CrashLoopBackOff (Exit 137 → actually shape mismatch + watchdog kill).\nv2.2.0: switch KV cache turboquant_k8v4 → turboquant_4bit_nc (3.8x compression vs 2.6x). Bench 2026-04-27 on Olares One (RTX 5090M sm_120, 24GB): 60 t/s avg [46-73 range, 3 prompts × 800 tokens] vs 38 t/s avg with K8V4. KV pool 177K tokens (vs 120K K8V4) → max_model_len bumped 80K → 100K. max_num_batched_tokens 4096 → 8192 to fit 4bit_nc Mamba block_size. Genesis P64/P60/P62 enabled (qwen3coder MTP streaming + GDN ngram + struct-out timing) — no measurable gain but no harm. Genesis P65 mandatory: without it the engine fails to boot at TorchDynamo shape inference (mul op tensor mismatch with MTP draft + TurboQuant kernel). P5B kept enabled (4bit_nc compatible; only 3bit_nc breaks).\nNegative results documented: 3bit_nc + MTP n=3 = TorchDynamo shape mismatch (RuntimeError); MTP n=1 slower than n=3 (32 vs 37 t/s K8V4); DFlash drafter z-lab too big BF16 to fit on 24GB after target.\nv2.1.1: drop max_model_len 128000 → 80000. MTP n=3 + TurboQuant K8V4 needs 3.94 GiB KV at 128K but only 2.97 GiB available after model + drafter + cudagraphs. 80K still beats v2.2.2 dense (75K) and keeps the MTP speedup.\nv2.1.0: re-enable MTP n=3 speculative decoding. Genesis P65 (TurboQuant spec-decode cudagraph downgrade) + P66 (cudagraph_capture_sizes spec-decode filter) opt-ins should mitigate issue #40880 (degenerate output on hybrid + cudagraph + MTP+TurboQuant). If output is corrupted, downgrade to v2.0.3 which has the same flags minus MTP.\nTarget: ~80-90 t/s @ 128K context (vs 40 t/s in v2.0.3 without MTP). Best of both worlds: hybrid TurboQuant unblocked + MTP speedup retained.\nv2.0.3: perf tuning. Add Sandermage-validated flags: `--performance-mode interactivity`, `--async-scheduling`, `--no-scheduler-reserve-full-isl`, `--prefix-caching-hash-algo xxhash`, `--attention-config.flash_attn_version 2`. Plus Genesis env: GENESIS_ENABLE_P5B_KV (pad-smaller-to-max KV strategy, ~34% per-block VRAM saving), GENESIS_ENABLE_P65 (TurboQuant spec-decode cudagraph downgrade), GENESIS_ENABLE_P66 (cudagraph_capture_sizes spec-decode filter). Target +20-40% over v2.0.2 baseline (~40 t/s → 50-60 t/s expected).\nv2.0.2: bump `--max-num-batched-tokens` 2048 → 4096. Genesis P5 (KV cache page size unification) sets Mamba cache block_size=2080, and vLLM asserts `block_size <= max_num_batched_tokens`. Matches Sandermage's validated config.\nv2.0.1: drop `--attention-backend flashinfer` — flashinfer doesn't support turboquant_k8v4 (\"Selected backend AttentionBackendEnum.FLASHINFER is not valid for this configuration. Reason: ['kv_cache_dtype not supported']\"). Let vLLM auto-pick (will fallback to flash_attn). Matches Sandermage validated stack.\nv2.0.0: complete pivot. v1.0.x failed because vanilla TurboQuant rejects hybrid (attn + GDN/Mamba) models with NotImplementedError. Now uses Sandermage Genesis v7.51-stable-2026-04-27 patches (28 runtime monkey-patches) which fix hybrid layer geometry, max_num_kv_tokens accounting, and excluded layer routing. Tested by Sandermage on Qwen3-Next-35B-A3B-FP8 + TurboQuant K8V4 on Ampere — same patch surface applies on Blackwell.\nKV cache: turboquant_k8v4 (FP8 keys + 4-bit values, 2.6x compression vs bf16) — Sandermage's validated path. Less compression than turboquant_4bit_nc (3.8x) but proven stable.\nMTP disabled (issue #40880 — MTP × TurboQuant × cudagraph degenerate output on hybrid).\nTarget context 128K (vs 75K with fp8 KV).\n",
       "promoteImage": null,
       "promoteVideo": "",
       "subCategory": "",
       "locale": [
         "en-US"
       ],
-      "developer": "aamsellem",
+      "developer": "markus-albrecht",
       "requiredMemory": "21474836480",
       "requiredDisk": "32212254720",
       "supportClient": {},
@@ -3539,7 +3539,7 @@
           "host": "vllmqwen36turbo27bone",
           "port": 8000,
           "title": "Qwen36 27B Fast",
-          "icon": "https://orales-one-market.aamsellem.workers.dev/icons/vllmqwen36turbo27bone.png",
+          "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/vllmqwen36turbo27bone.png",
           "authLevel": "internal",
           "invisible": false,
           "openMethod": "window",
@@ -3557,11 +3557,11 @@
           }
         ]
       },
-      "submitter": "aamsellem",
+      "submitter": "markus-albrecht",
       "doc": "",
-      "website": "https://github.com/aamsellem/olares-one-market",
+      "website": "https://github.com/markus-albrecht/olares-one-market",
       "featuredImage": "",
-      "sourceCode": "https://github.com/aamsellem/olares-one-market",
+      "sourceCode": "https://github.com/markus-albrecht/olares-one-market",
       "license": [
         {
           "text": "Apache-2.0",
@@ -3593,21 +3593,21 @@
           "appName": "vllmqwen36turbo27bone",
           "version": "2.5.7",
           "versionName": "2.5.7",
-          "mergedAt": "2026-05-25T15:10:04.668Z",
+          "mergedAt": "2026-05-25T15:23:51.511Z",
           "upgradeDescription": ""
         }
       ],
       "screenshots": null,
       "tags": null,
       "metadata": null,
-      "updated_at": "2026-05-25T15:10:04.668Z"
+      "updated_at": "2026-05-25T15:23:51.511Z"
     },
     "af406293": {
       "id": "af406293",
       "name": "vllmvoxtral3bone",
       "cfgType": "app",
       "chartName": "vllmvoxtral3bone-1.0.8.tgz",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/vllmvoxtral3bone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/vllmvoxtral3bone.png",
       "description": "Voxtral Mini 3B ASR via vLLM — audio transcription and understanding, optimised for Olares One",
       "appID": "af406293",
       "title": "Voxtral Mini 3B ASR One",
@@ -3624,7 +3624,7 @@
       "locale": [
         "en-US"
       ],
-      "developer": "aamsellem",
+      "developer": "markus-albrecht",
       "requiredMemory": "4294967296",
       "requiredDisk": "21474836480",
       "supportClient": {},
@@ -3644,7 +3644,7 @@
           "host": "vllmvoxtral3bone",
           "port": 8000,
           "title": "Voxtral 3B ASR One",
-          "icon": "https://orales-one-market.aamsellem.workers.dev/icons/vllmvoxtral3bone.png",
+          "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/vllmvoxtral3bone.png",
           "authLevel": "internal",
           "invisible": false,
           "openMethod": "window",
@@ -3662,11 +3662,11 @@
           }
         ]
       },
-      "submitter": "aamsellem",
+      "submitter": "markus-albrecht",
       "doc": "",
-      "website": "https://github.com/aamsellem/olares-one-market",
+      "website": "https://github.com/markus-albrecht/olares-one-market",
       "featuredImage": "",
-      "sourceCode": "https://github.com/aamsellem/olares-one-market",
+      "sourceCode": "https://github.com/markus-albrecht/olares-one-market",
       "license": [
         {
           "text": "Apache 2.0",
@@ -3698,21 +3698,21 @@
           "appName": "vllmvoxtral3bone",
           "version": "1.0.8",
           "versionName": "1.0.7",
-          "mergedAt": "2026-05-25T15:10:04.669Z",
+          "mergedAt": "2026-05-25T15:23:51.512Z",
           "upgradeDescription": ""
         }
       ],
       "screenshots": null,
       "tags": null,
       "metadata": null,
-      "updated_at": "2026-05-25T15:10:04.669Z"
+      "updated_at": "2026-05-25T15:23:51.512Z"
     },
     "13db403f": {
       "id": "13db403f",
       "name": "vllmvoxtralrt4bone",
       "cfgType": "app",
       "chartName": "vllmvoxtralrt4bone-1.0.9.tgz",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/vllmvoxtralrt4bone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/vllmvoxtralrt4bone.png",
       "description": "Voxtral Realtime 4B streaming ASR via vLLM — real-time speech transcription, optimised for Olares One",
       "appID": "13db403f",
       "title": "Voxtral Realtime 4B One",
@@ -3729,7 +3729,7 @@
       "locale": [
         "en-US"
       ],
-      "developer": "aamsellem",
+      "developer": "markus-albrecht",
       "requiredMemory": "4294967296",
       "requiredDisk": "21474836480",
       "supportClient": {},
@@ -3749,7 +3749,7 @@
           "host": "vllmvoxtralrt4bone",
           "port": 8000,
           "title": "Voxtral RT 4B One",
-          "icon": "https://orales-one-market.aamsellem.workers.dev/icons/vllmvoxtralrt4bone.png",
+          "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/vllmvoxtralrt4bone.png",
           "authLevel": "internal",
           "invisible": false,
           "openMethod": "window",
@@ -3767,11 +3767,11 @@
           }
         ]
       },
-      "submitter": "aamsellem",
+      "submitter": "markus-albrecht",
       "doc": "",
-      "website": "https://github.com/aamsellem/olares-one-market",
+      "website": "https://github.com/markus-albrecht/olares-one-market",
       "featuredImage": "",
-      "sourceCode": "https://github.com/aamsellem/olares-one-market",
+      "sourceCode": "https://github.com/markus-albrecht/olares-one-market",
       "license": [
         {
           "text": "Apache 2.0",
@@ -3803,21 +3803,21 @@
           "appName": "vllmvoxtralrt4bone",
           "version": "1.0.9",
           "versionName": "1.0.8",
-          "mergedAt": "2026-05-25T15:10:04.669Z",
+          "mergedAt": "2026-05-25T15:23:51.512Z",
           "upgradeDescription": ""
         }
       ],
       "screenshots": null,
       "tags": null,
       "metadata": null,
-      "updated_at": "2026-05-25T15:10:04.669Z"
+      "updated_at": "2026-05-25T15:23:51.512Z"
     },
     "efd72908": {
       "id": "efd72908",
       "name": "vllmvoxtraltts4bone",
       "cfgType": "app",
       "chartName": "vllmvoxtraltts4bone-1.0.13.tgz",
-      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/vllmvoxtraltts4bone.png",
+      "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/vllmvoxtraltts4bone.png",
       "description": "Voxtral 4B TTS via vLLM-Omni — text-to-speech with 20 voices, optimised for Olares One",
       "appID": "efd72908",
       "title": "Voxtral 4B TTS One",
@@ -3834,7 +3834,7 @@
       "locale": [
         "en-US"
       ],
-      "developer": "aamsellem",
+      "developer": "markus-albrecht",
       "requiredMemory": "4294967296",
       "requiredDisk": "21474836480",
       "supportClient": {},
@@ -3854,7 +3854,7 @@
           "host": "vllmvoxtraltts4bone",
           "port": 8000,
           "title": "Voxtral TTS 4B One",
-          "icon": "https://orales-one-market.aamsellem.workers.dev/icons/vllmvoxtraltts4bone.png",
+          "icon": "https://orales-one-market.markus-albrecht.workers.dev/icons/vllmvoxtraltts4bone.png",
           "authLevel": "internal",
           "invisible": false,
           "openMethod": "window",
@@ -3872,11 +3872,11 @@
           }
         ]
       },
-      "submitter": "aamsellem",
+      "submitter": "markus-albrecht",
       "doc": "",
-      "website": "https://github.com/aamsellem/olares-one-market",
+      "website": "https://github.com/markus-albrecht/olares-one-market",
       "featuredImage": "",
-      "sourceCode": "https://github.com/aamsellem/olares-one-market",
+      "sourceCode": "https://github.com/markus-albrecht/olares-one-market",
       "license": [
         {
           "text": "CC BY-NC 4.0",
@@ -3908,14 +3908,14 @@
           "appName": "vllmvoxtraltts4bone",
           "version": "1.0.13",
           "versionName": "1.0.12",
-          "mergedAt": "2026-05-25T15:10:04.670Z",
+          "mergedAt": "2026-05-25T15:23:51.513Z",
           "upgradeDescription": ""
         }
       ],
       "screenshots": null,
       "tags": null,
       "metadata": null,
-      "updated_at": "2026-05-25T15:10:04.670Z"
+      "updated_at": "2026-05-25T15:23:51.513Z"
     }
   },
   "latest": [

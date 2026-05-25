@@ -4,7 +4,7 @@ olaresManifest.type: app
 apiVersion: 'v2'
 metadata:
   name: llamacppgemma4audione
-  icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppgemma4audione.png
+  icon: https://orales-one-market.markus-albrecht.workers.dev/icons/llamacppgemma4audione.png
   description: "Gemma 4 E4B with native audio input (USM Conformer encoder, llama.cpp PR #21421) — Olares One"
   appid: llamacppgemma4audione
   title: Gemma 4 Audio One
@@ -16,7 +16,7 @@ entrances:
     port: 8080
     host: llamacppgemma4audione
     title: Gemma 4 Audio One
-    icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppgemma4audione.png
+    icon: https://orales-one-market.markus-albrecht.workers.dev/icons/llamacppgemma4audione.png
     openMethod: window
     authLevel: internal
 spec:
@@ -52,10 +52,10 @@ spec:
     Audio max 30 seconds per input.
     License: Gemma Terms of Use + Apache 2.0 (llama.cpp).
 
-  developer: aamsellem
+  developer: markus-albrecht
   website: https://github.com/ggml-org/llama.cpp/pull/21421
-  sourceCode: https://github.com/aamsellem/olares-one-market
-  submitter: aamsellem
+  sourceCode: https://github.com/markus-albrecht/olares-one-market
+  submitter: markus-albrecht
   locale:
     - en-US
   license:

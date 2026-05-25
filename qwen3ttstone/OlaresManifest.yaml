@@ -4,7 +4,7 @@ olaresManifest.type: app
 apiVersion: 'v2'
 metadata:
   name: qwen3ttstone
-  icon: https://orales-one-market.aamsellem.workers.dev/icons/qwen3ttstone.png
+  icon: https://orales-one-market.markus-albrecht.workers.dev/icons/qwen3ttstone.png
   description: "Qwen3-TTS 1.7B — text-to-speech with voice cloning, optimised for Olares One"
   appid: qwen3ttstone
   title: Qwen3-TTS 1.7B (Olares One)
@@ -16,7 +16,7 @@ entrances:
     port: 8000
     host: qwen3ttstone
     title: Qwen3-TTS One
-    icon: https://orales-one-market.aamsellem.workers.dev/icons/qwen3ttstone.png
+    icon: https://orales-one-market.markus-albrecht.workers.dev/icons/qwen3ttstone.png
     openMethod: window
     authLevel: internal
 spec:
@@ -30,10 +30,10 @@ spec:
     Downloads the model on first launch (~4.5GB) and caches it.
     Exposes a Gradio web UI on port 8000.
 
-  developer: aamsellem
+  developer: markus-albrecht
   website: https://github.com/QwenLM/Qwen3-TTS
   sourceCode: https://github.com/QwenLM/Qwen3-TTS
-  submitter: aamsellem
+  submitter: markus-albrecht
   locale:
     - en-US
   license:

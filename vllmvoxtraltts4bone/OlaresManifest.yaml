@@ -4,7 +4,7 @@ olaresManifest.type: app
 apiVersion: 'v2'
 metadata:
   name: vllmvoxtraltts4bone
-  icon: https://orales-one-market.aamsellem.workers.dev/icons/vllmvoxtraltts4bone.png
+  icon: https://orales-one-market.markus-albrecht.workers.dev/icons/vllmvoxtraltts4bone.png
   description: "Voxtral 4B TTS via vLLM-Omni — text-to-speech with 20 voices, optimised for Olares One"
   appid: vllmvoxtraltts4bone
   title: Voxtral 4B TTS One
@@ -16,7 +16,7 @@ entrances:
     port: 8000
     host: vllmvoxtraltts4bone
     title: Voxtral TTS 4B One
-    icon: https://orales-one-market.aamsellem.workers.dev/icons/vllmvoxtraltts4bone.png
+    icon: https://orales-one-market.markus-albrecht.workers.dev/icons/vllmvoxtraltts4bone.png
     openMethod: window
     authLevel: internal
 spec:
@@ -32,10 +32,10 @@ spec:
     Downloads model on first launch (~8GB) and caches it.
     Exposes an OpenAI-compatible API on port 8000.
 
-  developer: aamsellem
-  website: https://github.com/aamsellem/olares-one-market
-  sourceCode: https://github.com/aamsellem/olares-one-market
-  submitter: aamsellem
+  developer: markus-albrecht
+  website: https://github.com/markus-albrecht/olares-one-market
+  sourceCode: https://github.com/markus-albrecht/olares-one-market
+  submitter: markus-albrecht
   locale:
     - en-US
   license:

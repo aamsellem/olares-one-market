@@ -4,7 +4,7 @@ olaresManifest.type: app
 apiVersion: 'v2'
 metadata:
   name: gemma4e2bone
-  icon: https://orales-one-market.aamsellem.workers.dev/icons/gemma426ba4bone.png
+  icon: https://orales-one-market.markus-albrecht.workers.dev/icons/gemma426ba4bone.png
   description: "Gemma 4 E2B (ultra-fast 2.3B) via llama.cpp — voice pipeline brain for Olares One"
   appid: gemma4e2bone
   title: Gemma 4 E2B Voice Brain One
@@ -16,13 +16,13 @@ entrances:
     port: 8080
     host: gemma4e2bone
     title: Gemma 4 E2B One
-    icon: https://orales-one-market.aamsellem.workers.dev/icons/gemma426ba4bone.png
+    icon: https://orales-one-market.markus-albrecht.workers.dev/icons/gemma426ba4bone.png
     openMethod: window
     authLevel: internal
 spec:
   versionName: '1.0.2'
   upgradeDescription: |
-    v1.0.2: switch to Atomic Chat llama.cpp fork (`AtomicBot-ai/atomic-llama-cpp-turboquant` feature/turboquant-kv-cache branch) which adds the `gemma4_assistant` MTP drafter arch (custom centroid LM head for E2B/E4B) AND TurboQuant KV cache (`turbo3`). Image: aamsellem/llamacpp-atomic-mtp:0.1.0. Adds AtomicChat/gemma-4-E2B-it-assistant-GGUF Q4_K_M (75 MB) as MTP drafter alongside the unsloth target. Reference bench from AtomicChat (M5Max): Gemma 4 26B = 97 → 138 t/s = +40% with MTP. Expected on Olares 5090M: comparable speedup over baseline. Bumps CONTEXT_SIZE 8192 → 131072 (full native 128K) — Gemma 4 E2B target Q8_0 = 4.7 GB + drafter 75 MB leaves ~19 GB for KV cache, plenty for max context with turbo3 (3-bit). Vision NOT enabled (Gemma 4 mmproj not yet wired through this fork). Same Apache 2.0 license as upstream llama.cpp + Gemma Terms of Use for the model.
+    v1.0.2: switch to Atomic Chat llama.cpp fork (`AtomicBot-ai/atomic-llama-cpp-turboquant` feature/turboquant-kv-cache branch) which adds the `gemma4_assistant` MTP drafter arch (custom centroid LM head for E2B/E4B) AND TurboQuant KV cache (`turbo3`). Image: markus-albrecht/llamacpp-atomic-mtp:0.1.0. Adds AtomicChat/gemma-4-E2B-it-assistant-GGUF Q4_K_M (75 MB) as MTP drafter alongside the unsloth target. Reference bench from AtomicChat (M5Max): Gemma 4 26B = 97 → 138 t/s = +40% with MTP. Expected on Olares 5090M: comparable speedup over baseline. Bumps CONTEXT_SIZE 8192 → 131072 (full native 128K) — Gemma 4 E2B target Q8_0 = 4.7 GB + drafter 75 MB leaves ~19 GB for KV cache, plenty for max context with turbo3 (3-bit). Vision NOT enabled (Gemma 4 mmproj not yet wired through this fork). Same Apache 2.0 license as upstream llama.cpp + Gemma Terms of Use for the model.
   fullDescription: |
     Google Gemma 4 E2B (5.1B params, 2.3B effective) served via llama.cpp — ultra-fast voice pipeline brain for Olares One.
     RTX 5090M (24GB) + 96GB DDR5 + Core Ultra 9 275HX.
@@ -33,10 +33,10 @@ spec:
     Downloads model on first launch (~4.7GB) and caches it.
     Exposes an OpenAI-compatible API on port 8080.
 
-  developer: aamsellem
-  website: https://github.com/aamsellem/olares-one-market
-  sourceCode: https://github.com/aamsellem/olares-one-market
-  submitter: aamsellem
+  developer: markus-albrecht
+  website: https://github.com/markus-albrecht/olares-one-market
+  sourceCode: https://github.com/markus-albrecht/olares-one-market
+  submitter: markus-albrecht
   locale:
     - en-US
   license:

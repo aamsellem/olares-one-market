@@ -32,7 +32,7 @@ If no new-version is given, auto-increment the patch version (e.g., 1.0.5 -> 1.0
 
 8. **Verify**: Check the deployed API returns the new version:
    ```
-   curl -s https://orales-one-market.aamsellem.workers.dev/api/v1/appstore/info?version=1.12.3
+   curl -s https://orales-one-market.markus-albrecht.workers.dev/api/v1/appstore/info?version=1.12.3
    ```
 
 9. **Report**: Show old version -> new version, new hash, and deployed URL.

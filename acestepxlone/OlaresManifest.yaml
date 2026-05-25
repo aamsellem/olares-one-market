@@ -4,7 +4,7 @@ olaresManifest.type: app
 apiVersion: 'v2'
 metadata:
   name: acestepxlone
-  icon: https://orales-one-market.aamsellem.workers.dev/icons/acestepxlone.png
+  icon: https://orales-one-market.markus-albrecht.workers.dev/icons/acestepxlone.png
   description: "ACE-Step 1.5 XL — AI music generation (4B DiT, Turbo+SFT modes), optimised for Olares One"
   appid: acestepxlone
   title: ACE-Step XL One
@@ -16,7 +16,7 @@ entrances:
     port: 7860
     host: acestepxlone
     title: ACE-Step XL One
-    icon: https://orales-one-market.aamsellem.workers.dev/icons/acestepxlone.png
+    icon: https://orales-one-market.markus-albrecht.workers.dev/icons/acestepxlone.png
     openMethod: window
     authLevel: internal
 spec:
@@ -36,10 +36,10 @@ spec:
     Downloads models on first launch (~38GB: Turbo + SFT + LM) and caches them.
     Exposes a Gradio web UI with full music generation controls.
 
-  developer: aamsellem
+  developer: markus-albrecht
   website: https://github.com/ace-step/ACE-Step-1.5
   sourceCode: https://github.com/ace-step/ACE-Step-1.5
-  submitter: aamsellem
+  submitter: markus-albrecht
   locale:
     - en-US
   license:

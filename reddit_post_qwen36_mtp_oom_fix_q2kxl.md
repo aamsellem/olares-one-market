@@ -65,11 +65,11 @@ Unsloth Dynamic preserves critical layers in higher precision (and MTP head at Q
 ## Stack used
 
 - Hardware: RTX 5090 Laptop 24GB sm_120 Blackwell mobile
-- Image: `aamsellem/llamacpp-mtp:0.1.0` (custom build from am17an's MTP branch — should be droppable once #22673 merges upstream)
+- Image: `markus-albrecht/llamacpp-mtp:0.1.0` (custom build from am17an's MTP branch — should be droppable once #22673 merges upstream)
 - Target: `havenoammo/Qwen3.6-27B-MTP-UD-GGUF` (or equivalently `unsloth/Qwen3.6-27B-GGUF-MTP`) UD-Q2_K_XL
 - Args: `--ctx-size 262144 --cache-type-k q4_0 --cache-type-v q4_0 --batch-size 512 --ubatch-size 512 --parallel 1 --flash-attn on --spec-type mtp --spec-draft-n-max 5`
 
-Reproducible chart: [orales-one-market](https://github.com/aamsellem/olares-one-market/tree/main/llamacppqwen36mtpone) v1.0.7.
+Reproducible chart: [orales-one-market](https://github.com/markus-albrecht/olares-one-market/tree/main/llamacppqwen36mtpone) v1.0.7.
 
 ## TL;DR
 

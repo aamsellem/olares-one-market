@@ -37,7 +37,7 @@ spec:
     spec:
       containers:
         - name: llamacpp-dflash-server
-          image: "docker.io/aamsellem/buun-llama-cpp-dflash:0.2.0"
+          image: "docker.io/markus-albrecht/buun-llama-cpp-dflash:0.2.0"
           command: ["/bin/bash", "-c"]
           args:
             - |

@@ -4,7 +4,7 @@ olaresManifest.type: app
 apiVersion: 'v2'
 metadata:
   name: exl3qwen35a3bone
-  icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen35a3bone.png
+  icon: https://orales-one-market.markus-albrecht.workers.dev/icons/llamacppqwen35a3bone.png
   description: "Qwen3.5 35B-A3B EXL3 4bpw via TabbyAPI + ExLlamaV3 — optimised for Olares One"
   appid: exl3qwen35a3bone
   title: Qwen3.5 35B EXL3 One
@@ -16,7 +16,7 @@ entrances:
     port: 8080
     host: exl3qwen35a3bone
     title: Qwen 35B EXL3 One
-    icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen35a3bone.png
+    icon: https://orales-one-market.markus-albrecht.workers.dev/icons/llamacppqwen35a3bone.png
     openMethod: window
     authLevel: internal
 spec:
@@ -29,10 +29,10 @@ spec:
     Downloads the EXL3 model on first launch (~18GB) and caches it.
     Exposes an OpenAI-compatible API (v1/chat/completions).
 
-  developer: aamsellem
-  website: https://github.com/aamsellem/olares-one-market
-  sourceCode: https://github.com/aamsellem/olares-one-market
-  submitter: aamsellem
+  developer: markus-albrecht
+  website: https://github.com/markus-albrecht/olares-one-market
+  sourceCode: https://github.com/markus-albrecht/olares-one-market
+  submitter: markus-albrecht
   locale:
     - en-US
   license:

@@ -83,6 +83,6 @@ I'll probably file a vLLM issue with the repro tonight.
 
 **Hardware:** Olares One (RTX 5090M 24GB, 896 GB/s, sm_120 Blackwell mobile)
 **Image:** `vllm/vllm-openai:tokenspeed-preview-x86_64-ubuntu2404`
-**App chart (open source):** https://github.com/aamsellem/olares-one-market/tree/main/vllmgemma4dflashone — v1.0.4 ships with n_spec=8
+**App chart (open source):** https://github.com/markus-albrecht/olares-one-market/tree/main/vllmgemma4dflashone — v1.0.4 ships with n_spec=8
 
 Edit: also released a complementary app today: `llamacppgemma4audione` (Gemma 4 E4B + native audio input via USM Conformer encoder, llama.cpp PR #21421 merged April 12). Uses BF16 mmproj (F16/Q8_0 are known to produce repetitive output). ~6 GB VRAM, ASR + audio understanding.

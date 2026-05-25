@@ -4,7 +4,7 @@ olaresManifest.type: app
 apiVersion: 'v2'
 metadata:
   name: vllmgemma426ba4bvisionone
-  icon: https://orales-one-market.aamsellem.workers.dev/icons/vllmgemma426ba4bvisionone.png
+  icon: https://orales-one-market.markus-albrecht.workers.dev/icons/vllmgemma426ba4bvisionone.png
   description: "Gemma 4 26B-A4B vision-capable via vLLM — 135 t/s @ 128K context on Olares One"
   appid: vllmgemma426ba4bvisionone
   title: Gemma 4 26B Vision One
@@ -16,7 +16,7 @@ entrances:
     port: 8000
     host: vllmgemma426ba4bvisionone
     title: Gemma 4 26B Vision
-    icon: https://orales-one-market.aamsellem.workers.dev/icons/vllmgemma426ba4bvisionone.png
+    icon: https://orales-one-market.markus-albrecht.workers.dev/icons/vllmgemma426ba4bvisionone.png
     openMethod: window
     authLevel: internal
 spec:
@@ -73,10 +73,10 @@ spec:
     OpenAI-compatible API on port 8000.
     Model downloads on first launch (~17 GB target). Audio input not yet exposed.
 
-  developer: aamsellem
+  developer: markus-albrecht
   website: https://huggingface.co/cyankiwi/gemma-4-26B-A4B-it-AWQ-4bit
-  sourceCode: https://github.com/aamsellem/olares-one-market
-  submitter: aamsellem
+  sourceCode: https://github.com/markus-albrecht/olares-one-market
+  submitter: markus-albrecht
   locale:
     - en-US
   license:

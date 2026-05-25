@@ -4,7 +4,7 @@ olaresManifest.type: app
 apiVersion: 'v2'
 metadata:
   name: cascade230a3bone
-  icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppnemotron30a3bone.png
+  icon: https://orales-one-market.markus-albrecht.workers.dev/icons/llamacppnemotron30a3bone.png
   description: "Nemotron Cascade 2 30B-A3B via llama.cpp — math and code, optimised for Olares One"
   appid: cascade230a3bone
   title: Cascade 2 30B-A3B One
@@ -16,7 +16,7 @@ entrances:
     port: 8080
     host: cascade230a3bone
     title: Cascade 2 30B One
-    icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppnemotron30a3bone.png
+    icon: https://orales-one-market.markus-albrecht.workers.dev/icons/llamacppnemotron30a3bone.png
     openMethod: window
     authLevel: internal
 spec:
@@ -34,10 +34,10 @@ spec:
     Downloads the GGUF model on first launch (~22.5GB) and caches it.
     Exposes an OpenAI-compatible API on port 8080.
 
-  developer: aamsellem
-  website: https://github.com/aamsellem/olares-one-market
-  sourceCode: https://github.com/aamsellem/olares-one-market
-  submitter: aamsellem
+  developer: markus-albrecht
+  website: https://github.com/markus-albrecht/olares-one-market
+  sourceCode: https://github.com/markus-albrecht/olares-one-market
+  submitter: markus-albrecht
   locale:
     - en-US
   license:

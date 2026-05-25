@@ -11,7 +11,7 @@ Every app here is hand-tuned for this exact hardware. No generic configs — jus
 Add this URL as a market source in **Olares Market → Settings → Add Source**:
 
 ```
-https://orales-one-market.aamsellem.workers.dev
+https://orales-one-market.markus-albrecht.workers.dev
 ```
 
 Apps show up within 5 minutes. Install like any other Olares app — models download automatically on first launch.
@@ -99,7 +99,7 @@ npm run deploy           # Deploy to Cloudflare Workers
 
 ## Related
 
-- [olares-market](https://github.com/aamsellem/orales-market) — generic apps for any Olares hardware
+- [olares-market](https://github.com/markus-albrecht/orales-market) — generic apps for any Olares hardware
 
 ## License
 

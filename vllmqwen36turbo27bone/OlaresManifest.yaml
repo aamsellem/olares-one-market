@@ -4,7 +4,7 @@ olaresManifest.type: app
 apiVersion: 'v2'
 metadata:
   name: vllmqwen36turbo27bone
-  icon: https://orales-one-market.aamsellem.workers.dev/icons/vllmqwen36turbo27bone.png
+  icon: https://orales-one-market.markus-albrecht.workers.dev/icons/vllmqwen36turbo27bone.png
   description: "Qwen3.6 27B fastest stack — vLLM Turbo + Genesis on 24GB"
   appid: vllmqwen36turbo27bone
   title: Qwen36 27B Fast
@@ -16,7 +16,7 @@ entrances:
     port: 8000
     host: vllmqwen36turbo27bone
     title: Qwen36 27B Fast
-    icon: https://orales-one-market.aamsellem.workers.dev/icons/vllmqwen36turbo27bone.png
+    icon: https://orales-one-market.markus-albrecht.workers.dev/icons/vllmqwen36turbo27bone.png
     openMethod: window
     authLevel: internal
 spec:
@@ -34,9 +34,9 @@ spec:
       - 96K: OOM (3.17 GiB KV needed vs 2.97 GiB available)
       - 128K: OOM (3.94 GiB KV needed)
     Chart now matches the validated ceiling. To push above 88K, future versions need either gpu_memory_utilization → 0.99 (HAMi-risky) or MTP n=3 → n=1 (loses spec speed) or fp8_e5m2 KV cache (less compression).
-    v2.5.0: second attempt at vLLM v0.20.0 official base. Image `aamsellem/vllm-qwen36-blackwell:0.20.0-genesis-v3`. Same Genesis v7.51 patches as v2.3.0 BUT with P8 short-circuited via `disable_p8.py` build-time edit (rewrites apply_patch_8_kv_hybrid_reporting() to early-return _skipped). This bypasses the broken `token_capacity_kv_cache_groups` import that crashed v2.3.0 at engine boot. Other Genesis patches expected to apply normally (28 applied / 31 skipped / 0 failed projected). If boot succeeds, validates that v0.20.0 works for our hybrid TurboQuant + MTP n=3 stack with only one Sandermage compat fix needed. If boot fails again, fall back to v2.4.0 cu130-nightly base.
-    v2.4.0: rollback to cu130-nightly base image (`aamsellem/vllm-qwen36-blackwell:0.20.0-genesis`) after v2.3.0 boot crash. Genesis v7.51 P8 (KV hybrid reporting per-token capacity) wires `import token_capacity_kv_cache_groups` from `vllm.v1.core.kv_cache_utils`, but v0.20.0 stable has refactored that function out of the public API — sub-patch kv_cache_utils self-skipped on `required_anchor_missing` but scheduler sub-patch inserted the broken import anyway, causing `ImportError` at engine boot. Same chart spec as v2.2.2 stable (TurboQuant K8V4 + MTP n=3 + 80K context). v2.3.x kept on Hub for the upcoming v3 build that will short-circuit P8 to fix v0.20.0 compat.
-    v2.3.0: bump base image to official `vllm/vllm-openai:v0.20.0` (released 2026-04-27) instead of cu130-nightly fe9c3d6. Tag: `aamsellem/vllm-qwen36-blackwell:0.20.0-genesis-v2`. CRASHED at boot — Genesis P8 incompatible with v0.20.0 (see v2.4.0 above for root cause). Image kept on Hub for diagnostic comparison.
+    v2.5.0: second attempt at vLLM v0.20.0 official base. Image `markus-albrecht/vllm-qwen36-blackwell:0.20.0-genesis-v3`. Same Genesis v7.51 patches as v2.3.0 BUT with P8 short-circuited via `disable_p8.py` build-time edit (rewrites apply_patch_8_kv_hybrid_reporting() to early-return _skipped). This bypasses the broken `token_capacity_kv_cache_groups` import that crashed v2.3.0 at engine boot. Other Genesis patches expected to apply normally (28 applied / 31 skipped / 0 failed projected). If boot succeeds, validates that v0.20.0 works for our hybrid TurboQuant + MTP n=3 stack with only one Sandermage compat fix needed. If boot fails again, fall back to v2.4.0 cu130-nightly base.
+    v2.4.0: rollback to cu130-nightly base image (`markus-albrecht/vllm-qwen36-blackwell:0.20.0-genesis`) after v2.3.0 boot crash. Genesis v7.51 P8 (KV hybrid reporting per-token capacity) wires `import token_capacity_kv_cache_groups` from `vllm.v1.core.kv_cache_utils`, but v0.20.0 stable has refactored that function out of the public API — sub-patch kv_cache_utils self-skipped on `required_anchor_missing` but scheduler sub-patch inserted the broken import anyway, causing `ImportError` at engine boot. Same chart spec as v2.2.2 stable (TurboQuant K8V4 + MTP n=3 + 80K context). v2.3.x kept on Hub for the upcoming v3 build that will short-circuit P8 to fix v0.20.0 compat.
+    v2.3.0: bump base image to official `vllm/vllm-openai:v0.20.0` (released 2026-04-27) instead of cu130-nightly fe9c3d6. Tag: `markus-albrecht/vllm-qwen36-blackwell:0.20.0-genesis-v2`. CRASHED at boot — Genesis P8 incompatible with v0.20.0 (see v2.4.0 above for root cause). Image kept on Hub for diagnostic comparison.
     v2.2.2: rollback to TurboQuant K8V4 + MTP n=3 + 80K context (4096 batched_tokens) — proven stable. v2.2.0 / v2.2.1 attempted turboquant_4bit_nc (3.8x compression vs 2.6x for K8V4) which gave 60 t/s avg in one bench run on 2026-04-27 but boot is intermittent: TorchDynamo shape mismatch (FakeTensor mul, 196608 vs 48*s72) at engine init, randomly succeeds or fails depending on cudagraph capture state. K8V4 boots reliably 100% of the time at 38 t/s avg. Trade-off: ~30% slower decode but no crashloop. The 4bit_nc + MTP combo on Blackwell sm_120 hybrid stays a future target — needs upstream fix or different cudagraph_capture_sizes filter.
     v2.2.1: remove GENESIS_ENABLE_P5B_KV. P5B (pad-smaller-to-max KV strategy) is incompatible with turboquant_4bit_nc + MTP n=3 on Blackwell sm_120 — produces TorchDynamo shape mismatch (FakeTensor mul op, 196608 vs 48*s72) at engine init. Same root cause as 3bit_nc + MTP and P65 disabled. v2.2.0 shipped with P5B=1 by mistake (we had measured 60 t/s with P5B=0 during testing); v2.2.0 deploys went into CrashLoopBackOff (Exit 137 → actually shape mismatch + watchdog kill).
     v2.2.0: switch KV cache turboquant_k8v4 → turboquant_4bit_nc (3.8x compression vs 2.6x). Bench 2026-04-27 on Olares One (RTX 5090M sm_120, 24GB): 60 t/s avg [46-73 range, 3 prompts × 800 tokens] vs 38 t/s avg with K8V4. KV pool 177K tokens (vs 120K K8V4) → max_model_len bumped 80K → 100K. max_num_batched_tokens 4096 → 8192 to fit 4bit_nc Mamba block_size. Genesis P64/P60/P62 enabled (qwen3coder MTP streaming + GDN ngram + struct-out timing) — no measurable gain but no harm. Genesis P65 mandatory: without it the engine fails to boot at TorchDynamo shape inference (mul op tensor mismatch with MTP draft + TurboQuant kernel). P5B kept enabled (4bit_nc compatible; only 3bit_nc breaks).
@@ -55,7 +55,7 @@ spec:
     Qwen3.6 27B dense served via vLLM 0.20 with Sandermage Genesis patches + TurboQuant K8V4 KV cache — optimised for Olares One.
     RTX 5090M (24GB) + 96GB DDR5 + Core Ultra 9 275HX.
     Model: Lorbus/Qwen3.6-27B-int4-AutoRound (~19GB, hybrid GDN + attention layers).
-    Custom vLLM cu130-nightly image (aamsellem/vllm-qwen36-blackwell:0.20.0-genesis) with:
+    Custom vLLM cu130-nightly image (markus-albrecht/vllm-qwen36-blackwell:0.20.0-genesis) with:
       - Sandermage Genesis v7.51-stable-2026-04-27: 28 runtime monkey-patches that unblock TurboQuant on hybrid models
         - Hybrid layer geometry handling (key fix for Qwen3.5/3.6)
         - max_num_kv_tokens accounting for Mamba state
@@ -70,10 +70,10 @@ spec:
     First launch downloads target (~20GB) from HuggingFace.
     Exposes an OpenAI-compatible API on port 8000.
 
-  developer: aamsellem
-  website: https://github.com/aamsellem/olares-one-market
-  sourceCode: https://github.com/aamsellem/olares-one-market
-  submitter: aamsellem
+  developer: markus-albrecht
+  website: https://github.com/markus-albrecht/olares-one-market
+  sourceCode: https://github.com/markus-albrecht/olares-one-market
+  submitter: markus-albrecht
   locale:
     - en-US
   license:

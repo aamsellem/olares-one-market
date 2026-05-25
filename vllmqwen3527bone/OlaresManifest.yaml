@@ -4,7 +4,7 @@ olaresManifest.type: app
 apiVersion: 'v2'
 metadata:
   name: vllmqwen3527bone
-  icon: https://orales-one-market.aamsellem.workers.dev/icons/vllmqwen3527bone.png
+  icon: https://orales-one-market.markus-albrecht.workers.dev/icons/vllmqwen3527bone.png
   description: "Qwen3.5 27B NVFP4 via vLLM — optimised for Olares One"
   appid: vllmqwen3527bone
   title: Qwen3.5 27B NVFP4 vLLM One
@@ -16,7 +16,7 @@ entrances:
     port: 8000
     host: vllmqwen3527bone
     title: Qwen 27B NVFP4 vLLM One
-    icon: https://orales-one-market.aamsellem.workers.dev/icons/vllmqwen3527bone.png
+    icon: https://orales-one-market.markus-albrecht.workers.dev/icons/vllmqwen3527bone.png
     openMethod: window
     authLevel: internal
 spec:
@@ -30,10 +30,10 @@ spec:
     Downloads the model from HuggingFace on first launch (~20GB) and caches it.
     Exposes an OpenAI-compatible API on port 8000.
 
-  developer: aamsellem
-  website: https://github.com/aamsellem/olares-one-market
-  sourceCode: https://github.com/aamsellem/olares-one-market
-  submitter: aamsellem
+  developer: markus-albrecht
+  website: https://github.com/markus-albrecht/olares-one-market
+  sourceCode: https://github.com/markus-albrecht/olares-one-market
+  submitter: markus-albrecht
   locale:
     - en-US
   license:

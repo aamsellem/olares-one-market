@@ -4,7 +4,7 @@ olaresManifest.type: app
 apiVersion: 'v2'
 metadata:
   name: omnivoiceone
-  icon: https://orales-one-market.aamsellem.workers.dev/icons/omnivoiceone.png
+  icon: https://orales-one-market.markus-albrecht.workers.dev/icons/omnivoiceone.png
   description: "OmniVoice TTS (646 languages, voice cloning, voice design, 0.6B) — optimised for Olares One"
   appid: omnivoiceone
   title: OmniVoice TTS One
@@ -16,7 +16,7 @@ entrances:
     port: 8000
     host: omnivoiceone
     title: OmniVoice TTS One
-    icon: https://orales-one-market.aamsellem.workers.dev/icons/omnivoiceone.png
+    icon: https://orales-one-market.markus-albrecht.workers.dev/icons/omnivoiceone.png
     openMethod: window
     authLevel: internal
 spec:
@@ -101,10 +101,10 @@ spec:
 
     Downloads model on first launch (~2GB) and caches it under /data/hf-cache.
 
-  developer: aamsellem
+  developer: markus-albrecht
   website: https://github.com/k2-fsa/OmniVoice
-  sourceCode: https://github.com/aamsellem/olares-one-market
-  submitter: aamsellem
+  sourceCode: https://github.com/markus-albrecht/olares-one-market
+  submitter: markus-albrecht
   locale:
     - en-US
   license:

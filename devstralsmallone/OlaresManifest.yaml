@@ -4,7 +4,7 @@ olaresManifest.type: app
 apiVersion: 'v2'
 metadata:
   name: devstralsmallone
-  icon: https://orales-one-market.aamsellem.workers.dev/icons/devstralsmallone.png
+  icon: https://orales-one-market.markus-albrecht.workers.dev/icons/devstralsmallone.png
   description: "Devstral Small 2507 via llama.cpp — coding agent optimised for Olares One"
   appid: devstralsmallone
   title: Devstral Small Code One
@@ -16,7 +16,7 @@ entrances:
     port: 8080
     host: devstralsmallone
     title: Devstral Code One
-    icon: https://orales-one-market.aamsellem.workers.dev/icons/devstralsmallone.png
+    icon: https://orales-one-market.markus-albrecht.workers.dev/icons/devstralsmallone.png
     openMethod: window
     authLevel: internal
 spec:
@@ -32,10 +32,10 @@ spec:
     Downloads the GGUF model on first launch (~17GB) and caches it.
     Exposes an OpenAI-compatible API on port 8080.
 
-  developer: aamsellem
-  website: https://github.com/aamsellem/olares-one-market
-  sourceCode: https://github.com/aamsellem/olares-one-market
-  submitter: aamsellem
+  developer: markus-albrecht
+  website: https://github.com/markus-albrecht/olares-one-market
+  sourceCode: https://github.com/markus-albrecht/olares-one-market
+  submitter: markus-albrecht
   locale:
     - en-US
   license:

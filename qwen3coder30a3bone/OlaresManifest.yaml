@@ -4,7 +4,7 @@ olaresManifest.type: app
 apiVersion: 'v2'
 metadata:
   name: qwen3coder30a3bone
-  icon: https://orales-one-market.aamsellem.workers.dev/icons/qwen3coder30a3bone.png
+  icon: https://orales-one-market.markus-albrecht.workers.dev/icons/qwen3coder30a3bone.png
   description: "Qwen3 Coder 30B-A3B via llama.cpp — coding agent optimised for Olares One"
   appid: qwen3coder30a3bone
   title: Qwen3 Coder 30B-A3B One
@@ -16,7 +16,7 @@ entrances:
     port: 8080
     host: qwen3coder30a3bone
     title: Qwen3 Coder 30B One
-    icon: https://orales-one-market.aamsellem.workers.dev/icons/qwen3coder30a3bone.png
+    icon: https://orales-one-market.markus-albrecht.workers.dev/icons/qwen3coder30a3bone.png
     openMethod: window
     authLevel: internal
 spec:
@@ -31,10 +31,10 @@ spec:
     Downloads the GGUF model on first launch (~16.5GB) and caches it.
     Exposes an OpenAI-compatible API on port 8080.
 
-  developer: aamsellem
-  website: https://github.com/aamsellem/olares-one-market
-  sourceCode: https://github.com/aamsellem/olares-one-market
-  submitter: aamsellem
+  developer: markus-albrecht
+  website: https://github.com/markus-albrecht/olares-one-market
+  sourceCode: https://github.com/markus-albrecht/olares-one-market
+  submitter: markus-albrecht
   locale:
     - en-US
   license:
