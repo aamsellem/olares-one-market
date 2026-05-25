@@ -3,7 +3,7 @@ metadata:
   title: Gemma 4 26B Vision One
 spec:
   fullDescription: |
-    Google Gemma 4 26B-A4B (MoE, 3.8B active, native multimodal Gemma4ForConditionalGeneration) — served via vLLM, optimized for Olares One (RTX 5090M sm_120 mobile).
+    Google Gemma 4 26B-A4B (MoE, 3.8B active, native multimodal Gemma4ForConditionalGeneration) — served via vLLM, optimised for Olares One (RTX 5090M sm_120 mobile).
     Stack: cyankiwi/gemma-4-26B-A4B-it-AWQ-4bit (~17 GB, vision encoder bundled) + triton_attn backend + fp8 KV cache + native multimodal — no separate mmproj needed.
     Validated bench on Olares One 2026-05-14 night-test: 135.97 t/s AVG (10 runs, range 135.67-136.23, exceptional stability 0.56). Vision smoke test: 64x64 PNG gradient correctly identified as "Red" in 0.73s wall.
     +9.7% throughput vs llama.cpp atomic fork (123.97 t/s same hardware same prompt). Native multimodal with audio_config also present (future v1.0.X to wire audio).

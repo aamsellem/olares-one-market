@@ -1,0 +1,178 @@
+{{- if and .Values.admin .Values.bfl.username (eq .Values.admin .Values.bfl.username) }}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: vllm-env
+  namespace: "{{ .Release.Namespace }}"
+data:
+  MODEL_NAME: "cyankiwi/Ministral-3-14B-Reasoning-2512-AWQ-4bit"
+  MODEL_ALIAS: "ministral-3-14b-reasoning"
+  MAX_MODEL_LEN: "32768"
+  GPU_MEMORY_UTILIZATION: "0.92"
+  LITELLM_MODEL_NAME: "ministral-3-14b-reasoning"
+  LITELLM_SERVICE_URL: "http://litellm.litellmgatewayserver-shared:4000"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    io.kompose.service: vllm
+    llm-backend: vllm
+  name: vllm
+  namespace: "{{ .Release.Namespace }}"
+  annotations:
+    applications.app.bytetrade.io/gpu-inject: "true"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: vllm
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        io.kompose.network/chrome-default: "true"
+        io.kompose.service: vllm
+    spec:
+      containers:
+        - name: vllm-server
+          image: "vllm/vllm-openai:v0.6.6.post1"
+          args:
+            - "--model"
+            - "$(MODEL_NAME)"
+            - "--served-model-name"
+            - "$(MODEL_ALIAS)"
+            - "--host"
+            - "0.0.0.0"
+            - "--port"
+            - "8000"
+            - "--max-model-len"
+            - "$(MAX_MODEL_LEN)"
+            - "--gpu-memory-utilization"
+            - "$(GPU_MEMORY_UTILIZATION)"
+            - "--kv-cache-dtype"
+            - "fp8"
+            - "--max-num-seqs"
+            - "8"
+            - "--max-num-batched-tokens"
+            - "16384"
+            - "--dtype"
+            - "auto"
+            - "--trust-remote-code"
+            - "--download-dir"
+            - "/models"
+            - "--enable-prefix-caching"
+          envFrom:
+            - configMapRef:
+                name: vllm-env
+          env:
+            - name: HF_HOME
+              value: "/models/huggingface"
+            - name: HF_ENDPOINT
+              value: "{{ .Values.olaresEnv.OLARES_USER_HUGGINGFACE_SERVICE }}"
+            - name: HF_TOKEN
+              value: "{{ .Values.olaresEnv.OLARES_USER_HUGGINGFACE_TOKEN }}"
+            - name: CUDA_DEVICE_MEMORY_LIMIT_0
+              value: "24400m"
+          ports:
+            - containerPort: 8000
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+              scheme: HTTP
+            initialDelaySeconds: 600
+            timeoutSeconds: 10
+            periodSeconds: 30
+            failureThreshold: 5
+          startupProbe:
+            httpGet:
+              path: /health
+              port: 8000
+              scheme: HTTP
+            initialDelaySeconds: 120
+            timeoutSeconds: 10
+            periodSeconds: 15
+            failureThreshold: 120
+          resources:
+            limits:
+              cpu: "16"
+              memory: 32Gi
+              nvidia.com/gpu: "1"
+            requests:
+              cpu: 4000m
+              memory: 16Gi
+              nvidia.com/gpu: "1"
+          volumeMounts:
+            - mountPath: "/models"
+              name: models
+        - name: litellm-register
+          image: "docker.io/curlimages/curl:8.11.0"
+          command:
+            - sh
+            - '-c'
+            - |
+              until curl -sf http://localhost:8000/health > /dev/null 2>&1; do
+                sleep 10
+              done
+              LITELLM_KEY="sk-olares-litellm-{{ .Release.Namespace }}"
+              LITELLM_URL="${LITELLM_SERVICE_URL}"
+              BACKEND_URL="http://vllm.vllmministral314broneserver-shared:8000/v1"
+              register_model() {
+                curl -sf -o /dev/null -w "%{http_code}" \
+                  -X POST "${LITELLM_URL}/model/new" \
+                  -H "Authorization: Bearer ${LITELLM_KEY}" \
+                  -H "Content-Type: application/json" \
+                  -d "{\"model_name\": \"${LITELLM_MODEL_NAME}\", \"litellm_params\": {\"model\": \"openai/${MODEL_ALIAS}\", \"api_base\": \"${BACKEND_URL}\"}}"
+              }
+              for i in $(seq 1 5); do register_model && break; sleep 30; done
+              while true; do sleep 3600; register_model; done
+          envFrom:
+            - configMapRef:
+                name: vllm-env
+          resources:
+            limits:
+              cpu: 50m
+              memory: 32Mi
+            requests:
+              cpu: 5m
+              memory: 16Mi
+      volumes:
+        - name: models
+          hostPath:
+            path: "{{ .Values.userspace.userData }}/VLLM/{{ .Release.Name }}/models"
+            type: DirectoryOrCreate
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    io.kompose.service: vllm
+  name: vllm
+  namespace: "{{ .Release.Namespace }}"
+spec:
+  ports:
+    - name: "vllm"
+      port: 8000
+      targetPort: 8000
+  selector:
+    io.kompose.service: vllm
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    io.kompose.service: vllm
+  name: sharedentrances-vllm
+  namespace: "{{ .Release.Namespace }}"
+spec:
+  ports:
+    - name: "vllm"
+      port: 80
+      targetPort: 8000
+  selector:
+    io.kompose.service: vllm
+{{- end }}

@@ -1,13 +1,13 @@
 metadata:
   title: Qwen3.6 35B-A3B (Olares One)
-  description: "Qwen3.6 35B-A3B via llama.cpp — optimized for Olares One"
+  description: "Qwen3.6 35B-A3B via llama.cpp — optimised for Olares One"
 
 spec:
   fullDescription: |
-    Qwen3.6 35B-A3B (MoE, 3B active) served via llama.cpp — optimized for Olares One.
+    Qwen3.6 35B-A3B (MoE, 3B active) served via llama.cpp — optimised for Olares One.
     RTX 5090M (24GB) + 96GB DDR5 + Core Ultra 9 275HX.
     Unsloth Dynamic Q4_K_XL quantization (important layers upcasted to 8/16-bit).
-    Flash attention, CUDA graph optimization, and op-offload enabled.
+    Flash attention, CUDA graph optimisation, and op-offload enabled.
     llama.cpp b8740 with GATED_DELTA_NET fused op + Hadamard rotation for KV cache.
     Downloads the GGUF model on first launch (~22GB) and caches it.
     Exposes an OpenAI-compatible API on port 8080.

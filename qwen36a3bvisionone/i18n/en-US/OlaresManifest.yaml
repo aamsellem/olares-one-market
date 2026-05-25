@@ -1,14 +1,14 @@
 metadata:
   title: Qwen3.6 Vision (Olares One)
-  description: "Qwen3.6 35B-A3B Vision via llama.cpp — image + text, optimized for Olares One"
+  description: "Qwen3.6 35B-A3B Vision via llama.cpp — image + text, optimised for Olares One"
 
 spec:
   fullDescription: |
-    Qwen3.6 35B-A3B Vision (MoE, 3B active) served via llama.cpp — optimized for Olares One.
+    Qwen3.6 35B-A3B Vision (MoE, 3B active) served via llama.cpp — optimised for Olares One.
     Multimodal: accepts images via OpenAI-compatible vision API (image_url format).
     RTX 5090M (24GB) + 96GB DDR5 + Core Ultra 9 275HX.
     Unsloth Dynamic Q4_K_XL quantization (22.4GB) + mmproj F16 (0.9GB).
-    Flash attention, CUDA graph optimization, and op-offload enabled.
+    Flash attention, CUDA graph optimisation, and op-offload enabled.
     llama.cpp b8740 with multimodal projector support.
     Downloads the GGUF model (~22GB) and mmproj (~0.9GB) on first launch.
     Context 32K to fit model + mmproj in 24GB VRAM.

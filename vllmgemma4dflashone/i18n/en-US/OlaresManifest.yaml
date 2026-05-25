@@ -3,7 +3,7 @@ metadata:
   title: Gemma 4 26B DFlash One
 spec:
   fullDescription: |
-    Google Gemma 4 26B-A4B with DFlash speculative decoding via vLLM, optimized for Olares One.
+    Google Gemma 4 26B-A4B with DFlash speculative decoding via vLLM, optimised for Olares One.
     Stack: cyankiwi AWQ-4bit target + z-lab DFlash drafter + num_speculative_tokens=13.
     Validated bench on Olares One: 214 t/s steady state (Space Invaders, 2000 tokens). First public DFlash Gemma 4 result on Blackwell consumer mobile. +53% vs MTP baseline (140 t/s).
     Image: vllm/vllm-openai:tokenspeed-preview-x86_64-ubuntu2404 (perf preview, May 2026).

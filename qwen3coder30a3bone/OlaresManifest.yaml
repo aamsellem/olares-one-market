@@ -5,7 +5,7 @@ apiVersion: 'v2'
 metadata:
   name: qwen3coder30a3bone
   icon: https://orales-one-market.aamsellem.workers.dev/icons/qwen3coder30a3bone.png
-  description: "Qwen3 Coder 30B-A3B via llama.cpp — coding agent optimized for Olares One"
+  description: "Qwen3 Coder 30B-A3B via llama.cpp — coding agent optimised for Olares One"
   appid: qwen3coder30a3bone
   title: Qwen3 Coder 30B-A3B One
   version: '1.0.0'
@@ -22,7 +22,7 @@ entrances:
 spec:
   versionName: '1.0.0'
   fullDescription: |
-    Qwen3 Coder 30B-A3B-Instruct (MoE, 3.3B active) served via llama.cpp — coding agent optimized for Olares One.
+    Qwen3 Coder 30B-A3B-Instruct (MoE, 3.3B active) served via llama.cpp — coding agent optimised for Olares One.
     RTX 5090M (24GB) + 96GB DDR5 + Core Ultra 9 275HX.
     Unsloth Dynamic Q4_K_XL quantization (16.45GB, important layers upcasted to 8/16-bit).
     KV cache q8_0 — 7GB free VRAM allows high-quality cache with 64K context.

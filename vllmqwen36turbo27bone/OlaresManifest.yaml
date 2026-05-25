@@ -52,7 +52,7 @@ spec:
     MTP disabled (issue #40880 — MTP × TurboQuant × cudagraph degenerate output on hybrid).
     Target context 128K (vs 75K with fp8 KV).
   fullDescription: |
-    Qwen3.6 27B dense served via vLLM 0.20 with Sandermage Genesis patches + TurboQuant K8V4 KV cache — optimized for Olares One.
+    Qwen3.6 27B dense served via vLLM 0.20 with Sandermage Genesis patches + TurboQuant K8V4 KV cache — optimised for Olares One.
     RTX 5090M (24GB) + 96GB DDR5 + Core Ultra 9 275HX.
     Model: Lorbus/Qwen3.6-27B-int4-AutoRound (~19GB, hybrid GDN + attention layers).
     Custom vLLM cu130-nightly image (aamsellem/vllm-qwen36-blackwell:0.20.0-genesis) with:

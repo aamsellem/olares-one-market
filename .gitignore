@@ -5,4 +5,4 @@ node_modules/
 .DS_Store
 charts/*.tgz
 icons/
-.claude/
+.gemini/

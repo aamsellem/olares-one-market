@@ -1,15 +1,15 @@
 metadata:
   title: Devstral Small Code One
-  description: "Devstral Small 2507 via llama.cpp — coding agent optimized for Olares One"
+  description: "Devstral Small 2507 via llama.cpp — coding agent optimised for Olares One"
 
 spec:
   fullDescription: |
-    Devstral Small 2507 (24B dense) served via llama.cpp — coding agent optimized for Olares One.
+    Devstral Small 2507 (24B dense) served via llama.cpp — coding agent optimised for Olares One.
     #1 open-source on SWE-Bench Verified (53.6%) — outperforms models 10x larger.
     RTX 5090M (24GB) + 96GB DDR5 + Core Ultra 9 275HX.
     Unsloth Dynamic Q5_K_XL quantization (16.8GB) — room for 32K+ context.
     Based on Mistral-Small-3.1, fine-tuned for agentic software engineering.
     Tool calling support with Mistral format.
-    llama.cpp b8334 with flash attention and CUDA graph optimization.
+    llama.cpp b8334 with flash attention and CUDA graph optimisation.
     Downloads the GGUF model on first launch (~17GB) and caches it.
     Exposes an OpenAI-compatible API on port 8080.

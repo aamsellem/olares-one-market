@@ -5,7 +5,7 @@ apiVersion: 'v2'
 metadata:
   name: llamacppnemotron30a3bone
   icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppnemotron30a3bone.png
-  description: "Nemotron 3 Nano 30B-A3B via llama.cpp — optimized for Olares One"
+  description: "Nemotron 3 Nano 30B-A3B via llama.cpp — optimised for Olares One"
   appid: llamacppnemotron30a3bone
   title: Nemotron 30B-A3B Olares One
   version: '1.0.10'
@@ -25,12 +25,12 @@ spec:
     v1.0.6: llama.cpp b8667 → b8667 (Hadamard rotation). KV cache q4_0 (with Hadamard rotation) → q4_0. Context 64K → 128K (Mamba-2 hybrid = tiny KV cache).
 
   fullDescription: |
-    Nemotron 3 Nano 30B-A3B (Hybrid Mamba-Transformer MoE, 3.5B active) served via llama.cpp — optimized for Olares One.
+    Nemotron 3 Nano 30B-A3B (Hybrid Mamba-Transformer MoE, 3.5B active) served via llama.cpp — optimised for Olares One.
     RTX 5090M (24GB) + 96GB DDR5 + Core Ultra 9 275HX.
     Unsloth Dynamic Q4_K_XL quantization (important layers upcasted to 8/16-bit).
     64K context (only 6 attention layers = tiny KV cache, Mamba-2 SSM handles the rest).
     Hybrid architecture: 23 Mamba-2 layers + 6 GQA attention layers + MoE FFN.
-    Flash attention, CUDA graph optimization, and op-offload enabled.
+    Flash attention, CUDA graph optimisation, and op-offload enabled.
     Built-in reasoning mode with think/no-think toggle via chat template.
     Downloads the GGUF model on first launch (~23GB) and caches it.
     Exposes an OpenAI-compatible API on port 8080.

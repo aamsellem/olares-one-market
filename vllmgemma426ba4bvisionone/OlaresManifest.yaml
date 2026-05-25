@@ -26,7 +26,7 @@ spec:
 
     v1.0.1: bump max_model_len 16384 → **131072 (128K)** for Marc's office workhorse use case (2-3 concurrent users, long PDF processing, vision input). Also bumps gpu_memory_utilization 0.85 → 0.92 to fit the larger KV cache. **Zero throughput regression** — validated 2026-05-15 bench: **135.85 t/s AVG @ 128K** (10 runs, range 135.52-136.06, range 0.54). Identical to v1.0.0 16K bench (135.97 t/s, range 0.56). 8× context for free. Marc's spec hit: vision + 128K + >100 t/s + PagedAttention (multi-user).
 
-    v1.0.0: initial release. Gemma 4 26B-A4B vision-capable served via vLLM, optimized for Olares One. Validated 2026-05-14 night-bench: **135.97 t/s AVG** (10 clean runs, range 135.67-136.23, exceptional stability 0.56) on RTX 5090M sm_120 mobile Blackwell.
+    v1.0.0: initial release. Gemma 4 26B-A4B vision-capable served via vLLM, optimised for Olares One. Validated 2026-05-14 night-bench: **135.97 t/s AVG** (10 clean runs, range 135.67-136.23, exceptional stability 0.56) on RTX 5090M sm_120 mobile Blackwell.
 
     Why vLLM instead of llama.cpp for this app:
     - +9.7% throughput vs llama.cpp atomic fork (123.97 t/s validated same hardware same prompt)
@@ -53,7 +53,7 @@ spec:
     For text-only Gemma 4 at MAX throughput (224 t/s with DFlash but no vision), use vllmgemma4dflashone.
     For text-only Gemma 4 with MTP (178 t/s no vision), use gemma426ba4bone.
   fullDescription: |
-    Google Gemma 4 26B-A4B vision-capable (MoE, 3.8B active, 128 experts, native multimodal architecture Gemma4ForConditionalGeneration) — served via vLLM, optimized for Olares One.
+    Google Gemma 4 26B-A4B vision-capable (MoE, 3.8B active, 128 experts, native multimodal architecture Gemma4ForConditionalGeneration) — served via vLLM, optimised for Olares One.
     RTX 5090M Laptop (24 GB GDDR7, sm_120 consumer Blackwell mobile, 896 GB/s) + 96 GB DDR5 + Core Ultra 9 275HX.
 
     Bench validated 2026-05-14:

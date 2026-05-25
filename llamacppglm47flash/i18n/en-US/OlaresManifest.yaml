@@ -1,13 +1,13 @@
 metadata:
   title: GLM-4.7-Flash (Olares One)
-  description: "GLM-4.7-Flash 30B-A3B via llama.cpp — optimized for Olares One"
+  description: "GLM-4.7-Flash 30B-A3B via llama.cpp — optimised for Olares One"
 
 spec:
   fullDescription: |
-    GLM-4.7-Flash (MoE, 30B total / 3B active) served via llama.cpp — optimized for Olares One.
+    GLM-4.7-Flash (MoE, 30B total / 3B active) served via llama.cpp — optimised for Olares One.
     RTX 5090M (24GB) + 96GB DDR5 + Core Ultra 9 275HX.
     Unsloth Dynamic Q4_K_XL quantization (17.5GB, important layers upcasted to 8/16-bit).
-    All layers on GPU, flash attention, CUDA graph optimization, and Jinja chat templates.
+    All layers on GPU, flash attention, CUDA graph optimisation, and Jinja chat templates.
     llama.cpp b8234 with DeepSeek-V2 MLA attention support.
     Downloads the GGUF model on first launch (~17.5GB) and caches it.
     Exposes an OpenAI-compatible API on port 8080.

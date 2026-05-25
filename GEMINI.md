@@ -2,9 +2,13 @@
 
 ## What This Is
 
-A Cloudflare Worker serving as a **custom Olares Market source** — an alternative app store optimized for the **Olares One** device (the only Olares hardware product).
+A Cloudflare Worker serving as a **custom Olares Market source** — an alternative app store optimised for the **Olares One** device (the only Olares hardware product).
 
 The user is **aamsellem**, the only external contributor to `beclab/apps` (the official Olares app store).
+
+## Global Standards
+
+- **Language**: All outputs, code comments, and documentation MUST be in **British English** (e.g., *optimise*, *catalogue*, *synchronise*, *colour*).
 
 ## Architecture
 
@@ -18,10 +22,10 @@ orales-one-market/
 ├── src/index.ts             ← Cloudflare Worker (serves market API)
 ├── src/catalog.json         ← Generated catalog (committed, deterministic)
 ├── wrangler.toml            ← Cloudflare Workers config
-└── CLAUDE.md
+└── GEMINI.md
 ```
 
-There is a sibling project `../orales-market/` with the **generic** apps for any Olares hardware. This repo contains apps **optimized for Olares One** hardware specifically.
+There is a sibling project `../orales-market/` with the **generic** apps for any Olares hardware. This repo contains apps **optimised for Olares One** hardware specifically.
 
 The build script (`scripts/build-catalog.js`) scans the repo root for directories containing both `Chart.yaml` and `OlaresManifest.yaml`, and generates `src/catalog.json`. The worker (`src/index.ts`) imports this catalog and serves 3 API endpoints.
 
@@ -101,7 +105,7 @@ The build script:
 | `2c5c39c9` | qwen35a3bvisionone | 1.0.2 | llama.cpp b8334 | UD-Q4_K_XL + mmproj F16, vision, 131.03 t/s, 16K ctx |
 | `(new)` | devstralsmallone | 1.0.0 | llama.cpp b8334 | Devstral Small 24B, UD-Q5_K_XL, coding agent, 53.6% SWE-Bench |
 
-Only Olares One optimized apps belong here. Generic apps stay in `orales-market`.
+Only Olares One optimised apps belong here. Generic apps stay in `orales-market`.
 
 ## Olares One Hardware
 
@@ -164,11 +168,11 @@ env:
 ## Relationship with orales-market
 
 - `orales-market` = generic apps for any Olares hardware
-- `orales-one-market` (this repo) = apps optimized for **Olares One** hardware (RTX 5090M, 96GB DDR5, Core Ultra 9 275HX)
+- `orales-one-market` (this repo) = apps optimised for **Olares One** hardware (RTX 5090M, 96GB DDR5, Core Ultra 9 275HX)
 
 Apps may exist in both repos with different configurations (quantization, GPU layers, context size, etc.).
 
-## llama.cpp Optimization for Olares One (Battle-tested)
+## llama.cpp Optimisation for Olares One (Battle-tested)
 
 ### Best configuration (128.75 t/s — Qwen3.5-35B-A3B)
 
@@ -183,7 +187,7 @@ Model: `unsloth/Qwen3.5-35B-A3B-GGUF` → `Qwen3.5-35B-A3B-UD-Q4_K_XL.gguf` (22.
 --ctx-size 16384           # Unsloth recommended
 --cache-type-k q8_0        # KV cache quantization — big speed gain
 --cache-type-v q8_0        # KV cache quantization
---batch-size 512           # prompt processing optimization
+--batch-size 512           # prompt processing optimisation
 --ubatch-size 512          # critical for pp throughput
 --parallel 1               # single user — best throughput
 --mlock                    # prevent OS swap
@@ -210,7 +214,7 @@ GGML_CUDA_GRAPH_OPT=1     # concurrent CUDA streams for QKV projections
 ### What HURTS performance — DO NOT USE
 
 - **`--cpu-moe`**: Halves performance (56 vs 112 t/s). MoE expert computation on CPU is way too slow even with 16 threads on Core Ultra 9 275HX. Keep everything on GPU.
-- **MXFP4 quantization**: Despite being smaller (18.4GB vs 22.2GB), MXFP4 is ~10% slower than UD-Q4_K_XL on RTX 5090M. CUDA kernels are less optimized for this format.
+- **MXFP4 quantization**: Despite being smaller (18.4GB vs 22.2GB), MXFP4 is ~10% slower than UD-Q4_K_XL on RTX 5090M. CUDA kernels are less optimised for this format.
 - **Low thread count**: 4 threads → 16 threads makes a noticeable difference.
 - **Missing KV cache quantization**: Without `-ctk q8_0 -ctv q8_0`, speed drops significantly and VRAM is wasted on full-precision KV cache.
 
@@ -220,7 +224,7 @@ GGML_CUDA_GRAPH_OPT=1     # concurrent CUDA streams for QKV projections
 - **Batch/ubatch 512**: Huge impact on prompt processing (ubatch=128→512 = 175→460 t/s pp in benchmarks).
 - **`--swa-full`**: +3-4 t/s for Qwen3.5 hybrid attention architecture (Gated DeltaNet + SSM).
 - **`GGML_CUDA_GRAPH_OPT=1`**: Concurrent CUDA streams. Single GPU only.
-- **`--flash-attn auto`**: Standard flash attention optimization.
+- **`--flash-attn auto`**: Standard flash attention optimisation.
 - **`--mlock`**: Prevents model from being swapped to disk by OS.
 - **`-np 1`**: Single parallel sequence, best single-user throughput.
 - **`--op-offload`**: GPU-accelerated prompt processing for any CPU-resident weights.
@@ -259,7 +263,7 @@ UD-Q4_K_XL at 16K context with q8_0 KV cache fits comfortably.
 ### Key llama.cpp merges (March 2026)
 
 - **PR #19504** (Mar 7): GATED_DELTA_NET fused op — critical for Qwen3.5 MoE perf
-- **PR #17795** (Mar 5): Less CUDA synchronizations — +1-1.5% all models
+- **PR #17795** (Mar 5): Less CUDA synchronisations — +1-1.5% all models
 - **PR #20128** (Mar 6): Shared mem for SSM conv — benefits Qwen3.5 hybrid arch
 - **PR #20149** (Mar 6): Skip redundant RoPE cache updates
 
@@ -280,12 +284,12 @@ Speculative decoding for Qwen3.5 in llama.cpp is NOT yet implemented (issue #200
 
 ### Known bugs
 
-- **Full prompt re-processing**: Qwen3.5 models may force full prompt re-processing on every conversation turn due to hybrid recurrent architecture (GDN + SSM) + SWA cache logic. Workaround: set `CLAUDE_CODE_ATTRIBUTION_HEADER=0` if using as Claude Code backend.
+- **Full prompt re-processing**: Qwen3.5 models may force full prompt re-processing on every conversation turn due to hybrid recurrent architecture (GDN + SSM) + SWA cache logic. Workaround: set `CLAUDE_CODE_ATTRIBUTION_HEADER=0` if using as Claude Code backend (or equivalent for Gemini CLI).
 - **GGUF chat template incomplete**: Pass explicit chat template from base model, not the one built into GGUF.
 
 ## KTransformers on Olares One
 
-Alternative backend for models not well-suited to GGUF quantization. Uses BF16 native precision with hybrid CPU+GPU inference (attention on GPU, MoE experts on CPU via AMX-optimized kernels).
+Alternative backend for models not well-suited to GGUF quantization. Uses BF16 native precision with hybrid CPU+GPU inference (attention on GPU, MoE experts on CPU via AMX-optimised kernels).
 
 ### Docker image
 
@@ -396,4 +400,4 @@ ssh olares@192.168.1.32
 - [ ] Add GitHub Action for auto-deploy on push
 - [ ] Try speculative decoding when llama.cpp adds Qwen3.5 support (PR #20075)
 - [ ] Re-evaluate when new llama.cpp builds drop (check GATED_DELTA_NET improvements)
-- [ ] Add more Olares One optimized apps (TTS, image gen, etc.)
+- [ ] Add more Olares One optimised apps (TTS, image gen, etc.)

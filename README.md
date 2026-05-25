@@ -4,7 +4,7 @@ A curated app store for the **Olares One** — the first Olares hardware device,
 
 Every app here is hand-tuned for this exact hardware. No generic configs — just the fastest possible inference on a single 24 GB consumer GPU.
 
-> **One-click install.** Add the market source, and apps appear in your Olares Market alongside the official catalog.
+> **One-click install.** Add the market source, and apps appear in your Olares Market alongside the official catalogue.
 
 ## Quick Start
 
@@ -72,7 +72,7 @@ The DFlash app has a known **5-fast/4-slow degradation cycle** every ~10 request
 
 ## How It Works
 
-A single Cloudflare Worker serves the full Olares Market Source API. Each app is a Helm chart with GPU-optimized configs, packaged and deployed from this repo.
+A single Cloudflare Worker serves the full Olares Market Source API. Each app is a Helm chart with GPU-optimised configs, packaged and deployed from this repo.
 
 ```bash
 npm install
@@ -84,8 +84,8 @@ npm run deploy           # Deploy to Cloudflare Workers
 
 | Method | Path | Description |
 |--------|------|-------------|
-| GET | `/api/v1/appstore/hash?version=X` | Catalog hash for cache check |
-| GET | `/api/v1/appstore/info?version=X` | Full catalog with app summaries |
+| GET | `/api/v1/appstore/hash?version=X` | Catalogue hash for cache check |
+| GET | `/api/v1/appstore/info?version=X` | Full catalogue with app summaries |
 | POST | `/api/v1/applications/info` | App details (batched by ID) |
 | GET | `/api/v1/applications/{name}/chart?fileName=X` | Chart `.tgz` download |
 | GET | `/icons/{name}.png` | App icon |

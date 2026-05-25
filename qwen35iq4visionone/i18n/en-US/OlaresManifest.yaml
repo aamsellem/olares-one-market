@@ -1,15 +1,15 @@
 metadata:
   title: Qwen3.5 Vision IQ4 64K One
-  description: "Qwen3.5 35B-A3B Vision IQ4_XS via llama.cpp — long context, optimized for Olares One"
+  description: "Qwen3.5 35B-A3B Vision IQ4_XS via llama.cpp — long context, optimised for Olares One"
 
 spec:
   fullDescription: |
-    Qwen3.5 35B-A3B Vision (MoE, 3B active) served via llama.cpp — long context optimized for Olares One.
+    Qwen3.5 35B-A3B Vision (MoE, 3B active) served via llama.cpp — long context optimised for Olares One.
     Multimodal: accepts images via OpenAI-compatible vision API (image_url format).
     RTX 5090M (24GB) + 96GB DDR5 + Core Ultra 9 275HX.
     Unsloth Dynamic IQ4_XS quantization (17.5GB) + mmproj F16 (0.9GB) = 18.4GB total.
     64K context window (vs 16K for the Q4_K_XL vision variant).
-    Flash attention, CUDA graph optimization, and op-offload enabled.
+    Flash attention, CUDA graph optimisation, and op-offload enabled.
     llama.cpp b8369 with Gated Delta Net op.
     Downloads the GGUF model (~17.5GB) and mmproj (~0.9GB) on first launch.
     Exposes an OpenAI-compatible API on port 8080.

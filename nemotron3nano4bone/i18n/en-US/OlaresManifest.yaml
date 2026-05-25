@@ -1,14 +1,14 @@
 metadata:
   title: Nemotron 3 Nano 4B One
-  description: "Nemotron 3 Nano 4B Q8 via llama.cpp — fast edge AI, optimized for Olares One"
+  description: "Nemotron 3 Nano 4B Q8 via llama.cpp — fast edge AI, optimised for Olares One"
 
 spec:
   fullDescription: |
-    NVIDIA Nemotron 3 Nano 4B (hybrid Mamba-2 + Transformer) served via llama.cpp — optimized for Olares One.
+    NVIDIA Nemotron 3 Nano 4B (hybrid Mamba-2 + Transformer) served via llama.cpp — optimised for Olares One.
     Ultra-fast 4B parameter model with reasoning support (think tokens).
     Q8_0 quantization (4.2GB) — fits entirely in GPU with 20GB free for 128K+ context.
     Hybrid architecture: Mamba-2 layers + 4 attention layers for efficient long-context inference.
     Compressed from Nemotron-Nano-9B-v2, designed for edge/agentic AI.
-    llama.cpp b8369 with flash attention and CUDA graph optimization.
+    llama.cpp b8369 with flash attention and CUDA graph optimisation.
     Downloads the GGUF model on first launch (~4.2GB) and caches it.
     Exposes an OpenAI-compatible API on port 8080.

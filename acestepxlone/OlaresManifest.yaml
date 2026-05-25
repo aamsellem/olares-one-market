@@ -5,7 +5,7 @@ apiVersion: 'v2'
 metadata:
   name: acestepxlone
   icon: https://orales-one-market.aamsellem.workers.dev/icons/acestepxlone.png
-  description: "ACE-Step 1.5 XL — AI music generation (4B DiT, Turbo+SFT modes), optimized for Olares One"
+  description: "ACE-Step 1.5 XL — AI music generation (4B DiT, Turbo+SFT modes), optimised for Olares One"
   appid: acestepxlone
   title: ACE-Step XL One
   version: '1.1.7'
@@ -22,7 +22,7 @@ entrances:
 spec:
   versionName: '1.0.1'
   fullDescription: |
-    ACE-Step 1.5 XL Turbo — AI music generation foundation model, optimized for Olares One.
+    ACE-Step 1.5 XL Turbo — AI music generation foundation model, optimised for Olares One.
     RTX 5090M (24GB) + 96GB DDR5 + Core Ultra 9 275HX.
 
     4B-parameter DiT decoder (XL) + 0.6B Qwen3 language model planner.

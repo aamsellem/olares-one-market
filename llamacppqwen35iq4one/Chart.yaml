@@ -1,6 +1,6 @@
 apiVersion: v2
 appVersion: '1.0.6'
-description: Qwen3.5 35B-A3B IQ4_XS served via llama.cpp — long context optimized for Olares One
+description: Qwen3.5 35B-A3B IQ4_XS served via llama.cpp — long context optimised for Olares One
 name: llamacppqwen35iq4one
 type: application
 version: '1.0.7'

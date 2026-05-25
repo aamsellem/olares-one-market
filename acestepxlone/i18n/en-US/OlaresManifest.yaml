@@ -1,10 +1,10 @@
 metadata:
   title: ACE-Step XL One
-  description: "ACE-Step 1.5 XL — AI music generation (4B DiT, Turbo+SFT modes), optimized for Olares One"
+  description: "ACE-Step 1.5 XL — AI music generation (4B DiT, Turbo+SFT modes), optimised for Olares One"
 
 spec:
   fullDescription: |
-    ACE-Step 1.5 XL — AI music generation foundation model, optimized for Olares One.
+    ACE-Step 1.5 XL — AI music generation foundation model, optimised for Olares One.
     RTX 5090M (24GB) + 96GB DDR5 + Core Ultra 9 275HX.
 
     4B DiT decoder (XL) + 0.6B Qwen3 LM planner.

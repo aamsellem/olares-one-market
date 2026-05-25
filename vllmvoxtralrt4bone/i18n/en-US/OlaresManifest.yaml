@@ -1,14 +1,14 @@
 metadata:
-  description: "Voxtral Realtime 4B streaming ASR via vLLM — real-time speech transcription, optimized for Olares One"
+  description: "Voxtral Realtime 4B streaming ASR via vLLM — real-time speech transcription, optimised for Olares One"
   title: Voxtral Realtime 4B One
 spec:
   fullDescription: |
-    Mistral Voxtral Mini 4B Realtime (streaming ASR) served via vLLM — optimized for Olares One.
+    Mistral Voxtral Mini 4B Realtime (streaming ASR) served via vLLM — optimised for Olares One.
     RTX 5090M (24GB) + 96GB DDR5 + Core Ultra 9 275HX.
     BF16 precision (~16GB VRAM). Streaming WebSocket endpoint /v1/realtime.
     Causal audio encoder for infinite-length real-time transcription.
     Configurable latency (80ms-2400ms). 13 languages. 8.7% FLEURS WER.
-    PIECEWISE cudagraph compilation for optimized inference.
+    PIECEWISE cudagraph compilation for optimised inference.
     Apache 2.0 license.
     Downloads model on first launch (~9GB) and caches it.
     Exposes WebSocket /v1/realtime + OpenAI-compatible API on port 8000.

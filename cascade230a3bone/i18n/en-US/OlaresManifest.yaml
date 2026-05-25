@@ -1,10 +1,10 @@
 metadata:
   title: Cascade 2 30B-A3B One
-  description: "Nemotron Cascade 2 30B-A3B via llama.cpp — math and code, optimized for Olares One"
+  description: "Nemotron Cascade 2 30B-A3B via llama.cpp — math and code, optimised for Olares One"
 
 spec:
   fullDescription: |
-    Nemotron Cascade 2 30B-A3B (Hybrid Mamba-Transformer MoE, 3B active) served via llama.cpp — optimized for Olares One.
+    Nemotron Cascade 2 30B-A3B (Hybrid Mamba-Transformer MoE, 3B active) served via llama.cpp — optimised for Olares One.
     RTX 5090M (24GB) + 96GB DDR5 + Core Ultra 9 275HX.
     IQ4_XS imatrix quantization (18.1GB model, ~6GB free for KV cache).
     Gold medal IMO 2025, IOI 2025, ICPC World Finals 2025.

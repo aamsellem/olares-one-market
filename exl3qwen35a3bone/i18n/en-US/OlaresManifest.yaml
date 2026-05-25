@@ -1,10 +1,10 @@
 metadata:
   title: Qwen3.5 35B EXL3 One
-  description: "Qwen3.5 35B-A3B EXL3 4bpw via TabbyAPI + ExLlamaV3 — optimized for Olares One"
+  description: "Qwen3.5 35B-A3B EXL3 4bpw via TabbyAPI + ExLlamaV3 — optimised for Olares One"
 
 spec:
   fullDescription: |
-    Qwen3.5 35B-A3B (MoE, 3B active) served via TabbyAPI + ExLlamaV3 — optimized for Olares One.
+    Qwen3.5 35B-A3B (MoE, 3B active) served via TabbyAPI + ExLlamaV3 — optimised for Olares One.
     RTX 5090M (24GB) + 96GB DDR5 + Core Ultra 9 275HX.
     EXL3 4.09bpw quantization by turboderp (18.24GB model, ~5.7GB free for KV cache).
     ExLlamaV3 custom Marlin-inspired GEMM kernels, native sm_120 Blackwell support.

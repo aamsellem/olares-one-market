@@ -1,6 +1,6 @@
 # Create Helm Chart for Olares One
 
-Create a complete Helm chart for a model app optimized for Olares One, ready to import in Studio.
+Create a complete Helm chart for a model app optimised for Olares One, ready to import in Studio.
 
 ## Argument: $ARGUMENTS
 
@@ -59,7 +59,7 @@ No Helm template conditionals needed — single deployment, single service.
    - **InitContainer for permissions**: ALWAYS add an initContainer that runs `chmod -R 777 <volume-mount>` for hostPath volumes. Non-root containers cannot write to hostPath dirs created by K8s. Do NOT use `chown` with hardcoded UIDs — container user UID varies by image.
    - **InitContainer for model download** (if needed): downloads model on first run (wget/curl), caches to persistent volume
    - **InitContainer for extra binaries** (if needed): Use `docker.io/alpine:3.20` to download static binaries (e.g., ffmpeg from johnvansickle.com) into an emptyDir shared volume. Do NOT install packages in the main container (OPA blocks `runAsUser: 0` with untrusted registries). Do NOT use scratch-based images (no shell). Static binaries avoid glibc incompatibilities.
-   - **Main container**: the inference server with all optimized args
+   - **Main container**: the inference server with all optimised args
    - **Probes**: startup (long timeout for model loading + download), liveness
    - **Resources**: CPU/memory limits matching OlaresManifest
    - **GPU annotation**: `applications.app.bytetrade.io/gpu-inject: "true"`
@@ -84,7 +84,7 @@ No Helm template conditionals needed — single deployment, single service.
 
 Use `llamacppqwen35a3bone/` as the template for all new apps. Read it to understand the exact format, then adapt for the new model/backend.
 
-### llama.cpp optimized args (battle-tested on Olares One)
+### llama.cpp optimised args (battle-tested on Olares One)
 
 ```
 --n-gpu-layers 99 --threads 16

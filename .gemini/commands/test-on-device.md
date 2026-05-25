@@ -78,9 +78,9 @@ curl -s http://localhost:8000/v1/chat/completions \
 
 When the user shares logs or output:
 - Parse tokens/second from server logs
-- Compare with CLAUDE.md benchmark table
+- Compare with GEMINI.md benchmark table
 - Check for errors (OOM, CUDA, model download failures)
-- Suggest tweaks if performance is suboptimal (reference CLAUDE.md "What HELPS"/"What HURTS")
+- Suggest tweaks if performance is suboptimal (reference GEMINI.md "What HELPS"/"What HURTS")
 
 ### Step 6: Iterate
 
@@ -94,5 +94,5 @@ If issues found:
 ### Step 7: Mark as validated
 
 When the user confirms the app works:
-- Update CLAUDE.md performance history table
+- Update GEMINI.md performance history table
 - Tell user: "Chart validated in Studio! Run `/deploy` to publish to the market."

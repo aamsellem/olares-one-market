@@ -22,21 +22,21 @@ The argument is either:
    - Latest benchmarks on RTX 5090/5090M for the given model
    - Best quantization options (GGUF quants, AWQ, GPTQ, etc.)
    - Backend performance comparisons (llama.cpp, vLLM, KTransformers, SGLang)
-   - Recent llama.cpp/vLLM releases with relevant optimizations
+   - Recent llama.cpp/vLLM releases with relevant optimisations
    - Reddit r/LocalLLaMA threads about this model on similar hardware
 
 2. **Check compatibility**:
    - Does the model fit in 24GB VRAM? Calculate: model size + KV cache at target context
    - If not fully GPU-resident, what's the best hybrid strategy (CPU offload, MoE offload)?
-   - Which backend supports this architecture? (Check CLAUDE.md for known support)
+   - Which backend supports this architecture? (Check GEMINI.md for known support)
 
 3. **Evaluate quantization options**:
    - For GGUF: compare UD (Unsloth Dynamic) vs standard K-quants vs MXFP4
    - For AWQ/GPTQ: check if vLLM supports efficient serving
    - Calculate VRAM usage for each option at target context size
-   - Reference CLAUDE.md VRAM budget table
+   - Reference GEMINI.md VRAM budget table
 
-4. **Determine optimal parameters** based on CLAUDE.md battle-tested configs:
+4. **Determine optimal parameters** based on GEMINI.md battle-tested configs:
    - KV cache type (q8_0 recommended for speed)
    - Batch/ubatch sizes (512 recommended)
    - Flash attention, SWA, op-offload as applicable

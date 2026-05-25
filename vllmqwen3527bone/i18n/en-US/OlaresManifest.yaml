@@ -1,10 +1,10 @@
 metadata:
   title: Qwen3.5 27B NVFP4 vLLM One
-  description: "Qwen3.5 27B NVFP4 via vLLM — optimized for Olares One"
+  description: "Qwen3.5 27B NVFP4 via vLLM — optimised for Olares One"
 
 spec:
   fullDescription: |
-    Qwen3.5 27B (dense, Mamba-hybrid) served via vLLM with NVFP4 quantization — optimized for Olares One.
+    Qwen3.5 27B (dense, Mamba-hybrid) served via vLLM with NVFP4 quantization — optimised for Olares One.
     RTX 5090M (24GB) + 96GB DDR5 + Core Ultra 9 275HX.
     NVFP4 (NVIDIA FP4) native Blackwell quantization — 19.7GB model weights.
     Requires SM 12.0 (Blackwell architecture) for FP4 tensor core instructions.

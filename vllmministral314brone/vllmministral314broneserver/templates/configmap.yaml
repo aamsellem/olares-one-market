@@ -1,0 +1,19 @@
+{{- if and .Values.admin .Values.bfl.username (eq .Values.admin .Values.bfl.username) }}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: vllm-env
+  namespace: "{{ .Release.Namespace }}"
+  labels:
+    app: vllmministral314brone
+    backend: vllm
+data:
+  MODEL_NAME: "cyankiwi/Ministral-3-14B-Reasoning-2512-AWQ-4bit"
+  MODEL_ALIAS: "ministral-3-14b-reasoning"
+  MAX_MODEL_LEN: "32768"
+  GPU_MEMORY_UTILIZATION: "0.90"
+  DTYPE: "auto"
+  LITELLM_MODEL_NAME: "ministral-3-14b-reasoning"
+  LITELLM_SERVICE_URL: "http://litellm.litellmgatewayserver-shared:4000"
+{{- end }}

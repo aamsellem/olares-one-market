@@ -5,7 +5,7 @@ apiVersion: 'v2'
 metadata:
   name: omnivoiceone
   icon: https://orales-one-market.aamsellem.workers.dev/icons/omnivoiceone.png
-  description: "OmniVoice TTS (646 languages, voice cloning, voice design, 0.6B) — optimized for Olares One"
+  description: "OmniVoice TTS (646 languages, voice cloning, voice design, 0.6B) — optimised for Olares One"
   appid: omnivoiceone
   title: OmniVoice TTS One
   version: '1.1.1'

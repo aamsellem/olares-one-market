@@ -58,12 +58,12 @@ spec:
 
     v1.0.0: initial release. Qwen3.6-35B-A3B (Apache 2.0, April 2026). Same hybrid SSM/MoE architecture as 3.5 — reuses proven Olares One config (llama.cpp b8740, UD-Q4_K_XL, KV q4_0 with Hadamard rotation, batch 2048/ubatch 1024, 64K ctx). SWE-bench 70.0→73.4, Terminal-Bench 40.5→51.5.
   fullDescription: |
-    Qwen3.6 35B-A3B (MoE, 3B active) served via llama.cpp — optimized for Olares One.
+    Qwen3.6 35B-A3B (MoE, 3B active) served via llama.cpp — optimised for Olares One.
     RTX 5090M (24GB) + 96GB DDR5 + Core Ultra 9 275HX.
     Unsloth Dynamic Q4_K_XL quantization (important layers upcasted to 8/16-bit).
     llama.cpp b8740 with GATED_DELTA_NET fused op + Hadamard rotation for KV cache.
     KV cache q4_0 (2x smaller than q8_0, same quality via rotation).
-    Flash attention, CUDA graph optimization, and op-offload enabled.
+    Flash attention, CUDA graph optimisation, and op-offload enabled.
     Downloads the GGUF model on first launch (~22GB) and caches it.
     Exposes an OpenAI-compatible API on port 8080.
     Native 262K context, extensible to 1M with YaRN.
