@@ -1,0 +1,161 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: llamacpp-qwen36abliterated-env
+  namespace: "{{ .Release.Namespace }}"
+data:
+  TARGET_MODEL: "huihui-ai/Huihui-Qwen3.6-35B-A3B-Claude-4.7-Opus-abliterated-MTP-GGUF"
+  TARGET_FILE: "Huihui-Qwen3.6-35B-A3B-Claude-4.7-Opus-abliterated-ggml-model-Q4_K.gguf"
+  MMPROJ_FILE: "mmproj-model-f16.gguf"
+  MODEL_ALIAS: "qwen3.6-35b-a3b-abliterated"
+  CTX_SIZE: "65536"
+  THREADS: "16"
+  SPEC_DRAFT_N_MAX: "3"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    io.kompose.service: llamacppqwen36abliteratedone
+  name: llamacppqwen36abliteratedone
+  namespace: "{{ .Release.Namespace }}"
+  annotations:
+    applications.app.bytetrade.io/gpu-inject: "true"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: llamacppqwen36abliteratedone
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        io.kompose.network/chrome-default: "true"
+        io.kompose.service: llamacppqwen36abliteratedone
+    spec:
+      containers:
+        - name: llamacpp-mtp-server
+          image: "docker.io/aamsellem/buun-llama-cpp:316e88e"
+          command: ["/bin/bash", "-c"]
+          args:
+            - |
+              set -e
+              MODELS_DIR=${MODELS_DIR:-/models}
+              SHARED_DIR=${SHARED_DIR:-/shared-models/llms}
+              mkdir -p "$MODELS_DIR" "$SHARED_DIR"
+              HF_AUTH=""
+              if [ -n "$HF_TOKEN" ]; then HF_AUTH="-H \"Authorization: Bearer $HF_TOKEN\""; fi
+              # Migrate $TARGET_FILE from old per-app dir to shared if needed
+              if [ -f "$MODELS_DIR/$TARGET_FILE" ] && [ ! -f "$SHARED_DIR/$TARGET_FILE.ok" ]; then
+                echo "==> Migrating $TARGET_FILE from per-app → shared"
+                mv "$MODELS_DIR/$TARGET_FILE" "$SHARED_DIR/$TARGET_FILE"
+                [ -f "$MODELS_DIR/$TARGET_FILE.ok" ] && mv "$MODELS_DIR/$TARGET_FILE.ok" "$SHARED_DIR/$TARGET_FILE.ok" || touch "$SHARED_DIR/$TARGET_FILE.ok"
+              fi
+              if [ ! -f "$SHARED_DIR/$TARGET_FILE.ok" ]; then
+                echo "==> Downloading $TARGET_MODEL/$TARGET_FILE (~22 GB)"
+                eval curl -fL -C - --retry 20 --retry-delay 15 --retry-all-errors --connect-timeout 30 $HF_AUTH \
+                  "https://huggingface.co/${TARGET_MODEL}/resolve/main/${TARGET_FILE}" \
+                  -o "$SHARED_DIR/$TARGET_FILE"
+                touch "$SHARED_DIR/$TARGET_FILE.ok"
+              fi
+              # Migrate $MMPROJ_FILE from old per-app dir to shared if needed
+              if [ -f "$MODELS_DIR/$MMPROJ_FILE" ] && [ ! -f "$SHARED_DIR/$MMPROJ_FILE.ok" ]; then
+                echo "==> Migrating $MMPROJ_FILE from per-app → shared"
+                mv "$MODELS_DIR/$MMPROJ_FILE" "$SHARED_DIR/$MMPROJ_FILE"
+                [ -f "$MODELS_DIR/$MMPROJ_FILE.ok" ] && mv "$MODELS_DIR/$MMPROJ_FILE.ok" "$SHARED_DIR/$MMPROJ_FILE.ok" || touch "$SHARED_DIR/$MMPROJ_FILE.ok"
+              fi
+              if [ ! -f "$SHARED_DIR/$MMPROJ_FILE.ok" ]; then
+                echo "==> Downloading $TARGET_MODEL/$MMPROJ_FILE (~900 MB, vision encoder)"
+                eval curl -fL -C - --retry 20 --retry-delay 15 --retry-all-errors --connect-timeout 30 $HF_AUTH \
+                  "https://huggingface.co/${TARGET_MODEL}/resolve/main/${MMPROJ_FILE}" \
+                  -o "$SHARED_DIR/$MMPROJ_FILE"
+                touch "$SHARED_DIR/$MMPROJ_FILE.ok"
+              fi
+              exec /app/llama-server \
+                --model "$SHARED_DIR/$TARGET_FILE" \
+                --mmproj "$SHARED_DIR/$MMPROJ_FILE" \
+                --mmproj-gpu-swap \
+                --alias "$MODEL_ALIAS" \
+                --host 0.0.0.0 --port 8000 \
+                --n-gpu-layers 99 \
+                --ctx-size "${CTX_SIZE:-65536}" \
+                --threads "${THREADS:-16}" \
+                --cache-type-k q4_0 --cache-type-v q4_0 \
+                --parallel 1 \
+                --flash-attn on --jinja \
+                --spec-type draft-mtp \
+                --spec-draft-n-max "${SPEC_DRAFT_N_MAX:-3}" \
+                --chat-template-kwargs '{"enable_thinking": false}'
+          envFrom:
+            - configMapRef:
+                name: llamacpp-qwen36abliterated-env
+          env:
+            - name: HF_HOME
+              value: "/models/huggingface"
+            - name: HF_TOKEN
+              value: "{{ .Values.olaresEnv.OLARES_USER_HUGGINGFACE_TOKEN }}"
+            - name: MODELS_DIR
+              value: "/models"
+            - name: CUDA_DEVICE_MEMORY_LIMIT_0
+              value: "30000m"
+          ports:
+            - containerPort: 8000
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+              scheme: HTTP
+            initialDelaySeconds: 600
+            timeoutSeconds: 10
+            periodSeconds: 30
+            failureThreshold: 5
+          startupProbe:
+            httpGet:
+              path: /health
+              port: 8000
+              scheme: HTTP
+            initialDelaySeconds: 60
+            timeoutSeconds: 10
+            periodSeconds: 30
+            failureThreshold: 720
+          resources:
+            limits:
+              cpu: "16"
+              memory: 40Gi
+              nvidia.com/gpu: "1"
+            requests:
+              cpu: 4000m
+              memory: 24Gi
+              nvidia.com/gpu: "1"
+          volumeMounts:
+            - mountPath: "/models"
+              name: models
+            - mountPath: "/shared-models"
+              name: shared-models
+      volumes:
+        - name: models
+          hostPath:
+            path: "{{ .Values.userspace.appData }}/models"
+            type: DirectoryOrCreate
+        - name: shared-models
+          hostPath:
+            path: "/olares/share/ai/model"
+            type: Directory
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    io.kompose.service: llamacppqwen36abliteratedone
+  name: llamacppqwen36abliteratedone
+  namespace: "{{ .Release.Namespace }}"
+spec:
+  ports:
+    - name: "llamacpp-mtp"
+      port: 8000
+      targetPort: 8000
+  selector:
+    io.kompose.service: llamacppqwen36abliteratedone

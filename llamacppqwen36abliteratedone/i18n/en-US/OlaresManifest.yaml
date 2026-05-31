@@ -1,0 +1,17 @@
+metadata:
+  title: Qwen36 35B-A3B Abliterated Claude
+  description: "Qwen3.6 35B-A3B abliterated + Claude 4.7 Opus distilled — Q4_K smarter quant @ 65K, no guardrails, MTP + Vision on Olares One"
+
+spec:
+  fullDescription: |
+    Qwen3.6 35B-A3B with **two transformations stacked**: (1) Claude 4.7 Opus reasoning distillation for better multi-step reasoning, code, and structured output, and (2) abliteration (huihui-ai technique) to remove the model's refusal directions — no forced refusals on edge requests.
+
+    **v1.0.5 upgrade**: Q3_K → Q4_K (17.2 → 21.7 GB) for measurably smarter outputs. Context clamped to 65K to leave VRAM headroom for the bigger model + mmproj + MTP draft buffer (~26 GB total under 30 GB HAMi limit).
+
+    Stack:
+    - `huihui-ai/Huihui-Qwen3.6-35B-A3B-Claude-4.7-Opus-abliterated-MTP-GGUF` Q4_K (21.7 GB)
+    - mmproj F16 (~900 MB, loaded on-demand via --mmproj-gpu-swap)
+    - MTP n=3, q4_0 KV cache, 65K context, flash attention, jinja templates
+    - OpenAI-compatible API with `image_url` + tool_call support on port 8000
+
+    Intended for research, red-teaming, fiction/roleplay, and edge-case agent flows. Without the safety layer, you own moderation responsibility entirely — not for production-facing endpoints.

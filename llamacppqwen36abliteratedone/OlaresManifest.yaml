@@ -1,0 +1,113 @@
+---
+olaresManifest.version: '0.10.0'
+olaresManifest.type: app
+apiVersion: 'v2'
+metadata:
+  name: llamacppqwen36abliteratedone
+  icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen36abliteratedone.png
+  description: "Qwen3.6 35B-A3B abliterated + Claude 4.7 Opus reasoning distilled — Q4_K smarter quant @ 65K, no guardrails, MTP + Vision on Olares One"
+  appid: llamacppqwen36abliteratedone
+  title: Qwen36 35B-A3B Abliterated Claude
+  version: 1.0.5
+  categories:
+    - LLM Chat
+    - AI Agents
+    - Vision
+    - Uncensored
+  bento:
+    family: qwen
+    size_label: "35B-A3B"
+    badge: abliterated + claude · Q4_K
+    hero:
+      value: "Q4_K"
+      label: "smarter quant · no guardrails"
+    specs:
+      - { label: "context", value: "65K" }
+      - { label: "vram", value: "26 GB" }
+    capabilities:
+      tool_calling: true
+      vision:       true
+      audio:        false
+      mtp:          { enabled: true, accept: 86 }
+    stack: "buun-llama.cpp · huihui-ai Q4_K · MTP + mmproj-gpu-swap"
+entrances:
+  - name: llamacppqwen36abliteratedone
+    port: 8000
+    host: llamacppqwen36abliteratedone
+    title: Qwen36 35B Abliterated
+    icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen36abliteratedone.png
+    openMethod: window
+    authLevel: internal
+spec:
+  versionName: 1.0.5
+  upgradeDescription: |
+    v1.0.5: **upgrade Q3_K → Q4_K for measurably smarter outputs**. New quant size 21.7 GB (vs 17.2 GB Q3_K) = +27% weight = noticeably stronger reasoning, code, structured outputs. Context clamped to 65K (down from 262K full native) to leave VRAM headroom for the bigger model + mmproj + MTP draft buffer (model 21.7 + KV q4_0 ~2.5 + mmproj 0.9 + draft ~1 ≈ 26 GB under 30 GB HAMi limit). Same stack otherwise: buun-llama.cpp 316e88e, MTP n=3, mmproj-gpu-swap, q4_0 KV, flash attention, jinja. Bench TBD on Olares One — expect ~10-15% slower than Q3_K (still in the 195-210 t/s range).
+
+    v1.0.1: bench validated 2026-05-24 on Olares One: **227.77 t/s AVG** (10 runs, range 218-234, σ ≈ 5). Vision validated (64×64 PNG → "Red"). Slightly slower than the non-abliterated champion (`llamacppqwen36a3bone` v2.0.0 at 243.59 t/s, -6.5%) — the Claude 4.7 distillation + abliteration appears to nudge the MTP draft heads slightly off-distribution, lowering effective acceptance. Vision still works perfectly. Use cases unchanged: research, red-teaming, fiction/roleplay, edge-case agent flows.
+
+    v1.0.0: initial release. Uncensored sibling of the `llamacppqwen36a3bone` champion. Same stack (buun-llama.cpp 316e88e + MTP + mmproj-gpu-swap), same speed (~240 t/s text + vision via lossless swap), same 262K full native context — but with the abliterated weights from huihui-ai applied on top of a Claude 4.7 Opus reasoning distillation.
+
+    **Model**: `huihui-ai/Huihui-Qwen3.6-35B-A3B-Claude-4.7-Opus-abliterated-MTP-GGUF` (17.2 GB Q3_K).
+
+    **Two transformations stacked on Qwen 3.6 35B-A3B**:
+    1. **Claude 4.7 Opus reasoning distillation** — student model trained on Claude's thinking outputs. Improves multi-step reasoning, code generation, and structured problem solving over the base Qwen.
+    2. **Abliteration** (Maxime Labonne / huihui-ai technique) — surgical removal of refusal directions from the model's representation space. Model no longer refuses sensitive/edge requests. Underlying capabilities unchanged, only the refusal gate is dropped.
+
+    Use cases:
+    - Adversarial red-teaming / security research
+    - Roleplay / fiction without forced disclaimers
+    - Edge-case agent flows where the model would otherwise refuse legitimate tasks
+    - Local-only deployment where no external moderation layer is needed
+
+    **NOT for production-facing apps** — without the safety layer, you own moderation responsibility entirely.
+
+    Stack identical to v2.0.0 of `llamacppqwen36a3bone`:
+    - Image: `aamsellem/buun-llama-cpp:316e88e` (spiritbuun fork with `--mmproj-gpu-swap`)
+    - `--spec-type draft-mtp --spec-draft-n-max 3` (MTP head preserved by huihui)
+    - q4_0 KV cache, full 262K context (auto-fit), flash attention, jinja templates
+    - Vision via mmproj-gpu-swap (~750ms swap overhead per image request, lossless)
+    - Tool calling preserved
+
+    Expected bench (not yet validated, mirrors v2.0.0 champion): ~240-243 t/s text decode, vision response in ~1.1s, accept rate ~85-86%.
+  fullDescription: |
+    Qwen3.6 35B-A3B abliterated + Claude 4.7 Opus reasoning distilled (MoE, 3B active) — uncensored champion stack on Olares One.
+
+    Sibling of the production text+vision champion (`llamacppqwen36a3bone` v2.0.0), with the same speed envelope (~240 t/s text decode + 262K full native context + vision via mmproj-gpu-swap + tool calling) but with the huihui-ai abliterated + Claude-distilled weights instead of Unsloth's base GGUF.
+
+    Stack:
+    - `huihui-ai/Huihui-Qwen3.6-35B-A3B-Claude-4.7-Opus-abliterated-MTP-GGUF` Q3_K (17.2 GB) + mmproj F16 (~900 MB)
+    - buun-llama-cpp 316e88e (spiritbuun fork) with `--mmproj-gpu-swap`
+    - MTP n=3, q4_0 KV cache, flash attention, jinja templates
+    - OpenAI-compatible API on port 8000
+
+    Downloads model + mmproj on first launch (~18 GB total) and caches them.
+
+  developer: aamsellem
+  website: https://github.com/aamsellem/orales-one-market
+  sourceCode: https://github.com/aamsellem/orales-one-market
+  submitter: aamsellem
+  locale:
+    - en-US
+  license:
+    - text: Apache-2.0
+      url: https://huggingface.co/huihui-ai/Huihui-Qwen3.6-35B-A3B-Claude-4.7-Opus-abliterated-MTP-GGUF
+
+  limitedCpu: 16
+  requiredCpu: 4
+  requiredDisk: 30Gi
+  limitedDisk: 50Gi
+  limitedMemory: 40Gi
+  requiredMemory: 24Gi
+  requiredGpu: 1Gi
+  limitedGpu: 24Gi
+
+  supportArch:
+    - amd64
+permission:
+  appData: true
+options:
+  apiTimeout: 0
+  dependencies:
+    - name: olares
+      version: '>=1.12.3-0'
+      type: system
