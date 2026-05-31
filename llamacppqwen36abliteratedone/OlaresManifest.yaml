@@ -19,8 +19,8 @@ metadata:
     size_label: "35B-A3B"
     badge: abliterated + claude · Q4_K
     hero:
-      value: "Q4_K"
-      label: "smarter quant · no guardrails"
+      value: "244 t/s"
+      label: "Q4_K smarter quant · no guardrails"
     specs:
       - { label: "context", value: "65K" }
       - { label: "vram", value: "26 GB" }
