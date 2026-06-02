@@ -13,6 +13,15 @@ data:
   THREADS: "16"
   SPEC_DRAFT_N_MAX: "3"
 ---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: llamacpp-qwen36abliterated-chat-template
+  namespace: "{{ .Release.Namespace }}"
+data:
+  chat_template.jinja: |-
+{{ .Files.Get "chat_template.jinja" | indent 4 }}
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -85,9 +94,10 @@ spec:
                 --cache-type-k q4_0 --cache-type-v q4_0 \
                 --parallel 1 \
                 --flash-attn on --jinja \
+                --chat-template-file /chat-template/chat_template.jinja \
+                --reasoning off \
                 --spec-type draft-mtp \
-                --spec-draft-n-max "${SPEC_DRAFT_N_MAX:-3}" \
-                --chat-template-kwargs '{"enable_thinking": false}'
+                --spec-draft-n-max "${SPEC_DRAFT_N_MAX:-3}"
           envFrom:
             - configMapRef:
                 name: llamacpp-qwen36abliterated-env
@@ -134,11 +144,16 @@ spec:
               name: models
             - mountPath: "/shared-models"
               name: shared-models
+            - mountPath: "/chat-template"
+              name: chat-template
       volumes:
         - name: models
           hostPath:
             path: "{{ .Values.userspace.appData }}/models"
             type: DirectoryOrCreate
+        - name: chat-template
+          configMap:
+            name: llamacpp-qwen36abliterated-chat-template
         - name: shared-models
           hostPath:
             path: "/olares/share/ai/model"

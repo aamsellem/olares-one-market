@@ -8,7 +8,7 @@ metadata:
   description: "Qwen3.6 35B-A3B abliterated + Claude 4.7 Opus reasoning distilled — Q4_K smarter quant @ 65K, no guardrails, MTP + Vision on Olares One"
   appid: llamacppqwen36abliteratedone
   title: Qwen36 35B-A3B Abliterated Claude
-  version: 1.0.5
+  version: 1.0.6
   categories:
     - LLM Chat
     - AI Agents
@@ -39,8 +39,10 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: 1.0.5
+  versionName: 1.0.6
   upgradeDescription: |
+    v1.0.6: **fix thinking-mode garbage output** (Discord bug report 2026-06-02). buun-llama-cpp:316e88e introduced PEG-native chat parser that fails to detect `</think>` close tag on Qwen3's thinking template — model never emits EOS, runs until max_tokens with empty content + reasoning_content stuck mid-stream. Two fixes: (1) explicit `--chat-template-file /chat-template/chat_template.jinja` via ConfigMap mount forces Jinja2 parser over peg-native, (2) replace deprecated `--chat-template-kwargs '{"enable_thinking":false}'` with new `--reasoning off` flag (the kwargs path emits a deprecation warning and will be removed). Verified bench non-thinking gen still works at 244 t/s; thinking-mode requests via `chat_template_kwargs.enable_thinking=true` API parameter now properly close think blocks. Same Q4_K model, same speed, just parser correctness restored.
+
     v1.0.5: **upgrade Q3_K → Q4_K for measurably smarter outputs**. New quant size 21.7 GB (vs 17.2 GB Q3_K) = +27% weight = noticeably stronger reasoning, code, structured outputs. Context clamped to 65K (down from 262K full native) to leave VRAM headroom for the bigger model + mmproj + MTP draft buffer (model 21.7 + KV q4_0 ~2.5 + mmproj 0.9 + draft ~1 ≈ 26 GB under 30 GB HAMi limit). Same stack otherwise: buun-llama.cpp 316e88e, MTP n=3, mmproj-gpu-swap, q4_0 KV, flash attention, jinja. Bench TBD on Olares One — expect ~10-15% slower than Q3_K (still in the 195-210 t/s range).
 
     v1.0.1: bench validated 2026-05-24 on Olares One: **227.77 t/s AVG** (10 runs, range 218-234, σ ≈ 5). Vision validated (64×64 PNG → "Red"). Slightly slower than the non-abliterated champion (`llamacppqwen36a3bone` v2.0.0 at 243.59 t/s, -6.5%) — the Claude 4.7 distillation + abliteration appears to nudge the MTP draft heads slightly off-distribution, lowering effective acceptance. Vision still works perfectly. Use cases unchanged: research, red-teaming, fiction/roleplay, edge-case agent flows.
