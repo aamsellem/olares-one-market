@@ -1,0 +1,149 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: racka4b-env
+  namespace: "{{ .Release.Namespace }}"
+data:
+  TARGET_MODEL: "elte-nlp/Racka-4B-GGUF"
+  TARGET_FILE: "Racka-4B-Q8_0.gguf"
+  MODEL_ALIAS: "racka-4b"
+  CTX_SIZE: "32768"
+  THREADS: "16"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    io.kompose.service: racka4bhuone
+  name: racka4bhuone
+  namespace: "{{ .Release.Namespace }}"
+  annotations:
+    applications.app.bytetrade.io/gpu-inject: "true"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: racka4bhuone
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        io.kompose.network/chrome-default: "true"
+        io.kompose.service: racka4bhuone
+    spec:
+      containers:
+        - name: racka-server
+          image: "ghcr.io/ggml-org/llama.cpp:server-cuda13-b8740"
+          command: ["/bin/bash", "-c"]
+          args:
+            - |
+              set -e
+              MODELS_DIR=${MODELS_DIR:-/models}
+              SHARED_DIR=${SHARED_DIR:-/shared-models/llms}
+              mkdir -p "$MODELS_DIR" "$SHARED_DIR"
+              if [ -z "$HF_TOKEN" ]; then
+                echo "==> ERROR: HF_TOKEN not set. Racka-4B is a gated HuggingFace repo."
+                echo "==> Accept the license at https://huggingface.co/elte-nlp/Racka-4B-GGUF"
+                echo "==> then configure your HF token in Olares Settings → Integrations → HuggingFace."
+                sleep 60
+                exit 1
+              fi
+              # Migrate $TARGET_FILE from old per-app dir to shared if needed
+              if [ -f "$MODELS_DIR/$TARGET_FILE" ] && [ ! -f "$SHARED_DIR/$TARGET_FILE.ok" ]; then
+                echo "==> Migrating $TARGET_FILE from per-app → shared"
+                mv "$MODELS_DIR/$TARGET_FILE" "$SHARED_DIR/$TARGET_FILE"
+                touch "$SHARED_DIR/$TARGET_FILE.ok"
+              fi
+              if [ ! -f "$SHARED_DIR/$TARGET_FILE.ok" ]; then
+                echo "==> Downloading $TARGET_MODEL/$TARGET_FILE (~4.3 GB, gated repo, requires HF_TOKEN)"
+                curl -fL -C - --retry 20 --retry-delay 15 --retry-all-errors --connect-timeout 30 \
+                  -H "Authorization: Bearer $HF_TOKEN" \
+                  "https://huggingface.co/${TARGET_MODEL}/resolve/main/${TARGET_FILE}" \
+                  -o "$SHARED_DIR/$TARGET_FILE"
+                touch "$SHARED_DIR/$TARGET_FILE.ok"
+              fi
+              exec /app/llama-server \
+                --model "$SHARED_DIR/$TARGET_FILE" \
+                --alias "$MODEL_ALIAS" \
+                --host 0.0.0.0 --port 8080 \
+                --n-gpu-layers 99 \
+                --ctx-size "${CTX_SIZE:-32768}" \
+                --threads "${THREADS:-16}" \
+                --cache-type-k q8_0 --cache-type-v q8_0 \
+                --batch-size 512 --ubatch-size 512 \
+                --parallel 1 \
+                --flash-attn on --jinja \
+                --reasoning off
+          envFrom:
+            - configMapRef:
+                name: racka4b-env
+          env:
+            - name: HF_HOME
+              value: "/models/huggingface"
+            - name: HF_TOKEN
+              value: "{{ .Values.olaresEnv.OLARES_USER_HUGGINGFACE_TOKEN }}"
+            - name: MODELS_DIR
+              value: "/models"
+            - name: CUDA_DEVICE_MEMORY_LIMIT_0
+              value: "8000m"
+          ports:
+            - containerPort: 8080
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 300
+            timeoutSeconds: 10
+            periodSeconds: 30
+            failureThreshold: 5
+          startupProbe:
+            httpGet:
+              path: /health
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 30
+            timeoutSeconds: 10
+            periodSeconds: 15
+            failureThreshold: 80
+          resources:
+            limits:
+              cpu: "8"
+              memory: 16Gi
+              nvidia.com/gpu: "1"
+            requests:
+              cpu: 2000m
+              memory: 6Gi
+              nvidia.com/gpu: "1"
+          volumeMounts:
+            - mountPath: "/models"
+              name: models
+            - mountPath: "/shared-models"
+              name: shared-models
+      volumes:
+        - name: models
+          hostPath:
+            path: "{{ .Values.userspace.appData }}/models"
+            type: DirectoryOrCreate
+        - name: shared-models
+          hostPath:
+            path: "/olares/share/ai/model"
+            type: Directory
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    io.kompose.service: racka4bhuone
+  name: racka4bhuone
+  namespace: "{{ .Release.Namespace }}"
+spec:
+  ports:
+    - name: "racka"
+      port: 8080
+      targetPort: 8080
+  selector:
+    io.kompose.service: racka4bhuone

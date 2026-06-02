@@ -1,0 +1,119 @@
+---
+olaresManifest.version: '0.10.0'
+olaresManifest.type: app
+apiVersion: 'v2'
+metadata:
+  name: racka4bhuone
+  icon: https://orales-one-market.aamsellem.workers.dev/icons/racka4bhuone.png
+  description: "Racka 4B — first serious Hungarian LLM (ELTE, Qwen3-4B base, 160B tokens 44% Hungarian)"
+  appid: racka4bhuone
+  title: Racka 4B Hungarian One
+  version: 1.0.0
+  categories:
+    - LLM Chat
+    - AI Agents
+  bento:
+    family: qwen
+    size_label: "4B"
+    badge: hungarian
+    hero:
+      value: "Magyar"
+      label: "first serious Hungarian LLM"
+    specs:
+      - { label: "context", value: "32K" }
+      - { label: "vram", value: "5 GB" }
+    capabilities:
+      tool_calling: true
+      vision:       false
+      audio:        false
+      mtp:          { enabled: false }
+    stack: "llama.cpp · ELTE-NLP · Qwen3-4B base"
+entrances:
+  - name: racka4bhuone
+    port: 8080
+    host: racka4bhuone
+    title: Racka 4B Hungarian
+    icon: https://orales-one-market.aamsellem.workers.dev/icons/racka4bhuone.png
+    openMethod: window
+    authLevel: internal
+spec:
+  versionName: 1.0.0
+  upgradeDescription: |
+    v1.0.0: initial release. **Racka 4B** by ELTE NLP (Eötvös Loránd University, Budapest) — the first serious Hungarian language model. Built on a Qwen3-4B backbone, post-trained on **160B tokens (44% Hungarian, the rest German + English)**. Released February 2026.
+
+    Why it matters: Hungarian has very limited LLM coverage. General-purpose models do English/German fluently but struggle with Hungarian morphology, idioms, and agglutinative structure. Racka-4B is specifically optimized for Hungarian generation, reasoning, and translation.
+
+    **Quant**: Q8_0 (4.28 GB) — lossless quality on a 4B model, no reason to compress further given Olares One's 24 GB VRAM headroom.
+
+    Stack:
+    - `elte-nlp/Racka-4B-GGUF` Q8_0 (4.28 GB) via llama.cpp upstream `server-cuda13-b8740`
+    - 32K context, full GPU offload, flash attention, jinja templates
+    - OpenAI-compatible API on port 8080
+
+    **⚠️ Access**: this is a **gated HuggingFace repo** (CC-BY-NC-SA-4.0 license). Before installing:
+    1. Open the model card: https://huggingface.co/elte-nlp/Racka-4B-GGUF
+    2. Accept the license terms (button on HF page)
+    3. Make sure your HF token is configured in Olares settings (Settings → Integrations → HuggingFace)
+    4. Install this app — it will download the 4.28 GB GGUF on first launch (~2-5 min)
+
+    Use cases:
+    - Hungarian language conversation, writing, summarization
+    - Bilingual translation (HU ↔ EN ↔ DE)
+    - Local document Q&A in Hungarian
+    - Anything where you need fluent Hungarian output that general models can't deliver
+
+    **NOT for commercial use** — CC-BY-NC-SA license prohibits commercial deployment.
+
+  fullDescription: |
+    Racka 4B is the first serious open Hungarian language model, released by the NLP group at Eötvös Loránd University (ELTE) in Budapest. Built on Alibaba's Qwen3-4B as the architecture backbone, then post-trained on 160 billion tokens with a deliberate language mix: 44% Hungarian, the rest split between German and English to preserve cross-lingual reasoning.
+
+    Performance highlights (per ELTE's announcement):
+    - Outperforms Qwen3-4B base on Hungarian benchmarks by a wide margin
+    - Comparable or better than much larger models (8-12B) on Hungarian-specific tasks
+    - Retains strong English/German capabilities thanks to the language mix
+    - Reasoning mode preserved (Qwen3-style think/no-think toggle)
+
+    Stack:
+    - Image: `ghcr.io/ggml-org/llama.cpp:server-cuda13-b8740`
+    - Model: `elte-nlp/Racka-4B-GGUF` Q8_0 (4.28 GB)
+    - 32K context, full GPU layers, flash attention on
+    - OpenAI-compatible API at port 8080
+
+    First launch downloads ~4.3 GB from HuggingFace (gated repo, requires HF token).
+
+  developer: aamsellem
+  website: https://huggingface.co/elte-nlp/Racka-4B
+  sourceCode: https://github.com/aamsellem/orales-one-market
+  submitter: aamsellem
+  locale:
+    - en-US
+    - hu-HU
+  license:
+    - text: CC-BY-NC-SA-4.0 (non-commercial)
+      url: https://huggingface.co/elte-nlp/Racka-4B-GGUF
+
+  limitedCpu: 8
+  requiredCpu: 2
+  requiredDisk: 8Gi
+  limitedDisk: 12Gi
+  limitedMemory: 16Gi
+  requiredMemory: 6Gi
+  requiredGpu: 1Gi
+  limitedGpu: 8Gi
+
+  supportArch:
+    - amd64
+permission:
+  appData: true
+options:
+  apiTimeout: 0
+  dependencies:
+    - name: olares
+      version: '>=1.12.3-0'
+      type: system
+envs:
+  - envName: OLARES_USER_HUGGINGFACE_TOKEN
+    required: true
+    applyOnChange: true
+    valueFrom:
+      envName: OLARES_USER_HUGGINGFACE_TOKEN

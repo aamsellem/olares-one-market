@@ -1,0 +1,17 @@
+metadata:
+  title: Racka 4B Hungarian One
+  description: "Racka 4B — first serious Hungarian LLM by ELTE NLP (Qwen3-4B base, 160B tokens, 44% Hungarian) via llama.cpp on Olares One"
+
+spec:
+  fullDescription: |
+    Racka 4B is the first serious open Hungarian language model, released by the NLP group at Eötvös Loránd University (ELTE) in Budapest. Built on Qwen3-4B with 160B tokens of post-training (44% Hungarian / German / English mix).
+
+    **⚠️ Gated HuggingFace repo** — accept the license at https://huggingface.co/elte-nlp/Racka-4B-GGUF and configure your HF token in Olares settings before installing.
+
+    Stack:
+    - `elte-nlp/Racka-4B-GGUF` Q8_0 (4.28 GB, lossless on 4B)
+    - llama.cpp upstream `server-cuda13-b8740`
+    - 32K context, full GPU offload, flash attention
+    - OpenAI-compatible API on port 8080
+
+    Best for: Hungarian conversation, writing, summarization, HU↔EN↔DE translation, local document Q&A in Hungarian. NOT for commercial use (CC-BY-NC-SA).
