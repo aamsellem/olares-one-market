@@ -5,20 +5,21 @@ apiVersion: 'v2'
 metadata:
   name: racka4bhuone
   icon: https://orales-one-market.aamsellem.workers.dev/icons/racka4bhuone.png
-  description: "Racka 4B — first serious Hungarian LLM (ELTE, Qwen3-4B base, 160B tokens 44% Hungarian)"
+  description: "Racka 4B — first serious Hungarian LLM (ELTE, Qwen3-4B base, 160B tokens 44% Hungarian) — 133 t/s validated on Olares One"
   appid: racka4bhuone
   title: Racka 4B Hungarian One
-  version: 1.0.0
+  version: 1.0.1
   categories:
+    - Special Request
     - LLM Chat
     - AI Agents
   bento:
     family: qwen
     size_label: "4B"
-    badge: hungarian
+    badge: hungarian · special request
     hero:
-      value: "Magyar"
-      label: "first serious Hungarian LLM"
+      value: "133 t/s"
+      label: "Magyar nyelvű LLM by ELTE"
     specs:
       - { label: "context", value: "32K" }
       - { label: "vram", value: "5 GB" }
@@ -37,8 +38,10 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: 1.0.0
+  versionName: 1.0.1
   upgradeDescription: |
+    v1.0.1: **bench validated on Olares One** — 133.6 t/s avg across 3 Hungarian prompts (Budapest poem 134.85, quantum physics 133.24, paprikás csirke vs pörkölt 132.73). 3/3 finish_reason=stop, no garbage, fluent Hungarian across creative + technical + culinary domains. Prompt processing ~1700 t/s. Added "Special Request" category — this app was added on user request from the Olares community.
+
     v1.0.0: initial release. **Racka 4B** by ELTE NLP (Eötvös Loránd University, Budapest) — the first serious Hungarian language model. Built on a Qwen3-4B backbone, post-trained on **160B tokens (44% Hungarian, the rest German + English)**. Released February 2026.
 
     Why it matters: Hungarian has very limited LLM coverage. General-purpose models do English/German fluently but struggle with Hungarian morphology, idioms, and agglutinative structure. Racka-4B is specifically optimized for Hungarian generation, reasoning, and translation.

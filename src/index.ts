@@ -1,5 +1,4 @@
 import catalog from './catalog.json';
-import icons from './icons.json';
 import charts from './charts.json';
 
 interface Env {}
@@ -20,66 +19,109 @@ function handleHash(url: URL): Response {
   const version = url.searchParams.get('version') || '1.12.3';
   return json({
     hash: catalog.hash,
-    last_updated: new Date().toISOString(),
+    last_updated: isoNanos(),
     version,
   });
 }
 
 // GET /api/v1/appstore/info?version=X
+// Go market service strict-parses timestamps as `2006-01-02T15:04:05.000000000Z` (9-digit nanos).
+// JavaScript `toISOString()` emits only 3-digit ms — pad to 9 to be parseable by the Go syncer.
+function isoNanos(d: Date = new Date()): string {
+  return d.toISOString().replace(/\.(\d+)Z$/, (_m, ms) => `.${ms.padEnd(9, '0')}Z`);
+}
+
 function handleInfo(url: URL): Response {
   const version = url.searchParams.get('version') || '1.12.3';
-  const now = new Date().toISOString();
+  const now = isoNanos();
 
-  // Build app ID list for topic_lists (comma-separated)
-  const appIds = Object.keys(catalog.summaries).join(',');
+  // Studio sidebar: menuList = response.tags. categoryMenu = menuList filtered by app categories.
+  // Custom category names DO work as long as they appear in both the apps' categories array
+  // and our tags object (verified against beclab/Olares menu store source code).
+  const categoryIcons: Record<string, string> = {
+    'LLM Chat':    'https://app.cdn.olares.com/icons/market/sidebar/neurology.svg',
+    'AI Agents':   'https://app.cdn.olares.com/icons/market/sidebar/neurology.svg',
+    'Vision':      'https://app.cdn.olares.com/icons/market/sidebar/neurology.svg',
+    'Audio':       'https://app.cdn.olares.com/icons/market/sidebar/neurology.svg',
+    'TTS':         'https://app.cdn.olares.com/icons/market/sidebar/neurology.svg',
+    'Music':       'https://app.cdn.olares.com/icons/market/sidebar/neurology.svg',
+    'Coding':      'https://app.cdn.olares.com/icons/market/sidebar/neurology.svg',
+    'Image Gen':   'https://app.cdn.olares.com/icons/market/sidebar/neurology.svg',
+    'Uncensored':  'https://app.cdn.olares.com/icons/market/sidebar/neurology.svg',
+    'Special Request': 'https://app.cdn.olares.com/icons/market/sidebar/neurology.svg',
+  };
+
+  // Group apps by category (multi-category supported)
+  const apps = catalog.summaries as Record<string, { id: string; name: string }>;
+  const details = catalog.details as Record<string, { categories?: string[] }>;
+  const byCategory: Record<string, string[]> = {};
+  for (const [id, d] of Object.entries(details)) {
+    const cats = (d.categories || []) as string[];
+    for (const c of cats) {
+      if (!byCategory[c]) byCategory[c] = [];
+      byCategory[c].push(id);
+    }
+  }
+
+  const cats = (catalog.categories || []) as string[];
+  const pages: Record<string, { category: string; content: string }> = {};
+  const topicLists: Record<string, { name: string; type: string; content: string; title: Record<string, string> }> = {};
+  const tags: Record<string, unknown> = {};
+
+  cats.forEach((cat, i) => {
+    const topicName = `Featured apps in ${cat}`;
+    pages[cat] = {
+      category: cat,
+      content: JSON.stringify([
+        { type: 'Topic', id: topicName },
+        { type: 'Default Topic', id: 'Newest' },
+      ]),
+      source: 0,
+      updated_at: now,
+      createdAt: '2025-11-07T05:14:01.765Z',
+    };
+    topicLists[topicName] = {
+      name: topicName,
+      type: 'Category',
+      content: (byCategory[cat] || []).join(','),
+      title: { 'en-US': topicName, 'zh-CN': topicName },
+      source: 0,
+      updated_at: now,
+      createdAt: '2025-11-07T05:14:01.765Z',
+    };
+    tags[cat] = {
+      _id: `cat_${cat.toLowerCase().replace(/\s+/g, '_')}`,
+      name: cat,
+      title: { 'en-US': cat, 'zh-CN': cat },
+      icon: categoryIcons[cat] || 'https://app.cdn.olares.com/icons/market/sidebar/neurology.svg',
+      sort: 10 + i,
+      source: 0,
+      updated_at: now,
+      createdAt: '2025-11-07T05:14:01.765Z',
+    };
+  });
 
   return json({
     version,
     hash: catalog.hash,
     last_updated: now,
     data: {
-      apps: catalog.summaries,
+      apps,
       recommends: {},
-      pages: {
-        AI: {
-          category: 'AI',
-          content: JSON.stringify([
-            { type: 'Topic', id: 'Featured apps in AI' },
-            { type: 'Default Topic', id: 'Newest' },
-          ]),
-        },
-      },
+      pages,
       topics: {},
-      topic_lists: {
-        'Featured apps in AI': {
-          name: 'Featured apps in AI',
-          type: 'Category',
-          content: appIds,
-          title: { 'en-US': 'Featured apps in AI', 'zh-CN': 'AI精选应用' },
-        },
-      },
-      tops: [],
+      topic_lists: topicLists,
+      tops: (catalog as { tops?: unknown[] }).tops || [],
       latest: catalog.latest,
-      tags: {
-        AI: {
-          _id: 'ai_custom_source',
-          name: 'AI',
-          title: { 'en-US': 'AI', 'zh-CN': 'AI' },
-          icon: 'https://app.cdn.olares.com/icons/market/sidebar/neurology.svg',
-          sort: 7,
-          source: 0,
-          updated_at: now,
-          createdAt: '2025-11-07T05:14:01.765Z',
-        },
-      },
+      tags,
     },
     stats: {
       appstore_data: {
-        apps: Object.keys(catalog.summaries).length,
-        pages: 1,
+        apps: Object.keys(apps).length,
+        pages: Object.keys(pages).length,
         recommends: 0,
-        tags: 1,
-        topic_lists: 1,
+        tags: Object.keys(tags).length,
+        topic_lists: Object.keys(topicLists).length,
         topics: 0,
       },
       last_updated: now,
@@ -152,22 +194,7 @@ export default {
       return json({ error: 'Chart not found' }, 404);
     }
 
-    // Serve icons
-    if (path.startsWith('/icons/') && request.method === 'GET') {
-      const name = path.slice('/icons/'.length).replace(/\.png$/, '');
-      const data = (icons as Record<string, string>)[name];
-      if (data) {
-        const binary = Uint8Array.from(atob(data), c => c.charCodeAt(0));
-        return new Response(binary, {
-          headers: {
-            'Content-Type': 'image/png',
-            'Cache-Control': 'public, max-age=86400',
-            'Access-Control-Allow-Origin': '*',
-          },
-        });
-      }
-      return json({ error: 'Icon not found' }, 404);
-    }
+    // /icons/ and /screenshots/ are served by Cloudflare Static Assets (see wrangler.toml [assets])
 
     // Health check
     if (path === '/' || path === '/health') {
