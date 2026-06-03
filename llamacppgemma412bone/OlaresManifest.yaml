@@ -1,0 +1,103 @@
+---
+olaresManifest.version: '0.10.0'
+olaresManifest.type: app
+apiVersion: 'v2'
+metadata:
+  name: llamacppgemma412bone
+  icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppgemma412bone.png
+  description: "Gemma 4 12B IT — Google's dense 12B model + Vision via llama.cpp upstream on Olares One"
+  appid: llamacppgemma412bone
+  title: Gemma 4 12B One
+  version: 1.0.0
+  categories:
+    - LLM Chat
+    - AI Agents
+    - Vision
+  bento:
+    family: gemma
+    size_label: "12B"
+    badge: dense · vision
+    hero:
+      value: "Q8_0"
+      label: "lossless 12.7 GB + mmproj vision"
+    specs:
+      - { label: "context", value: "32K" }
+      - { label: "vram", value: "16 GB" }
+    capabilities:
+      tool_calling: true
+      vision:       true
+      audio:        false
+      mtp:          { enabled: false }
+    stack: "llama.cpp · unsloth Q8_0 · mmproj F16"
+entrances:
+  - name: llamacppgemma412bone
+    port: 8080
+    host: llamacppgemma412bone
+    title: Gemma 4 12B
+    icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppgemma412bone.png
+    openMethod: window
+    authLevel: internal
+spec:
+  versionName: 1.0.0
+  upgradeDescription: |
+    v1.0.0: initial release. **Gemma 4 12B IT** by Google — released 2026-06-03. Dense 12B parameter model (not MoE) with native multimodal vision support. The new mid-tier Gemma 4 size sitting between E4B (4B active MoE) and 26B-A4B.
+
+    Stack:
+    - `unsloth/gemma-4-12b-it-GGUF` Q8_0 (12.7 GB, lossless quality on a 12B base)
+    - mmproj F16 (175 MB) for vision input
+    - llama.cpp upstream `server-cuda13-b8740`
+    - 32K context, full GPU offload, flash attention, jinja templates
+    - OpenAI-compatible API on port 8080
+
+    **No MTP yet**: Google released the assistant drafter (845 MB safetensors) but the GGUF conversion isn't in the community yet (AtomicChat/unsloth assistant-GGUF repos still empty). v1.0.1 will add MTP once the drafter GGUF lands — expected speedup from ~80-100 t/s base to ~150-180 t/s with MTP n=3.
+
+    Vision: native multimodal input via `image_url` API parameter. Same flow as other mmproj-equipped models on Olares One (Qwen3.6 abliterated, Gemma 4 26B-A4B vision).
+
+    Use cases:
+    - General-purpose chat with vision (photos, screenshots, documents)
+    - Multilingual reasoning (Gemma 4 has stronger non-English coverage than Qwen)
+    - Tool calling with mid-tier model size — lighter than 26B-A4B but more capable than E4B
+
+    Bench TBD on Olares One — expected 80-100 t/s base, will validate after install.
+  fullDescription: |
+    Google Gemma 4 12B IT released 2026-06-03. Dense 12B parameter instruction-tuned model with native vision support via mmproj.
+
+    The mid-tier Gemma 4 size: bigger and more capable than E4B (4B active MoE), smaller and faster than 26B-A4B. Dense architecture (not MoE) means consistent throughput without router overhead.
+
+    Stack:
+    - Image: `ghcr.io/ggml-org/llama.cpp:server-cuda13-b8740` (upstream)
+    - Model: `unsloth/gemma-4-12b-it-GGUF` Q8_0 (12.7 GB)
+    - Vision: mmproj F16 (175 MB) for image_url inputs
+    - 32K context, q8_0 KV cache, flash attention, jinja
+    - OpenAI-compatible API at port 8080
+
+    First launch downloads ~13 GB from HuggingFace and caches it shared across users on the same Olares device at `/olares/share/ai/model/llms/`.
+  developer: aamsellem
+  website: https://huggingface.co/google/gemma-4-12B-it
+  sourceCode: https://github.com/aamsellem/orales-one-market
+  submitter: aamsellem
+  locale:
+    - en-US
+  license:
+    - text: Gemma Terms of Use
+      url: https://ai.google.dev/gemma/terms
+
+  limitedCpu: 12
+  requiredCpu: 4
+  requiredDisk: 20Gi
+  limitedDisk: 30Gi
+  limitedMemory: 24Gi
+  requiredMemory: 12Gi
+  requiredGpu: 1Gi
+  limitedGpu: 18Gi
+
+  supportArch:
+    - amd64
+permission:
+  appData: true
+options:
+  apiTimeout: 0
+  dependencies:
+    - name: olares
+      version: '>=1.12.3-0'
+      type: system
