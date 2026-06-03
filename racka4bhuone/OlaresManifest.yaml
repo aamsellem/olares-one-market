@@ -8,7 +8,7 @@ metadata:
   description: "Racka 4B — first serious Hungarian LLM (ELTE, Qwen3-4B base, 160B tokens 44% Hungarian) — 133 t/s validated on Olares One"
   appid: racka4bhuone
   title: Racka 4B Hungarian One
-  version: 1.0.1
+  version: 1.0.2
   categories:
     - Special Request
     - LLM Chat
@@ -38,8 +38,10 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: 1.0.1
+  versionName: 1.0.2
   upgradeDescription: |
+    v1.0.2: **slow-connection + diagnostics fix** (Discord bug report 2026-06-03). User reported install crash-looping at startup-probe 503 after 20 min — root cause: HF_TOKEN missing/invalid AND slow HF download exceeding the previous 20-min probe budget. Four fixes: (1) startup-probe failureThreshold 80 → 720 = 6h budget for slow networks, (2) liveness initialDelay 5min → 10min, (3) on missing HF_TOKEN the container now blocks indefinitely with a clear error + recovery steps logged every 5 min (no more exit-1 crash loop, so `kubectl logs` shows what's wrong), (4) post-download size check: if file < 4 GB (HF returned 401/403 HTML disguised as a file), delete + log clear error instead of marking `.ok`. Model still cached at `/olares/share/ai/model/llms/` (unchanged from v1.0.0).
+
     v1.0.1: **bench validated on Olares One** — 133.6 t/s avg across 3 Hungarian prompts (Budapest poem 134.85, quantum physics 133.24, paprikás csirke vs pörkölt 132.73). 3/3 finish_reason=stop, no garbage, fluent Hungarian across creative + technical + culinary domains. Prompt processing ~1700 t/s. Added "Special Request" category — this app was added on user request from the Olares community.
 
     v1.0.0: initial release. **Racka 4B** by ELTE NLP (Eötvös Loránd University, Budapest) — the first serious Hungarian language model. Built on a Qwen3-4B backbone, post-trained on **160B tokens (44% Hungarian, the rest German + English)**. Released February 2026.

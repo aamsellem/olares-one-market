@@ -44,11 +44,13 @@ spec:
               SHARED_DIR=${SHARED_DIR:-/shared-models/llms}
               mkdir -p "$MODELS_DIR" "$SHARED_DIR"
               if [ -z "$HF_TOKEN" ]; then
-                echo "==> ERROR: HF_TOKEN not set. Racka-4B is a gated HuggingFace repo."
-                echo "==> Accept the license at https://huggingface.co/elte-nlp/Racka-4B-GGUF"
-                echo "==> then configure your HF token in Olares Settings → Integrations → HuggingFace."
-                sleep 60
-                exit 1
+                echo "==================================================================="
+                echo "==> ERROR: HF_TOKEN is empty. Racka-4B is a gated HuggingFace repo."
+                echo "==> 1) Accept license: https://huggingface.co/elte-nlp/Racka-4B-GGUF"
+                echo "==> 2) Set HF token in Olares Settings → Integrations → HuggingFace"
+                echo "==> 3) Uninstall + reinstall this app (so app-service re-reads the env)"
+                echo "==================================================================="
+                while true; do sleep 300; echo "(still waiting for HF_TOKEN — see log header above)"; done
               fi
               # Migrate $TARGET_FILE from old per-app dir to shared if needed
               if [ -f "$MODELS_DIR/$TARGET_FILE" ] && [ ! -f "$SHARED_DIR/$TARGET_FILE.ok" ]; then
@@ -57,12 +59,22 @@ spec:
                 touch "$SHARED_DIR/$TARGET_FILE.ok"
               fi
               if [ ! -f "$SHARED_DIR/$TARGET_FILE.ok" ]; then
-                echo "==> Downloading $TARGET_MODEL/$TARGET_FILE (~4.3 GB, gated repo, requires HF_TOKEN)"
-                curl -fL -C - --retry 20 --retry-delay 15 --retry-all-errors --connect-timeout 30 \
+                echo "==> Downloading $TARGET_MODEL/$TARGET_FILE (~4.3 GB, gated repo)"
+                echo "==> Source: https://huggingface.co/${TARGET_MODEL}/resolve/main/${TARGET_FILE}"
+                echo "==> Target: $SHARED_DIR/$TARGET_FILE"
+                echo "==> If this hangs on a slow connection, that's normal — curl will retry up to 20 times with resume."
+                curl -fL -C - --retry 20 --retry-delay 15 --retry-all-errors --connect-timeout 30 --progress-bar \
                   -H "Authorization: Bearer $HF_TOKEN" \
                   "https://huggingface.co/${TARGET_MODEL}/resolve/main/${TARGET_FILE}" \
                   -o "$SHARED_DIR/$TARGET_FILE"
+                DL_SIZE=$(stat -c%s "$SHARED_DIR/$TARGET_FILE" 2>/dev/null || stat -f%z "$SHARED_DIR/$TARGET_FILE")
+                if [ "$DL_SIZE" -lt 4000000000 ]; then
+                  echo "==> ERROR: Downloaded file is too small ($DL_SIZE bytes < 4 GB expected). Likely HF_TOKEN invalid or gated repo not accepted."
+                  rm -f "$SHARED_DIR/$TARGET_FILE"
+                  while true; do sleep 300; echo "(download truncated — re-check HF_TOKEN + license acceptance, then uninstall+reinstall)"; done
+                fi
                 touch "$SHARED_DIR/$TARGET_FILE.ok"
+                echo "==> Download complete: $(du -h $SHARED_DIR/$TARGET_FILE | cut -f1)"
               fi
               exec /app/llama-server \
                 --model "$SHARED_DIR/$TARGET_FILE" \
@@ -95,19 +107,21 @@ spec:
               path: /health
               port: 8080
               scheme: HTTP
-            initialDelaySeconds: 300
+            initialDelaySeconds: 600
             timeoutSeconds: 10
             periodSeconds: 30
             failureThreshold: 5
           startupProbe:
+            # 6h budget: 60s + 720 × 30s = 6h. Slow HF downloads on bad networks
+            # can take >1h for 4.3 GB; curl auto-retries with resume.
             httpGet:
               path: /health
               port: 8080
               scheme: HTTP
-            initialDelaySeconds: 30
+            initialDelaySeconds: 60
             timeoutSeconds: 10
-            periodSeconds: 15
-            failureThreshold: 80
+            periodSeconds: 30
+            failureThreshold: 720
           resources:
             limits:
               cpu: "8"
