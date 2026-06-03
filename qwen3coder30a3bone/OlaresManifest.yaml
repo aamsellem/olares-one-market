@@ -8,9 +8,26 @@ metadata:
   description: "Qwen3 Coder 30B-A3B via llama.cpp — coding agent optimized for Olares One"
   appid: qwen3coder30a3bone
   title: Qwen3 Coder 30B-A3B One
-  version: '1.0.0'
+  version: '1.0.1'
   categories:
-    - AI
+    - Coding
+    - AI Agents
+  bento:
+    family: qwen
+    size_label: "30B-A3B"
+    badge: coder
+    hero:
+      value: "130 t/s"
+      label: "coding speed"
+    specs:
+      - { label: "context", value: "256K" }
+      - { label: "vram", value: "17 GB" }
+    capabilities:
+      tool_calling: true
+      vision:       false
+      audio:        false
+      mtp:          { enabled: false }
+    stack: "llama.cpp · UD-Q4_K_XL · Coder"
 entrances:
   - name: qwen3coder30a3bone
     port: 8080
@@ -20,7 +37,7 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.0.0'
+  versionName: '1.0.1'
   fullDescription: |
     Qwen3 Coder 30B-A3B-Instruct (MoE, 3.3B active) served via llama.cpp — coding agent optimized for Olares One.
     RTX 5090M (24GB) + 96GB DDR5 + Core Ultra 9 275HX.

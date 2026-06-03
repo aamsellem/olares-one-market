@@ -8,9 +8,25 @@ metadata:
   description: "Voxtral Realtime 4B streaming ASR via vLLM — real-time speech transcription, optimized for Olares One"
   appid: vllmvoxtralrt4bone
   title: Voxtral Realtime 4B One
-  version: '1.0.9'
+  version: '1.0.10'
   categories:
-    - AI
+    - Audio
+  bento:
+    family: voxtral
+    size_label: "4B"
+    badge: realtime
+    hero:
+      value: "Live"
+      label: "streaming asr"
+    specs:
+      - { label: "context", value: "32K" }
+      - { label: "vram", value: "8 GB" }
+    capabilities:
+      tool_calling: false
+      vision:       false
+      audio:        true
+      mtp:          { enabled: false }
+    stack: "vLLM · Voxtral RT · low-latency"
 entrances:
   - name: vllmvoxtralrt4bone
     port: 8000
@@ -20,7 +36,7 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.0.0'
+  versionName: '1.0.10'
   fullDescription: |
     Mistral Voxtral Mini 4B Realtime (streaming ASR) served via vLLM — optimized for Olares One.
     RTX 5090M (24GB) + 96GB DDR5 + Core Ultra 9 275HX.

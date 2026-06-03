@@ -2,5 +2,9 @@ name = "orales-one-market"
 main = "src/index.ts"
 compatibility_date = "2024-12-01"
 
+[assets]
+directory = "./public"
+binding = "ASSETS"
+
 [build]
 command = "npm run build:catalog"

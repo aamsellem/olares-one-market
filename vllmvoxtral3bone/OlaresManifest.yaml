@@ -8,9 +8,25 @@ metadata:
   description: "Voxtral Mini 3B ASR via vLLM — audio transcription and understanding, optimized for Olares One"
   appid: vllmvoxtral3bone
   title: Voxtral Mini 3B ASR One
-  version: '1.0.8'
+  version: '1.0.9'
   categories:
-    - AI
+    - Audio
+  bento:
+    family: voxtral
+    size_label: "Mini 3B"
+    badge: asr
+    hero:
+      value: "ASR"
+      label: "speech recognition"
+    specs:
+      - { label: "context", value: "32K" }
+      - { label: "vram", value: "6 GB" }
+    capabilities:
+      tool_calling: false
+      vision:       false
+      audio:        true
+      mtp:          { enabled: false }
+    stack: "vLLM · Voxtral Mini · audio in"
 entrances:
   - name: vllmvoxtral3bone
     port: 8000
@@ -20,7 +36,7 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.0.0'
+  versionName: '1.0.9'
   fullDescription: |
     Mistral Voxtral Mini 3B (audio encoder + Ministral-3B LLM) served via vLLM — optimized for Olares One.
     RTX 5090M (24GB) + 96GB DDR5 + Core Ultra 9 275HX.

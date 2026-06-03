@@ -8,9 +8,25 @@ metadata:
   description: "Qwen3.6 27B + DFlash speculative + TurboQuant turbo3 KV — 76 t/s @ 96K via buun-llama-cpp fork"
   appid: llamacppqwen36dflashone
   title: Qwen36 27B DFlash One
-  version: '1.0.1'
+  version: 1.0.6
   categories:
-    - AI
+    - LLM Chat
+  bento:
+    family: qwen
+    size_label: "27B"
+    badge: dflash
+    hero:
+      value: "76 t/s"
+      label: "speed @ 96K"
+    specs:
+      - { label: "context", value: "96K" }
+      - { label: "vram", value: "21 GB" }
+    capabilities:
+      tool_calling: true
+      vision:       false
+      audio:        false
+      mtp:          { enabled: true, accept: 25 }
+    stack: "llama.cpp · DFlash · turbo3 KV"
 entrances:
   - name: llamacppqwen36dflashone
     port: 8000
@@ -20,7 +36,7 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.0.1'
+  versionName: 1.0.6
   upgradeDescription: |
     v1.0.1: swap DFlash drafter from spiritbuun v1 (2026-04-24, dflash-draft-3.6-q4_k_m.gguf) to Ardenzard v2 (2026-04-28, Qwen3.6-27B-DFlash-Q4_K_M.gguf, derived from z-lab v2 update of 2026-04-27). Acceptance rate 24.67% → 29.72% (+20% relative). Throughput 76 → 77.7 t/s steady state (+2.5%, bench validated 2026-05-09). Q8_0 v2 drafter tested (acceptance 31.54%) but rejected — bigger drafter file (1.85 GB vs 1.03 GB) increases draft step time +33% which outweighs acceptance gain → net 73.2 t/s.
     v1.0.0: initial release. Qwen3.6 27B with DFlash speculative decoding + TurboQuant turbo3 KV cache, served via spiritbuun/buun-llama-cpp fork (image aamsellem/buun-llama-cpp-dflash:0.2.0). Target unsloth/Qwen3.6-27B-Q4_K_M.gguf (15.6 GB, standard quant — NOT the MTP variant which buun rejects). Drafter spiritbuun/Qwen3.6-27B-DFlash-GGUF/dflash-draft-3.6-q4_k_m.gguf (986 MB). Validated bench Olares One 2026-05-09: 76 t/s avg @ 96K context per-seq (Space Invaders 2000 tokens × 3 runs). DFlash drafter pos-0 acceptance ~25%, gamma=6 (5 spec tokens per cycle), spec cycle ~71 ms. Effective context limited to 96K because n_seq_max=2 (DFlash dual-buffer) divides ctx-size 196608 / 2 = 98304 per slot. Pushing ctx-size beyond 196608 OOMs at 24 GB VRAM (target 15.6 GB + KV turbo3 ~3 GB @ 128K + drafter 0.99 GB + buffers > limit). For 128K context use llamacppqwen36mtpone (MTP @ 65 t/s). For 88 t/s @ 88K use vllmqwen36turbo27bone.

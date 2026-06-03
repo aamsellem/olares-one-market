@@ -1,6 +1,6 @@
 apiVersion: v2
-appVersion: '1.0.4'
+appVersion: '1.0.7'
 description: Devstral Small 2507 served via llama.cpp — coding agent optimized for Olares One
 name: devstralsmallone
 type: application
-version: '1.0.6'
+version: '1.0.7'

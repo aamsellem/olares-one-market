@@ -1,6 +1,6 @@
 apiVersion: v2
-appVersion: '1.0.4'
+appVersion: '1.0.9'
 description: Qwen3.6 27B fastest + longest local — BeeLlama.cpp 0.1.3-rc3 (clean upstream, post-#18 CMake fix) + DFlash + turbo3 KV @ 262K
 name: llamacppqwen36beellamaone
 type: application
-version: '1.0.4'
+version: '1.0.9'

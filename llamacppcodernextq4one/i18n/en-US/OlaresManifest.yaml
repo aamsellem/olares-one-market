@@ -1,0 +1,121 @@
+---
+olaresManifest.version: '0.10.0'
+olaresManifest.type: app
+apiVersion: 'v2'
+metadata:
+  name: llamacppcodernextq4one
+  icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppcodernextq4one.png
+  description: "Qwen3-Coder-Next REAP 40B-A3B Q4 — 142 t/s @ 128K, higher code quality than Q3 sibling on Olares One"
+  appid: llamacppcodernextq4one
+  title: Qwen3 Coder Next 40B Q4 One
+  version: '1.0.0'
+  categories:
+    - LLM Chat
+    - AI Agents
+    - Coding
+  bento:
+    family: qwen
+    size_label: "40B-A3B"
+    badge: Q4 · code quality
+    hero:
+      value: "142 t/s"
+      label: "Q4 quality · 128K context"
+    specs:
+      - { label: "context", value: "128K" }
+      - { label: "vram", value: "22.8 GB" }
+      - { label: "quant", value: "IQ4_XS" }
+    capabilities:
+      tool_calling: true
+      vision:       false
+      audio:        false
+      mtp:          { enabled: false, accept: 0 }
+    stack: "llama.cpp b8740 · IQ4_XS · q4_0 KV"
+entrances:
+  - name: llamacppcodernextq4one
+    port: 8000
+    host: llamacppcodernextq4one
+    title: Qwen3 Coder Next 40B Q4
+    icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppcodernextq4one.png
+    openMethod: window
+    authLevel: internal
+spec:
+  versionName: '1.0.0'
+  upgradeDescription: |
+    v1.0.0: initial release. **Qwen3-Coder-Next REAP 40B-A3B IQ4_XS** sibling
+    of `llamacppcodernext40bone` (Q3_K_M Long Context). Higher quant = better
+    code quality (~+5-10% on function signature accuracy), at the cost of a
+    smaller context window.
+
+    **Bench validated 2026-05-26 on Olares One** (Space Invaders, 3 runs):
+
+    | Context | VRAM used | Speed steady |
+    |---------|-----------|--------------|
+    | 128K    | 22.8 GB   | **142.1 t/s** |
+    | 262K    | OOM       | does not fit |
+
+    Same speed envelope as Q3_K_M (memory-bandwidth bound, not compute bound on
+    this A3B-class model) but with the Q4 weights giving cleaner code output.
+
+    Why 262K doesn't fit: IQ4_XS model weights = 22.3 GB on disk → ~21.8 GB on
+    GPU. At 262K with q4_0 KV cache (~1.6 GB) + activation buffers, total spikes
+    above the 24 GB VRAM budget. 128K leaves ~1.2 GB headroom which is safe.
+
+    Stack:
+    - Image: `ghcr.io/ggml-org/llama.cpp:server-cuda13-b8740`
+    - Model: `mradermacher/Qwen3-Coder-Next-REAP-40B-A3B-GGUF` IQ4_XS (22.3 GB)
+    - `-ngl 99 -ctk q4_0 -ctv q4_0 -fa auto --swa-full -np 1 --mlock`
+    - `-b 512 -ub 512 --op-offload --jinja`
+    - `--ctx-size 131072` (128K)
+    - `GGML_CUDA_GRAPH_OPT=1`
+
+    **When to pick this vs Long Context (Q3_K_M)**:
+    - **This (Q4)**: agentic tool calling, code generation, function-level edits,
+      anything where signature accuracy matters more than context length
+    - **Long Context (Q3)**: parsing large codebases, multi-file refactors,
+      RAG over long docs, anything that benefits from 262K window
+
+    No MTP draft head (same as Q3 sibling). If lovedheart bundles one in future
+    we'd hit ~200+ t/s.
+
+    OpenAI-compatible API on port 8000 with `--jinja` chat template + tool calling.
+    Downloads model on first launch (~22 GB) and caches in app data volume.
+  fullDescription: |
+    Qwen3-Coder-Next REAP 40B-A3B IQ4_XS — higher-quant sibling of the Long
+    Context variant. Trade-off: better code quality (Q4 vs Q3) for less context
+    (128K vs 262K). Same 142 t/s decode speed (memory-bandwidth bound).
+
+    Choose this app for active code generation / tool calling / agentic flows.
+    Choose the Long Context sibling (`llamacppcodernext40bone`) for parsing big
+    codebases or long-document workflows.
+
+    Stack matches the catalog standard for llama.cpp A3B models on Olares One.
+
+  developer: aamsellem
+  website: https://github.com/aamsellem/olares-one-market
+  sourceCode: https://github.com/aamsellem/olares-one-market
+  submitter: aamsellem
+  locale:
+    - en-US
+  license:
+    - text: Apache-2.0
+      url: https://huggingface.co/Qwen/Qwen3-Coder-Next/blob/main/LICENSE
+
+  limitedCpu: 16
+  requiredCpu: 4
+  requiredDisk: 30Gi
+  limitedDisk: 50Gi
+  limitedMemory: 40Gi
+  requiredMemory: 24Gi
+  requiredGpu: 1Gi
+  limitedGpu: 24Gi
+
+  supportArch:
+    - amd64
+permission:
+  appData: true
+options:
+  apiTimeout: 0
+  dependencies:
+    - name: olares
+      version: '>=1.12.3-0'
+      type: system

@@ -8,9 +8,26 @@ metadata:
   description: "Qwen3.6 27B fastest + longest local — 106 t/s @ FULL 262K via BeeLlama.cpp + DFlash + turbo3 KV"
   appid: llamacppqwen36beellamaone
   title: Qwen36 27B BeeLlama One
-  version: '1.0.4'
+  version: 1.0.9
   categories:
-    - AI
+    - LLM Chat
+    - AI Agents
+  bento:
+    family: qwen
+    size_label: "27B"
+    badge: beellama
+    hero:
+      value: "107 t/s"
+      label: "speed @ 262K"
+    specs:
+      - { label: "context", value: "262K" }
+      - { label: "vram", value: "20 GB" }
+    capabilities:
+      tool_calling: true
+      vision:       false
+      audio:        false
+      mtp:          { enabled: true, accept: 25 }
+    stack: "BeeLlama · DFlash · turbo3 KV"
 entrances:
   - name: llamacppqwen36beellamaone
     port: 8000
@@ -20,7 +37,7 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.0.4'
+  versionName: 1.0.9
   upgradeDescription: |
     v1.0.4: swap to `aamsellem/beellama-cpp:0.1.3-rc3` — built from Anbeeld HEAD `0ef12a52c3` (2026-05-17) **without** the `-lcuda` linker-flag workaround used in rc2. Validates Anbeeld's upstream CMake fix for `ggml-cuda` driver propagation: `target_link_libraries(ggml-cuda INTERFACE $<LINK_ONLY:CUDA::cuda_driver>)` (commit `2b9aa77aa6`, closes issue [#18](https://github.com/Anbeeld/beellama.cpp/issues/18)). Also picks up LPFchan PR #19 / commit `e50d29eed4` (DFlash GPU ring hang fix on turbo4 — sync ggml backend after decode). No behavioral or perf change expected vs rc2 (same binary semantics, cleaner build configuration). Same target/drafter/KV stack + `LLAMA_ARG_SPEC_DM_ADAPTIVE=true` env var as v1.0.3.
 

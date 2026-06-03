@@ -8,9 +8,25 @@ metadata:
   description: "Nemotron Cascade 2 30B-A3B via llama.cpp — math and code, optimized for Olares One"
   appid: cascade230a3bone
   title: Cascade 2 30B-A3B One
-  version: '1.0.6'
+  version: '1.0.7'
   categories:
-    - AI
+    - LLM Chat
+  bento:
+    family: nemotron
+    size_label: "30B-A3B"
+    badge: hybrid
+    hero:
+      value: "85 t/s"
+      label: "speed"
+    specs:
+      - { label: "context", value: "64K" }
+      - { label: "vram", value: "18 GB" }
+    capabilities:
+      tool_calling: true
+      vision:       false
+      audio:        false
+      mtp:          { enabled: false }
+    stack: "llama.cpp · Q4_K_S · NemotronH MoE"
 entrances:
   - name: cascade230a3bone
     port: 8080
@@ -20,7 +36,7 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.0.2'
+  versionName: '1.0.7'
   upgradeDescription: |
     v1.0.2: llama.cpp b8667 → b8667 (Hadamard rotation). KV cache q4_0 (with Hadamard rotation) → q4_0 (2x compression).
 

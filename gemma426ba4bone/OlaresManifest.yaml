@@ -8,9 +8,25 @@ metadata:
   description: "Gemma 4 26B-A4B (MoE) with MTP speculative decoding via Atomic Chat llama.cpp fork — Olares One"
   appid: gemma426ba4bone
   title: Gemma 4 26B-A4B One
-  version: '1.0.10'
+  version: '1.0.11'
   categories:
-    - AI
+    - LLM Chat
+  bento:
+    family: gemma
+    size_label: "26B-A4B"
+    badge: efficient
+    hero:
+      value: "140 t/s"
+      label: "speed"
+    specs:
+      - { label: "context", value: "128K" }
+      - { label: "vram", value: "19 GB" }
+    capabilities:
+      tool_calling: true
+      vision:       false
+      audio:        false
+      mtp:          { enabled: true }
+    stack: "llama.cpp · Q4_K_M · Atomic fork"
 entrances:
   - name: gemma426ba4bone
     port: 8080
@@ -20,7 +36,7 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.0.10'
+  versionName: '1.0.11'
   upgradeDescription: |
     v1.0.10: bump context window 65K → 128K. With turbo3 KV (3-bit Hadamard rotation), 128K KV ~4 GB → fits comfortably alongside the 17 GB UD-Q4_K_XL target + 0.3 GB MTP drafter (~21 GB total, 3 GB headroom on 24 GB). No throughput regression expected vs 65K (validated 140 t/s @ 78% accept).
     v1.0.9: switch to Atomic Chat llama.cpp fork (`AtomicBot-ai/atomic-llama-cpp-turboquant`) which adds the `gemma4_assistant` MTP drafter arch + TurboQuant KV cache (`turbo3`). Image: aamsellem/llamacpp-atomic-mtp:0.1.0. Adds AtomicChat/gemma-4-26B-A4B-it-assistant-GGUF Q4_K_M (325 MB) as MTP drafter alongside the unsloth UD-Q4_K_XL target. Reference bench from AtomicChat (M5Max): Gemma 4 26B = 97 → 138 t/s = +40% with MTP. Vision (mmproj) NOT enabled in this version (the atomic fork doesn't yet wire mmproj alongside MTP — text-only). If you need vision use v1.0.8. KV cache turbo3 (TurboQuant 3-bit Hadamard, much more efficient than q4_0).

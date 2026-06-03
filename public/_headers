@@ -1,0 +1,11 @@
+/*
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET, HEAD, OPTIONS
+  Access-Control-Allow-Headers: *
+  Cross-Origin-Resource-Policy: cross-origin
+
+/icons/*
+  Cache-Control: public, max-age=86400
+
+/screenshots/*
+  Cache-Control: public, max-age=86400

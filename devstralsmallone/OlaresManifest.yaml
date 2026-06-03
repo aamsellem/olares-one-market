@@ -8,9 +8,26 @@ metadata:
   description: "Devstral Small 2507 via llama.cpp — coding agent optimized for Olares One"
   appid: devstralsmallone
   title: Devstral Small Code One
-  version: '1.0.6'
+  version: '1.0.7'
   categories:
-    - AI
+    - Coding
+    - AI Agents
+  bento:
+    family: mistral
+    size_label: "24B"
+    badge: swe-bench
+    hero:
+      value: "53.6%"
+      label: "swe-bench verified"
+    specs:
+      - { label: "context", value: "128K" }
+      - { label: "vram", value: "17 GB" }
+    capabilities:
+      tool_calling: true
+      vision:       false
+      audio:        false
+      mtp:          { enabled: false }
+    stack: "llama.cpp · UD-Q5_K_XL · Devstral"
 entrances:
   - name: devstralsmallone
     port: 8080
@@ -20,7 +37,7 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.0.1'
+  versionName: '1.0.7'
   fullDescription: |
     Devstral Small 2507 (24B dense) served via llama.cpp — coding agent optimized for Olares One.
     #1 open-source on SWE-Bench Verified (53.6%) — outperforms models 10x larger.

@@ -1,0 +1,14 @@
+metadata:
+  title: Qwen36 27B Long Context
+  description: "Qwen3.6 27B longest context — 77 t/s @ full 262K (havenoammo UD-Q3_K_XL + MTP)"
+
+spec:
+  fullDescription: |
+    Qwen3.6 27B with Multi-Token Prediction (MTP) speculative decoding via llama.cpp PR #22673.
+    Target: havenoammo/Qwen3.6-27B-MTP-UD-GGUF/Qwen3.6-27B-MTP-UD-Q3_K_XL.gguf (14.92 GB, Unsloth Dynamic Q3_K_XL with MTP head preserved).
+    Image: aamsellem/llamacpp-mtp:0.1.0 built from am17an/mtp-clean branch.
+    Config: full 262K context, q4_0 KV cache, spec-draft-n-max 5.
+    Validated 2026-05-09: 77 t/s steady, 75-80% draft acceptance, full 262K native context.
+    +18% speed and +105% context vs prior froggeric Q4_K_M-mtp config (65 t/s @ 128K).
+    Beats Reddit-reported 80 t/s @ 262K recipe without any custom image — single GGUF swap.
+    OpenAI-compatible API on port 8000.

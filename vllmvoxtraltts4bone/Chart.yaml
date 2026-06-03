@@ -1,6 +1,6 @@
 apiVersion: v2
-appVersion: '1.0.12'
+appVersion: '1.0.14'
 description: Voxtral 4B TTS via vLLM-Omni — optimized for Olares One
 name: vllmvoxtraltts4bone
 type: application
-version: '1.0.13'
+version: '1.0.14'

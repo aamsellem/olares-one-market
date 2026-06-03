@@ -8,9 +8,25 @@ metadata:
   description: "Nemotron 3 Nano 30B-A3B via llama.cpp — optimized for Olares One"
   appid: llamacppnemotron30a3bone
   title: Nemotron 30B-A3B Olares One
-  version: '1.0.10'
+  version: '1.0.11'
   categories:
-    - AI
+    - LLM Chat
+  bento:
+    family: nemotron
+    size_label: "30B-A3B"
+    badge: nano
+    hero:
+      value: "95 t/s"
+      label: "speed"
+    specs:
+      - { label: "context", value: "64K" }
+      - { label: "vram", value: "17 GB" }
+    capabilities:
+      tool_calling: true
+      vision:       false
+      audio:        false
+      mtp:          { enabled: false }
+    stack: "llama.cpp · UD-Q4_K_XL · NemotronH"
 entrances:
   - name: llamacppnemotron30a3bone
     port: 8080
@@ -20,7 +36,7 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.0.6'
+  versionName: '1.0.11'
   upgradeDescription: |
     v1.0.6: llama.cpp b8667 → b8667 (Hadamard rotation). KV cache q4_0 (with Hadamard rotation) → q4_0. Context 64K → 128K (Mamba-2 hybrid = tiny KV cache).
 

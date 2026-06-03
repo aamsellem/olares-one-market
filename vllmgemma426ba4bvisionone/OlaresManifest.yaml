@@ -5,23 +5,63 @@ apiVersion: 'v2'
 metadata:
   name: vllmgemma426ba4bvisionone
   icon: https://orales-one-market.aamsellem.workers.dev/icons/vllmgemma426ba4bvisionone.png
-  description: "Gemma 4 26B-A4B vision-capable via vLLM — 135 t/s @ 128K context on Olares One"
+  description: "Gemma 4 26B-A4B vision + MTP via vLLM — 250 t/s @ 128K native + vision + tool calling on Olares One"
   appid: vllmgemma426ba4bvisionone
-  title: Gemma 4 26B Vision One
-  version: '1.0.2'
+  title: Gemma 4 26B Vision MTP One
+  version: '1.0.5'
   categories:
-    - AI
+    - Vision
+    - AI Agents
+  bento:
+    family: gemma
+    size_label: "26B-A4B"
+    badge: champion vision
+    hero:
+      value: "250 t/s"
+      label: "vision + tool calling"
+    specs:
+      - { label: "context", value: "128K" }
+      - { label: "vram", value: "22 GB" }
+    capabilities:
+      tool_calling: true
+      vision:       true
+      audio:        false
+      mtp:          { enabled: true, accept: 86.4 }
+    stack: "vLLM v0.21 · AWQ · MTP · fp8 KV"
 entrances:
   - name: vllmgemma426ba4bvisionone
     port: 8000
     host: vllmgemma426ba4bvisionone
-    title: Gemma 4 26B Vision
+    title: Gemma 4 26B Vision MTP
     icon: https://orales-one-market.aamsellem.workers.dev/icons/vllmgemma426ba4bvisionone.png
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.0.2'
+  versionName: '1.0.5'
   upgradeDescription: |
+    v1.0.5: **128K native context restored** (was 64K in v1.0.4). Tested 192K + 256K — both work technically but 192K+ uses RoPE scaling beyond Gemma 4's native 128K training range, with attention drift / hallucination risk on tokens past 128K. 256K explicitly OOMs (vLLM reports estimated max 203584). 128K is Gemma 4's sweet spot: trained on it, validated quality. Bench 2026-05-23: **250.80 t/s AVG @ 128K** (10 runs, range 246.53-254.39, spread 7.86, σ ≈ 2.5) — identical to v1.0.4 @ 64K (250.54), confirming throughput is decode-bound not context-bound (Gemma 4 sliding-window attention scales gracefully).
+
+    v1.0.4: **MTP unlocked, +85% throughput, vision preserved**. Bump vLLM image `tokenspeed-preview` → **`v0.21.0-cu129`** (Gemma4 MTP officially merged in vLLM PR #41745). Adds `--speculative-config '{"model":"google/gemma-4-26B-A4B-it-assistant","method":"gemma4_mtp","num_speculative_tokens":3}'`. The official Google `gemma-4-26B-A4B-it-assistant` drafter (840 MB safetensors) replaces the cycle-bug-prone z-lab DFlash drafter.
+
+    **Bench validated 2026-05-23 on Olares One**: **250.54 t/s AVG** (10 clean runs, range 247.84-252.97 = spread 5.13, σ ≈ 1.7, **NO cycle bug**), **86.4% MTP draft acceptance** (25920/29997 tokens accepted across 9999 drafts). Vision validated (64×64 PNG → "Red" correct).
+
+    - **+85% vs v1.0.0 no-spec** (135.97 → 250.54 t/s)
+    - **+12% vs v1.0.4 DFlash** (224 t/s AVG with degradation cycle bug, abandoned)
+    - **Matches `llamacppqwen36a3bone` MTP champion** (250 t/s) — equal speed, with vision as bonus
+    - Tight spread (5.13 vs DFlash ~150 range with cycle): zero "5-fast/4-slow" pattern
+
+    Context reduced 128K → 64K to leave VRAM headroom for MTP draft buffer + larger compute graph. 64K still covers Hermes-Agent tool histories generously. For longer-context Gemma 4 without MTP/vision, use `vllmgemma4dflashone` (text-only, DFlash, 224 t/s @ 128K).
+
+    Stack:
+    - vLLM v0.21.0 (`vllm/vllm-openai:v0.21.0-cu129`) — official Gemma4 MTP support
+    - Target: `cyankiwi/gemma-4-26B-A4B-it-AWQ-4bit` (compressed-tensors WNA16-Marlin, ~17 GB)
+    - Drafter: `google/gemma-4-26B-A4B-it-assistant` (Google official, 840 MB)
+    - `--attention-backend triton_attn` (required for vision, head_dim heterogeneity)
+    - `--kv-cache-dtype fp8`, `--enable-prefix-caching`, `--limit-mm-per-prompt '{"image":1}'`
+    - OpenAI-compatible tool calling preserved (`--tool-call-parser gemma4`)
+
+    Why it matters for agents: Hermes-Agent style tool calling now runs at champion speed (250 t/s) on a vision-capable model. Single endpoint handles text + image + tool calling + structured output, with stable latency.
+
     v1.0.2: enable **OpenAI-compatible tool calling** for Hermes Agent and other agent frameworks. Adds `--enable-auto-tool-choice --tool-call-parser gemma4` to vLLM server args. Gemma 4 uses a custom non-JSON serialization format (`<|tool_call>call:func_name{key:<|"|>value<|"|>}<tool_call|>`) for tool calls — vLLM's `gemma4` parser handles the decode→OpenAI tool_calls translation. Without this flag, requests with `tool_choice: "auto"` return HTTP 400. No throughput impact (parser only kicks in when tools are present in the request). Validated on Hermes Agent: long-context summarization + tool calling now works end-to-end against `https://llm.<user>.olares.com/v1` with model `gemma-4-26b-vision`.
 
     v1.0.1: bump max_model_len 16384 → **131072 (128K)** for Marc's office workhorse use case (2-3 concurrent users, long PDF processing, vision input). Also bumps gpu_memory_utilization 0.85 → 0.92 to fit the larger KV cache. **Zero throughput regression** — validated 2026-05-15 bench: **135.85 t/s AVG @ 128K** (10 runs, range 135.52-136.06, range 0.54). Identical to v1.0.0 16K bench (135.97 t/s, range 0.56). 8× context for free. Marc's spec hit: vision + 128K + >100 t/s + PagedAttention (multi-user).

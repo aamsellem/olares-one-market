@@ -8,9 +8,26 @@ metadata:
   description: "Qwen3.6 27B vision-capable — 106 t/s @ 200K via BeeLlama.cpp + mmproj F16 + DFlash + turbo3 KV"
   appid: llamacppqwen36beellamavisionone
   title: Qwen36 27B BeeLlama Vision One
-  version: '1.0.2'
+  version: 1.0.7
   categories:
-    - AI
+    - Vision
+    - AI Agents
+  bento:
+    family: qwen
+    size_label: "27B"
+    badge: vision
+    hero:
+      value: "106 t/s"
+      label: "speed + vision"
+    specs:
+      - { label: "context", value: "200K" }
+      - { label: "vram", value: "22 GB" }
+    capabilities:
+      tool_calling: true
+      vision:       true
+      audio:        false
+      mtp:          { enabled: true, accept: 24 }
+    stack: "BeeLlama · DFlash · mmproj BF16"
 entrances:
   - name: llamacppqwen36beellamavisionone
     port: 8000
@@ -20,7 +37,7 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.0.2'
+  versionName: 1.0.7
   upgradeDescription: |
     v1.0.2: upgrade to BeeLlama HEAD commit `75ae2a6af` (built as `aamsellem/beellama-cpp:0.1.3-rc1`) — includes Anbeeld's fix for GPU ring crash in `llm_build_dflash_kv_update` at long context prefill (issue #16, merged 2026-05-15 17:55). This is the upstream resolution for the crash that v1.0.1 worked around via the HAMi-core memory limit bump. The original symptom on RTX 5090M sm_120 + Hermes Agent workload was a HAMi-core UINT64 underflow (`Device 0 OOM 18446744073709500456 / 25480396800`) which we now suspect was a downstream artifact of orphaned ring-buffer allocations after the underlying GPU ring crash — fixed upstream by `75ae2a6af`. Bench validated 2026-05-16 on Olares One: 105.52 t/s AVG @ 200K (10 runs, range 34.92) — perf parity with v1.0.1 (106.43 t/s, range 23.4) within noise. `system_fingerprint: b16-75ae2a6af` confirms commit. Long-context multi-turn validation (Hermes Agent at 100K+ accumulated context) is the real test — pending real-world user session.
 

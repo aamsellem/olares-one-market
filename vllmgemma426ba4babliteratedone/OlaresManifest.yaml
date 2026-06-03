@@ -1,0 +1,119 @@
+---
+olaresManifest.version: '0.10.0'
+olaresManifest.type: app
+apiVersion: 'v2'
+metadata:
+  name: vllmgemma426ba4babliteratedone
+  icon: https://orales-one-market.aamsellem.workers.dev/icons/vllmgemma426ba4babliteratedone.png
+  description: "Gemma 4 26B-A4B abliterated + MTP via vLLM — 250 t/s @ 128K, no guardrails, vision + tool calling on Olares One"
+  appid: vllmgemma426ba4babliteratedone
+  title: Gemma 4 26B Abliterated One
+  version: '1.0.1'
+  categories:
+    - LLM Chat
+    - AI Agents
+    - Vision
+    - Uncensored
+  bento:
+    family: gemma
+    size_label: "26B-A4B"
+    badge: abliterated
+    hero:
+      value: "250 t/s"
+      label: "no guardrails + champion speed"
+    specs:
+      - { label: "context", value: "128K" }
+      - { label: "vram", value: "22 GB" }
+    capabilities:
+      tool_calling: true
+      vision:       true
+      audio:        false
+      mtp:          { enabled: true, accept: 85.7 }
+    stack: "vLLM v0.21 · abhishekchohan AWQ · MTP · fp8 KV"
+entrances:
+  - name: vllmgemma426ba4babliteratedone
+    port: 8000
+    host: vllmgemma426ba4babliteratedone
+    title: Gemma 4 26B Abliterated
+    icon: https://orales-one-market.aamsellem.workers.dev/icons/vllmgemma426ba4babliteratedone.png
+    openMethod: window
+    authLevel: internal
+spec:
+  versionName: '1.0.1'
+  upgradeDescription: |
+    v1.0.1: bench validated 2026-05-24 on Olares One: **249.83 t/s AVG** (10 runs excl cold, range 242-253, σ ≈ 3.5), **85.7% MTP draft acceptance** (16503/19248 tokens). Vision validated (64×64 PNG → "Red"). **Only -0.4% vs the non-abliterated vision champion** (`vllmgemma426ba4bvisionone` v1.0.5 at 250.80 t/s) — the abliteration is so surgical that the MTP drafter's logits still align with the abliterated target at near-original quality. Best speed/safety-drop ratio in the catalog.
+
+    v1.0.0: initial release. Uncensored sibling of the `vllmgemma426ba4bvisionone` v1.0.5 vision champion. Same stack (vLLM v0.21 + Gemma4 MTP + triton_attn + fp8 KV + 128K native context + vision + tool calling), but with the abliterated weights applied on top of Gemma 4 26B-A4B-it.
+
+    **Model**: `abhishekchohan/gemma-4-26B-A4B-it-abliterated-AWQ` — AWQ-4bit quantization of the huihui-ai-style abliterated Gemma 4 26B. Drop-in replacement for the cyankiwi base our champion uses.
+
+    **What's abliteration?** A technique (Maxime Labonne / huihui-ai) that surgically removes refusal directions from the model's representation space. The model no longer refuses sensitive/edge requests. Underlying capabilities unchanged, only the refusal gate is dropped.
+
+    Use cases:
+    - Adversarial red-teaming / security research
+    - Roleplay / fiction without forced disclaimers
+    - Edge-case agent flows where the model would otherwise refuse legitimate tasks
+    - Local-only deployment where no external moderation layer is needed
+
+    **NOT for production-facing apps** — without the safety layer, you own moderation responsibility entirely.
+
+    Stack identical to vision champion v1.0.5:
+    - vLLM v0.21.0 (`vllm/vllm-openai:v0.21.0-cu129`) — official Gemma4 MTP support
+    - Drafter: `google/gemma-4-26B-A4B-it-assistant` (Google official MTP head, 840 MB)
+    - `--attention-backend triton_attn`, `--kv-cache-dtype fp8`
+    - 128K native context, `--enable-prefix-caching`, `--limit-mm-per-prompt '{"image":1}'`
+    - OpenAI-compatible tool calling preserved (`--tool-call-parser gemma4`)
+
+    Expected bench (not yet validated, mirrors v1.0.5 champion): ~245-250 t/s text decode, vision correct on color test, accept rate ~85% (slightly lower than the non-abliterated 86.4% because the MTP drafter's logits diverge from the abliterated target).
+  fullDescription: |
+    Gemma 4 26B-A4B abliterated (MoE, 3.8B active, native multimodal Gemma4ForConditionalGeneration) — uncensored sibling of the vLLM vision champion on Olares One.
+
+    Same speed envelope as `vllmgemma426ba4bvisionone` v1.0.5 (~245-250 t/s text decode, vision input via OpenAI-compatible `image_url`, tool calling, 128K native context), with abliterated weights to skip refusal gates.
+
+    Stack:
+    - vLLM v0.21.0 (official Gemma4 MTP support, PR #41745)
+    - Target: `abhishekchohan/gemma-4-26B-A4B-it-abliterated-AWQ` (~17 GB AWQ)
+    - Drafter: `google/gemma-4-26B-A4B-it-assistant` (Google official MTP head)
+    - triton_attn + fp8 KV + 128K context window
+    - OpenAI-compatible chat API with image_url + tool_call support on port 8000
+
+  developer: aamsellem
+  website: https://github.com/aamsellem/orales-one-market
+  sourceCode: https://github.com/aamsellem/orales-one-market
+  submitter: aamsellem
+  locale:
+    - en-US
+  license:
+    - text: Gemma-Terms
+      url: https://ai.google.dev/gemma/terms
+
+  limitedCpu: 16
+  requiredCpu: 4
+  requiredDisk: 30Gi
+  limitedDisk: 50Gi
+  limitedMemory: 40Gi
+  requiredMemory: 24Gi
+  requiredGpu: 1Gi
+  limitedGpu: 24Gi
+
+  supportArch:
+    - amd64
+permission:
+  appData: true
+envs:
+  - envName: OLARES_USER_HUGGINGFACE_SERVICE
+    required: true
+    applyOnChange: true
+    valueFrom:
+      envName: OLARES_USER_HUGGINGFACE_SERVICE
+  - envName: OLARES_USER_HUGGINGFACE_TOKEN
+    required: true
+    applyOnChange: true
+    valueFrom:
+      envName: OLARES_USER_HUGGINGFACE_TOKEN
+options:
+  apiTimeout: 0
+  dependencies:
+    - name: olares
+      version: '>=1.12.3-0'
+      type: system

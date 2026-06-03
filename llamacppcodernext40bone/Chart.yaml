@@ -1,0 +1,6 @@
+apiVersion: v2
+appVersion: '1.1.4'
+description: Qwen3-Coder-Next REAP 40B-A3B Long Context — 142 t/s @ FULL 262K context coding agent on Olares One
+name: llamacppcodernext40bone
+type: application
+version: '1.1.4'

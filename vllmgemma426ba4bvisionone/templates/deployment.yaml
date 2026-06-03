@@ -6,9 +6,11 @@ metadata:
   namespace: "{{ .Release.Namespace }}"
 data:
   MODEL_NAME: "cyankiwi/gemma-4-26B-A4B-it-AWQ-4bit"
-  MODEL_ALIAS: "gemma-4-26b-vision"
+  DRAFTER_NAME: "google/gemma-4-26B-A4B-it-assistant"
+  MODEL_ALIAS: "gemma-4-26b-mtp-vision"
   MAX_MODEL_LEN: "131072"
   GPU_MEMORY_UTILIZATION: "0.92"
+  NUM_SPEC_TOKENS: "3"
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -34,7 +36,7 @@ spec:
     spec:
       containers:
         - name: vllm-server
-          image: "vllm/vllm-openai:tokenspeed-preview-x86_64-ubuntu2404"
+          image: "vllm/vllm-openai:v0.21.0-cu129"
           command:
             - "vllm"
             - "serve"
@@ -69,6 +71,8 @@ spec:
             - "--enable-auto-tool-choice"
             - "--tool-call-parser"
             - "gemma4"
+            - "--speculative-config"
+            - '{"model":"$(DRAFTER_NAME)","method":"gemma4_mtp","num_speculative_tokens":$(NUM_SPEC_TOKENS)}'
           envFrom:
             - configMapRef:
                 name: vllm-gemma4-vision-env

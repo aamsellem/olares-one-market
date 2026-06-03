@@ -8,7 +8,7 @@ metadata:
   description: "Racka 4B — first serious Hungarian LLM (ELTE, Qwen3-4B base, 160B tokens 44% Hungarian) — 133 t/s validated on Olares One"
   appid: racka4bhuone
   title: Racka 4B Hungarian One
-  version: 1.0.2
+  version: 1.0.3
   categories:
     - Special Request
     - LLM Chat
@@ -38,7 +38,7 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: 1.0.2
+  versionName: 1.0.3
   upgradeDescription: |
     v1.0.2: **slow-connection + diagnostics fix** (Discord bug report 2026-06-03). User reported install crash-looping at startup-probe 503 after 20 min — root cause: HF_TOKEN missing/invalid AND slow HF download exceeding the previous 20-min probe budget. Four fixes: (1) startup-probe failureThreshold 80 → 720 = 6h budget for slow networks, (2) liveness initialDelay 5min → 10min, (3) on missing HF_TOKEN the container now blocks indefinitely with a clear error + recovery steps logged every 5 min (no more exit-1 crash loop, so `kubectl logs` shows what's wrong), (4) post-download size check: if file < 4 GB (HF returned 401/403 HTML disguised as a file), delete + log clear error instead of marking `.ok`. Model still cached at `/olares/share/ai/model/llms/` (unchanged from v1.0.0).
 

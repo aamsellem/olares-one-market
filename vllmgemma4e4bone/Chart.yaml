@@ -1,6 +1,6 @@
 apiVersion: v2
-appVersion: '1.0.12'
+appVersion: '1.0.13'
 description: Gemma 4 E4B (Vision + Audio) via vLLM — optimized for Olares One
 name: vllmgemma4e4bone
 type: application
-version: '1.0.12'
+version: '1.0.13'

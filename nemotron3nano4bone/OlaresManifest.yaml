@@ -8,9 +8,25 @@ metadata:
   description: "Nemotron 3 Nano 4B Q8 via llama.cpp — fast edge AI, optimized for Olares One"
   appid: nemotron3nano4bone
   title: Nemotron 3 Nano 4B One
-  version: '1.0.5'
+  version: '1.0.6'
   categories:
-    - AI
+    - LLM Chat
+  bento:
+    family: nemotron
+    size_label: "4B"
+    badge: nano
+    hero:
+      value: "180 t/s"
+      label: "speed"
+    specs:
+      - { label: "context", value: "32K" }
+      - { label: "vram", value: "4 GB" }
+    capabilities:
+      tool_calling: true
+      vision:       false
+      audio:        false
+      mtp:          { enabled: false }
+    stack: "llama.cpp · Q5_K_XL · Nemotron 3 Nano"
 entrances:
   - name: nemotron3nano4bone
     port: 8080
@@ -20,7 +36,7 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.0.0'
+  versionName: '1.0.6'
   fullDescription: |
     NVIDIA Nemotron 3 Nano 4B (hybrid Mamba-2 + Transformer) served via llama.cpp — optimized for Olares One.
     Ultra-fast 4B parameter model with reasoning support (think tokens).

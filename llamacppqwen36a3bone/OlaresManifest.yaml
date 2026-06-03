@@ -5,23 +5,89 @@ apiVersion: 'v2'
 metadata:
   name: llamacppqwen36a3bone
   icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen36a3bone.png
-  description: "Qwen3.6 35B-A3B MTP — 246 t/s @ FULL 262K context on Olares One"
+  description: "Qwen3.6 35B-A3B MTP + Vision — 243 t/s @ FULL 262K context with vision + tool calling on Olares One"
   appid: llamacppqwen36a3bone
-  title: Qwen36 35B-A3B MTP One
-  version: '1.0.3'
+  title: Qwen36 35B-A3B MTP Vision One
+  version: 2.0.4
   categories:
-    - AI
+    - LLM Chat
+    - AI Agents
+    - Vision
+  bento:
+    family: qwen
+    size_label: "35B-A3B"
+    badge: champion vision
+    hero:
+      value: "243 t/s"
+      label: "champion + vision + 262K"
+    specs:
+      - { label: "context", value: "262K" }
+      - { label: "vram", value: "22 GB" }
+    capabilities:
+      tool_calling: true
+      vision:       true
+      audio:        false
+      mtp:          { enabled: true, accept: 86.6 }
+    stack: "buun-llama.cpp · Q3_K_XL · MTP + mmproj-gpu-swap"
 entrances:
   - name: llamacppqwen36a3bone
     port: 8000
     host: llamacppqwen36a3bone
-    title: Qwen36 35B-A3B MTP
+    title: Qwen36 35B-A3B MTP Vision
     icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen36a3bone.png
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.0.3'
+  versionName: 2.0.4
   upgradeDescription: |
+    v2.0.0: **vision UNLOCKED on the champion via spiritbuun `--mmproj-gpu-swap`**. The vision regression from v1.0.4/v1.0.5 that forced us back to text-only in v1.0.6 is now solved by a much cleverer mechanism than "shrink context to make room for mmproj". The new buun-llama-cpp image (`aamsellem/buun-llama-cpp:316e88e`) ships spiritbuun's `--mmproj-gpu-swap` feature: keeps mmproj on CPU at startup, swaps MTP out of VRAM when an image arrives, loads mmproj to GPU for fast encoding (~1-2s), then swaps back. MTP has no persistent state so the swap is lossless.
+
+    **Bench validated 2026-05-24 on Olares One**:
+    - Text decode: **243.59 t/s AVG** (10 runs, range 237.60-251.39) — only -2.8% vs v1.0.6 text-only baseline (250.54)
+    - Vision test: 64×64 PNG → "Red" correct, **1.13s total** for swap + encode + generate
+    - Swap latencies: MTP→mmproj 213ms, mmproj→MTP 540ms (~750ms vision overhead per request)
+    - Auto-fit context: **262K full native** (vs 64K in v1.0.4/v1.0.5 attempts) — `--mmproj-gpu-swap` frees enough VRAM that the full window fits
+
+    **Single endpoint now handles everything**:
+    - Text generation at near-champion speed (243 t/s)
+    - Vision input via OpenAI-compatible `image_url`
+    - Tool calling (Hermes Agent compatible) via `--jinja`
+    - Full 262K context window
+    - MTP at 86.6% draft acceptance
+
+    Stack:
+    - Image: `aamsellem/buun-llama-cpp:316e88e` — spiritbuun fork at upstream-merge commit (post llama.cpp master + mmproj-gpu-swap + GDN tensor-split fixes)
+    - Target model: `unsloth/Qwen3.6-35B-A3B-MTP-GGUF` UD-Q3_K_XL (17.2 GB)
+    - Vision encoder: `mmproj-BF16.gguf` from same repo (~900 MB, CPU-resident at idle, GPU-resident during image requests)
+    - `--spec-type draft-mtp --spec-draft-n-max 3 --mmproj-gpu-swap`
+    - q4_0 KV cache, flash attention, auto-fit context
+
+    **Why we're confident in this build**: we built it yesterday (`aamsellem/buun-llama-cpp:316e88e`, downstream of spiritbuun commit `316e88e` which adds `--mmproj-gpu-swap` docs after the feature merge at `8e64d7a`). Validated end-to-end today: text decode tight (σ ≈ 4), vision correct on color test, no cycle bug.
+
+    Trade-off vs v1.0.6 text-only: -2.8% throughput + ~750ms per vision request. In exchange: vision + 4× more context. Worth it for any agentic workflow that mixes text and screenshots.
+
+    v1.0.6: **revert to text-only champion config**. v1.0.4/v1.0.5 attempted to add mmproj vision encoder but the MTP + mmproj + 192K/64K ctx combo blew the 24 GB VRAM budget (compute pp buffer alone needed ~4 GB at ubatch 2048). Trade-off was not worth it — text speed dropped, context shrank, and stability was fragile. Back to v1.0.3 config: **262K full native context, 246 t/s MTP champion, no vision**. For vision use cases, use `llamacppqwen36beellamavisionone` (Qwen 3.6 27B dense + BeeLlama + mmproj, 106 t/s @ 200K vision) or `vllmgemma426ba4bvisionone` (Gemma 4 + native multimodal, 135 t/s but lower tool-calling reliability).
+
+    v1.0.4: **vision unlocked** (rolled back in v1.0.6). Add `--mmproj /models/mmproj-BF16.gguf` (~900 MB, downloaded automatically from `unsloth/Qwen3.6-35B-A3B-MTP-GGUF`). Qwen 3.6 35B-A3B is natively multimodal (vision encoder shipped by Alibaba) and llama.cpp mainline supports `--spec-type draft-mtp` + `--mmproj` together since the MTP merge (b9274+).
+
+    **Why this matters for agentic use**: Hermes-Agent style tool calling can now consume images directly through the same endpoint that already wins on BFCL/SWE-bench. No more split between a Qwen text agent and a Gemma vision sibling — one model, one GPU slot, full vision + text + tool calling.
+
+    Args changes vs v1.0.3:
+    - `--mmproj $MODELS_DIR/mmproj-BF16.gguf` added
+    - `--ubatch-size 512 → 2048` (mandatory: ubatch must be ≥ image_max_tokens or vision encoder asserts per PR #21550)
+    - `--batch-size 512 → 2048` (matches ubatch)
+    - `CTX_SIZE 262144 → 196608` (192K — gives ~1 GB headroom for mmproj VRAM on 24 GB GPU)
+
+    VRAM budget @ 64K (corrected in v1.0.5, then reverted in v1.0.6):
+    - Model Q3_K_XL: 17.2 GB
+    - mmproj BF16: 1.0 GB
+    - KV q4_0 @ 64K: 0.8 GB
+    - MTP draft buffer @ n_max=1: ~1.3 GB
+    - Compute pp buffer @ ubatch 2048: ~2.0 GB
+    - **Total: ~22.3 GB / 23.4 GB usable** (fit but very tight, abandoned in v1.0.6)
+
+    Image input via OpenAI-compatible `image_url` (base64 data URI or URL). Expected perf: ~240-245 t/s text decode (down from 249, the 2048 ubatch costs ~2% on pure text but is required once mmproj is loaded). Vision prompt processing on mmproj BF16: tested on Olares One in prior Qwen vision work, comfortable headroom.
+
     v1.0.3: bump image `aamsellem/llama-cpp-mtp:master-ad27757` → `master-bb28c1f`. Picks up am17an's PR [#23461](https://github.com/ggml-org/llama.cpp/pull/23461) "server: free draft/MTP resources on sleep to fix VRAM leak" (community Reddit thread confirms necessity on b9274) + #23433 "mtp: use inp_out_ids for skipping logit computation" + #23131 SWA null-buffer fix. Bench re-validated 2026-05-22: 250.08 t/s AVG (10 runs, +0.3% vs ad27757 — noise). Real value is sustained-load stability (VRAM leak fix matters for agentic sessions hours-long).
 
     v1.0.2: bump default `CTX_SIZE` from 32K to **262144 (full native Qwen3.6 35B-A3B context window)**. Context sweep validated 2026-05-21 on Olares One showing essentially zero throughput regression across context sizes:

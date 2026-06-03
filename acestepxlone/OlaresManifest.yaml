@@ -8,9 +8,26 @@ metadata:
   description: "ACE-Step 1.5 XL — AI music generation (4B DiT, Turbo+SFT modes), optimized for Olares One"
   appid: acestepxlone
   title: ACE-Step XL One
-  version: '1.1.7'
+  version: '1.1.9'
   categories:
-    - AI
+    - Music
+  bento:
+    family: ace
+    size_label: "XL"
+    badge: music
+    hero:
+      value: "Music"
+      label: "text-to-audio"
+      sub: "lyrics → song"
+    specs:
+      - { label: "context", value: "4K" }
+      - { label: "vram", value: "12 GB" }
+    capabilities:
+      tool_calling: false
+      vision:       false
+      audio:        true
+      mtp:          { enabled: false }
+    stack: "PyTorch · Diffusers · ACE-Step XL"
 entrances:
   - name: acestepxlone
     port: 7860
@@ -20,7 +37,7 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.0.1'
+  versionName: '1.1.9'
   fullDescription: |
     ACE-Step 1.5 XL Turbo — AI music generation foundation model, optimized for Olares One.
     RTX 5090M (24GB) + 96GB DDR5 + Core Ultra 9 275HX.

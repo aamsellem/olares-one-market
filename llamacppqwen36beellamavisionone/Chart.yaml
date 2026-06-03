@@ -1,6 +1,6 @@
 apiVersion: v2
-appVersion: '1.0.2'
+appVersion: '1.0.7'
 description: Qwen3.6 27B vision-capable via BeeLlama.cpp v0.1.3-rc1 (DFlash KV long-ctx fix) — 105 t/s @ 200K on Olares One
 name: llamacppqwen36beellamavisionone
 type: application
-version: '1.0.2'
+version: '1.0.7'

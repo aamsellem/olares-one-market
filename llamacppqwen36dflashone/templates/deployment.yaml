@@ -43,22 +43,37 @@ spec:
             - |
               set -e
               MODELS_DIR=${MODELS_DIR:-/models}
-              mkdir -p "$MODELS_DIR"
+              SHARED_DIR=${SHARED_DIR:-/shared-models/llms}
+              mkdir -p "$MODELS_DIR" "$SHARED_DIR"
               HF_AUTH=""
               if [ -n "$HF_TOKEN" ]; then HF_AUTH="-H \"Authorization: Bearer $HF_TOKEN\""; fi
-              if [ ! -s "$MODELS_DIR/$TARGET_FILE" ]; then
-                echo "==> Downloading target $TARGET_FILE (~16 GB)"
-                eval curl -fL --retry 10 --retry-delay 10 $HF_AUTH \
-                  "$TARGET_URL" -o "$MODELS_DIR/$TARGET_FILE"
+              # Migrate $TARGET_FILE from old per-app dir to shared if needed
+              if [ -s "$MODELS_DIR/$TARGET_FILE" ] && [ ! -f "$SHARED_DIR/$TARGET_FILE.ok" ]; then
+                echo "==> Migrating $TARGET_FILE from per-app → shared"
+                mv "$MODELS_DIR/$TARGET_FILE" "$SHARED_DIR/$TARGET_FILE"
+                touch "$SHARED_DIR/$TARGET_FILE.ok"
               fi
-              if [ ! -s "$MODELS_DIR/$DRAFT_FILE" ]; then
+              if [ ! -f "$SHARED_DIR/$TARGET_FILE.ok" ]; then
+                echo "==> Downloading target $TARGET_FILE (~16 GB)"
+                eval curl -fL -C - --retry 20 --retry-delay 15 --retry-all-errors --connect-timeout 30 $HF_AUTH \
+                  "$TARGET_URL" -o "$SHARED_DIR/$TARGET_FILE"
+                touch "$SHARED_DIR/$TARGET_FILE.ok"
+              fi
+              # Migrate $DRAFT_FILE from old per-app dir to shared if needed
+              if [ -s "$MODELS_DIR/$DRAFT_FILE" ] && [ ! -f "$SHARED_DIR/$DRAFT_FILE.ok" ]; then
+                echo "==> Migrating $DRAFT_FILE from per-app → shared"
+                mv "$MODELS_DIR/$DRAFT_FILE" "$SHARED_DIR/$DRAFT_FILE"
+                touch "$SHARED_DIR/$DRAFT_FILE.ok"
+              fi
+              if [ ! -f "$SHARED_DIR/$DRAFT_FILE.ok" ]; then
                 echo "==> Downloading DFlash drafter $DRAFT_FILE (~1 GB)"
-                eval curl -fL --retry 10 --retry-delay 10 $HF_AUTH \
-                  "$DRAFT_URL" -o "$MODELS_DIR/$DRAFT_FILE"
+                eval curl -fL -C - --retry 20 --retry-delay 15 --retry-all-errors --connect-timeout 30 $HF_AUTH \
+                  "$DRAFT_URL" -o "$SHARED_DIR/$DRAFT_FILE"
+                touch "$SHARED_DIR/$DRAFT_FILE.ok"
               fi
               exec /usr/local/bin/llama-server \
-                --model "$MODELS_DIR/$TARGET_FILE" \
-                --model-draft "$MODELS_DIR/$DRAFT_FILE" \
+                --model "$SHARED_DIR/$TARGET_FILE" \
+                --model-draft "$SHARED_DIR/$DRAFT_FILE" \
                 --spec-type dflash \
                 --alias "$MODEL_ALIAS" \
                 --host 0.0.0.0 --port 8000 \
@@ -103,8 +118,8 @@ spec:
               scheme: HTTP
             initialDelaySeconds: 60
             timeoutSeconds: 10
-            periodSeconds: 15
-            failureThreshold: 120
+            periodSeconds: 30
+            failureThreshold: 720
           resources:
             limits:
               cpu: "16"
@@ -117,10 +132,16 @@ spec:
           volumeMounts:
             - mountPath: "/models"
               name: models
+            - mountPath: "/shared-models"
+              name: shared-models
       volumes:
         - name: models
           hostPath:
             path: "{{ .Values.userspace.appData }}/models"
+            type: DirectoryOrCreate
+        - name: shared-models
+          hostPath:
+            path: "/olares/share/ai/model"
             type: DirectoryOrCreate
       restartPolicy: Always
 ---

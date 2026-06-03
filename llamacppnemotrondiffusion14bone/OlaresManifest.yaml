@@ -1,0 +1,116 @@
+---
+olaresManifest.version: '0.10.0'
+olaresManifest.type: app
+apiVersion: 'v2'
+metadata:
+  name: llamacppnemotrondiffusion14bone
+  icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppnemotrondiffusion14bone.png
+  description: "NVIDIA Nemotron-Labs-Diffusion 14B — tri-mode (AR + parallel diffusion + self-spec) — first public diffusion LLM on consumer Blackwell"
+  appid: llamacppnemotrondiffusion14bone
+  title: Nemotron Diffusion 14B One
+  version: 1.0.2
+  categories:
+    - LLM Chat
+    - AI Agents
+  bento:
+    family: nemotron
+    size_label: "14B"
+    badge: diffusion
+    hero:
+      value: "50 t/s"
+      label: "self-spec ref RTX 3090"
+    specs:
+      - { label: "context", value: "16K" }
+      - { label: "vram", value: "15 GB" }
+    capabilities:
+      tool_calling: true
+      vision:       false
+      audio:        false
+      mtp:          { enabled: true, accept: 0 }
+    stack: "buun-llama-cpp · diffusion + self-spec"
+entrances:
+  - name: llamacppnemotrondiffusion14bone
+    port: 8000
+    host: llamacppnemotrondiffusion14bone
+    title: Nemotron Diffusion 14B
+    icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppnemotrondiffusion14bone.png
+    openMethod: window
+    authLevel: internal
+spec:
+  versionName: 1.0.2
+  upgradeDescription: |
+    v1.0.0: initial release. NVIDIA Nemotron-Labs-Diffusion 14B served via spiritbuun/buun-llama-cpp (custom fork with diffusion-mode patches). First public diffusion LLM runnable on consumer Blackwell mobile (RTX 5090M 24 GB) — NVIDIA's own Python reference OOMs on 14B at 24 GB. Stack: spiritbuun/Nemotron-Labs-Diffusion-14B-Q8_0-GGUF (14.4 GB) + buun-llama-cpp:316e88e (2026-05-24) + auto-detected self-speculation. Tri-mode: AR / Diffusion parallel decoding / Linear self-speculation (k=4, recommended).
+
+    Reference benchmarks (RTX 3090 24 GB, spiritbuun): 42-50 t/s prose/code @ temp 0/0.7, 126-132 t/s short responses. Olares One (RTX 5090M sm_120) bench TBD on first install.
+
+    NVIDIA paper claims 2.7× speedup vs AR on DGX Spark 8B, 3.3× on GB200 8B. The diffusion mode's parallel-token generation unlocks throughput beyond what MTP/Eagle can achieve.
+
+    Stack:
+      - Image: docker.io/aamsellem/buun-llama-cpp:316e88e
+      - Target: spiritbuun/Nemotron-Labs-Diffusion-14B-Q8_0-GGUF (14.4 GB Q8_0)
+      - Mode: auto (self-speculation default)
+      - Context: 16K (with KV headroom for larger; bump in next versions if needed)
+      - flash-attn on, batch defaults, --reasoning off (per spiritbuun)
+
+    First launch downloads ~15 GB from HuggingFace. Exposes OpenAI-compatible API on port 8000.
+  fullDescription: |
+    Nemotron-Labs-Diffusion 14B is a tri-mode language model from NVIDIA Nemotron Labs.
+    Same weights, three decoding strategies:
+      1. AR (autoregressive) — standard token-by-token
+      2. Diffusion — parallel multi-token generation via diffusion process
+      3. Linear self-speculation — diffusion drafts + AR verifies (shared KV cache, no separate drafter file)
+
+    The spiritbuun/buun-llama-cpp fork (forked from TheTom/llama-cpp-turboquant) added the diffusion patches.
+    NVIDIA's own Python reference OOMs on 14B at 24 GB VRAM — spiritbuun's GGUF Q8_0 quant + llama.cpp inference
+    is the first known path to run this model on a single consumer-grade Blackwell 24 GB GPU.
+
+    The self-speculation mode is enabled by default in llama-server; no extra --spec-type flag needed.
+    NVIDIA paper benchmarks: 5.9× tokens per forward over Qwen3-8B, 3× higher acceptance length than
+    Qwen3-8B-Eagle3, 2.2× speedup over Eagle3 in SGLang.
+
+    When to use:
+      - You want to be on the bleeding edge of diffusion LLMs
+      - You're benchmarking new spec-decoding paradigms on Olares
+      - Tool calling and agent workflows where parallel-token speedup compounds
+      - Production: wait for v1.0.x perf-validated releases
+
+    Custom image: docker.io/aamsellem/buun-llama-cpp:316e88e
+    Fork source: https://github.com/spiritbuun/buun-llama-cpp
+    Model card: https://huggingface.co/nvidia/Nemotron-Labs-Diffusion-14B
+    GGUF: https://huggingface.co/spiritbuun/Nemotron-Labs-Diffusion-14B-Q8_0-GGUF
+
+  developer: aamsellem
+  website: https://huggingface.co/nvidia/Nemotron-Labs-Diffusion-14B
+  sourceCode: https://github.com/aamsellem/olares-one-market
+  submitter: aamsellem
+  locale:
+    - en-US
+  license:
+    - text: NVIDIA Nemotron Open Model License
+      url: https://huggingface.co/nvidia/Nemotron-Labs-Diffusion-14B/blob/main/LICENSE
+
+  limitedCpu: 16
+  requiredCpu: 4
+  requiredDisk: 20Gi
+  limitedDisk: 30Gi
+  limitedMemory: 32Gi
+  requiredMemory: 12Gi
+  requiredGpu: 1Gi
+  limitedGpu: 24Gi
+
+  supportArch:
+    - amd64
+permission:
+  appData: true
+options:
+  apiTimeout: 0
+  dependencies:
+    - name: olares
+      version: '>=1.12.3-0'
+      type: system
+envs:
+  - envName: OLARES_USER_HUGGINGFACE_TOKEN
+    required: false
+    applyOnChange: true
+    valueFrom:
+      envName: OLARES_USER_HUGGINGFACE_TOKEN

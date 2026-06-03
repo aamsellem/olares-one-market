@@ -8,9 +8,25 @@ metadata:
   description: "Qwen3.5 35B-A3B IQ4_XS via llama.cpp — long context, optimized for Olares One"
   appid: llamacppqwen35iq4one
   title: Qwen3.5 35B IQ4 128K One
-  version: '1.0.7'
+  version: '1.0.8'
   categories:
-    - AI
+    - LLM Chat
+  bento:
+    family: qwen
+    size_label: "35B IQ4"
+    badge: long ctx
+    hero:
+      value: "120 t/s"
+      label: "speed"
+    specs:
+      - { label: "context", value: "128K" }
+      - { label: "vram", value: "17 GB" }
+    capabilities:
+      tool_calling: true
+      vision:       false
+      audio:        false
+      mtp:          { enabled: false }
+    stack: "llama.cpp · IQ4_XS · 128K ctx"
 entrances:
   - name: llamacppqwen35iq4one
     port: 8080
@@ -20,7 +36,7 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.0.3'
+  versionName: '1.0.8'
   upgradeDescription: |
     v1.0.3: llama.cpp b8667 → b8667 (Hadamard rotation). KV cache q4_0 (with Hadamard rotation) → q4_0 (2x compression).
   fullDescription: |

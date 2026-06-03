@@ -42,17 +42,25 @@ spec:
             - |
               set -e
               MODELS_DIR=${MODELS_DIR:-/models}
-              mkdir -p "$MODELS_DIR"
-              if [ ! -f "$MODELS_DIR/$TARGET_FILE" ]; then
+              SHARED_DIR=${SHARED_DIR:-/shared-models/llms}
+              mkdir -p "$MODELS_DIR" "$SHARED_DIR"
+              # Migrate $TARGET_FILE from old per-app dir to shared if needed
+              if [ -f "$MODELS_DIR/$TARGET_FILE" ] && [ ! -f "$SHARED_DIR/$TARGET_FILE.ok" ]; then
+                echo "==> Migrating $TARGET_FILE from per-app → shared"
+                mv "$MODELS_DIR/$TARGET_FILE" "$SHARED_DIR/$TARGET_FILE"
+                [ -f "$MODELS_DIR/$TARGET_FILE.ok" ] && mv "$MODELS_DIR/$TARGET_FILE.ok" "$SHARED_DIR/$TARGET_FILE.ok" || touch "$SHARED_DIR/$TARGET_FILE.ok"
+              fi
+              if [ ! -f "$SHARED_DIR/$TARGET_FILE.ok" ]; then
                 echo "==> Downloading $TARGET_MODEL/$TARGET_FILE"
                 HF_AUTH=""
                 if [ -n "$HF_TOKEN" ]; then HF_AUTH="-H \"Authorization: Bearer $HF_TOKEN\""; fi
-                eval curl -fL --retry 5 --retry-delay 5 $HF_AUTH \
+                eval curl -fL -C - --retry 20 --retry-delay 15 --retry-all-errors --connect-timeout 30 $HF_AUTH \
                   "https://huggingface.co/${TARGET_MODEL}/resolve/main/${TARGET_FILE}" \
-                  -o "$MODELS_DIR/$TARGET_FILE"
+                  -o "$SHARED_DIR/$TARGET_FILE"
+                touch "$SHARED_DIR/$TARGET_FILE.ok"
               fi
               exec /app/llama-server \
-                --model "$MODELS_DIR/$TARGET_FILE" \
+                --model "$SHARED_DIR/$TARGET_FILE" \
                 --alias "$MODEL_ALIAS" \
                 --host 0.0.0.0 --port 8000 \
                 --n-gpu-layers 99 \
@@ -75,9 +83,6 @@ spec:
               value: "{{ .Values.olaresEnv.OLARES_USER_HUGGINGFACE_TOKEN }}"
             - name: MODELS_DIR
               value: "/models"
-            # HAMi-core "0m" parsing bug workaround (precaution): Olares sets
-            # CUDA_DEVICE_MEMORY_LIMIT_0=0m which HAMi parses as "0 bytes". Override
-            # to 24300m (~150 MB margin under hardware 24463 MB).
             - name: CUDA_DEVICE_MEMORY_LIMIT_0
               value: "30000m"
           ports:
@@ -98,8 +103,8 @@ spec:
               scheme: HTTP
             initialDelaySeconds: 60
             timeoutSeconds: 10
-            periodSeconds: 15
-            failureThreshold: 120
+            periodSeconds: 30
+            failureThreshold: 720
           resources:
             limits:
               cpu: "16"
@@ -112,10 +117,16 @@ spec:
           volumeMounts:
             - mountPath: "/models"
               name: models
+            - mountPath: "/shared-models"
+              name: shared-models
       volumes:
         - name: models
           hostPath:
             path: "{{ .Values.userspace.appData }}/models"
+            type: DirectoryOrCreate
+        - name: shared-models
+          hostPath:
+            path: "/olares/share/ai/model"
             type: DirectoryOrCreate
       restartPolicy: Always
 ---

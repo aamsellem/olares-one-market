@@ -8,9 +8,25 @@ metadata:
   description: "Gemma 4 26B-A4B + DFlash + AWQ via vLLM — Olares One (fastest Gemma 4 path)"
   appid: vllmgemma4dflashone
   title: Gemma 4 26B DFlash One
-  version: '1.0.4'
+  version: '1.0.5'
   categories:
-    - AI
+    - LLM Chat
+  bento:
+    family: gemma
+    size_label: "26B-A4B"
+    badge: dflash
+    hero:
+      value: "224 t/s"
+      label: "speed"
+    specs:
+      - { label: "context", value: "128K" }
+      - { label: "vram", value: "21 GB" }
+    capabilities:
+      tool_calling: true
+      vision:       false
+      audio:        false
+      mtp:          { enabled: false }
+    stack: "vLLM · AWQ · DFlash drafter"
 entrances:
   - name: vllmgemma4dflashone
     port: 8000
@@ -20,7 +36,7 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.0.4'
+  versionName: '1.0.5'
   upgradeDescription: |
     v1.0.4: night-bench n_spec sweep on 5090M mobile 24GB found optimum at n_spec=8 (vs v1.0.0 at n=13). Validated 2026-05-11 over 5 clean Space Invaders runs (max_tokens=2000): AVG 223.90 t/s, MIN 216.86, MAX 235.22 — +5% over v1.0.0 baseline (214 avg), +11% over v1.0.3 (201 avg). Full sweep n∈{6,8,10,11,12,13,15,17,20} shows peak at n=8 then linear regression at n≥10. Tech-Practice article's n=15 recommendation is desktop-only (5090 32GB, 1.79 TB/s bandwidth) — mobile 5090M (24GB, 896 GB/s = 50% bandwidth) needs shallower drafts because compute buffer per spec token consumes proportionally more VRAM. Other diffs from v1.0.0: explicit --attention-backend triton_attn (was implicit auto-select). KV cache fp8, max-num-batched-tokens 8192, max-num-seqs 4 unchanged.
     v1.0.3: fix v1.0.2 OOM. Bumping max-num-batched-tokens 8192→32768 with n_spec=15 blew the compute buffers — needed +352 MiB on a 23.42 GB GPU already at 23.18 GB. Revert batched-tokens to 8192 (v1.0.0 value). Only diff vs v1.0.0 now: num_speculative_tokens 13→15 + explicit --attention-backend triton_attn (previously implicit auto-select). Expected: marginal +2-5% over 214 t/s (deeper draft only, no scheduler bump). Bench result confirmed REGRESSION (-6% to 201 avg) — fixed by ship n_spec=8 in v1.0.4.

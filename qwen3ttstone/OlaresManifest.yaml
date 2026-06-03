@@ -8,9 +8,25 @@ metadata:
   description: "Qwen3-TTS 1.7B — text-to-speech with voice cloning, optimized for Olares One"
   appid: qwen3ttstone
   title: Qwen3-TTS 1.7B (Olares One)
-  version: '1.0.9'
+  version: '1.0.10'
   categories:
-    - AI
+    - TTS
+  bento:
+    family: qwen
+    size_label: "1.7B"
+    badge: tts
+    hero:
+      value: "TTS"
+      label: "qwen voice"
+    specs:
+      - { label: "context", value: "8K" }
+      - { label: "vram", value: "4 GB" }
+    capabilities:
+      tool_calling: false
+      vision:       false
+      audio:        true
+      mtp:          { enabled: false }
+    stack: "llama.cpp · Qwen3-TTS 1.7B"
 entrances:
   - name: qwen3ttstone
     port: 8000
@@ -20,7 +36,7 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.0.7'
+  versionName: '1.0.10'
   fullDescription: |
     Qwen3-TTS 1.7B CustomVoice served via Gradio — optimized for Olares One.
     RTX 5090M (24GB) + 96GB DDR5 + Core Ultra 9 275HX.

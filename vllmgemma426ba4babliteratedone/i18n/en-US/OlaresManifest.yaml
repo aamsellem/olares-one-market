@@ -1,0 +1,17 @@
+metadata:
+  title: Gemma 4 26B Abliterated One
+  description: "Gemma 4 26B-A4B abliterated + MTP via vLLM v0.21 — 240+ t/s @ 128K, no guardrails, vision + tool calling on Olares One"
+spec:
+  fullDescription: |
+    Gemma 4 26B-A4B with **abliteration applied** (Maxime Labonne / huihui-ai technique) — refusal directions surgically removed from the model's representation space. Same architectural capabilities as the base Gemma 4 26B-A4B vision champion, but without forced refusals on edge requests.
+
+    Same speed envelope as `vllmgemma426ba4bvisionone` v1.0.5: ~245-250 t/s text decode, vision via OpenAI-compatible `image_url`, full tool calling support, 128K native context. The MTP drafter (`google/gemma-4-26B-A4B-it-assistant`) still works because the abliteration is surgical — only refusal directions are removed, the underlying weight space is mostly preserved, so the drafter's logits still align ~85% with the abliterated target.
+
+    Stack:
+    - vLLM v0.21.0 (official Gemma4 MTP support, PR #41745)
+    - Target: `abhishekchohan/gemma-4-26B-A4B-it-abliterated-AWQ` (~17 GB AWQ)
+    - Drafter: `google/gemma-4-26B-A4B-it-assistant` (Google official MTP head, 840 MB)
+    - --attention-backend triton_attn, --kv-cache-dtype fp8
+    - 128K native context, prefix caching, image input support
+
+    Intended for research, red-teaming, fiction/roleplay, and edge-case agent flows. Without the safety layer, you own moderation responsibility entirely — not for production-facing endpoints.

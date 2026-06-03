@@ -1,6 +1,6 @@
 apiVersion: v2
-appVersion: '1.0.2'
+appVersion: '1.0.3'
 description: Gemma 4 E2B with MTP speculative decoding via Atomic Chat llama.cpp fork — Olares One
 name: gemma4e2bone
 type: application
-version: '1.0.2'
+version: '1.0.3'

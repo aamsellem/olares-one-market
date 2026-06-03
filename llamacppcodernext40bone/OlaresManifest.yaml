@@ -1,0 +1,138 @@
+---
+olaresManifest.version: '0.10.0'
+olaresManifest.type: app
+apiVersion: 'v2'
+metadata:
+  name: llamacppcodernext40bone
+  icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppcodernext40bone.png
+  description: "Qwen3-Coder-Next REAP 40B-A3B Long Context — 142 t/s @ FULL 262K context coding agent on Olares One"
+  appid: llamacppcodernext40bone
+  title: Qwen3 Coder Next 40B Long Context One
+  version: 1.1.4
+  categories:
+    - LLM Chat
+    - AI Agents
+    - Coding
+  bento:
+    family: qwen
+    size_label: "40B-A3B"
+    badge: long context · 262K
+    hero:
+      value: "142 t/s"
+      label: "262K full native context"
+    specs:
+      - { label: "context", value: "262K" }
+      - { label: "vram", value: "23 GB" }
+      - { label: "quant", value: "Q3_K_M" }
+    capabilities:
+      tool_calling: true
+      vision:       false
+      audio:        false
+      mtp:          { enabled: false, accept: 0 }
+    stack: "llama.cpp b8740 · Q3_K_M · hybrid GDN"
+entrances:
+  - name: llamacppcodernext40bone
+    port: 8000
+    host: llamacppcodernext40bone
+    title: Qwen3 Coder Next 40B Long Context
+    icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppcodernext40bone.png
+    openMethod: window
+    authLevel: internal
+spec:
+  versionName: 1.1.4
+  upgradeDescription: |
+    v1.1.0: rename + branding. Now positioned as the **Long Context** variant
+    (262K full native, Q3_K_M) alongside a new Q4 sibling `llamacppcodernextq4one`
+    optimized for coding quality at 128K (IQ4_XS, q4_0 KV). Same Q3_K_M model
+    + workflow as v1.0.0, only title/description changed to disambiguate paths.
+
+    v1.0.0: initial release. **Qwen3-Coder-Next REAP 40B-A3B** — Alibaba's
+    coder-specialized 80B MoE distilled by lovedheart via REAP (Router-weighted
+    Expert Activation Pruning) to 40B total / 3B active. 256 experts kept out of
+    512 original (50% pruning), 10 activated per token, 1 shared expert.
+
+    **Bench validated 2026-05-26 on Olares One**:
+
+    | Context | VRAM used | Speed steady (Space Invaders 3 runs) |
+    |---------|-----------|--------------------------------------|
+    | 32K     | 19.9 GB   | **142.5 t/s** |
+    | 128K    | 21.2 GB   | **142.5 t/s** |
+    | **262K (full native)** | **23.3 GB** | **142.4 t/s** |
+
+    Cold-start first run is ~116 t/s (CUDA warm-up); all subsequent runs at 142 t/s.
+
+    **Why 262K full native costs nothing extra**: this model is hybrid (Gated-
+    DeltaNet linear attention + standard attention). Only 12 of 48 layers have
+    a standard KV cache — the other 36 layers are linear-attention with constant
+    per-token cost. At q8_0 K/V the KV cache scales from 408 MB @ 32K → 1.6 GB
+    @ 128K → 3.3 GB @ 262K. The model weights (19.9 GB Q3_K_M) dominate VRAM.
+
+    **No MTP draft head** ships in mradermacher's GGUF. If lovedheart or anyone
+    bundles one in the future we'd likely hit 200+ t/s (spec-decode adds ~50%
+    on A3B class models like the Qwen 3.6 35B-A3B champion in this catalog).
+
+    **Coding focus**: REAP-40B targets SWE-Bench / Terminal-Bench / agentic tool
+    calling. Original Qwen3-Coder-Next 80B-A3B scores 44.3% SWE-Bench Pro. The
+    REAP-40B accepts ~5-10% quality drop in exchange for fitting on 24 GB at
+    Q3_K_M without OOMing the KV cache.
+
+    Stack:
+    - Image: `ghcr.io/ggml-org/llama.cpp:server-cuda13-b8740`
+    - Model: `mradermacher/Qwen3-Coder-Next-REAP-40B-A3B-GGUF` Q3_K_M (19.9 GB)
+    - `-ngl 99 -ctk q8_0 -ctv q8_0 -fa auto --swa-full -np 1 --mlock`
+    - `-b 512 -ub 512 --op-offload --jinja`
+    - `GGML_CUDA_GRAPH_OPT=1`
+    - 262K full native context out of the box
+
+    OpenAI-compatible API on port 8000 with `--jinja` chat template + tool calling.
+    Downloads model on first launch (~20 GB) and caches in app data volume.
+
+    **NOT recommended below Q3**: A3B + REAP combo at Q2 starts hallucinating
+    function signatures. If you need a smaller footprint, use `Qwen3-Coder
+    30B-A3B Q4_K_XL` instead (smaller but cleaner quants).
+  fullDescription: |
+    Qwen3-Coder-Next REAP 40B-A3B — Alibaba's coding-specialized 80B MoE
+    pruned 50% via REAP to fit a 24GB GPU.
+
+    Coder-tuned for agentic workflows: SWE-Bench, Terminal-Bench, tool calling.
+    Hybrid Gated-DeltaNet + Attention architecture gives 262K full native context
+    essentially for free on the KV-cache side.
+
+    Olares One config (RTX 5090M 24GB, Core Ultra 9 275HX, 96GB DDR5):
+    - Q3_K_M quantization (19.9 GB)
+    - q8_0 KV cache, flash attention
+    - 262K context out of the box
+    - 142 t/s validated bench (Space Invaders, May 2026)
+
+    Downloads the GGUF model on first launch (~20 GB) and caches it.
+    Exposes an OpenAI-compatible API on port 8000.
+
+  developer: aamsellem
+  website: https://github.com/aamsellem/olares-one-market
+  sourceCode: https://github.com/aamsellem/olares-one-market
+  submitter: aamsellem
+  locale:
+    - en-US
+  license:
+    - text: Apache-2.0
+      url: https://huggingface.co/Qwen/Qwen3-Coder-Next/blob/main/LICENSE
+
+  limitedCpu: 16
+  requiredCpu: 4
+  requiredDisk: 30Gi
+  limitedDisk: 50Gi
+  limitedMemory: 40Gi
+  requiredMemory: 24Gi
+  requiredGpu: 1Gi
+  limitedGpu: 24Gi
+
+  supportArch:
+    - amd64
+permission:
+  appData: true
+options:
+  apiTimeout: 0
+  dependencies:
+    - name: olares
+      version: '>=1.12.3-0'
+      type: system

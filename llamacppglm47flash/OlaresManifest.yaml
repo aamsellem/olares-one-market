@@ -8,9 +8,25 @@ metadata:
   description: "GLM-4.7-Flash 30B-A3B via llama.cpp — optimized for Olares One"
   appid: llamacppglm47flash
   title: GLM-4.7-Flash (Olares One)
-  version: '1.0.11'
+  version: '1.0.12'
   categories:
-    - AI
+    - LLM Chat
+  bento:
+    family: other
+    size_label: "Flash"
+    badge: glm
+    hero:
+      value: "GLM-4.7"
+      label: "zhipu flash"
+    specs:
+      - { label: "context", value: "128K" }
+      - { label: "vram", value: "18 GB" }
+    capabilities:
+      tool_calling: true
+      vision:       false
+      audio:        false
+      mtp:          { enabled: false }
+    stack: "llama.cpp · GLM-4.7-Flash"
 entrances:
   - name: llamacppglm47flash
     port: 8080
@@ -20,7 +36,7 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.0.7'
+  versionName: '1.0.12'
   upgradeDescription: |
     v1.0.7: llama.cpp b8234 → b8667 (compute graph rework +30-40%, Hadamard rotation). KV cache q4_0 (with Hadamard rotation) → q4_0 (2x compression).
   fullDescription: |

@@ -8,9 +8,26 @@ metadata:
   description: "Gemma 4 E4B (Vision + Audio) via vLLM — optimized for Olares One"
   appid: vllmgemma4e4bone
   title: Gemma 4 E4B Voice One
-  version: '1.0.12'
+  version: '1.0.13'
   categories:
-    - AI
+    - Audio
+    - LLM Chat
+  bento:
+    family: gemma
+    size_label: "E4B"
+    badge: voice mtp
+    hero:
+      value: "178 t/s"
+      label: "speed"
+    specs:
+      - { label: "context", value: "32K" }
+      - { label: "vram", value: "6 GB" }
+    capabilities:
+      tool_calling: true
+      vision:       false
+      audio:        true
+      mtp:          { enabled: true, accept: 77 }
+    stack: "vLLM · Gemma4MTP · centroids"
 entrances:
   - name: vllmgemma4e4bone
     port: 8000
@@ -20,7 +37,7 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.0.12'
+  versionName: '1.0.13'
   upgradeDescription: |
     v1.0.12: align chart with validated MTP bench (178 t/s avg, 77% draft acceptance, first public Blackwell consumer mobile result for Gemma 4 E4B MTP). Image bumped to `vllm/vllm-openai:nightly-1acd67a795ebccdf9b9db7697ae9082058301657` (built post vLLM PR #41745 merge on 2026-05-06, native Gemma4MTP + Gemma4Proposer + centroids masking with CUDA graph capture). Adds `--speculative-config` with `google/gemma-4-E4B-it-assistant` MTP drafter (num_speculative_tokens=3). max-model-len 4K → 32K. gpu-memory-utilization 0.75 → 0.85.
   fullDescription: |

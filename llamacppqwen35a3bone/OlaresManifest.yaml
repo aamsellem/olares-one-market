@@ -8,9 +8,25 @@ metadata:
   description: "Qwen3.5 35B-A3B via llama.cpp — optimized for Olares One"
   appid: llamacppqwen35a3bone
   title: Qwen3.5 35B-A3B (Olares One)
-  version: '1.0.29'
+  version: '1.0.30'
   categories:
-    - AI
+    - LLM Chat
+  bento:
+    family: qwen
+    size_label: "35B-A3B"
+    badge: classic
+    hero:
+      value: "129 t/s"
+      label: "speed"
+    specs:
+      - { label: "context", value: "16K" }
+      - { label: "vram", value: "22 GB" }
+    capabilities:
+      tool_calling: true
+      vision:       false
+      audio:        false
+      mtp:          { enabled: false }
+    stack: "llama.cpp · UD-Q4_K_XL · Qwen 3.5"
 entrances:
   - name: llamacppqwen35a3bone
     port: 8080
@@ -20,7 +36,7 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.0.25'
+  versionName: '1.0.30'
   upgradeDescription: |
     v1.0.25: llama.cpp b8496 → b8667 (Hadamard rotation for KV cache, NVFP4 MMQ kernel, Gemma 4 support). KV cache q8_0 → q4_0 (2x compression, same quality via rotation). Test build.
   fullDescription: |

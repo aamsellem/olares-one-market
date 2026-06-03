@@ -8,9 +8,26 @@ metadata:
   description: "Qwen3.6 35B-A3B Vision via llama.cpp — image + text, optimized for Olares One"
   appid: qwen36a3bvisionone
   title: Qwen3.6 Vision (Olares One)
-  version: '1.0.2'
+  version: '1.0.3'
   categories:
-    - AI
+    - Vision
+    - AI Agents
+  bento:
+    family: qwen
+    size_label: "35B-A3B"
+    badge: vision
+    hero:
+      value: "120 t/s"
+      label: "speed + vision"
+    specs:
+      - { label: "context", value: "64K" }
+      - { label: "vram", value: "22 GB" }
+    capabilities:
+      tool_calling: true
+      vision:       true
+      audio:        false
+      mtp:          { enabled: false }
+    stack: "llama.cpp · Q3_K_XL · mmproj BF16"
 entrances:
   - name: qwen36a3bvisionone
     port: 8080
@@ -20,7 +37,7 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.0.2'
+  versionName: '1.0.3'
   upgradeDescription: |
     v1.0.2: force re-sync after chart-repo timeout on v1.0.0. No functional change.
   fullDescription: |

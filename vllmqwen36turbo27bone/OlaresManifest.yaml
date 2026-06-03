@@ -8,9 +8,26 @@ metadata:
   description: "Qwen3.6 27B fastest stack — vLLM Turbo + Genesis on 24GB"
   appid: vllmqwen36turbo27bone
   title: Qwen36 27B Fast
-  version: '2.5.7'
+  version: '2.5.8'
   categories:
-    - AI
+    - LLM Chat
+    - AI Agents
+  bento:
+    family: qwen
+    size_label: "27B"
+    badge: turbo
+    hero:
+      value: "88 t/s"
+      label: "speed @ 88K"
+    specs:
+      - { label: "context", value: "88K" }
+      - { label: "vram", value: "20 GB" }
+    capabilities:
+      tool_calling: true
+      vision:       false
+      audio:        false
+      mtp:          { enabled: true, accept: 75 }
+    stack: "vLLM · TurboQuant K8V4 · MTP n=3"
 entrances:
   - name: vllmqwen36turbo27bone
     port: 8000
@@ -20,7 +37,7 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '2.5.7'
+  versionName: '2.5.8'
   upgradeDescription: |
     v2.5.7: revert MAX_MODEL_LEN 128000 → 88000. The 128K bump (v2.5.6) was attempted with the new HAMi cap at 24300m hoping for +1.3 GB KV cache headroom, but vLLM still reports the practical cap at 88704 tokens (3.94 GiB KV needed at 128K vs only 2.97 GiB available after model + cudagraphs + mamba state). The KV cache budget calculation is not improved by the HAMi cap bump because vLLM allocates `gpu_memory_utilization=0.97 * total_vram` first and the KV cache fits in what's left — the HAMi cap was already large enough vs `0.97 * 24300m`. To go higher than 88K we'd need either 0.99 GPU util (HAMi-risky) or MTP n=3 → n=1 (-spec speedup). Bonus log finding: Genesis P22 auto-skipped because vLLM PR #40655 merged upstream (bhoomit moved init out) — one less patch to maintain over time.
     v2.5.6: bump MAX_MODEL_LEN 88000 → 128000. Previously 96K and 128K OOMed at gpu_memory_utilization=0.97 with HAMi cap at 23000m (3.17 GiB / 3.94 GiB KV needed vs 2.97 GiB available). With v2.5.2 HAMi override 24300m (+1.3 GB headroom) we should fit 128K (3.94 GiB KV needed, ~4.27 GiB now available). If boot OOMs at KV cache profiling, downgrade to v2.5.5 (88K) or try 96K. Also drop t/s from title and description (reality may vary by hardware/config).

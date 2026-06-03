@@ -8,9 +8,25 @@ metadata:
   description: "Gemma 4 E4B with native audio input (USM Conformer encoder, llama.cpp PR #21421) — Olares One"
   appid: llamacppgemma4audione
   title: Gemma 4 Audio One
-  version: '1.0.0'
+  version: '1.0.1'
   categories:
-    - AI
+    - Audio
+  bento:
+    family: gemma
+    size_label: "E4B"
+    badge: audio
+    hero:
+      value: "30s"
+      label: "audio input max"
+    specs:
+      - { label: "context", value: "32K" }
+      - { label: "vram", value: "6 GB" }
+    capabilities:
+      tool_calling: true
+      vision:       false
+      audio:        true
+      mtp:          { enabled: false }
+    stack: "llama.cpp · USM Conformer · mmproj BF16"
 entrances:
   - name: llamacppgemma4audione
     port: 8080
@@ -20,7 +36,7 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.0.0'
+  versionName: '1.0.1'
   upgradeDescription: |
     v1.0.0: initial release. Gemma 4 E4B with native audio input via USM Conformer encoder (llama.cpp PR #21421 merged 2026-04-12, ships in b9101+). Target model unsloth/gemma-4-E4B-it-GGUF Q4_K_M (~3 GB) + audio mmproj BF16 (~0.5-1 GB). Image ghcr.io/ggml-org/llama.cpp:server-cuda13-b9101 (mainline). Audio max 30s/input, E2B/E4B only. F16/Q8_0 mmproj cause repetitive output — BF16 mandatory.
   fullDescription: |

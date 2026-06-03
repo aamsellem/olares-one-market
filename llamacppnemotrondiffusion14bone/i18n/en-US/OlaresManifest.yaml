@@ -1,0 +1,15 @@
+metadata:
+  title: Nemotron Diffusion 14B One
+  description: "NVIDIA Nemotron-Labs-Diffusion 14B — tri-mode (AR + parallel diffusion + self-spec) — first public diffusion LLM on consumer Blackwell"
+
+spec:
+  fullDescription: |
+    NVIDIA Nemotron-Labs-Diffusion 14B served via spiritbuun/buun-llama-cpp fork.
+    Tri-mode: AR / Diffusion parallel decoding / Linear self-speculation (default, k=4).
+    NVIDIA's Python reference OOMs at 14B on 24 GB VRAM — spiritbuun's GGUF Q8_0 is the only known path on consumer Blackwell.
+    Image: docker.io/aamsellem/buun-llama-cpp:316e88e (2026-05-24).
+    Target: spiritbuun/Nemotron-Labs-Diffusion-14B-Q8_0-GGUF (14.4 GB).
+    Reference RTX 3090 24 GB: 42-50 t/s prose/code, 126-132 t/s short responses (self-spec k=4).
+    Olares One bench TBD.
+    First diffusion LLM in the Olares market — parallel-token generation, no separate drafter, future-proof spec stack.
+    OpenAI-compatible API on port 8000.

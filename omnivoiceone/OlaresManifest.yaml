@@ -8,9 +8,25 @@ metadata:
   description: "OmniVoice TTS (646 languages, voice cloning, voice design, 0.6B) — optimized for Olares One"
   appid: omnivoiceone
   title: OmniVoice TTS One
-  version: '1.1.1'
+  version: '1.1.2'
   categories:
-    - AI
+    - TTS
+  bento:
+    family: other
+    size_label: "OmniVoice"
+    badge: tts
+    hero:
+      value: "TTS"
+      label: "text-to-speech"
+    specs:
+      - { label: "context", value: "4K" }
+      - { label: "vram", value: "8 GB" }
+    capabilities:
+      tool_calling: false
+      vision:       false
+      audio:        true
+      mtp:          { enabled: false }
+    stack: "PyTorch · OmniVoice"
 entrances:
   - name: omnivoiceone
     port: 8000
@@ -20,7 +36,7 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.1.1'
+  versionName: '1.1.2'
   upgradeDescription: |
     v1.1.1: cache-bust republish to force market resync. No code changes from v1.1.0 (full OmniVoice API: voice cloning, voice design, language_id, num_step, speed, duration; endpoints /v1/audio/speech and /v1/audio/clone).
   fullDescription: |

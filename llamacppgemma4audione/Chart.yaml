@@ -1,6 +1,6 @@
 apiVersion: v2
-appVersion: '1.0.0'
+appVersion: '1.0.1'
 description: Gemma 4 E4B + audio input via llama.cpp (PR #21421 USM conformer) — Olares One
 name: llamacppgemma4audione
 type: application
-version: '1.0.0'
+version: '1.0.1'

@@ -8,9 +8,25 @@ metadata:
   description: "Qwen3.5 27B NVFP4 via vLLM — optimized for Olares One"
   appid: vllmqwen3527bone
   title: Qwen3.5 27B NVFP4 vLLM One
-  version: '1.0.3'
+  version: '1.0.4'
   categories:
-    - AI
+    - LLM Chat
+  bento:
+    family: qwen
+    size_label: "27B"
+    badge: nvfp4
+    hero:
+      value: "100 t/s"
+      label: "speed"
+    specs:
+      - { label: "context", value: "32K" }
+      - { label: "vram", value: "19 GB" }
+    capabilities:
+      tool_calling: true
+      vision:       false
+      audio:        false
+      mtp:          { enabled: false }
+    stack: "vLLM · NVFP4 native · Blackwell"
 entrances:
   - name: vllmqwen3527bone
     port: 8000
@@ -20,7 +36,7 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.0.1'
+  versionName: '1.0.4'
   fullDescription: |
     Qwen3.5 27B (dense, Mamba-hybrid) served via vLLM with NVFP4 quantization — optimized for Olares One.
     RTX 5090M (24GB) + 96GB DDR5 + Core Ultra 9 275HX.

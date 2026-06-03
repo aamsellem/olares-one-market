@@ -1,0 +1,128 @@
+---
+olaresManifest.version: '0.10.0'
+olaresManifest.type: app
+apiVersion: 'v2'
+metadata:
+  name: llamacppqwen36heretic27bone
+  icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen36heretic27bone.png
+  description: "Qwen3.6 27B longest context — 74 t/s / 86.7% accept @ full 262K (unsloth UD-Q3_K_XL + MTP master ad27757)"
+  appid: llamacppqwen36heretic27bone
+  title: Qwen36 27B Long Context
+  version: 1.0.1
+  categories:
+    - LLM Chat
+  bento:
+    family: qwen
+    size_label: "27B"
+    badge: long ctx
+    hero:
+      value: "72 t/s"
+      label: "speed @ 262K"
+    specs:
+      - { label: "context", value: "262K" }
+      - { label: "vram", value: "20 GB" }
+    capabilities:
+      tool_calling: true
+      vision:       false
+      audio:        false
+      mtp:          { enabled: true, accept: 64 }
+    stack: "llama.cpp · Q3_K_XL · MTP"
+entrances:
+  - name: llamacppqwen36heretic27bone
+    port: 8000
+    host: llamacppqwen36heretic27bone
+    title: Qwen36 27B MTP
+    icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen36heretic27bone.png
+    openMethod: window
+    authLevel: internal
+spec:
+  versionName: 1.0.1
+  upgradeDescription: |
+    v1.0.10: bump image `aamsellem/llama-cpp-mtp:master-ad27757` → `master-bb28c1f`. Picks up am17an's PR [#23461](https://github.com/ggml-org/llama.cpp/pull/23461) "server: free draft/MTP resources on sleep to fix VRAM leak" (validated by community Reddit thread on b9274) + #23433 "mtp: use inp_out_ids for skipping logit computation" + #23131 SWA null-buffer fix + #23287 NVIDIA backend sampling (same as v1.0.9). Bench re-validated 2026-05-22: 250.08 t/s AVG on Qwen3.6 35B-A3B (10 runs, +0.3% vs ad27757 — within noise). Real win is the VRAM leak fix for sustained agentic load. Same model bits, same flags, same context.
+
+    v1.0.9: SWAP to official ggml-org/llama.cpp master HEAD ad27757 (post b9219), drop custom am17an branch image. PR #22673 (MTP support) merged upstream 2026-05-16, then iterated on through three follow-up PRs we now pick up: #23269 (ggerganov 2026-05-19 "MTP clean-up") changed the default `--spec-draft-n-max` from 16 → 3, made `--spec-draft-p-min` functional again, fixed graph reuse for MTP drafting graphs (`batch.token && batch.embd` path), fixed ngram-k4v params propagation, and made all spec implementations see the accepted tokens (improving acceptance when chaining). #23287 (gaugarg-nv 2026-05-20 "Move to backend sampling for MTP draft path") is the NVIDIA-authored optimization that moves the draft-path sampling onto the CUDA backend — this is the headline. #22522 (Programmatic Dependent Launch for Hopper+ GPUs, sm_90+/sm_120 included) ships in this build too. Custom image `aamsellem/llama-cpp-mtp:master-ad27757` for amd64+CUDA13+sm_120 (Blackwell consumer mobile), built against ggml-org/llama.cpp upstream-pure (no fork patches). Includes the `-lcuda` linker workaround pending upstream issue [#23357](https://github.com/ggml-org/llama.cpp/issues/23357) which we filed against the same `CUDA::cuda_driver` PRIVATE-scope propagation bug Anbeeld already fixed on his BeeLlama fork (Anbeeld [#18](https://github.com/Anbeeld/beellama.cpp/issues/18)).
+
+    Bench validated 2026-05-21 on Olares One (10 runs, Space Invaders HTML 2000 tokens each, 262K ctx, q4_0 KV, n_max=3):
+      - **74.28 t/s AVG** (range 72.60–75.14, σ=2.54 — ultra-tight)
+      - **86.7% draft acceptance AVG** (83.4–88.6%)
+      - vs v1.0.8 prod baseline (72.75 t/s / ~64% accept): **+2.1% throughput, +22 points acceptance**
+
+    The acceptance jump is the headline. The combination of n_max=3 (fewer drafts per step but each one validated more carefully) plus NVIDIA's backend-sampling rewrite makes MTP land in a much higher acceptance regime than the n_max=5 setup v1.0.8 used. Throughput is up modestly because the per-token overhead of MTP went down even though we're drafting fewer tokens per step.
+
+    Also bumps source HF repo: `unsloth/Qwen3.6-27B-GGUF-MTP` → `llmfan46/Qwen3.6-27B-uncensored-heretic-v2-Native-MTP-Preserved-GGUF` (the former redirected, the latter is the canonical name post 2026-05-16 Unsloth release). Same `Qwen3.6-27B-uncensored-heretic-v2-Native-MTP-Preserved-Q4_K_M.gguf` filename — model bits unchanged from v1.0.8.
+
+    Flag changes:
+      - `--spec-type mtp` → `--spec-type draft-mtp` (flag renamed upstream 2026-05-13)
+      - `--spec-draft-n-max 5` → `3` (matches new upstream default, validated as the better operating point on Blackwell mobile)
+      - `--n-gpu-layers 99` → `-ngl 99` (cleaner)
+      - default `CTX_SIZE` 128000 → 262144 (production ships at 262K)
+      - `CUDA_DEVICE_MEMORY_LIMIT_0` bumped 24300m → 30000m (HAMI workaround, no impact on inference)
+
+    v1.0.8: switch havenoammo Q2_K_XL → unsloth UD-Q3_K_XL. Validated 2026-05-12 on Olares One: 72.75 t/s AVG (10 runs, range 69.30-75.95), ZERO CUDA OOM at FULL 262K context with MTP n=5. Same speed as v1.0.7 (havenoammo Q2 was 72.14 t/s) BUT with Q3 quality tier (+5-8% vs Q2 on benchmarks). Surprising finding: havenoammo's Q3_K_XL (14.92 GB) hit runtime OOM at 262K (v1.0.5 bug), but unsloth's UD-Q3_K_XL (14.8 GB, ~120 MB smaller) is rock-stable at the same context + spec config. Different MTP integration metadata / memory layout. Strict upgrade vs v1.0.7: same context, same speed, better quality. Image still aamsellem/llamacpp-mtp:0.1.0 — will swap to ghcr.io/ggml-org/llama.cpp:server-cuda13-bNNNN once am17an's MTP PR #22673 merges upstream.
+    v1.0.7: get 262K back with MTP active. v1.0.6 was the safe-stable 128K fallback after v1.0.5's MTP CUDA OOM at 262K — but real users want both context AND MTP speed. Solution: swap havenoammo target Q3_K_XL (14.9 GB) → Q2_K_XL (12.3 GB), freeing 2.6 GB on top of the 1.9 GB Q3_K_XL already won over Q4_K_M. Total ~4.5 GB headroom recovered for MTP draft compute buffer — comfortably exceeds the ~2.5 GB gap that triggered `ggml_cuda_graph_evaluate_and_capture` exit-139 OOMs during `common_speculative_state_mtp::draft`. Restore CTX_SIZE → 262144, SPEC_DRAFT_N_MAX → 5. Trade-off: Q2_K_XL is a more aggressive Unsloth Dynamic quant (~5-8% quality drop on benchmarks vs Q3_K_XL). Direct bench validated 72.14 t/s STABLE. SUPERSEDED by v1.0.8 (unsloth UD-Q3_K_XL — same stability + Q3 quality).
+    v1.0.6: stability fix. v1.0.5's 262K context was boot-stable on our short-prompt validation bench (77 t/s @ 262K confirmed 2026-05-09) but at-runtime users hit CUDA OOM during MTP drafting: `ggml_cuda_graph_evaluate_and_capture` exit 139 inside `common_speculative_state_mtp::draft`. Cause is the same problem documented in v1.0.2: the MTP draft compute buffer grows with the cudagraph capture shapes the prompt actually exercises — boot's static allocator estimate isn't enough headroom even with Q3_K_XL's ~1.9 GB savings vs Q4_K_M. Reduce CTX_SIZE 262144 → 131072 (proven stable in v1.0.3, also a "long context" tier vs the fast 88 t/s vllmqwen36turbo27bone option) and SPEC_DRAFT_N_MAX 5 → 4 (one less draft frees a few hundred MB of compute buffer). Target stays havenoammo UD-Q3_K_XL — no rebuild. Users who really want 262K and accept occasional MTP crashes can override CTX_SIZE in their values. Expected: same 65-77 t/s range from v1.0.3/1.0.5, but rock-stable. SUPERSEDED by v1.0.7 (Q2_K_XL frees enough headroom to bring back 262K + MTP).
+    v1.0.5: target swap froggeric Q4_K_M-mtp (16.81 GB) → havenoammo UD-Q3_K_XL (14.92 GB, Unsloth Dynamic). Validated 2026-05-09 on Olares One: 77 t/s steady @ FULL 262K context with 75-80% draft acceptance (vs prior 65 t/s @ 128K, 64% accept). +18% speed +105% context +12 pts acceptance — single GGUF swap unlocks the Reddit-reported 80 t/s @ 262K recipe without any image rebuild. Q3_K_XL Unsloth Dynamic preserves critical layers in 6/8-bit while quantizing rest to 3-bit, giving better drafter alignment than standard Q4_K_M. The 1.9 GB target savings free up KV headroom for full 262K native context. Image still aamsellem/llamacpp-mtp:0.1.0 (am17an/mtp-clean), config flags unchanged. WARNING: runtime MTP CUDA OOM reported — fixed in v1.0.6 by reducing context to 128K.
+    v1.0.4: rename + description rework — this app is now positioned as the "long context" Qwen3.6 27B option (vs `vllmqwen36turbo27bone` "fast 88 t/s"). Title: "Qwen36 27B Long Context". Add HAMi-core `0m` parsing bug workaround (`CUDA_DEVICE_MEMORY_LIMIT_0=24300m`) as precaution (the llama.cpp MTP path didn't trigger the bug in our tests but the override is harmless). 4 redundant Qwen3.6 27B apps removed from the market in same release: dflashqwen36one, lucedflashqwen36one, vllmqwen36dense27bone, llamacppqwen36dense27bone.
+    v1.0.3: bump CTX_SIZE 32000 → 128000 (sweet spot between v1.0.1's failed 262K and v1.0.2's safe 32K). Estimation: KV q4_0 on 16 full-attention layers ≈ 16KB/token → 128K ctx = ~2 GB KV (vs ~4.3 GB at 262K). Leaves ~4 GB free for MTP draft compute buffers (proven 32K worked with ~5.6 GB free at 78 t/s). 4× more context than v1.0.2 for agentic/long-context workflows. If OOM, fall back to v1.0.2 (32K) or move to IQ4_XS quant for more VRAM headroom at full context.
+    v1.0.2: revert CTX_SIZE 262144 → 32000. v1.0.1's 262K context made the MTP context allocation OOM at compute buffer stage (`graph_reserve: failed to allocate compute buffers / failed to create MTP context`). After model + KV q4_0 only ~1.8 GiB free, not enough for MTP draft head compute buffers. Pod fell back to non-MTP mode → 37 t/s baseline (vs expected 78 t/s). 32K context proven to fit on 24 GB with MTP active. froggeric's table claim "24 GB Q4_K_M q4_0 262K = 22.8 GB" doesn't account for MTP draft compute buffer overhead. Other v1.0.1 changes kept (q4_0 KV cache, spec-draft-n-max 5, batch/ubatch 512, model still froggeric/Qwen3.6-27B-Q4_K_M-mtp.gguf with 7-fix chat template baked in). Future direction: try IQ3_M or IQ4_XS to free more VRAM for higher context.
+    v1.0.1: switch to froggeric/Qwen3.6-27B-MTP-GGUF (community-recommended quants per ex-arman68's r/LocalLLaMA post 2026-05-06, 678 upvotes). Uses Qwen3.6-27B-Q4_K_M-mtp.gguf (16.81 GB) with froggeric's 7-fix chat template baked in. Bumps CTX_SIZE 32000 → 262144 (full native 262K context, 8.2× larger), adds q4_0 KV cache (4-bit, quarter the KV memory at minor quality cost), bumps spec-draft-n-max 4 → 5 (community-recommended sweet spot for Qwen3.6 MTP), bumps batch/ubatch 256/64 → 512/512 (better prompt processing). Total VRAM ~22.8 GB at 262K — fits comfortably in 24 GB. Vision NOT enabled (currently crashes llama.cpp when used alongside MTP per upstream report 2026-05-06). Image still aamsellem/llamacpp-mtp:0.1.0 from am17an/mtp-clean PR #22673 branch.
+    v1.0.0: initial release. Qwen3.6 27B served via llama.cpp PR #22673 (am17an/mtp-clean, OPEN BLOCKED but tested 2026-05-04). Custom image aamsellem/llamacpp-mtp:0.1.0 built from am17an/mtp-clean branch (5 commits including MTP support + qwen35moe_mtp model wiring + GDN partial seq_rm). Target model RDson/Qwen3.6-27B-MTP-Q4_K_M-GGUF (16.49 GB Q4_K_M with MTP head — standard unsloth quants strip the head, RDson preserved it). Validated 2026-05-04 on Olares One: 78.1 t/s avg over 3 Space Invaders prompts (Run1=74.91, Run2=80.60, Run3=78.78), +123% vs llama.cpp standard baseline (35 t/s). Stack is upstream-pure (one open PR + one HF GGUF) — once PR #22673 merges into ggml-org/llama.cpp master, this app will switch to ghcr.io/ggml-org/llama.cpp:server-cuda13-bNNNN with same flags.
+  fullDescription: |
+    Qwen3.6 27B with Multi-Token Prediction (MTP) speculative decoding — first reproducible MTP-on-llama.cpp build for Olares One.
+    RTX 5090M (24GB) + 96GB DDR5 + Core Ultra 9 275HX.
+
+    Stack:
+      - llama.cpp am17an/mtp-clean branch (PR #22673, 5 commits)
+      - --spec-type mtp + --spec-draft-n-max 5 + --cache-type-k/v q4_0 + 262K context
+      - Target model: froggeric/Qwen3.6-27B-Q4_K_M-mtp.gguf (16.81 GB, MTP head preserved + 7-fix chat template baked in)
+      - No separate drafter — MTP head is integrated in the GGUF
+      - Custom Docker image: aamsellem/llamacpp-mtp:0.1.0
+
+    Performance on Olares One (validated 2026-05-04):
+      - 78.1 t/s avg, range 74.9-80.6 t/s
+      - +123% vs llama.cpp standard (35 t/s baseline)
+      - Same league as vLLM Turbo (88 t/s) and Lucebox DFlash (88.5 t/s) but ZERO custom patches
+
+    Why this matters:
+      - Reproducible: one docker pull + one huggingface-cli download
+      - Maintainable: switches to upstream llama.cpp the day PR #22673 merges
+      - LM Studio / Open WebUI / Ollama compatible (OpenAI-style API on 8000)
+
+    First launch downloads the 16.81 GB GGUF from HuggingFace — needs HF token configured in Olares user env.
+    Exposes an OpenAI-compatible API on port 8000.
+
+  developer: aamsellem
+  website: https://github.com/aamsellem/olares-one-market
+  sourceCode: https://github.com/am17an/llama.cpp/tree/mtp-clean
+  submitter: aamsellem
+  locale:
+    - en-US
+  license:
+    - text: MIT
+      url: https://github.com/ggml-org/llama.cpp/blob/master/LICENSE
+
+  limitedCpu: 16
+  requiredCpu: 4
+  requiredDisk: 25Gi
+  limitedDisk: 40Gi
+  limitedMemory: 40Gi
+  requiredMemory: 20Gi
+  requiredGpu: 1Gi
+  limitedGpu: 24Gi
+
+  supportArch:
+    - amd64
+permission:
+  appData: true
+options:
+  apiTimeout: 0
+  dependencies:
+    - name: olares
+      version: '>=1.12.3-0'
+      type: system
+envs:
+  - envName: OLARES_USER_HUGGINGFACE_TOKEN
+    required: false
+    applyOnChange: true
+    valueFrom:
+      envName: OLARES_USER_HUGGINGFACE_TOKEN

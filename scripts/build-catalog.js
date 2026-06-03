@@ -9,6 +9,12 @@ const OUTPUT = path.resolve(__dirname, '../src/catalog.json');
 
 // --- Helpers ---
 
+// Go market service strict-parses timestamps as `2006-01-02T15:04:05.000000000Z` (9-digit nanos).
+// JS toISOString() emits 3-digit ms — pad to 9 so the Go syncer doesn't choke and skip apps.
+function isoNanos(d = new Date()) {
+  return d.toISOString().replace(/\.(\d+)Z$/, (_m, ms) => `.${ms.padEnd(9, '0')}Z`);
+}
+
 function generateAppId(name) {
   return crypto.createHash('md5').update(name).digest('hex').substring(0, 8);
 }
@@ -105,19 +111,32 @@ function scanApps() {
     const i18n = readI18n(appDir);
     const categories = meta.categories || [];
 
+    const bento = meta.bento || null;
+    const baseUrl = 'https://orales-one-market.aamsellem.workers.dev';
+    const bentoUrl = `${baseUrl}/screenshots/${appName}-bento.png`;
+    const tagList = bento ? [bento.family, ...(bento.badge ? [bento.badge] : [])].filter(Boolean) : null;
+
+    // Olares Studio sidebar filter:
+    //   menuList.filter(item => appCategories.includes(item.name) || item.name === 'All')
+    // → custom category names work as long as they appear in BOTH the apps' `categories` array
+    //   AND the worker's `tags` object (menuList source). Keep our 7-category taxonomy.
+
     // Simplified entry for /api/v1/appstore/info
+    // `categories` array is REQUIRED — Studio's calcCategories() iterates this to
+    // populate the sidebar (verified in beclab/Olares/.../stores/market/center.ts).
     const summary = {
       id: appId,
       name: appName,
       version: meta.version || chart.version,
-      category: categories[0] || '',
+      category: categories[0] || 'AI',
+      categories,
       description: meta.description || '',
       icon: meta.icon || '',
       screenshots: null,
-      tags: null,
+      tags: tagList,
       metadata: null,
       source: 1,
-      updated_at: new Date().toISOString(),
+      updated_at: isoNanos(),
     };
 
     // Full entry for /api/v1/applications/info
@@ -135,7 +154,7 @@ function scanApps() {
       versionName: spec.versionName || chart.appVersion || meta.version || '',
       fullDescription: spec.fullDescription || meta.description || '',
       upgradeDescription: spec.upgradeDescription || '',
-      promoteImage: spec.promoteImage || null,
+      promoteImage: spec.promoteImage || [bentoUrl],
       promoteVideo: spec.promoteVideo || '',
       subCategory: spec.subCategory || '',
       locale: Object.keys(i18n).length > 0
@@ -167,7 +186,7 @@ function scanApps() {
       submitter: spec.submitter || 'orales-market',
       doc: spec.doc || '',
       website: spec.website || '',
-      featuredImage: spec.featuredImage || '',
+      featuredImage: spec.featuredImage || bentoUrl,
       sourceCode: spec.sourceCode || '',
       license: spec.license || [],
       legal: spec.legal || null,
@@ -194,16 +213,16 @@ function scanApps() {
         appName: appName,
         version: meta.version || chart.version,
         versionName: chart.appVersion || '',
-        mergedAt: new Date().toISOString(),
+        mergedAt: isoNanos(),
         upgradeDescription: '',
       }],
       screenshots: null,
-      tags: null,
+      tags: tagList,
       metadata: null,
-      updated_at: new Date().toISOString(),
+      updated_at: isoNanos(),
     };
 
-    apps[appId] = { summary, detail };
+    apps[appId] = { summary, detail, categories };
     console.log(`  -> ${appName} (${appId}) v${summary.version}`);
   }
 
@@ -238,34 +257,9 @@ function buildCharts() {
   return charts;
 }
 
-// --- Build icons.json from icons/ directory ---
-
-function buildIcons() {
-  const iconsDir = path.resolve(__dirname, '../icons');
-  const iconsOutput = path.resolve(__dirname, '../src/icons.json');
-  const icons = {};
-
-  if (fs.existsSync(iconsDir)) {
-    for (const file of fs.readdirSync(iconsDir)) {
-      if (!file.endsWith('.png')) continue;
-      const name = file.replace(/\.png$/, '');
-      icons[name] = fs.readFileSync(path.join(iconsDir, file)).toString('base64');
-      console.log(`Icon: ${name} (${Math.round(fs.statSync(path.join(iconsDir, file)).size / 1024)}KB)`);
-    }
-  }
-
-  const newContent = JSON.stringify(icons, null, 2);
-  let existing = '';
-  try { existing = fs.readFileSync(iconsOutput, 'utf8'); } catch {}
-  if (newContent !== existing) {
-    fs.writeFileSync(iconsOutput, newContent);
-    console.log(`Icons written to ${iconsOutput}`);
-  } else {
-    console.log('Icons unchanged, skipping write.');
-  }
-  console.log();
-  return icons;
-}
+// Icons + screenshots are served as static assets via Cloudflare Workers Assets
+// (see wrangler.toml [assets] directory = "./public"). They are NOT bundled into the
+// worker code. The generator scripts write directly into ./public/{icons,screenshots}.
 
 // --- Main ---
 
@@ -273,18 +267,21 @@ console.log('Building catalog from', APPS_REPO);
 console.log();
 
 buildCharts();
-buildIcons();
 const apps = scanApps();
 
 const summaries = {};
 const details = {};
 const latest = [];
+const categorySet = new Set();
 
 for (const [id, app] of Object.entries(apps)) {
   summaries[id] = app.summary;
   details[id] = app.detail;
   latest.push(app.summary.name);
+  for (const c of app.categories || []) categorySet.add(c);
 }
+
+const allCategories = Array.from(categorySet).sort();
 
 // Sort latest: newest apps first (by version, higher = newer)
 latest.sort((a, b) => {
@@ -297,11 +294,16 @@ latest.sort((a, b) => {
   return (pa[0]*10000+pa[1]*100+pa[2]) - (pb[0]*10000+pb[1]*100+pb[2]);
 });
 
+// tops = flat ranked list the Go market "nested market data" parser iterates to
+// enumerate apps (the flat `apps` dict alone yields 0 parsed apps). appId = app name,
+// matching the official api.olares.com/market convention.
+const tops = latest.map((name, i) => ({ appId: name, rank: i + 1 }));
+
 // Deterministic hash based on app content only (no timestamps)
-const catalogPayload = JSON.stringify({ summaries, details, latest });
+const catalogPayload = JSON.stringify({ summaries, details, latest, tops });
 const hash = crypto.createHash('md5').update(catalogPayload).digest('hex');
 
-const catalog = { hash, summaries, details, latest };
+const catalog = { hash, summaries, details, latest, tops, categories: allCategories };
 const newContent = JSON.stringify(catalog, null, 2);
 
 // Only write if content actually changed (avoids infinite wrangler rebuild loop)
