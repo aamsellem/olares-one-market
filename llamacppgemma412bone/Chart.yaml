@@ -1,6 +1,6 @@
 apiVersion: v2
-appVersion: '1.0.0'
-description: Gemma 4 12B IT — Google's dense 12B model with vision (mmproj) via llama.cpp upstream — Olares One
+appVersion: '1.0.1'
+description: Gemma 4 12B IT — Google's dense 12B model via llama.cpp upstream — Olares One (text-only in v1.0.1, vision in v1.0.2)
 name: llamacppgemma412bone
 type: application
-version: '1.0.0'
+version: '1.0.1'

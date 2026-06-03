@@ -59,17 +59,12 @@ spec:
                   -o "$SHARED_DIR/$TARGET_FILE"
                 touch "$SHARED_DIR/$TARGET_FILE.ok"
               fi
-              # mmproj for vision (smaller, separate file)
-              if [ ! -f "$SHARED_DIR/$MMPROJ_FILE.ok" ]; then
-                echo "==> Downloading mmproj $TARGET_MODEL/$MMPROJ_FILE (~175 MB, vision encoder)"
-                eval curl -fL -C - --retry 20 --retry-delay 15 --retry-all-errors --connect-timeout 30 $HF_AUTH \
-                  "https://huggingface.co/${TARGET_MODEL}/resolve/main/${MMPROJ_FILE}" \
-                  -o "$SHARED_DIR/$MMPROJ_FILE"
-                touch "$SHARED_DIR/$MMPROJ_FILE.ok"
-              fi
+              # Vision (mmproj) DISABLED in v1.0.1 — llama.cpp b8740 doesn't know
+              # 'gemma4uv' projector type. Gemma 4 unified vision support landed
+              # in upstream PR #24082 + #24088 (2026-06-03) but no Docker tag yet.
+              # Will re-enable in v1.0.2 once a newer upstream/buun image lands.
               exec /app/llama-server \
                 --model "$SHARED_DIR/$TARGET_FILE" \
-                --mmproj "$SHARED_DIR/$MMPROJ_FILE" \
                 --alias "$MODEL_ALIAS" \
                 --host 0.0.0.0 --port 8080 \
                 --n-gpu-layers 99 \

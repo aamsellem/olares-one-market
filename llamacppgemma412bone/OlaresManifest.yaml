@@ -8,24 +8,24 @@ metadata:
   description: "Gemma 4 12B IT — Google's dense 12B model + Vision via llama.cpp upstream on Olares One"
   appid: llamacppgemma412bone
   title: Gemma 4 12B One
-  version: 1.0.0
+  version: 1.0.1
   categories:
     - LLM Chat
     - AI Agents
-    - Vision
+
   bento:
     family: gemma
     size_label: "12B"
-    badge: dense · vision
+    badge: dense · text-only v1
     hero:
-      value: "Q8_0"
-      label: "lossless 12.7 GB + mmproj vision"
+      value: "47 t/s"
+      label: "Q8_0 lossless · text-only v1"
     specs:
       - { label: "context", value: "32K" }
       - { label: "vram", value: "16 GB" }
     capabilities:
       tool_calling: true
-      vision:       true
+      vision:       false
       audio:        false
       mtp:          { enabled: false }
     stack: "llama.cpp · unsloth Q8_0 · mmproj F16"
@@ -38,8 +38,10 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: 1.0.0
+  versionName: 1.0.1
   upgradeDescription: |
+    v1.0.1: **text-only release** — vision (mmproj) disabled because llama.cpp b8740 (CUDA 13.1.1) does not recognize the new `gemma4uv` projector type. Gemma 4 unified vision landed in upstream PR #24082 + #24088 on 2026-06-03 but no community Docker tag has shipped with those yet. Will re-enable vision in v1.0.2 once an upstream image with gemma4uv lands (or buun-llama-cpp rebases). Bench validated on Olares One: **47 t/s avg** (3 runs Space Invaders, very stable σ < 0.1).
+
     v1.0.0: initial release. **Gemma 4 12B IT** by Google — released 2026-06-03. Dense 12B parameter model (not MoE) with native multimodal vision support. The new mid-tier Gemma 4 size sitting between E4B (4B active MoE) and 26B-A4B.
 
     Stack:
