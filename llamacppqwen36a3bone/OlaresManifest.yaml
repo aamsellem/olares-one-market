@@ -8,7 +8,7 @@ metadata:
   description: "Qwen3.6 35B-A3B MTP + Vision — 243 t/s @ FULL 262K context with vision + tool calling on Olares One"
   appid: llamacppqwen36a3bone
   title: Qwen36 35B-A3B MTP Vision One
-  version: 2.0.5
+  version: 2.0.6
   categories:
     - LLM Chat
     - AI Agents
@@ -38,8 +38,10 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: 2.0.5
+  versionName: 2.0.6
   upgradeDescription: |
+    v2.0.6: **upgrade to BeeLlama v0.3.1** — same image swap as abliterated v1.0.9 (buun-llama-cpp:87c351d2 → ghcr.io/anbeeld/beellama.cpp:server-cuda13-v0.3.1). Drops our one-shot custom buun build for anbeeld's maintained fork which adds DFlash speculative decoding, adaptive draft-max controller, reasoning-loop protection, and Gemma 4 unified support on top of everything buun had (asymmetric KV, MTP). Bench delta minor (+2-3% speed + higher MTP accept ceiling per abliterated v1.0.9 bench) but maintenance burden drops to zero. Same Q3_K_XL + mmproj + asym q8_0-K/turbo4-V config, native 262K context preserved.
+
     v2.0.5: **asymmetric KV cache** (free K quality boost). Image bump 316e88e → 87c351d2 (spiritbuun fused asymmetric flash-attn kernel, 2026-06-04). KV config: symmetric q4_0/q4_0 → asymmetric q8_0-K + turbo4-V. Keys at 8-bit (high attention quality), values at turbo4 (compressed). Native 262K context preserved (smaller Q3_K_XL model has the headroom that abliterated Q4_K does not). Also dropped deprecated `--chat-template-kwargs` for `--reasoning off` flag. Bench Olares One (3 runs Space Invaders): 236.28 / 243.32 / 241.87 t/s = AVG 240.5 t/s with 84-88% MTP accept (vs v1.0.1 baseline 243.59 t/s, -1% speed for measurable K precision uplift). Quality > 1% raw speed for long-context use.
 
     v2.0.0: **vision UNLOCKED on the champion via spiritbuun `--mmproj-gpu-swap`**. The vision regression from v1.0.4/v1.0.5 that forced us back to text-only in v1.0.6 is now solved by a much cleverer mechanism than "shrink context to make room for mmproj". The new buun-llama-cpp image (`aamsellem/buun-llama-cpp:316e88e`) ships spiritbuun's `--mmproj-gpu-swap` feature: keeps mmproj on CPU at startup, swaps MTP out of VRAM when an image arrives, loads mmproj to GPU for fast encoding (~1-2s), then swaps back. MTP has no persistent state so the swap is lossless.
