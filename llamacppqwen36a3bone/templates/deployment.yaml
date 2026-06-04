@@ -36,7 +36,7 @@ spec:
     spec:
       containers:
         - name: llamacpp-mtp-server
-          image: "docker.io/aamsellem/buun-llama-cpp:316e88e"
+          image: "docker.io/aamsellem/buun-llama-cpp:87c351d2"
           command: ["/bin/bash", "-c"]
           args:
             - |
@@ -80,12 +80,12 @@ spec:
                 --host 0.0.0.0 --port 8000 \
                 --n-gpu-layers 99 \
                 --threads "${THREADS:-16}" \
-                --cache-type-k q4_0 --cache-type-v q4_0 \
+                --cache-type-k q8_0 --cache-type-v turbo4 \
                 --parallel 1 \
                 --flash-attn on --jinja \
+                --reasoning off \
                 --spec-type draft-mtp \
-                --spec-draft-n-max "${SPEC_DRAFT_N_MAX:-3}" \
-                --chat-template-kwargs '{"enable_thinking": false}'
+                --spec-draft-n-max "${SPEC_DRAFT_N_MAX:-3}"
           envFrom:
             - configMapRef:
                 name: llamacpp-qwen36a3b-env
