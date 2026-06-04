@@ -8,6 +8,8 @@ data:
   TARGET_MODEL: "unsloth/gemma-4-12b-it-GGUF"
   TARGET_FILE: "gemma-4-12b-it-Q8_0.gguf"
   MMPROJ_FILE: "mmproj-F16.gguf"
+  DRAFTER_MODEL: "colefuoco00/gemma-4-12B-it-assistant-GGUF"
+  DRAFTER_FILE: "gemma-4-12B-it-assistant-Q8_0.gguf"
   MODEL_ALIAS: "gemma-4-12b"
   CTX_SIZE: "32768"
   THREADS: "16"
@@ -36,7 +38,7 @@ spec:
     spec:
       containers:
         - name: gemma412b-server
-          image: "ghcr.io/ggml-org/llama.cpp:server-cuda13-b8740"
+          image: "docker.io/aamsellem/llama-cpp-gemma4mtp:am17an-dd97604"
           command: ["/bin/bash", "-c"]
           args:
             - |
@@ -59,12 +61,28 @@ spec:
                   -o "$SHARED_DIR/$TARGET_FILE"
                 touch "$SHARED_DIR/$TARGET_FILE.ok"
               fi
-              # Vision (mmproj) DISABLED in v1.0.1 — llama.cpp b8740 doesn't know
-              # 'gemma4uv' projector type. Gemma 4 unified vision support landed
-              # in upstream PR #24082 + #24088 (2026-06-03) but no Docker tag yet.
-              # Will re-enable in v1.0.2 once a newer upstream/buun image lands.
+              # Vision re-enabled in v1.0.2 via am17an gemma4-mtp branch (PR #23398 + #24082 stack)
+              if [ ! -f "$SHARED_DIR/$MMPROJ_FILE.ok" ]; then
+                echo "==> Download mmproj F16 (175 MB)"
+                eval curl -fL -C - --retry 20 --retry-delay 15 $HF_AUTH \
+                  "https://huggingface.co/${TARGET_MODEL}/resolve/main/${MMPROJ_FILE}" \
+                  -o "$SHARED_DIR/$MMPROJ_FILE"
+                touch "$SHARED_DIR/$MMPROJ_FILE.ok"
+              fi
+              # MTP drafter (colefuoco00 GGUF Q8_0, ~465 MB)
+              if [ ! -f "$SHARED_DIR/$DRAFTER_FILE.ok" ]; then
+                echo "==> Download MTP drafter (465 MB)"
+                eval curl -fL -C - --retry 20 --retry-delay 15 $HF_AUTH \
+                  "https://huggingface.co/${DRAFTER_MODEL}/resolve/main/${DRAFTER_FILE}" \
+                  -o "$SHARED_DIR/$DRAFTER_FILE"
+                touch "$SHARED_DIR/$DRAFTER_FILE.ok"
+              fi
               exec /app/llama-server \
                 --model "$SHARED_DIR/$TARGET_FILE" \
+                --mmproj "$SHARED_DIR/$MMPROJ_FILE" \
+                --model-draft "$SHARED_DIR/$DRAFTER_FILE" \
+                --spec-type draft-mtp \
+                --spec-draft-n-max 2 \
                 --alias "$MODEL_ALIAS" \
                 --host 0.0.0.0 --port 8080 \
                 --n-gpu-layers 99 \
