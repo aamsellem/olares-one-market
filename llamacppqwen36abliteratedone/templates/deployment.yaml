@@ -46,7 +46,7 @@ spec:
     spec:
       containers:
         - name: llamacpp-mtp-server
-          image: "docker.io/aamsellem/buun-llama-cpp:316e88e"
+          image: "docker.io/aamsellem/buun-llama-cpp:87c351d2"
           command: ["/bin/bash", "-c"]
           args:
             - |
@@ -91,7 +91,7 @@ spec:
                 --n-gpu-layers 99 \
                 --ctx-size "${CTX_SIZE:-65536}" \
                 --threads "${THREADS:-16}" \
-                --cache-type-k q4_0 --cache-type-v q4_0 \
+                --cache-type-k q8_0 --cache-type-v turbo4 \
                 --parallel 1 \
                 --flash-attn on --jinja \
                 --chat-template-file /chat-template/chat_template.jinja \

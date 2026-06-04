@@ -8,7 +8,7 @@ metadata:
   description: "Qwen3.6 35B-A3B abliterated + Claude 4.7 Opus reasoning distilled — Q4_K smarter quant @ 65K, no guardrails, MTP + Vision on Olares One"
   appid: llamacppqwen36abliteratedone
   title: Qwen36 35B-A3B Abliterated Claude
-  version: 1.0.7
+  version: 1.0.8
   categories:
     - LLM Chat
     - AI Agents
@@ -39,8 +39,12 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: 1.0.7
+  versionName: 1.0.8
   upgradeDescription: |
+    v1.0.8: **asymmetric KV cache** (free K quality boost). Upgraded buun-llama-cpp image from 316e88e (May 2026) to 87c351d2 (2026-06-04) which adds fused asymmetric q8_0-K + turbo4-V flash-attn kernel. KV config changed from symmetric `q4_0/q4_0` (both 4-bit) to asymmetric `q8_0-K / turbo4-V`: keys at 8-bit precision (matters most for attention quality), values compressed via turbo4 (matters less per-token). Bench on Olares One (3 runs Space Invaders): 246.83 / 249.86 / 239.19 t/s = AVG 245.3 t/s with 82-88% MTP accept — matches v1.0.7 speed (244 t/s) but with measurably higher K precision. Context stays at 65K (asymmetric is for quality not size; 262K still OOMs).
+
+    v1.0.7: **hostPath fix** — `type: Directory` → `DirectoryOrCreate` for `/olares/share/ai/model` (Discord bug 2026-06-03 from agedflyer4007).
+
     v1.0.6: **fix thinking-mode garbage output** (Discord bug report 2026-06-02). buun-llama-cpp:316e88e introduced PEG-native chat parser that fails to detect `</think>` close tag on Qwen3's thinking template — model never emits EOS, runs until max_tokens with empty content + reasoning_content stuck mid-stream. Two fixes: (1) explicit `--chat-template-file /chat-template/chat_template.jinja` via ConfigMap mount forces Jinja2 parser over peg-native, (2) replace deprecated `--chat-template-kwargs '{"enable_thinking":false}'` with new `--reasoning off` flag (the kwargs path emits a deprecation warning and will be removed). Verified bench non-thinking gen still works at 244 t/s; thinking-mode requests via `chat_template_kwargs.enable_thinking=true` API parameter now properly close think blocks. Same Q4_K model, same speed, just parser correctness restored.
 
     v1.0.5: **upgrade Q3_K → Q4_K for measurably smarter outputs**. New quant size 21.7 GB (vs 17.2 GB Q3_K) = +27% weight = noticeably stronger reasoning, code, structured outputs. Context clamped to 65K (down from 262K full native) to leave VRAM headroom for the bigger model + mmproj + MTP draft buffer (model 21.7 + KV q4_0 ~2.5 + mmproj 0.9 + draft ~1 ≈ 26 GB under 30 GB HAMi limit). Same stack otherwise: buun-llama.cpp 316e88e, MTP n=3, mmproj-gpu-swap, q4_0 KV, flash attention, jinja. Bench TBD on Olares One — expect ~10-15% slower than Q3_K (still in the 195-210 t/s range).

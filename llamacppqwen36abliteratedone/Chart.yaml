@@ -1,6 +1,6 @@
 apiVersion: v2
-appVersion: '1.0.7'
+appVersion: '1.0.8'
 description: Qwen3.6 35B-A3B abliterated + Claude 4.7 Opus reasoning distilled + MTP + Vision — Q4_K smarter quant @ 65K context, no guardrails on Olares One
 name: llamacppqwen36abliteratedone
 type: application
-version: '1.0.7'
+version: '1.0.8'
