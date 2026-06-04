@@ -8,7 +8,7 @@ metadata:
   description: "Qwen3.6 35B-A3B abliterated + Claude 4.7 Opus reasoning distilled — Q4_K smarter quant @ 65K, no guardrails, MTP + Vision on Olares One"
   appid: llamacppqwen36abliteratedone
   title: Qwen36 35B-A3B Abliterated Claude
-  version: 1.0.8
+  version: 1.0.9
   categories:
     - LLM Chat
     - AI Agents
@@ -39,8 +39,10 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: 1.0.8
+  versionName: 1.0.9
   upgradeDescription: |
+    v1.0.9: **upgrade to BeeLlama v0.3.1** (anbeeld's maintained fork, ghcr.io/anbeeld/beellama.cpp:server-cuda13-v0.3.1). Bumped from custom one-shot `aamsellem/buun-llama-cpp:87c351d2` to BeeLlama which includes everything buun had (asymmetric KV q8_0-K/turbo4-V, MTP) PLUS DFlash speculative decoding, adaptive draft-max controller, reasoning-loop protection, and full multimodal Gemma 4 unified support — all in a maintained upstream image with regular release tags. Bench on Olares One (3 runs Space Invaders): 247.42 / 256.65 / 248.69 t/s = AVG 250.9 t/s with 86-92% MTP accept (vs v1.0.8 245.3 t/s @ 82-88%) = +2.3% speed + higher accept rate ceiling. Same Q4_K + mmproj + asym KV config, just better upstream image.
+
     v1.0.8: **asymmetric KV cache** (free K quality boost). Upgraded buun-llama-cpp image from 316e88e (May 2026) to 87c351d2 (2026-06-04) which adds fused asymmetric q8_0-K + turbo4-V flash-attn kernel. KV config changed from symmetric `q4_0/q4_0` (both 4-bit) to asymmetric `q8_0-K / turbo4-V`: keys at 8-bit precision (matters most for attention quality), values compressed via turbo4 (matters less per-token). Bench on Olares One (3 runs Space Invaders): 246.83 / 249.86 / 239.19 t/s = AVG 245.3 t/s with 82-88% MTP accept — matches v1.0.7 speed (244 t/s) but with measurably higher K precision. Context stays at 65K (asymmetric is for quality not size; 262K still OOMs).
 
     v1.0.7: **hostPath fix** — `type: Directory` → `DirectoryOrCreate` for `/olares/share/ai/model` (Discord bug 2026-06-03 from agedflyer4007).
