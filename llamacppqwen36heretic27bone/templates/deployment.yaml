@@ -36,7 +36,7 @@ spec:
     spec:
       containers:
         - name: llamacpp-mtp-server
-          image: "docker.io/aamsellem/llama-cpp-mtp:master-bb28c1f"
+          image: "ghcr.io/anbeeld/beellama.cpp:server-cuda13-v0.3.1"
           command: ["/bin/bash", "-c"]
           args:
             - |
@@ -66,13 +66,13 @@ spec:
                 --n-gpu-layers 99 \
                 --ctx-size "${CTX_SIZE:-262144}" \
                 --threads "${THREADS:-16}" \
-                --cache-type-k q4_0 --cache-type-v q4_0 \
+                --cache-type-k q8_0 --cache-type-v turbo4 \
                 --batch-size 512 --ubatch-size 512 \
                 --parallel 1 \
                 --flash-attn on --jinja \
                 --spec-type draft-mtp \
                 --spec-draft-n-max "${SPEC_DRAFT_N_MAX:-3}" \
-                --chat-template-kwargs '{"enable_thinking": false}'
+                --reasoning off
           envFrom:
             - configMapRef:
                 name: llamacpp-mtp-env
