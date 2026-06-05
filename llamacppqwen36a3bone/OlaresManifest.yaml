@@ -8,7 +8,7 @@ metadata:
   description: "Qwen3.6 35B-A3B MTP + Vision — 243 t/s @ FULL 262K context with vision + tool calling on Olares One"
   appid: llamacppqwen36a3bone
   title: Qwen36 35B-A3B MTP Vision One
-  version: 2.0.6
+  version: 2.0.7
   categories:
     - LLM Chat
     - AI Agents
@@ -28,7 +28,7 @@ metadata:
       vision:       true
       audio:        false
       mtp:          { enabled: true, accept: 86.6 }
-    stack: "buun-llama.cpp · Q3_K_XL · MTP + mmproj-gpu-swap"
+    stack: "buun-llama.cpp 87c351d2 · Q3_K_XL · MTP + mmproj-gpu-swap"
 entrances:
   - name: llamacppqwen36a3bone
     port: 8000
@@ -38,9 +38,11 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: 2.0.6
+  versionName: 2.0.7
   upgradeDescription: |
-    v2.0.6: **upgrade to BeeLlama v0.3.1** — same image swap as abliterated v1.0.9 (buun-llama-cpp:87c351d2 → ghcr.io/anbeeld/beellama.cpp:server-cuda13-v0.3.1). Drops our one-shot custom buun build for anbeeld's maintained fork which adds DFlash speculative decoding, adaptive draft-max controller, reasoning-loop protection, and Gemma 4 unified support on top of everything buun had (asymmetric KV, MTP). Bench delta minor (+2-3% speed + higher MTP accept ceiling per abliterated v1.0.9 bench) but maintenance burden drops to zero. Same Q3_K_XL + mmproj + asym q8_0-K/turbo4-V config, native 262K context preserved.
+    v2.0.7: **rollback BeeLlama → buun (Hermes tool-calling regression fix)**. v2.0.6 swapped image to `ghcr.io/anbeeld/beellama.cpp:server-cuda13-v0.3.1` for slightly higher MTP accept rate, but a user reported on Discord that their Hermes Agent flow stopped working after the upgrade. BeeLlama v0.3.1 has a chat-parser/tool-call detection behavior difference vs spiritbuun `buun-llama-cpp:87c351d2`. Reverting the image to the known-good `aamsellem/buun-llama-cpp:87c351d2` while keeping everything else identical (asym q8_0-K/turbo4-V KV, MTP n=3, mmproj-gpu-swap, 262K context, `--reasoning off`). Bench unchanged from v2.0.5 (~240 t/s, 84-88% accept). Will re-evaluate BeeLlama once the parser regression is fixed upstream.
+
+    v2.0.6: ~~upgrade to BeeLlama v0.3.1~~ (rolled back in v2.0.7 due to Hermes tool-calling regression).
 
     v2.0.5: **asymmetric KV cache** (free K quality boost). Image bump 316e88e → 87c351d2 (spiritbuun fused asymmetric flash-attn kernel, 2026-06-04). KV config: symmetric q4_0/q4_0 → asymmetric q8_0-K + turbo4-V. Keys at 8-bit (high attention quality), values at turbo4 (compressed). Native 262K context preserved (smaller Q3_K_XL model has the headroom that abliterated Q4_K does not). Also dropped deprecated `--chat-template-kwargs` for `--reasoning off` flag. Bench Olares One (3 runs Space Invaders): 236.28 / 243.32 / 241.87 t/s = AVG 240.5 t/s with 84-88% MTP accept (vs v1.0.1 baseline 243.59 t/s, -1% speed for measurable K precision uplift). Quality > 1% raw speed for long-context use.
 

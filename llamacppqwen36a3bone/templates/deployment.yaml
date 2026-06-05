@@ -36,7 +36,7 @@ spec:
     spec:
       containers:
         - name: llamacpp-mtp-server
-          image: "ghcr.io/anbeeld/beellama.cpp:server-cuda13-v0.3.1"
+          image: "docker.io/aamsellem/buun-llama-cpp:87c351d2"
           command: ["/bin/bash", "-c"]
           args:
             - |
