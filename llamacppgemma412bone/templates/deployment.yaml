@@ -5,13 +5,14 @@ metadata:
   name: llamacpp-gemma412b-env
   namespace: "{{ .Release.Namespace }}"
 data:
-  TARGET_MODEL: "unsloth/gemma-4-12b-it-GGUF"
-  TARGET_FILE: "gemma-4-12b-it-Q8_0.gguf"
-  MMPROJ_FILE: "mmproj-F16.gguf"
+  TARGET_MODEL: "unsloth/gemma-4-12B-it-qat-GGUF"
+  TARGET_FILE: "gemma-4-12B-it-qat-UD-Q4_K_XL.gguf"
+  MMPROJ_MODEL: "google/gemma-4-12B-it-qat-q4_0-gguf"
+  MMPROJ_FILE: "mmproj-gemma-4-12b-it-qat-q4_0.gguf"
   DRAFTER_MODEL: "colefuoco00/gemma-4-12B-it-assistant-GGUF"
   DRAFTER_FILE: "gemma-4-12B-it-assistant-Q8_0.gguf"
   MODEL_ALIAS: "gemma-4-12b"
-  CTX_SIZE: "32768"
+  CTX_SIZE: "65536"
   THREADS: "16"
 ---
 apiVersion: apps/v1
@@ -55,17 +56,17 @@ spec:
                 touch "$SHARED_DIR/$TARGET_FILE.ok"
               fi
               if [ ! -f "$SHARED_DIR/$TARGET_FILE.ok" ]; then
-                echo "==> Downloading $TARGET_MODEL/$TARGET_FILE (~12.7 GB)"
+                echo "==> Downloading $TARGET_MODEL/$TARGET_FILE (~7.5 GB UD-Q4_K_XL QAT)"
                 eval curl -fL -C - --retry 20 --retry-delay 15 --retry-all-errors --connect-timeout 30 $HF_AUTH \
                   "https://huggingface.co/${TARGET_MODEL}/resolve/main/${TARGET_FILE}" \
                   -o "$SHARED_DIR/$TARGET_FILE"
                 touch "$SHARED_DIR/$TARGET_FILE.ok"
               fi
-              # Vision re-enabled in v1.0.2 via am17an gemma4-mtp branch (PR #23398 + #24082 stack)
+              # mmproj from Google official QAT repo (unsloth UD repo's mmproj has wrong n_embd; Google's is 12B-compatible)
               if [ ! -f "$SHARED_DIR/$MMPROJ_FILE.ok" ]; then
-                echo "==> Download mmproj F16 (175 MB)"
+                echo "==> Download mmproj from $MMPROJ_MODEL (~168 MB)"
                 eval curl -fL -C - --retry 20 --retry-delay 15 $HF_AUTH \
-                  "https://huggingface.co/${TARGET_MODEL}/resolve/main/${MMPROJ_FILE}" \
+                  "https://huggingface.co/${MMPROJ_MODEL}/resolve/main/${MMPROJ_FILE}" \
                   -o "$SHARED_DIR/$MMPROJ_FILE"
                 touch "$SHARED_DIR/$MMPROJ_FILE.ok"
               fi

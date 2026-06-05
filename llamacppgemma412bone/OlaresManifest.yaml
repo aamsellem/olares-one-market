@@ -5,10 +5,10 @@ apiVersion: 'v2'
 metadata:
   name: llamacppgemma412bone
   icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppgemma412bone.png
-  description: "Gemma 4 12B IT — Google's dense 12B model + Vision via llama.cpp upstream on Olares One"
+  description: "Gemma 4 12B QAT UD-Q4_K_XL + MTP + vision — 102.8 t/s, 8.6 GB VRAM, 65K ctx on Olares One"
   appid: llamacppgemma412bone
   title: Gemma 4 12B One
-  version: 1.0.2
+  version: 1.0.3
   categories:
     - LLM Chat
     - AI Agents
@@ -16,19 +16,19 @@ metadata:
   bento:
     family: gemma
     size_label: "12B"
-    badge: dense · MTP · vision
+    badge: QAT · MTP · vision
     hero:
-      value: "87.5 t/s"
-      label: "Gemma 4 12B + MTP n=2 + gemma4uv vision"
+      value: "102.8 t/s"
+      label: "Google QAT + Unsloth Dynamic · 8.6 GB VRAM"
     specs:
-      - { label: "context", value: "32K" }
-      - { label: "vram", value: "16 GB" }
+      - { label: "context", value: "65K" }
+      - { label: "vram", value: "8.6 GB" }
     capabilities:
       tool_calling: true
       vision:       true
       audio:        false
-      mtp:          { enabled: false }
-    stack: "am17an gemma4-mtp · Q8_0 + assistant drafter · mmproj"
+      mtp:          { enabled: true, accept: 74 }
+    stack: "am17an gemma4-mtp · QAT UD-Q4_K_XL · MTP + vision"
 entrances:
   - name: llamacppgemma412bone
     port: 8080
@@ -38,8 +38,21 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: 1.0.2
+  versionName: 1.0.3
   upgradeDescription: |
+    v1.0.3: **Gemma 4 QAT upgrade — +17% speed, -39% VRAM**. Google released Gemma 4 QAT (Quantization-Aware Training) on 2026-06-05. QAT models keep Q8_0-grade quality at Q4_0 file size by training the model to be robust to quantization noise. Unsloth published `unsloth/gemma-4-12B-it-qat-GGUF` 2h after release with their UD-Q4_K_XL imatrix variant (~7.5 GB vs prior Q8_0 12.7 GB).
+
+    **Switch**: `unsloth/gemma-4-12b-it-GGUF` Q8_0 → `unsloth/gemma-4-12B-it-qat-GGUF` UD-Q4_K_XL.
+
+    **mmproj fix**: unsloth's mmproj-BF16.gguf in the QAT repo has n_embd=2048 (E4B-sized, wrong for 12B which needs 3840). Pulled Google's official `mmproj-gemma-4-12b-it-qat-q4_0.gguf` from `google/gemma-4-12B-it-qat-q4_0-gguf` instead — loads cleanly with unsloth UD weights since both derive from the same Google QAT BF16 base.
+
+    **Bench Olares One** (3 runs Space Invaders, vision-loaded, MTP active):
+    - 107.18 / 100.89 / 100.27 t/s = **AVG 102.78 t/s** (vs v1.0.2 87.5 t/s = **+17.4%**)
+    - MTP draft acceptance: 72.5-75.0% (vs v1.0.2 84-88%; lower but excellent)
+    - GPU usage: **8.6 GB** (vs v1.0.2 ~14 GB = **-39% VRAM**)
+
+    Free VRAM bumped context **32K → 65K**, with margin to spare. Same am17an PR #23398 image, same colefuoco MTP drafter, same q8_0/q8_0 KV.
+
     v1.0.2: **+86% speedup with MTP** (Gemma 4 12B-it-assistant drafter). Custom image `aamsellem/llama-cpp-gemma4mtp:am17an-dd97604` built from am17an's gemma4-mtp branch (PR #23398) — adds Gemma 4 MTP support AND `gemma4uv` projector for vision (PR #24082) in one image. Drafter `colefuoco00/gemma-4-12B-it-assistant-GGUF` Q8_0 (465 MB) used via `--model-draft + --spec-type draft-mtp + --spec-draft-n-max 2`. Bench on Olares One (3 runs Space Invaders): 86.29 / 88.25 / 88.07 t/s = **AVG 87.5 t/s** with **84-88% MTP accept rate** vs v1.0.1 baseline 47 t/s = **1.86x speedup**. Vision (mmproj F16) re-enabled — gemma4uv projector loaded, accepts `image_url` API.
 
     v1.0.1: **text-only release** — vision (mmproj) disabled because llama.cpp b8740 (CUDA 13.1.1) does not recognize the new `gemma4uv` projector type. Gemma 4 unified vision landed in upstream PR #24082 + #24088 on 2026-06-03 but no community Docker tag has shipped with those yet. Will re-enable vision in v1.0.2 once an upstream image with gemma4uv lands (or buun-llama-cpp rebases). Bench validated on Olares One: **47 t/s avg** (3 runs Space Invaders, very stable σ < 0.1).
