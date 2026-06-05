@@ -8,7 +8,7 @@ metadata:
   description: "Qwen3.6 27B longest context — 74 t/s / 86.7% accept @ full 262K (unsloth UD-Q3_K_XL + MTP master ad27757)"
   appid: llamacppqwen36mtpone
   title: Qwen36 27B Long Context
-  version: 1.0.16
+  version: 1.0.17
   categories:
     - LLM Chat
   bento:
@@ -36,7 +36,7 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: 1.0.16
+  versionName: 1.0.17
   upgradeDescription: |
     v1.0.10: bump image `aamsellem/llama-cpp-mtp:master-ad27757` → `master-bb28c1f`. Picks up am17an's PR [#23461](https://github.com/ggml-org/llama.cpp/pull/23461) "server: free draft/MTP resources on sleep to fix VRAM leak" (validated by community Reddit thread on b9274) + #23433 "mtp: use inp_out_ids for skipping logit computation" + #23131 SWA null-buffer fix + #23287 NVIDIA backend sampling (same as v1.0.9). Bench re-validated 2026-05-22: 250.08 t/s AVG on Qwen3.6 35B-A3B (10 runs, +0.3% vs ad27757 — within noise). Real win is the VRAM leak fix for sustained agentic load. Same model bits, same flags, same context.
 
