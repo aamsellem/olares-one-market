@@ -1,6 +1,6 @@
 apiVersion: v2
-appVersion: '1.0.17'
+appVersion: '1.0.18'
 description: Qwen3.6 27B long context — 262K + MTP @ 74.3 t/s / 86.7% accept (post #23287 NVIDIA backend sampling)
 name: llamacppqwen36mtpone
 type: application
-version: '1.0.17'
+version: '1.0.18'

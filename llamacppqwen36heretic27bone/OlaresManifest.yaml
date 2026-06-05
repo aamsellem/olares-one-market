@@ -8,7 +8,7 @@ metadata:
   description: "Qwen3.6 27B longest context — 74 t/s / 86.7% accept @ full 262K (unsloth UD-Q3_K_XL + MTP master ad27757)"
   appid: llamacppqwen36heretic27bone
   title: Qwen36 27B Long Context
-  version: 1.0.2
+  version: 1.0.3
   categories:
     - LLM Chat
   bento:
@@ -36,8 +36,10 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: 1.0.2
+  versionName: 1.0.3
   upgradeDescription: |
+    v1.0.3: **rollback BeeLlama → buun (preemptive Hermes regression fix)**. v1.0.2 swapped to `ghcr.io/anbeeld/beellama.cpp:server-cuda13-v0.3.1` for the maintained fork. A Discord user reported the same swap broke Hermes tool-calling on the sibling `llamacppqwen36a3bone` v2.0.6 (rolled back as v2.0.7). Reverting this chart's image to the known-good `aamsellem/buun-llama-cpp:87c351d2` proactively to avoid the same regression — same asym q8_0/turbo4 KV + MTP + `--reasoning off` config as v1.0.2, just the buun image instead of BeeLlama. No bench delta expected (buun is the original source BeeLlama forked from).
+
     v1.0.10: bump image `aamsellem/llama-cpp-mtp:master-ad27757` → `master-bb28c1f`. Picks up am17an's PR [#23461](https://github.com/ggml-org/llama.cpp/pull/23461) "server: free draft/MTP resources on sleep to fix VRAM leak" (validated by community Reddit thread on b9274) + #23433 "mtp: use inp_out_ids for skipping logit computation" + #23131 SWA null-buffer fix + #23287 NVIDIA backend sampling (same as v1.0.9). Bench re-validated 2026-05-22: 250.08 t/s AVG on Qwen3.6 35B-A3B (10 runs, +0.3% vs ad27757 — within noise). Real win is the VRAM leak fix for sustained agentic load. Same model bits, same flags, same context.
 
     v1.0.9: SWAP to official ggml-org/llama.cpp master HEAD ad27757 (post b9219), drop custom am17an branch image. PR #22673 (MTP support) merged upstream 2026-05-16, then iterated on through three follow-up PRs we now pick up: #23269 (ggerganov 2026-05-19 "MTP clean-up") changed the default `--spec-draft-n-max` from 16 → 3, made `--spec-draft-p-min` functional again, fixed graph reuse for MTP drafting graphs (`batch.token && batch.embd` path), fixed ngram-k4v params propagation, and made all spec implementations see the accepted tokens (improving acceptance when chaining). #23287 (gaugarg-nv 2026-05-20 "Move to backend sampling for MTP draft path") is the NVIDIA-authored optimization that moves the draft-path sampling onto the CUDA backend — this is the headline. #22522 (Programmatic Dependent Launch for Hopper+ GPUs, sm_90+/sm_120 included) ships in this build too. Custom image `aamsellem/llama-cpp-mtp:master-ad27757` for amd64+CUDA13+sm_120 (Blackwell consumer mobile), built against ggml-org/llama.cpp upstream-pure (no fork patches). Includes the `-lcuda` linker workaround pending upstream issue [#23357](https://github.com/ggml-org/llama.cpp/issues/23357) which we filed against the same `CUDA::cuda_driver` PRIVATE-scope propagation bug Anbeeld already fixed on his BeeLlama fork (Anbeeld [#18](https://github.com/Anbeeld/beellama.cpp/issues/18)).
