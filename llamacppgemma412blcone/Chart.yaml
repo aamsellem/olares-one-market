@@ -1,0 +1,6 @@
+apiVersion: v2
+appVersion: '1.0.0'
+description: Gemma 4 12B QAT + KVarN4 long-context — 262K full native + vision, 87.8 t/s on Olares One
+name: llamacppgemma412blcone
+type: application
+version: '1.0.0'

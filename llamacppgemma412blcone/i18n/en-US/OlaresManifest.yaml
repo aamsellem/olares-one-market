@@ -1,0 +1,21 @@
+metadata:
+  title: Gemma 4 12B Long Context One
+  description: "Gemma 4 12B QAT + KVarN4 long-context — 262K full native + vision, 87.8 t/s on Olares One"
+
+spec:
+  fullDescription: |
+    Long-context variant of the Gemma 4 12B Olares One stack. Full 262K native context window with vision + tool calling intact, sustained 87.8 t/s decode on consumer Blackwell mobile.
+
+    KVarN k4v2 KV cache compression (Huawei CSL 2026-06-04, arXiv 2606.03458) compresses keys to 4-bit and values to 2-bit with FP16-level accuracy. Anbeeld integrated it into BeeLlama v0.3.2-preview the same day.
+
+    Sibling chart `llamacppgemma412bone` v1.0.3 prioritizes speed (102.8 t/s at 65K with MTP). This chart prioritizes context: 262K native, 87.8 t/s, vision intact, 12 GB VRAM.
+
+    Stack:
+    - Image: `ghcr.io/anbeeld/beellama.cpp:server-cuda13-preview-v0.3.2`
+    - Model: `unsloth/gemma-4-12B-it-qat-GGUF` UD-Q4_K_XL (6.4 GB)
+    - Mmproj: Google's official `mmproj-gemma-4-12b-it-qat-q4_0.gguf` (167 MB)
+    - KV: `--cache-type-k kvarn4 --cache-type-v kvarn4` (k4v2_g128 reference preset)
+    - 262K context, flash attention, jinja templates
+    - OpenAI-compatible API on port 8080
+
+    Use cases: long-document indexing, multi-document RAG, full codebase context, long agent traces. Trade: no MTP speculative decoding (waiting on am17an PR #23398 merge to combine MTP + KVarN).
