@@ -39,7 +39,7 @@ spec:
     spec:
       containers:
         - name: gemma412b-server
-          image: "docker.io/aamsellem/llamacpp-gemma4mtp:main-postmerge-cuda131"
+          image: "docker.io/aamsellem/llamacpp-gemma4mtp:main-postmerge-cuda131-r2"
           command: ["/bin/bash", "-c"]
           args:
             - |

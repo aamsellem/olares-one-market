@@ -8,7 +8,7 @@ metadata:
   description: "Gemma 4 12B QAT UD-Q4_K_XL + upstream llama.cpp Gemma 4 MTP + vision — 169.8 t/s @ 91% accept, 8.6 GB VRAM, 65K ctx on Olares One"
   appid: llamacppgemma412bone
   title: Gemma 4 12B One
-  version: 1.0.5
+  version: 1.0.6
   categories:
     - LLM Chat
     - AI Agents
@@ -38,8 +38,12 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: 1.0.5
+  versionName: 1.0.6
   upgradeDescription: |
+    v1.0.6: **fix CrashLoopBackOff on fresh install** — Discord-reported bug. The custom image v1.0.5 (`aamsellem/llamacpp-gemma4mtp:main-postmerge-cuda131`) shipped without the `curl` CLI binary in the runtime stage (only `libcurl4` shared library). The chart's startup script uses `curl` to fetch the GGUF models from HuggingFace on first launch → fails immediately with `curl: command not found` → CrashLoopBackOff before the server can boot. My own install didn't hit it because the models were already cached from v1.0.4 (`.ok` markers existed, download blocks skipped).
+
+    Fix: rebuilt image as `:main-postmerge-cuda131-r2` with `apt-get install curl` added to the runtime stage. Same llama.cpp main HEAD source, same speed (169.76 t/s), same everything else — just the missing CLI binary.
+
     v1.0.5: **+67% speed via llama.cpp Gemma 4 MTP upstream merge** — swap our custom `aamsellem/llama-cpp-gemma4mtp:am17an-dd97604` (snapshot of am17an's WIP PR #23398 branch) → `aamsellem/llamacpp-gemma4mtp:main-postmerge-cuda131` (built from ggml-org/llama.cpp main HEAD after PR #23398 merged 2026-06-07T12:50 UTC).
 
     **What's new in upstream main vs the am17an snapshot we had**:
