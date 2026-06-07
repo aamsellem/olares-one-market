@@ -5,10 +5,10 @@ apiVersion: 'v2'
 metadata:
   name: llamacppgemma412bone
   icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppgemma412bone.png
-  description: "Gemma 4 12B QAT UD-Q4_K_XL + MTP + vision — 102.8 t/s, 8.6 GB VRAM, 65K ctx on Olares One"
+  description: "Gemma 4 12B QAT UD-Q4_K_XL + QAT-matched MTP drafter + vision — 101.7 t/s @ 91.4% accept, 8.6 GB VRAM, 65K ctx on Olares One"
   appid: llamacppgemma412bone
   title: Gemma 4 12B One
-  version: 1.0.3
+  version: 1.0.4
   categories:
     - LLM Chat
     - AI Agents
@@ -16,10 +16,10 @@ metadata:
   bento:
     family: gemma
     size_label: "12B"
-    badge: QAT · MTP · vision
+    badge: QAT · MTP 91% · vision
     hero:
-      value: "102.8 t/s"
-      label: "Google QAT + Unsloth Dynamic · 8.6 GB VRAM"
+      value: "101.7 t/s"
+      label: "QAT target + Google QAT drafter · 91% accept"
     specs:
       - { label: "context", value: "65K" }
       - { label: "vram", value: "8.6 GB" }
@@ -27,8 +27,8 @@ metadata:
       tool_calling: true
       vision:       true
       audio:        false
-      mtp:          { enabled: true, accept: 74 }
-    stack: "am17an gemma4-mtp · QAT UD-Q4_K_XL · MTP + vision"
+      mtp:          { enabled: true, accept: 91 }
+    stack: "am17an gemma4-mtp · QAT UD-Q4_K_XL · QAT-matched drafter"
 entrances:
   - name: llamacppgemma412bone
     port: 8080
@@ -38,8 +38,23 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: 1.0.3
+  versionName: 1.0.4
   upgradeDescription: |
+    v1.0.4: **QAT-matched MTP drafter** — swap `colefuoco00/gemma-4-12B-it-assistant-GGUF` Q8_0 (community, non-QAT base) → `Janvitos/gemma-4-12B-it-qat-assistant-MTP-Q8_0-GGUF` Q8_0 (community GGUF conversion of Google's official `google/gemma-4-12B-it-qat-q4_0-unquantized-assistant` checkpoint).
+
+    Both drafters share the same `gemma4-assistant` GGUF architecture (with hyphen) which is what our am17an `dd97604` image accepts. ji-farthing's `gemma4_mtp` (ik_llama convention) and cortexist's `gemma4_assistant` (underscore, newer am17an convention) both fail to load on our snapshot — verified empirically.
+
+    **Bench Olares One** (3 runs Space Invaders @ n_max=2, same config as v1.0.3 except drafter):
+    - 103.97 / 102.73 / 98.40 t/s = **AVG 101.7 t/s** (vs v1.0.3 102.78 t/s = noise -1%)
+    - **MTP draft acceptance: 91.4%** (vs v1.0.3 colefuoco 72.5-75.0% = **+18 pts**)
+
+    The +18 pts accept rate is the headline: same speed, but the drafter's tokens now match the target's distribution 91% of the time vs 73%. That translates to:
+    - Fewer wasted compute cycles on rejected drafts
+    - Lower latency variance
+    - More reliable structured outputs / tool calling (drafted tool-call structures align better with what target would emit)
+
+    Tested `--spec-draft-n-max 4` (Janvitos README's suggested value) → regressed to 98.6 t/s with 82% accept. Higher n reduces deep-position accept rate faster than the extra n adds throughput. **n=2 is the sweet spot on this hardware**.
+
     v1.0.3: **Gemma 4 QAT upgrade — +17% speed, -39% VRAM**. Google released Gemma 4 QAT (Quantization-Aware Training) on 2026-06-05. QAT models keep Q8_0-grade quality at Q4_0 file size by training the model to be robust to quantization noise. Unsloth published `unsloth/gemma-4-12B-it-qat-GGUF` 2h after release with their UD-Q4_K_XL imatrix variant (~7.5 GB vs prior Q8_0 12.7 GB).
 
     **Switch**: `unsloth/gemma-4-12b-it-GGUF` Q8_0 → `unsloth/gemma-4-12B-it-qat-GGUF` UD-Q4_K_XL.
