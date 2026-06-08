@@ -9,6 +9,8 @@ data:
   MODEL_FILE: "gemma-4-E4B-it-Q4_K_M.gguf"
   MMPROJ_URL: "https://huggingface.co/unsloth/gemma-4-E4B-it-GGUF/resolve/main/mmproj-BF16.gguf"
   MMPROJ_FILE: "gemma-4-E4B-it-mmproj-BF16.gguf"
+  DRAFTER_URL: "https://huggingface.co/NicklausCairns/gemma-4-E4B-it-qat-assistant-MTP-Q8_0/resolve/main/gemma-4-E4B-it-qat-assistant-MTP-Q8_0.gguf"
+  DRAFTER_FILE: "gemma-4-E4B-it-qat-assistant-MTP-Q8_0.gguf"
   MODEL_ALIAS: "gemma-4-e4b-audio"
   CONTEXT_SIZE: "32768"
   N_GPU_LAYERS: "99"
@@ -60,6 +62,14 @@ spec:
                 wget -O "$MMPROJ_PATH.tmp" "$MMPROJ_URL" && mv "$MMPROJ_PATH.tmp" "$MMPROJ_PATH"
                 ls -lh "$MMPROJ_PATH"
               fi
+              DRAFTER_PATH="/models/${DRAFTER_FILE}"
+              if [ -f "$DRAFTER_PATH" ]; then
+                echo "drafter already downloaded: $DRAFTER_PATH"; ls -lh "$DRAFTER_PATH"
+              else
+                echo "Downloading MTP drafter from $DRAFTER_URL ..."
+                wget -O "$DRAFTER_PATH.tmp" "$DRAFTER_URL" && mv "$DRAFTER_PATH.tmp" "$DRAFTER_PATH"
+                ls -lh "$DRAFTER_PATH"
+              fi
           envFrom:
             - configMapRef:
                 name: llamacpp-gemma4audio-env
@@ -75,8 +85,8 @@ spec:
               name: models
       containers:
         - name: llamacpp-server
-          image: "ghcr.io/ggml-org/llama.cpp:server-cuda13-b9101"
-          command: ["llama-server"]
+          image: "docker.io/aamsellem/llamacpp-gemma4mtp:main-postmerge-cuda131-r3"
+          command: ["/app/llama-server"]
           args:
             - "--host"
             - "0.0.0.0"
@@ -86,6 +96,12 @@ spec:
             - "/models/$(MODEL_FILE)"
             - "--mmproj"
             - "/models/$(MMPROJ_FILE)"
+            - "--model-draft"
+            - "/models/$(DRAFTER_FILE)"
+            - "--spec-type"
+            - "draft-mtp"
+            - "--spec-draft-n-max"
+            - "2"
             - "--alias"
             - "$(MODEL_ALIAS)"
             - "--ctx-size"
@@ -97,7 +113,7 @@ spec:
             - "--batch-size"
             - "512"
             - "--ubatch-size"
-            - "512"
+            - "2048"
             - "--parallel"
             - "1"
             - "--mlock"
@@ -105,6 +121,8 @@ spec:
             - "on"
             - "--jinja"
             - "--no-context-shift"
+            - "--reasoning"
+            - "off"
           env:
             - name: GGML_CUDA_GRAPH_OPT
               value: "1"
