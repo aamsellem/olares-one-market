@@ -34,6 +34,18 @@ spec:
         io.kompose.network/chrome-default: "true"
         io.kompose.service: llamacppqwen36a3bone
     spec:
+      initContainers:
+        # Fix hostPath perms — /olares/share/ai/model is created uid 1000 mode 755 on fresh
+        # Olares installs; non-root appuser in the main image can't write to it.
+        # Use docker.io/alpine (trusted registry, allowed runAsUser:0 per Olares OPA policy).
+        - name: fix-shared-perms
+          image: "docker.io/alpine:3.20"
+          command: ["sh", "-c", "mkdir -p /shared-models/llms && chmod -R 777 /shared-models && echo perms-fixed"]
+          securityContext:
+            runAsUser: 0
+          volumeMounts:
+            - mountPath: "/shared-models"
+              name: shared-models
       containers:
         - name: llamacpp-mtp-server
           image: "docker.io/aamsellem/buun-llama-cpp:87c351d2"

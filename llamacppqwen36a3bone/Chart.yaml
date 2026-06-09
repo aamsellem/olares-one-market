@@ -1,6 +1,6 @@
 apiVersion: v2
-appVersion: '2.0.7'
+appVersion: '2.0.8'
 description: Qwen3.6 35B-A3B + MTP + Vision — 243 t/s @ FULL 262K context with vision on Olares One (mmproj-gpu-swap unlocks vision on champion)
 name: llamacppqwen36a3bone
 type: application
-version: '2.0.7'
+version: '2.0.8'
