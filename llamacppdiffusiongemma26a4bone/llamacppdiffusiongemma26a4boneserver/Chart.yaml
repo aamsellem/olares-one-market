@@ -1,0 +1,6 @@
+apiVersion: v2
+appVersion: '1.0.0'
+description: llama.cpp server for DiffusionGemma 26B-A4B Instruct
+name: llamacppdiffusiongemma26a4boneserver
+type: application
+version: '1.0.0'

@@ -1,0 +1,104 @@
+---
+olaresManifest.version: '0.10.0'
+olaresManifest.type: app
+apiVersion: 'v2'
+metadata:
+  name: llamacppdiffusiongemma26a4bone
+  icon: https://raw.githubusercontent.com/ggerganov/llama.cpp/master/docs/images/logo2.png
+  description: "DiffusionGemma 26B-A4B Instruct served via llama.cpp"
+  appid: llamacppdiffusiongemma26a4bone
+  title: DiffusionGemma 26B-A4B Instruct UD-Q4_K_XL (llama.cpp)
+  version: '1.0.0'
+  categories:
+    - AI
+sharedEntrances:
+  - name: llamacppdiffusiongemma26a4bone
+    host: sharedentrances-llamacpp
+    port: 0
+    title: DiffusionGemma 26B-A4B Instruct (llama.cpp)
+    invisible: true
+    authLevel: internal
+    icon: https://raw.githubusercontent.com/ggerganov/llama.cpp/master/docs/images/logo2.png
+entrances:
+  - name: llamacppdiffusiongemma26a4boneclient
+    port: 8080
+    host: llamacppdiffusiongemma26a4boneclient
+    title: DiffusionGemma 26B-A4B Instruct UD-Q4_K_XL (llama.cpp)
+    icon: https://raw.githubusercontent.com/ggerganov/llama.cpp/master/docs/images/logo2.png
+    openMethod: window
+    authLevel: internal
+spec:
+  versionName: '1.0.0'
+  fullDescription: |
+    ## IMPORTANT NOTE ##
+    This is a shared app. Once installed by the Olares Admin, all users in the cluster can use it through reference app.
+
+    ## MODEL ##
+    DiffusionGemma 26B-A4B Instruct served via llama.cpp.
+    Auto-registers with LiteLLM Gateway if installed.
+
+  developer: ggerganov
+  website: https://github.com/ggerganov/llama.cpp
+  submitter: orales-market
+  locale:
+    - en-US
+  license:
+    - text: MIT
+      url: https://github.com/ggerganov/llama.cpp/blob/master/LICENSE
+
+  {{- if and .Values.admin .Values.bfl.username (eq .Values.admin .Values.bfl.username) }}
+  limitedCpu: 8000m
+  requiredCpu: 1000m
+  requiredDisk: 15Gi
+  limitedDisk: 30Gi
+  limitedMemory: 20Gi
+  requiredMemory: 4Gi
+  requiredGpu: 1Gi
+  limitedGpu: 12Gi
+  {{- else }}
+  requiredMemory: 64Mi
+  limitedMemory: 800Mi
+  requiredDisk: 50Mi
+  limitedDisk: 200Mi
+  requiredCpu: 10m
+  limitedCpu: 800m
+  {{- end }}
+
+  supportArch:
+    - amd64
+    - arm64
+
+  subCharts:
+  - name: llamacppdiffusiongemma26a4boneserver
+    shared: true
+  - name: llamacppdiffusiongemma26a4bone
+permission:
+  appData: true
+  appCache: true
+  userData:
+    - Home/LlamaCpp
+options:
+  apiTimeout: 0
+  appScope:
+  {{- if and .Values.admin .Values.bfl.username (eq .Values.admin .Values.bfl.username) }}
+    clusterScoped: true
+    appRef:
+      - llamacppdiffusiongemma26a4bone
+  {{- else }}
+    clusterScoped: false
+  {{- end }}
+  dependencies:
+    - name: olares
+      version: '>=1.12.3-0'
+      type: system
+  {{- if and .Values.admin .Values.bfl.username (eq .Values.admin .Values.bfl.username) }}
+    - name: litellmgateway
+      type: application
+      version: '>=1.0.0'
+      mandatory: false
+  {{- else }}
+    - name: llamacppdiffusiongemma26a4bone
+      type: application
+      version: '>=1.0.0'
+      mandatory: true
+  {{- end }}

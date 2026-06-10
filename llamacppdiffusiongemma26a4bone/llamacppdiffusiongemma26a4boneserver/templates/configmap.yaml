@@ -1,0 +1,20 @@
+{{- if and .Values.admin .Values.bfl.username (eq .Values.admin .Values.bfl.username) }}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: llamacpp-env
+  namespace: "{{ .Release.Namespace }}"
+  labels:
+    app: llamacppdiffusiongemma26a4bone
+    backend: llamacpp
+data:
+  MODEL_URL: "https://huggingface.co/unsloth/diffusiongemma-26B-A4B-it-GGUF/resolve/main/diffusiongemma-26B-A4B-it-UD-Q4_K_XL.gguf"
+  MODEL_FILE: "diffusiongemma-26B-A4B-it-UD-Q4_K_XL.gguf"
+  MODEL_ALIAS: "diffusion-gemma-26b-a4b"
+  CONTEXT_SIZE: "32768"
+  N_GPU_LAYERS: "99"
+  THREADS: "4"
+  LITELLM_MODEL_NAME: "diffusion-gemma-26b-a4b"
+  LITELLM_SERVICE_URL: "http://litellm.litellmgatewayserver-shared:4000"
+{{- end }}
