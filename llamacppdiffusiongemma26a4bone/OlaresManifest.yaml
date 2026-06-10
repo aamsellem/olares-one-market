@@ -3,27 +3,28 @@ olaresManifest.version: '0.10.0'
 olaresManifest.type: app
 apiVersion: 'v2'
 metadata:
-  name: llamacppdiffusiongemma26a4bone
+  name: vllmdiffusiongemma26a4bone
   icon: https://raw.githubusercontent.com/ggerganov/llama.cpp/master/docs/images/logo2.png
-  description: "DiffusionGemma 26B-A4B Instruct served via llama.cpp"
-  appid: llamacppdiffusiongemma26a4bone
-  title: DiffusionGemma 26B-A4B Instruct UD-Q4_K_XL (llama.cpp)
+  description: "DiffusionGemma 26B MTP One (vLLM) — High-throughput Champion-tier deployment"
+  appid: vllmdiffusiongemma26a4bone
+  title: DiffusionGemma 26B MTP One
   version: '1.0.0'
   categories:
     - AI
+    - Agents
 sharedEntrances:
-  - name: llamacppdiffusiongemma26a4bone
-    host: sharedentrances-llamacpp
+  - name: vllmdiffusiongemma26a4bone
+    host: sharedentrances-vllm
     port: 0
-    title: DiffusionGemma 26B-A4B Instruct (llama.cpp)
+    title: DiffusionGemma 26B MTP (vLLM)
     invisible: true
     authLevel: internal
     icon: https://raw.githubusercontent.com/ggerganov/llama.cpp/master/docs/images/logo2.png
 entrances:
-  - name: llamacppdiffusiongemma26a4boneclient
-    port: 8080
-    host: llamacppdiffusiongemma26a4boneclient
-    title: DiffusionGemma 26B-A4B Instruct UD-Q4_K_XL (llama.cpp)
+  - name: vllmdiffusiongemma26a4boneclient
+    port: 8000
+    host: vllmdiffusiongemma26a4boneclient
+    title: DiffusionGemma 26B MTP One
     icon: https://raw.githubusercontent.com/ggerganov/llama.cpp/master/docs/images/logo2.png
     openMethod: window
     authLevel: internal
@@ -31,14 +32,15 @@ spec:
   versionName: '1.0.0'
   fullDescription: |
     ## IMPORTANT NOTE ##
-    This is a shared app. Once installed by the Olares Admin, all users in the cluster can use it through reference app.
+    This is a high-performance shared app. Once installed by the Olares Admin, all users in the cluster can use it through reference app.
 
     ## MODEL ##
-    DiffusionGemma 26B-A4B Instruct served via llama.cpp.
+    DiffusionGemma 26B-A4B Instruct served via vLLM.
+    Optimized with Multi-Token Prediction (MTP) for champion-tier throughput.
     Auto-registers with LiteLLM Gateway if installed.
 
-  developer: ggerganov
-  website: https://github.com/ggerganov/llama.cpp
+  developer: orales-market
+  website: https://github.com/aamsellem/olares-one-market
   submitter: orales-market
   locale:
     - en-US
@@ -69,9 +71,9 @@ spec:
     - arm64
 
   subCharts:
-  - name: llamacppdiffusiongemma26a4boneserver
+  - name: vllmdiffusiongemma26a4boneserver
     shared: true
-  - name: llamacppdiffusiongemma26a4bone
+  - name: vllmdiffusiongemma26a4bone
 permission:
   appData: true
   appCache: true
@@ -83,7 +85,7 @@ options:
   {{- if and .Values.admin .Values.bfl.username (eq .Values.admin .Values.bfl.username) }}
     clusterScoped: true
     appRef:
-      - llamacppdiffusiongemma26a4bone
+      - vllmdiffusiongemma26a4bone
   {{- else }}
     clusterScoped: false
   {{- end }}
@@ -97,7 +99,7 @@ options:
       version: '>=1.0.0'
       mandatory: false
   {{- else }}
-    - name: llamacppdiffusiongemma26a4bone
+    - name: vllmdiffusiongemma26a4bone
       type: application
       version: '>=1.0.0'
       mandatory: true
