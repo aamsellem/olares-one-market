@@ -5,10 +5,10 @@ apiVersion: 'v2'
 metadata:
   name: llamacppgemma4audione
   icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppgemma4audione.png
-  description: "Gemma 4 E4B + audio + MTP — 288.4 t/s on Olares One (6.1x vs baseline 47 t/s)"
+  description: "Gemma 4 E4B + audio + bundled MTP drafter (Unsloth) — 288.4 t/s on Olares One (6.1x vs baseline 47 t/s)"
   appid: llamacppgemma4audione
   title: Gemma 4 Audio One
-  version: '1.1.1'
+  version: '1.1.2'
   categories:
     - Audio
   bento:
@@ -36,8 +36,10 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.1.1'
+  versionName: '1.1.2'
   upgradeDescription: |
+    v1.1.2: **swap drafter to Unsloth bundled MTP** (uploaded 2026-06-09 15:12 UTC). Unsloth re-uploaded `unsloth/gemma-4-E4B-it-qat-GGUF` with the MTP drafter bundled in-repo: `mtp-gemma-4-E4B-it.gguf` (94 MB, same size and arch as NicklausCairns drafter we used in v1.1.1). Cleaner source (one official Unsloth repo). No perf change expected — same Google-derived drafter, same custom main HEAD image r3, same `--flash-attn off` workaround. Bench reference stays 288.4 t/s, 76% MTP accept.
+
     v1.1.1: **fix FA crash + bench validated = 288.4 t/s (+513% vs v1.0.1 baseline 47 t/s)**. v1.1.0's `--flash-attn on` flag triggered a CUDA crash in `ggml_cuda_flash_attn_ext` (fattn.cu:110) on the combo Gemma 4 E4B + audio mmproj + MTP draft. Root cause likely the E4B's novel KV-layer-sharing optimization (layers 0-2 share with layer 40, layer 3 shares with 41) interacting badly with FA + spec-decode. Workaround: disable FA (`--flash-attn off`). Bench Olares One (3 runs Space Invaders): 289.32 / 295.22 / 280.51 t/s = **AVG 288.4 t/s** with MTP draft acceptance 72-79% (AVG 76%). VRAM ~7 GB total.
 
     v1.1.0: **add MTP speculative decoding via PR #24282** (Gemma 4 E2B/E4B MTP assistants merged into llama.cpp upstream 2026-06-08T20:48 UTC by max-krasnyansky). Custom image rebuilt from main HEAD post-merge on CUDA 13.1.1 base (Olares driver cap) as `aamsellem/llamacpp-gemma4mtp:main-postmerge-cuda131-r3`. Drafter: `NicklausCairns/gemma-4-E4B-it-qat-assistant-MTP-Q8_0-GGUF` (94 MB Q8_0 of Google's official QAT assistant checkpoint). Args added: `--model-draft + --spec-type draft-mtp + --spec-draft-n-max 2 + --ubatch-size 2048 + --reasoning off`. Same audio mmproj BF16, same 32K context, same Q4_K_M target. Bench TBD on Olares One — expected 1.5-2× speedup over v1.0.1 baseline 47 t/s.

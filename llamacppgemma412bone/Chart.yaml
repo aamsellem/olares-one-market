@@ -1,6 +1,6 @@
 apiVersion: v2
-appVersion: '1.0.6'
-description: Gemma 4 12B QAT UD-Q4_K_XL + upstream llama.cpp Gemma 4 MTP + vision — 169.8 t/s @ 91% accept, 8.6 GB VRAM, 65K ctx on Olares One
+appVersion: '1.0.7'
+description: Gemma 4 12B QAT UD-Q4_K_XL + bundled MTP drafter (Unsloth) + vision — 169.8 t/s @ 91% accept, 8.6 GB VRAM, 65K ctx on Olares One
 name: llamacppgemma412bone
 type: application
-version: '1.0.6'
+version: '1.0.7'
