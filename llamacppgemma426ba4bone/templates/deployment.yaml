@@ -1,0 +1,170 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: llamacpp-gemma426ba4b-env
+  namespace: "{{ .Release.Namespace }}"
+data:
+  TARGET_MODEL: "unsloth/gemma-4-26B-A4B-it-qat-GGUF"
+  TARGET_FILE: "gemma-4-26B-A4B-it-qat-UD-Q4_K_XL.gguf"
+  MMPROJ_MODEL: "unsloth/gemma-4-26B-A4B-it-qat-GGUF"
+  MMPROJ_FILE: "mmproj-BF16.gguf"
+  DRAFTER_MODEL: "unsloth/gemma-4-26B-A4B-it-qat-GGUF"
+  DRAFTER_FILE: "mtp-gemma-4-26B-A4B-it.gguf"
+  MODEL_ALIAS: "gemma-4-26b-a4b"
+  CTX_SIZE: "32768"
+  THREADS: "16"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    io.kompose.service: llamacppgemma426ba4bone
+  name: llamacppgemma426ba4bone
+  namespace: "{{ .Release.Namespace }}"
+  annotations:
+    applications.app.bytetrade.io/gpu-inject: "true"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: llamacppgemma426ba4bone
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        io.kompose.network/chrome-default: "true"
+        io.kompose.service: llamacppgemma426ba4bone
+    spec:
+      initContainers:
+        # Fix hostPath perms — /olares/share/ai/model is created uid 1000 mode 755 on fresh
+        # Olares installs; non-root appuser in the main image can't write to it.
+        - name: fix-shared-perms
+          image: "docker.io/alpine:3.20"
+          command: ["sh", "-c", "mkdir -p /shared-models/llms && chmod -R 777 /shared-models && echo perms-fixed"]
+          securityContext:
+            runAsUser: 0
+          volumeMounts:
+            - mountPath: "/shared-models"
+              name: shared-models
+      containers:
+        - name: gemma426ba4b-server
+          image: "docker.io/aamsellem/llamacpp-gemma4mtp:main-postmerge-cuda131-r3"
+          command: ["/bin/bash", "-c"]
+          args:
+            - |
+              set -e
+              MODELS_DIR=${MODELS_DIR:-/models}
+              SHARED_DIR=${SHARED_DIR:-/shared-models/llms}
+              mkdir -p "$MODELS_DIR" "$SHARED_DIR"
+              HF_AUTH=""
+              if [ -n "$HF_TOKEN" ]; then HF_AUTH="-H \"Authorization: Bearer $HF_TOKEN\""; fi
+              if [ ! -f "$SHARED_DIR/$TARGET_FILE.ok" ]; then
+                echo "==> Downloading $TARGET_MODEL/$TARGET_FILE (~13.6 GB UD-Q4_K_XL QAT)"
+                eval curl -fL -C - --retry 20 --retry-delay 15 --retry-all-errors --connect-timeout 30 $HF_AUTH \
+                  "https://huggingface.co/${TARGET_MODEL}/resolve/main/${TARGET_FILE}" \
+                  -o "$SHARED_DIR/$TARGET_FILE"
+                touch "$SHARED_DIR/$TARGET_FILE.ok"
+              fi
+              if [ ! -f "$SHARED_DIR/$MMPROJ_FILE.ok" ]; then
+                echo "==> Download mmproj BF16 (~1.14 GB)"
+                eval curl -fL -C - --retry 20 --retry-delay 15 $HF_AUTH \
+                  "https://huggingface.co/${MMPROJ_MODEL}/resolve/main/${MMPROJ_FILE}" \
+                  -o "$SHARED_DIR/$MMPROJ_FILE"
+                touch "$SHARED_DIR/$MMPROJ_FILE.ok"
+              fi
+              if [ ! -f "$SHARED_DIR/$DRAFTER_FILE.ok" ]; then
+                echo "==> Download MTP drafter (~240 MB)"
+                eval curl -fL -C - --retry 20 --retry-delay 15 $HF_AUTH \
+                  "https://huggingface.co/${DRAFTER_MODEL}/resolve/main/${DRAFTER_FILE}" \
+                  -o "$SHARED_DIR/$DRAFTER_FILE"
+                touch "$SHARED_DIR/$DRAFTER_FILE.ok"
+              fi
+              exec /app/llama-server \
+                --model "$SHARED_DIR/$TARGET_FILE" \
+                --mmproj "$SHARED_DIR/$MMPROJ_FILE" \
+                --model-draft "$SHARED_DIR/$DRAFTER_FILE" \
+                --spec-type draft-mtp \
+                --spec-draft-n-max 2 \
+                --alias "$MODEL_ALIAS" \
+                --host 0.0.0.0 --port 8080 \
+                --n-gpu-layers 99 \
+                --ctx-size "${CTX_SIZE:-32768}" \
+                --threads "${THREADS:-16}" \
+                --cache-type-k q8_0 --cache-type-v q8_0 \
+                --batch-size 512 --ubatch-size 2048 \
+                --parallel 1 \
+                --flash-attn on --jinja \
+                --reasoning off
+          envFrom:
+            - configMapRef:
+                name: llamacpp-gemma426ba4b-env
+          env:
+            - name: HF_HOME
+              value: "/models/huggingface"
+            - name: HF_TOKEN
+              value: "{{ .Values.olaresEnv.OLARES_USER_HUGGINGFACE_TOKEN }}"
+            - name: MODELS_DIR
+              value: "/models"
+            - name: CUDA_DEVICE_MEMORY_LIMIT_0
+              value: "22000m"
+          ports:
+            - containerPort: 8080
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 600
+            timeoutSeconds: 10
+            periodSeconds: 30
+            failureThreshold: 5
+          startupProbe:
+            httpGet:
+              path: /health
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 60
+            timeoutSeconds: 10
+            periodSeconds: 30
+            failureThreshold: 720
+          resources:
+            limits:
+              cpu: "16"
+              memory: 30Gi
+              nvidia.com/gpu: "1"
+            requests:
+              cpu: 4000m
+              memory: 16Gi
+              nvidia.com/gpu: "1"
+          volumeMounts:
+            - mountPath: "/models"
+              name: models
+            - mountPath: "/shared-models"
+              name: shared-models
+      volumes:
+        - name: models
+          hostPath:
+            path: "{{ .Values.userspace.appData }}/models"
+            type: DirectoryOrCreate
+        - name: shared-models
+          hostPath:
+            path: "/olares/share/ai/model"
+            type: DirectoryOrCreate
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    io.kompose.service: llamacppgemma426ba4bone
+  name: llamacppgemma426ba4bone
+  namespace: "{{ .Release.Namespace }}"
+spec:
+  ports:
+    - name: "gemma426ba4b"
+      port: 8080
+      targetPort: 8080
+  selector:
+    io.kompose.service: llamacppgemma426ba4bone

@@ -1,0 +1,17 @@
+metadata:
+  title: Gemma 4 26B-A4B One
+  description: "Google's Gemma 4 26B-A4B QAT MoE + vision + bundled MTP drafter via llama.cpp main HEAD — Olares One"
+
+spec:
+  fullDescription: |
+    Google Gemma 4 26B-A4B QAT — the Mixture-of-Experts variant of Gemma 4. 26B total parameters, 4B active per token. QAT (Quantization-Aware Training) gives Q8_0-grade quality at Q4_0 file size.
+
+    Stack:
+    - Custom image `aamsellem/llamacpp-gemma4mtp:main-postmerge-cuda131-r3` (llama.cpp main HEAD on CUDA 13.1.1 — Olares driver caps at 13.1)
+    - Target: `unsloth/gemma-4-26B-A4B-it-qat-GGUF/gemma-4-26B-A4B-it-qat-UD-Q4_K_XL.gguf` (~13.6 GB)
+    - Vision: mmproj BF16 (~1.14 GB) from same Unsloth QAT repo
+    - MTP drafter: `mtp-gemma-4-26B-A4B-it.gguf` (~240 MB, bundled in same repo)
+    - 32K context, q8_0/q8_0 KV cache, flash attention, jinja, MTP n=2
+    - OpenAI-compatible API at port 8080
+
+    Why MoE: 26B reasoning capacity with 4B-dense decode speed. Best quality-per-VRAM-per-tok/s on 24 GB consumer Blackwell. Bench TBD on Olares One.

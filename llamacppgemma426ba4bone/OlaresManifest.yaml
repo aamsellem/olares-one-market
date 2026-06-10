@@ -1,0 +1,113 @@
+---
+olaresManifest.version: '0.10.0'
+olaresManifest.type: app
+apiVersion: 'v2'
+metadata:
+  name: llamacppgemma426ba4bone
+  icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppgemma426ba4bone.png
+  description: "Gemma 4 26B-A4B QAT UD-Q4_K_XL + bundled MTP drafter (Unsloth) + vision via llama.cpp main HEAD — Olares One"
+  appid: llamacppgemma426ba4bone
+  title: Gemma 4 26B-A4B One
+  version: 1.0.0
+  categories:
+    - LLM Chat
+    - AI Agents
+    - Vision
+  bento:
+    family: gemma
+    size_label: "26B-A4B"
+    badge: QAT · MoE · upstream MTP
+    hero:
+      value: "TBD t/s"
+      label: "Gemma 4 26B-A4B QAT + bundled MTP drafter · llama.cpp main HEAD"
+    specs:
+      - { label: "context", value: "32K" }
+      - { label: "vram", value: "~17 GB" }
+    capabilities:
+      tool_calling: true
+      vision:       true
+      audio:        false
+      mtp:          { enabled: true, accept: 0 }
+    stack: "llama.cpp main HEAD · Gemma 4 MTP upstream · QAT MoE 4B active"
+entrances:
+  - name: llamacppgemma426ba4bone
+    port: 8080
+    host: llamacppgemma426ba4bone
+    title: Gemma 4 26B-A4B
+    icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppgemma426ba4bone.png
+    openMethod: window
+    authLevel: internal
+spec:
+  versionName: 1.0.0
+  upgradeDescription: |
+    v1.0.0: initial release. **Gemma 4 26B-A4B QAT** — Google's MoE variant of Gemma 4 (26B total parameters, 4B active per token). The QAT (Quantization-Aware Training) variant keeps Q8_0-grade quality at Q4_0 file size.
+
+    Stack:
+    - Image: `aamsellem/llamacpp-gemma4mtp:main-postmerge-cuda131-r3` (custom build from llama.cpp main HEAD on CUDA 13.1.1 — Olares driver 590.44.01 caps at CUDA 13.1.x, so upstream ggml-org tags post-2026-06-07 are unusable)
+    - Target: `unsloth/gemma-4-26B-A4B-it-qat-GGUF/gemma-4-26B-A4B-it-qat-UD-Q4_K_XL.gguf` (~13.6 GB)
+    - Vision: mmproj BF16 (~1.14 GB) from same Unsloth QAT repo
+    - MTP drafter: `unsloth/gemma-4-26B-A4B-it-qat-GGUF/mtp-gemma-4-26B-A4B-it.gguf` (~240 MB, bundled in the same Unsloth repo as the target and mmproj)
+    - 32K context, q8_0/q8_0 KV cache, flash attention, jinja templates
+    - MTP n=2, full GPU offload
+    - OpenAI-compatible API at port 8080
+
+    **Why this chart**: Olares One already has `llamacppgemma4audione` (E4B + audio, 288 t/s) and `llamacppgemma412bone` (12B dense, 170 t/s). 26B-A4B fills the middle tier — bigger reasoning capacity than 12B (26B total params vs 12B) while keeping decode throughput comparable to a 4B dense model (only 4B params active per token). The MoE architecture makes it the most VRAM-efficient way to get strong reasoning on 24 GB consumer Blackwell.
+
+    First launch downloads ~15 GB from HuggingFace into `/olares/share/ai/model/llms/` (shared cache across users on the same device).
+
+    Bench TBD — will validate after install on Olares One. Expected range: 100-150 t/s with MTP n=2 based on extrapolation from E4B (288 t/s, 4B active) and 12B dense (170 t/s).
+  fullDescription: |
+    Google Gemma 4 26B-A4B QAT — the Mixture-of-Experts variant of Gemma 4. 26 billion total parameters, only 4 billion active per token. QAT (Quantization-Aware Training) means the model was trained to remain accurate after Q4_0 quantization, giving Q8_0-grade quality at Q4_0 file size.
+
+    Why 26B-A4B vs 12B dense:
+    - Bigger overall reasoning capacity (26B params total) than 12B dense
+    - Decode speed in the same league as a 4B dense model (only 4B params active per token, MoE routes to 2 experts out of 8 per token)
+    - Native vision via mmproj
+    - Native MTP (Multi-Token Prediction) drafter for ~2x speculative-decode speedup
+
+    Stack:
+    - Image: custom `aamsellem/llamacpp-gemma4mtp:main-postmerge-cuda131-r3` built from llama.cpp main HEAD on `nvidia/cuda:13.1.1-devel-ubuntu24.04` (Olares driver 590.44.01 caps at CUDA 13.1, so we don't use the upstream ggml-org tags that bumped to CUDA 13.3 on 2026-06-07)
+    - Target model: `unsloth/gemma-4-26B-A4B-it-qat-GGUF/gemma-4-26B-A4B-it-qat-UD-Q4_K_XL.gguf` (~13.6 GB)
+    - Vision: mmproj BF16 (~1.14 GB) from same Unsloth QAT repo
+    - MTP drafter: `mtp-gemma-4-26B-A4B-it.gguf` (~240 MB, bundled in same repo)
+    - 32K context, q8_0/q8_0 KV cache, flash attention, jinja
+    - OpenAI-compatible API at port 8080
+
+    First launch downloads ~15 GB from HuggingFace and caches it at `/olares/share/ai/model/llms/` (shared across users on the same Olares device).
+
+    Use cases:
+    - General-purpose chat with vision (photos, screenshots, documents)
+    - Tool calling / agentic workflows that need stronger reasoning than 12B dense
+    - Multilingual reasoning (Gemma 4 has strong non-English coverage)
+    - Best quality-per-VRAM-per-token-per-second on 24 GB consumer Blackwell
+  developer: aamsellem
+  website: https://huggingface.co/google/gemma-4-26B-A4B-it
+  sourceCode: https://github.com/aamsellem/orales-one-market
+  submitter: aamsellem
+  locale:
+    - en-US
+  license:
+    - text: Gemma Terms of Use
+      url: https://ai.google.dev/gemma/terms
+    - text: Apache 2.0
+      url: https://www.apache.org/licenses/LICENSE-2.0
+
+  limitedCpu: 16
+  requiredCpu: 4
+  requiredDisk: 25Gi
+  limitedDisk: 35Gi
+  limitedMemory: 30Gi
+  requiredMemory: 16Gi
+  requiredGpu: 1Gi
+  limitedGpu: 22Gi
+
+  supportArch:
+    - amd64
+permission:
+  appData: true
+options:
+  apiTimeout: 0
+  dependencies:
+    - name: olares
+      version: '>=1.12.3-0'
+      type: system
