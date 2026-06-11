@@ -7,8 +7,8 @@ metadata:
 data:
   TARGET_MODEL: "unsloth/gemma-4-26B-A4B-it-qat-GGUF"
   TARGET_FILE: "gemma-4-26B-A4B-it-qat-UD-Q4_K_XL.gguf"
-  MMPROJ_MODEL: "unsloth/gemma-4-26B-A4B-it-qat-GGUF"
-  MMPROJ_FILE: "mmproj-BF16.gguf"
+  MMPROJ_MODEL: "google/gemma-4-26B-A4B-it-qat-q4_0-gguf"
+  MMPROJ_FILE: "gemma-4-26B-it-mmproj.gguf"
   DRAFTER_MODEL: "unsloth/gemma-4-26B-A4B-it-qat-GGUF"
   DRAFTER_FILE: "mtp-gemma-4-26B-A4B-it.gguf"
   MODEL_ALIAS: "gemma-4-26b-a4b"

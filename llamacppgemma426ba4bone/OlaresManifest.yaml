@@ -5,10 +5,10 @@ apiVersion: 'v2'
 metadata:
   name: llamacppgemma426ba4bone
   icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppgemma426ba4bone.png
-  description: "Gemma 4 26B-A4B QAT UD-Q4_K_XL + bundled MTP drafter (Unsloth) + vision via llama.cpp main HEAD — Olares One"
+  description: "Gemma 4 26B-A4B QAT UD-Q4_K_XL + bundled MTP drafter (Unsloth) + vision — 286.6 t/s @ 91% accept, 16.6 GB VRAM, 32K ctx on Olares One"
   appid: llamacppgemma426ba4bone
   title: Gemma 4 26B-A4B One
-  version: 1.0.0
+  version: 1.0.2
   categories:
     - LLM Chat
     - AI Agents
@@ -16,18 +16,18 @@ metadata:
   bento:
     family: gemma
     size_label: "26B-A4B"
-    badge: QAT · MoE · upstream MTP
+    badge: QAT · MoE · MTP 91%
     hero:
-      value: "TBD t/s"
-      label: "Gemma 4 26B-A4B QAT + bundled MTP drafter · llama.cpp main HEAD"
+      value: "286.6 t/s"
+      label: "Gemma 4 26B-A4B QAT + MTP n=2 · 91% accept · 4B active params"
     specs:
       - { label: "context", value: "32K" }
-      - { label: "vram", value: "~17 GB" }
+      - { label: "vram", value: "16.6 GB" }
     capabilities:
       tool_calling: true
       vision:       true
       audio:        false
-      mtp:          { enabled: true, accept: 0 }
+      mtp:          { enabled: true, accept: 91 }
     stack: "llama.cpp main HEAD · Gemma 4 MTP upstream · QAT MoE 4B active"
 entrances:
   - name: llamacppgemma426ba4bone
@@ -38,8 +38,25 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: 1.0.0
+  versionName: 1.0.2
   upgradeDescription: |
+    v1.0.2: **bench validated — 286.6 t/s on Olares One**. 3 runs Space Invaders @ MTP n=2, 2048 tokens each:
+    - 288.71 / 284.79 / 286.33 t/s = **AVG 286.61 t/s**
+    - MTP draft acceptance: 90.1% / 92.3% / 91.2% = **AVG 91.2%**
+    - VRAM: 16.6 GB total (text + mmproj loaded)
+
+    **Matches `llamacppgemma4audione` (288.4 t/s, Gemma 4 E4B)** — both run ~4B active params per token, so decode speed converges. But this gives 26B of total reasoning capacity instead of 8B (E4B is MoE 8B-A4B). Same 91% MTP accept as the 12B QAT (`llamacppgemma412bone` v1.0.5).
+
+    No chart changes vs v1.0.1 — metadata bump only to surface the bench numbers in the market UI (bento + hero + description).
+
+    v1.0.1: **fix mmproj n_embd mismatch on first launch**. Unsloth's `mmproj-BF16.gguf` in the 26B-A4B QAT repo has `n_embd=2048` (E4B-sized) but the 26B-A4B text model has `n_embd=2816` → llama-server fails with `mismatch between text model (n_embd = 2816) and mmproj (n_embd = 2048)` and CrashLoopBackOffs. Same trap as `llamacppgemma412bone` v1.0.3.
+
+    Fix: swap to Google's official `gemma-4-26B-it-mmproj.gguf` from `google/gemma-4-26B-A4B-it-qat-q4_0-gguf` repo — correct n_embd=2816, loads cleanly with the Unsloth UD-Q4_K_XL target since both derive from the same Google QAT BF16 base.
+
+    Everything else unchanged: same custom image r3, same Unsloth bundled MTP drafter, same 32K context, same KV config.
+
+    Bench TBD.
+
     v1.0.0: initial release. **Gemma 4 26B-A4B QAT** — Google's MoE variant of Gemma 4 (26B total parameters, 4B active per token). The QAT (Quantization-Aware Training) variant keeps Q8_0-grade quality at Q4_0 file size.
 
     Stack:

@@ -1,6 +1,6 @@
 metadata:
   title: Gemma 4 26B-A4B One
-  description: "Google's Gemma 4 26B-A4B QAT MoE + vision + bundled MTP drafter via llama.cpp main HEAD — Olares One"
+  description: "Google's Gemma 4 26B-A4B QAT MoE + vision + bundled MTP drafter — 286.6 t/s @ 91% accept on Olares One"
 
 spec:
   fullDescription: |
