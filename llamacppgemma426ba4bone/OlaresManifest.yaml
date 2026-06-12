@@ -8,7 +8,7 @@ metadata:
   description: "Gemma 4 26B-A4B QAT UD-Q4_K_XL + bundled MTP drafter (Unsloth) + vision — 286.6 t/s @ 91% accept, 16.6 GB VRAM, 32K ctx on Olares One"
   appid: llamacppgemma426ba4bone
   title: Gemma 4 26B-A4B One
-  version: 1.0.2
+  version: 1.0.3
   categories:
     - LLM Chat
     - AI Agents
@@ -38,8 +38,18 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: 1.0.2
+  versionName: 1.0.3
   upgradeDescription: |
+    v1.0.3: **rebuild image against llama.cpp main HEAD b9601** to pick up PR #24086 (Remove padding + multiple D2D copies for MTP, merged 2026-06-10 by gaugarg-nv / NVIDIA). PR claimed +4% throughput on Qwen3.6-35B-A3B MTP measured on DGX Spark. Image bumped `r3 → r4` (built from same Dockerfile recipe on `nvidia/cuda:13.1.1-devel-ubuntu24.04`).
+
+    **Bench result on Olares One: 286.39 t/s AVG (3 runs Space Invaders, MTP n=2, 2048 tokens)**:
+    - 288.25 / 286.54 / 284.38 t/s
+    - MTP draft acceptance: 92.7% / 91.3% / 90.6% = AVG 91.5%
+
+    Versus v1.0.2 (r3, pre-#24086): 286.61 t/s, 91.2% accept.
+
+    **Delta: -0.07% speed, +0.3 pts accept = within noise.** PR #24086 optimizes padding+D2D copies which apparently weren't the bottleneck on Gemma 4 26B-A4B + sm_120 mobile. No regression — image stays on b9601 for future-proofing against upcoming MTP PRs (e.g., PR #24431 auto-load MTP drafter).
+
     v1.0.2: **bench validated — 286.6 t/s on Olares One**. 3 runs Space Invaders @ MTP n=2, 2048 tokens each:
     - 288.71 / 284.79 / 286.33 t/s = **AVG 286.61 t/s**
     - MTP draft acceptance: 90.1% / 92.3% / 91.2% = **AVG 91.2%**

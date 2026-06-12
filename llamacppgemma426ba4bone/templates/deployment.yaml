@@ -50,7 +50,7 @@ spec:
               name: shared-models
       containers:
         - name: gemma426ba4b-server
-          image: "docker.io/aamsellem/llamacpp-gemma4mtp:main-postmerge-cuda131-r3"
+          image: "docker.io/aamsellem/llamacpp-gemma4mtp:main-postmerge-cuda131-r4"
           command: ["/bin/bash", "-c"]
           args:
             - |

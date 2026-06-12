@@ -1,6 +1,6 @@
 apiVersion: v2
-appVersion: '1.0.2'
-description: Gemma 4 26B-A4B QAT UD-Q4_K_XL + bundled MTP drafter (Unsloth) + vision — 286.6 t/s @ 91% accept, 16.6 GB VRAM, 32K ctx on Olares One
+appVersion: '1.0.3'
+description: Gemma 4 26B-A4B QAT UD-Q4_K_XL + bundled MTP drafter (Unsloth) + vision — 286.6 t/s @ 91% accept, 16.6 GB VRAM, 32K ctx on Olares One (b9601 + #24086)
 name: llamacppgemma426ba4bone
 type: application
-version: '1.0.2'
+version: '1.0.3'
