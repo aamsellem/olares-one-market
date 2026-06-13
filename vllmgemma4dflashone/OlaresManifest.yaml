@@ -8,7 +8,7 @@ metadata:
   description: "Gemma 4 26B-A4B + DFlash + AWQ via vLLM — Olares One (fastest Gemma 4 path)"
   appid: vllmgemma4dflashone
   title: Gemma 4 26B DFlash One
-  version: '1.0.5'
+  version: '1.0.7'
   categories:
     - LLM Chat
   bento:
@@ -36,8 +36,32 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.0.5'
+  versionName: '1.0.7'
   upgradeDescription: |
+    v1.0.7: **rollback v1.0.6 vLLM v0.23.0 bump** — engine init crash. Root cause: PR #43445 "Causal DFlash" landed in v0.23.0 and made `use_non_causal=True` unsupported on every attention backend (`TRITON_ATTN`, `FLASH_ATTN`, `FLASHINFER`, `FLEX_ATTENTION`, `TURBOQUANT` — all reject non-causal). Gemma 4's bidirectional prefix requires non-causal, so v0.23.0 boot fails with:
+
+    ```
+    ValueError: No valid attention backend found for cuda with AttentionSelectorConfig(
+      head_size=128, dtype=torch.bfloat16, kv_cache_dtype=fp8, ..., use_non_causal=True)
+    ```
+
+    "Causal DFlash" was meant to harden DFlash spec-decode (fixing the 220→60 t/s degradation cycle we observed), but it dropped the non-causal path entirely. Until vLLM ships a release that re-supports non-causal DFlash for Gemma 4, we stay on `tokenspeed-preview-x86_64-ubuntu2404` (vLLM 0.20.2rc1.dev67, 2026-05-06).
+
+    No config changes vs v1.0.4. Bench remains 224 t/s AVG (degradation cycle still latent).
+
+    v1.0.6: **bump image to vLLM v0.23.0** (pre-release tagged 2026-06-13 ~01:30 UTC). v0.23.0 brings 408 commits / 200 contributors, including the trio directly relevant to our 220→60 t/s degradation cycle:
+
+    - **PR #43445 Causal DFlash** — hardens DFlash spec-decode internal state machine
+    - **PR #42971 prefix-cache corruption fix** — likely fixes the "no spec decoding active" intermittent state we observed in [reference_dflash_gemma4_nspec_sweep](memory) where 5 fast runs at 220 t/s would be followed by 4 slow runs at 60 t/s
+    - **PR #43733 lookahead-slot allocation fix** — DFlash schedule correctness
+    - **PR #40923 Marlin MoE on SM 12.x** — first sm_120 MoE Marlin kernel in mainline (was previously only `tokenspeed-preview`)
+
+    Image: `vllm/vllm-openai:v0.23.0-x86_64-ubuntu2404` (9.2 GB, CUDA 13.0 — within Olares driver 590.44.01 cap of 13.1). Replaces `tokenspeed-preview-x86_64-ubuntu2404` (8.8 GB, vLLM 0.20.2rc1.dev67).
+
+    Same config otherwise: n_spec=8 (v1.0.4 optimum), AWQ target, fp8 KV, triton_attn, max-num-seqs=4, max-num-batched-tokens=8192, HAMi cap 24400m.
+
+    Bench TBD — multiple 10+ run sequences expected to validate the degradation cycle is GONE. Baseline to beat: 223.90 t/s AVG / 216.86 MIN / 235.22 MAX from v1.0.4.
+
     v1.0.4: night-bench n_spec sweep on 5090M mobile 24GB found optimum at n_spec=8 (vs v1.0.0 at n=13). Validated 2026-05-11 over 5 clean Space Invaders runs (max_tokens=2000): AVG 223.90 t/s, MIN 216.86, MAX 235.22 — +5% over v1.0.0 baseline (214 avg), +11% over v1.0.3 (201 avg). Full sweep n∈{6,8,10,11,12,13,15,17,20} shows peak at n=8 then linear regression at n≥10. Tech-Practice article's n=15 recommendation is desktop-only (5090 32GB, 1.79 TB/s bandwidth) — mobile 5090M (24GB, 896 GB/s = 50% bandwidth) needs shallower drafts because compute buffer per spec token consumes proportionally more VRAM. Other diffs from v1.0.0: explicit --attention-backend triton_attn (was implicit auto-select). KV cache fp8, max-num-batched-tokens 8192, max-num-seqs 4 unchanged.
     v1.0.3: fix v1.0.2 OOM. Bumping max-num-batched-tokens 8192→32768 with n_spec=15 blew the compute buffers — needed +352 MiB on a 23.42 GB GPU already at 23.18 GB. Revert batched-tokens to 8192 (v1.0.0 value). Only diff vs v1.0.0 now: num_speculative_tokens 13→15 + explicit --attention-backend triton_attn (previously implicit auto-select). Expected: marginal +2-5% over 214 t/s (deeper draft only, no scheduler bump). Bench result confirmed REGRESSION (-6% to 201 avg) — fixed by ship n_spec=8 in v1.0.4.
     v1.0.2: fix v1.0.1 crash. Gemma 4 multimodal tokens forbid flash_attn even for the drafter ("partial multimodal token full attention not supported"). Drop attention_backend:flash_attn from SPEC_CONFIG, keep --attention-backend triton_attn explicit for target. Remaining diffs vs v1.0.0: (1) num_speculative_tokens 13 → 15, (2) max-num-batched-tokens 8192 → 32768. CRASHED with OOM in cudagraph capture (23.18/23.42 GB used, +352 MiB needed) — fixed in v1.0.3 by reverting batched-tokens.
