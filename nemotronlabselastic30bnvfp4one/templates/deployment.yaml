@@ -34,7 +34,7 @@ spec:
     spec:
       containers:
         - name: vllm-server
-          image: "vllm/vllm-openai:cu129-nightly-x86_64"
+          image: "vllm/vllm-openai:v0.22.1-x86_64-cu129-ubuntu2404"
           command:
             - "vllm"
             - "serve"

@@ -8,7 +8,7 @@ metadata:
   description: "NVIDIA Nemotron-Labs Elastic 30B-A3B NVFP4 — 182 t/s via FlashInfer SM120 (PR #40082) on Olares One"
   appid: nemotronlabselastic30bnvfp4one
   title: Nemotron-Labs 30B NVFP4 One
-  version: '1.0.2'
+  version: '1.0.3'
   categories:
     - LLM Chat
     - AI Agents
@@ -37,8 +37,16 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.0.2'
+  versionName: '1.0.3'
   upgradeDescription: |
+    v1.0.3: **fix crash loop on fresh install** — Discord-reported by RonnyPfannschmidt 2026-06-14. Root cause: chart referenced floating tag `vllm/vllm-openai:cu129-nightly-x86_64`, which Docker Hub bumped on 2026-06-14 06:10 UTC to a vLLM v0.23.x post-merge build. v0.23.x includes breaking changes (e.g. PR #43445 Causal DFlash dropped non-causal support — same trap that broke `vllmgemma4dflashone` v1.0.6 a day earlier). The new nightly is no longer compatible with this chart's `--compilation-config` schema / NVFP4 stack.
+
+    Fix: pin to **`vllm/vllm-openai:v0.22.1-x86_64-cu129-ubuntu2404`** (released 2026-06-05, last stable before v0.23.0). v0.22.1 includes PR #40082 (FlashInfer SM120 b12x MoE / FP4 GEMM) which is exactly what gave us the 182 t/s in v1.0.1. Predates the v0.23.0 regressions. Stable tag — no further drift.
+
+    All other config unchanged: same Nemotron NVFP4 model, same `--compilation-config '{"cudagraph_mode": 1, "max_cudagraph_capture_size": 4, "cudagraph_capture_sizes": [1, 2, 4]}'`, same `--max-model-len 4096`, same HAMi cap 30000m.
+
+    Bench reference stays 182 t/s. Lesson: never pin to floating nightly tags in shipped charts.
+
     v1.0.1: swap image `vllm/vllm-openai:nightly` (v0.19.2rc1, 2026-05-20 06:22 UTC) → `vllm/vllm-openai:cu129-nightly-x86_64` (v0.21.1rc1.dev169+ga6682d1d2, 2026-05-21 07:38 UTC). New nightly includes PR [#40082](https://github.com/vllm-project/vllm/pull/40082) (meena-at-work, NVIDIA): "Integrate flashinfer b12x MoE and FP4 GEMM kernels for SM120/121". **Bench validated 2026-05-21 on Olares One: 182.14 t/s AVG post-warmup** (9 runs, range 181.85–182.65, σ ≈ 0.3 — even tighter than v1.0.0). **+9.8% vs v1.0.0 (165.91 t/s)** — pure FlashInfer SM120 kernel uplift on NVFP4 MoE. Same model, same compilation-config PIECEWISE graphs, same max_model_len=4096. Confirms the kernel-path matters: PR #40082 specifically targets sm_120/121 (Blackwell consumer) FP4 GEMM, and our hardware is exactly the target.
 
     Trade-off: v0.21 nightly has stricter KV cache memory accounting than v0.19 — Gemma 4 + Q4 AWQ benched -1.5% on same config because v0.21 forces max_model_len from 128K → 8K to leave KV headroom. But the NVFP4-MoE FlashInfer kernels still net +10% throughput on this Nemotron path. For NVFP4 models specifically, v0.21+ is a strict upgrade. For non-NVFP4 (AWQ/GPTQ/GGUF) keep older image.
