@@ -8,7 +8,7 @@ metadata:
   description: "NVIDIA Nemotron-Labs Elastic 30B-A3B NVFP4 — 182 t/s via FlashInfer SM120 (PR #40082) on Olares One"
   appid: nemotronlabselastic30bnvfp4one
   title: Nemotron-Labs 30B NVFP4 One
-  version: '1.0.3'
+  version: '1.0.4'
   categories:
     - LLM Chat
     - AI Agents
@@ -37,8 +37,16 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.0.3'
+  versionName: '1.0.4'
   upgradeDescription: |
+    v1.0.4: **second crash-loop fix** — v1.0.3 (which pinned the vLLM image to v0.22.1 to dodge the floating-tag trap) still crashed at boot with `httpcore.UnsupportedProtocol: Request URL is missing an 'http://' or 'https://' protocol`. Root cause: deployment.yaml referenced `HF_ENDPOINT={{ .Values.olaresEnv.OLARES_USER_HUGGINGFACE_SERVICE }}` but the chart's `envs:` block never declared `OLARES_USER_HUGGINGFACE_SERVICE` — only the TOKEN. So Helm rendered `HF_ENDPOINT=""` which made `huggingface_hub` try to fetch metadata from an empty URL → crash before model weights download.
+
+    Fix: (a) declare `OLARES_USER_HUGGINGFACE_SERVICE` in `envs:` (matches pattern in `vllmgemma426ba4bvisionone` and other working charts), (b) wrap the `HF_ENDPOINT` env var in a Helm `{{- if .Values.olaresEnv.OLARES_USER_HUGGINGFACE_SERVICE }}` guard so it's only set when the user has the proxy configured. Direct `huggingface.co` (the default) is used when no proxy is set.
+
+    This is the real cause Ronny was hitting — v1.0.3's floating-tag fix was correct but masked by this second bug. The chart NEVER worked from a fresh install where the user didn't already have `OLARES_USER_HUGGINGFACE_SERVICE` set in Olares settings.
+
+    Same vLLM v0.22.1 pin as v1.0.3, same args, same bench reference (182 t/s).
+
     v1.0.3: **fix crash loop on fresh install** — Discord-reported by RonnyPfannschmidt 2026-06-14. Root cause: chart referenced floating tag `vllm/vllm-openai:cu129-nightly-x86_64`, which Docker Hub bumped on 2026-06-14 06:10 UTC to a vLLM v0.23.x post-merge build. v0.23.x includes breaking changes (e.g. PR #43445 Causal DFlash dropped non-causal support — same trap that broke `vllmgemma4dflashone` v1.0.6 a day earlier). The new nightly is no longer compatible with this chart's `--compilation-config` schema / NVFP4 stack.
 
     Fix: pin to **`vllm/vllm-openai:v0.22.1-x86_64-cu129-ubuntu2404`** (released 2026-06-05, last stable before v0.23.0). v0.22.1 includes PR #40082 (FlashInfer SM120 b12x MoE / FP4 GEMM) which is exactly what gave us the 182 t/s in v1.0.1. Predates the v0.23.0 regressions. Stable tag — no further drift.
@@ -129,6 +137,11 @@ options:
       version: '>=1.12.3-0'
       type: system
 envs:
+  - envName: OLARES_USER_HUGGINGFACE_SERVICE
+    required: false
+    applyOnChange: true
+    valueFrom:
+      envName: OLARES_USER_HUGGINGFACE_SERVICE
   - envName: OLARES_USER_HUGGINGFACE_TOKEN
     required: false
     applyOnChange: true
