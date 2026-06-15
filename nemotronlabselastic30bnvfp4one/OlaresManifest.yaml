@@ -8,7 +8,7 @@ metadata:
   description: "NVIDIA Nemotron-Labs Elastic 30B-A3B NVFP4 — 182 t/s via FlashInfer SM120 (PR #40082) on Olares One"
   appid: nemotronlabselastic30bnvfp4one
   title: Nemotron-Labs 30B NVFP4 One
-  version: '1.0.4'
+  version: '1.0.5'
   categories:
     - LLM Chat
     - AI Agents
@@ -37,8 +37,14 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.0.4'
+  versionName: '1.0.5'
   upgradeDescription: |
+    v1.0.5: **bench-validated 181.4 t/s** (10 runs Space Invaders @ 2000 tokens). Run 1 = 30 t/s (CUDA graph warmup as documented in v1.0.0). Runs 2-10: 181.01 – 182.17 t/s, AVG **181.40 t/s** — matches v1.0.1 reference (182.14 t/s) within noise. Same hardware (RTX 5090M mobile sm_120), same model (`nvidia/NVIDIA-Nemotron-Labs-3-Elastic-30B-A3B-NVFP4`), now with the v1.0.4 fixes baked in (vLLM v0.22.1 pin + HF_ENDPOINT Helm guard + OLARES_USER_HUGGINGFACE_SERVICE declared in envs).
+
+    Note for users stuck on v1.0.2 / v1.0.3 CrashLoopBackOff: Olares device chart cache may not auto-refresh after a worker bump (see https://github.com/beclab/Olares/issues/3369). Workaround if you hit this: `ssh olares@<box>` then `sudo rm -rf /olares/userdata/Cache/chartrepo/v2/<user>/market.aamsellem/nemotronlabselastic30bnvfp4one*` followed by `kubectl delete pod -n os-framework -l name=chartrepo-deployment` and reinstall via Olares market.
+
+    Bumping to v1.0.5 was a no-op functional change from v1.0.4 (cosmetic version bump to try to force cache refresh; that didn't fix the cache bug, but v1.0.5 IS the version that ships with the validated 181 t/s on a fresh install).
+
     v1.0.4: **second crash-loop fix** — v1.0.3 (which pinned the vLLM image to v0.22.1 to dodge the floating-tag trap) still crashed at boot with `httpcore.UnsupportedProtocol: Request URL is missing an 'http://' or 'https://' protocol`. Root cause: deployment.yaml referenced `HF_ENDPOINT={{ .Values.olaresEnv.OLARES_USER_HUGGINGFACE_SERVICE }}` but the chart's `envs:` block never declared `OLARES_USER_HUGGINGFACE_SERVICE` — only the TOKEN. So Helm rendered `HF_ENDPOINT=""` which made `huggingface_hub` try to fetch metadata from an empty URL → crash before model weights download.
 
     Fix: (a) declare `OLARES_USER_HUGGINGFACE_SERVICE` in `envs:` (matches pattern in `vllmgemma426ba4bvisionone` and other working charts), (b) wrap the `HF_ENDPOINT` env var in a Helm `{{- if .Values.olaresEnv.OLARES_USER_HUGGINGFACE_SERVICE }}` guard so it's only set when the user has the proxy configured. Direct `huggingface.co` (the default) is used when no proxy is set.
