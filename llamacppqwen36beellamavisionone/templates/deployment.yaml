@@ -15,6 +15,15 @@ data:
   CTX_SIZE: "200000"
   THREADS: "16"
 ---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: qwen36-chat-template
+  namespace: "{{ .Release.Namespace }}"
+data:
+  qwen36_chat_template.jinja: |
+{{ .Files.Get "files/qwen36_chat_template.jinja" | indent 4 }}
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -100,7 +109,9 @@ spec:
                 --cache-type-k turbo3 --cache-type-v turbo3 \
                 --batch-size 2048 --ubatch-size 2048 \
                 --parallel 1 --kv-unified \
-                --flash-attn on --jinja --no-mmap --mlock \
+                --flash-attn on --jinja \
+                --chat-template-file /chat-template/qwen36_chat_template.jinja \
+                --no-mmap --mlock \
                 --temp 0.6 --top-k 20 --min-p 0.0
           envFrom:
             - configMapRef:
@@ -148,15 +159,21 @@ spec:
               name: models
             - mountPath: "/shared-models"
               name: shared-models
+            - mountPath: "/chat-template"
+              name: chat-template
+              readOnly: true
       volumes:
-        - name: models
-          hostPath:
-            path: "{{ .Values.userspace.appData }}/models"
-            type: DirectoryOrCreate
-        - name: shared-models
-          hostPath:
-            path: "/olares/share/ai/model"
-            type: DirectoryOrCreate
+         - name: models
+           hostPath:
+             path: "{{ .Values.userspace.appData }}/models"
+             type: DirectoryOrCreate
+         - name: shared-models
+           hostPath:
+             path: "/olares/share/ai/model"
+             type: DirectoryOrCreate
+         - name: chat-template
+           configMap:
+             name: qwen36-chat-template
       restartPolicy: Always
 ---
 apiVersion: v1
