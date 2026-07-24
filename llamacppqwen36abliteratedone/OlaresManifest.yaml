@@ -1,15 +1,15 @@
----
-olaresManifest.version: '0.10.0'
+olaresManifest.version: '0.12.0'
 olaresManifest.type: app
-apiVersion: 'v2'
+apiVersion: 'v3'
 metadata:
   name: llamacppqwen36abliteratedone
   icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen36abliteratedone.png
-  description: "Qwen3.6 35B-A3B abliterated + Claude 4.7 Opus reasoning distilled — Q4_K smarter quant @ 65K, no guardrails, MTP + Vision on Olares One"
+  description: "Qwen3.6 35B-A3B abliterated + Claude 4.7 Opus distilled — Q4_K @ 65K, MTP + Vision via BeeLlama + llm-init on Olares One"
   appid: llamacppqwen36abliteratedone
-  title: Qwen36 35B-A3B Abliterated Claude
-  version: 1.0.9
+  title: Qwen36 Abliterated Claude
+  version: '1.1.5'
   categories:
+    - AI
     - LLM Chat
     - AI Agents
     - Vision
@@ -23,76 +23,75 @@ metadata:
       label: "Q4_K smarter quant · no guardrails"
     specs:
       - { label: "context", value: "65K" }
-      - { label: "vram", value: "26 GB" }
+      - { label: "vram", value: "24 GB" }
     capabilities:
       tool_calling: true
       vision:       true
       audio:        false
       mtp:          { enabled: true, accept: 86 }
-    stack: "buun-llama.cpp · huihui-ai Q4_K · MTP + mmproj-gpu-swap"
-entrances:
+    stack: "BeeLlama · llm-init · appCommon HF cache · MTP + mmproj-gpu-swap"
+sharedEntrances:
   - name: llamacppqwen36abliteratedone
-    port: 8000
-    host: llamacppqwen36abliteratedone
+    host: sharedentrances-api
+    port: 0
+    title: Qwen36 35B Abliterated
+    invisible: true
+    authLevel: internal
+    icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen36abliteratedone.png
+entrances:
+  - name: llamacppclient
+    port: 8090
+    host: download-svc
     title: Qwen36 35B Abliterated
     icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen36abliteratedone.png
     openMethod: window
     authLevel: internal
+workloadReplicas:
+  llamacppqwen36abliteratedone: 1
+  llminit: 1
 spec:
-  versionName: 1.0.9
+  onlyAdmin: true
+  versionName: '1.1.5'
   upgradeDescription: |
-    v1.0.9: **upgrade to BeeLlama v0.3.1** (anbeeld's maintained fork, ghcr.io/anbeeld/beellama.cpp:server-cuda13-v0.3.1). Bumped from custom one-shot `aamsellem/buun-llama-cpp:87c351d2` to BeeLlama which includes everything buun had (asymmetric KV q8_0-K/turbo4-V, MTP) PLUS DFlash speculative decoding, adaptive draft-max controller, reasoning-loop protection, and full multimodal Gemma 4 unified support — all in a maintained upstream image with regular release tags. Bench on Olares One (3 runs Space Invaders): 247.42 / 256.65 / 248.69 t/s = AVG 250.9 t/s with 86-92% MTP accept (vs v1.0.8 245.3 t/s @ 82-88%) = +2.3% speed + higher accept rate ceiling. Same Q4_K + mmproj + asym KV config, just better upstream image.
+    v1.1.5: **Restore v1.0.9 engine args** for A/B test: `-c 65536 -ngl 99 --threads 16 -fa on -ctk q8_0 -ctv turbo4 --jinja -np 1 --reasoning off --spec-type draft-mtp --spec-draft-n-max 3 --mmproj-gpu-swap`. Stop stripping MTP in wrapper. Keep buun + llm-init + mmproj sibling fallback.
 
-    v1.0.8: **asymmetric KV cache** (free K quality boost). Upgraded buun-llama-cpp image from 316e88e (May 2026) to 87c351d2 (2026-06-04) which adds fused asymmetric q8_0-K + turbo4-V flash-attn kernel. KV config changed from symmetric `q4_0/q4_0` (both 4-bit) to asymmetric `q8_0-K / turbo4-V`: keys at 8-bit precision (matters most for attention quality), values compressed via turbo4 (matters less per-token). Bench on Olares One (3 runs Space Invaders): 246.83 / 249.86 / 239.19 t/s = AVG 245.3 t/s with 82-88% MTP accept — matches v1.0.7 speed (244 t/s) but with measurably higher K precision. Context stays at 65K (asymmetric is for quality not size; 262K still OOMs).
+    v1.1.4: **Unstick engine after 1.1.3**. llm-init v1.3.1 downloaded `role=mmproj` but never wrote `/run/llm-init/mmproj_path` → wrapper waited forever. Now fall back to sibling `mmproj*.gguf` next to `model_path`. Also strip `--spec-type`/`--spec-draft-n-max` from ENGINE_ARGS at runtime (upgrade preserves old env with broken MTP).
 
-    v1.0.7: **hostPath fix** — `type: Directory` → `DirectoryOrCreate` for `/olares/share/ai/model` (Discord bug 2026-06-03 from agedflyer4007).
+    v1.1.3: **fix ???? on olarestest001 (live logs)**. Root causes: (1) stale `model_download_finish` let the engine start before llm-init finished — no mmproj_path; (2) BeeLlama v0.3.1 still served requests as `Chat format: peg-native` → known Qwen thinking garbage; (3) MTP `accepted 0/3` every step. Fixes: wait for `model_path` + finish; image rollback `beellama v0.3.1` → `aamsellem/buun-llama-cpp:87c351d2`; disable MTP in default ENGINE_ARGS.
 
-    v1.0.6: **fix thinking-mode garbage output** (Discord bug report 2026-06-02). buun-llama-cpp:316e88e introduced PEG-native chat parser that fails to detect `</think>` close tag on Qwen3's thinking template — model never emits EOS, runs until max_tokens with empty content + reasoning_content stuck mid-stream. Two fixes: (1) explicit `--chat-template-file /chat-template/chat_template.jinja` via ConfigMap mount forces Jinja2 parser over peg-native, (2) replace deprecated `--chat-template-kwargs '{"enable_thinking":false}'` with new `--reasoning off` flag (the kwargs path emits a deprecation warning and will be removed). Verified bench non-thinking gen still works at 244 t/s; thinking-mode requests via `chat_template_kwargs.enable_thinking=true` API parameter now properly close think blocks. Same Q4_K model, same speed, just parser correctness restored.
+    v1.1.2: **fix all-????? garbled output**. Wrapper now loads the exact GGUF via llm-init `model_path` sentinel (`--model …`) instead of `-hf repo:Q4_K` (huihui filename does not match -hf quant resolution → wrong/partial weights → ????). mmproj download switched to indexed `MODEL_SOURCE_*` with `ROLE=mmproj` so vision projector is wired correctly. Keep explicit `--chat-template-file` (BeeLlama PEG garbage fix).
 
-    v1.0.5: **upgrade Q3_K → Q4_K for measurably smarter outputs**. New quant size 21.7 GB (vs 17.2 GB Q3_K) = +27% weight = noticeably stronger reasoning, code, structured outputs. Context clamped to 65K (down from 262K full native) to leave VRAM headroom for the bigger model + mmproj + MTP draft buffer (model 21.7 + KV q4_0 ~2.5 + mmproj 0.9 + draft ~1 ≈ 26 GB under 30 GB HAMi limit). Same stack otherwise: buun-llama.cpp 316e88e, MTP n=3, mmproj-gpu-swap, q4_0 KV, flash attention, jinja. Bench TBD on Olares One — expect ~10-15% slower than Q3_K (still in the 195-210 t/s range).
+    v1.1.1: lower `requiredGPUMemory` / `LLAMACPP_REQUIRED_GPU_MEMORY` 24Gi → **23Gi** so install fits RTX 5090M usable VRAM (~24463 MiB). 24Gi (24576 MiB) exceeded card capacity → `compute resource is not enough for selected mode nvidia`.
 
-    v1.0.1: bench validated 2026-05-24 on Olares One: **227.77 t/s AVG** (10 runs, range 218-234, σ ≈ 5). Vision validated (64×64 PNG → "Red"). Slightly slower than the non-abliterated champion (`llamacppqwen36a3bone` v2.0.0 at 243.59 t/s, -6.5%) — the Claude 4.7 distillation + abliteration appears to nudge the MTP draft heads slightly off-distribution, lowering effective acceptance. Vision still works perfectly. Use cases unchanged: research, red-teaming, fiction/roleplay, edge-case agent flows.
+    v1.1.0: **Olares 1.12.6 v3 + llm-init + appCommon**. Download path moved from custom curl/`/olares/share/ai/model` to Model Console (`beclab/llm-init:v1.3.1`) writing into shared `appCommon/huggingface` (`/cache/hf/hub`). Engine stays BeeLlama `ghcr.io/anbeeld/beellama.cpp:server-cuda13-v0.3.1` (MTP + mmproj-gpu-swap). Entrance is llm-init on :8090 (proxies to llama.cpp :8081). Manifest `apiVersion: v3`, `olaresManifest.version: 0.12.0`, `accelerator[]`, `workloadReplicas`, `options.shared: true`. Same Q4_K + mmproj + asym KV + MTP n=3 + chat-template ConfigMap.
 
-    v1.0.0: initial release. Uncensored sibling of the `llamacppqwen36a3bone` champion. Same stack (buun-llama.cpp 316e88e + MTP + mmproj-gpu-swap), same speed (~240 t/s text + vision via lossless swap), same 262K full native context — but with the abliterated weights from huihui-ai applied on top of a Claude 4.7 Opus reasoning distillation.
+    v1.0.9: upgrade to BeeLlama v0.3.1.
+    v1.0.8: asymmetric KV cache q8_0-K / turbo4-V.
+  fullDescription: |
+    **Model Overview**
+    Qwen3.6 35B-A3B with Claude 4.7 Opus reasoning distillation + huihui-ai abliteration (no forced refusals), served via BeeLlama llama.cpp with MTP speculative decoding and vision (mmproj-gpu-swap).
 
-    **Model**: `huihui-ai/Huihui-Qwen3.6-35B-A3B-Claude-4.7-Opus-abliterated-MTP-GGUF` (17.2 GB Q3_K).
+    **Preset Configuration**
+    - Model: `huihui-ai/Huihui-Qwen3.6-35B-A3B-Claude-4.7-Opus-abliterated-MTP-GGUF` Q4_K + `mmproj-model-f16.gguf`
+    - Capabilities: vision, tools, thinking
+    - Engine args: `-c 65536 -ngl 99 --threads 16 -fa on -ctk q8_0 -ctv turbo4 --jinja -np 1 --reasoning off --spec-type draft-mtp --spec-draft-n-max 3 --mmproj-gpu-swap`
+    - Required GPU memory: `23Gi`
 
-    **Two transformations stacked on Qwen 3.6 35B-A3B**:
-    1. **Claude 4.7 Opus reasoning distillation** — student model trained on Claude's thinking outputs. Improves multi-step reasoning, code generation, and structured problem solving over the base Qwen.
-    2. **Abliteration** (Maxime Labonne / huihui-ai technique) — surgical removal of refusal directions from the model's representation space. Model no longer refuses sensitive/edge requests. Underlying capabilities unchanged, only the refusal gate is dropped.
+    **How It Works**
+    First, Model Console (`llm-init`) downloads the GGUF + mmproj into the shared `appCommon/huggingface` cache, then BeeLlama starts when the readiness sentinel is ready. OpenAI-compatible API is on port 8090 (llm-init proxies to llama.cpp on 8081).
 
-    Use cases:
-    - Adversarial red-teaming / security research
-    - Roleplay / fiction without forced disclaimers
-    - Edge-case agent flows where the model would otherwise refuse legitimate tasks
-    - Local-only deployment where no external moderation layer is needed
+    **Stack**
+    - **BeeLlama** (`server-cuda13-v0.3.1`): inference + MTP + mmproj-gpu-swap (port 8081)
+    - **Model Console** (`llm-init v1.3.1`): download progress + OpenAI API proxy (port 8090)
+
+    **Model Storage**
+    All model files are stored in the shared folder `appCommon/huggingface`, mounted as `/cache/hf/hub`.
 
     **NOT for production-facing apps** — without the safety layer, you own moderation responsibility entirely.
 
-    Stack identical to v2.0.0 of `llamacppqwen36a3bone`:
-    - Image: `aamsellem/buun-llama-cpp:316e88e` (spiritbuun fork with `--mmproj-gpu-swap`)
-    - `--spec-type draft-mtp --spec-draft-n-max 3` (MTP head preserved by huihui)
-    - q4_0 KV cache, full 262K context (auto-fit), flash attention, jinja templates
-    - Vision via mmproj-gpu-swap (~750ms swap overhead per image request, lossless)
-    - Tool calling preserved
-
-    Expected bench (not yet validated, mirrors v2.0.0 champion): ~240-243 t/s text decode, vision response in ~1.1s, accept rate ~85-86%.
-  fullDescription: |
-    Qwen3.6 35B-A3B abliterated + Claude 4.7 Opus reasoning distilled (MoE, 3B active) — uncensored champion stack on Olares One.
-
-    Sibling of the production text+vision champion (`llamacppqwen36a3bone` v2.0.0), with the same speed envelope (~240 t/s text decode + 262K full native context + vision via mmproj-gpu-swap + tool calling) but with the huihui-ai abliterated + Claude-distilled weights instead of Unsloth's base GGUF.
-
-    Stack:
-    - `huihui-ai/Huihui-Qwen3.6-35B-A3B-Claude-4.7-Opus-abliterated-MTP-GGUF` Q3_K (17.2 GB) + mmproj F16 (~900 MB)
-    - buun-llama-cpp 316e88e (spiritbuun fork) with `--mmproj-gpu-swap`
-    - MTP n=3, q4_0 KV cache, flash attention, jinja templates
-    - OpenAI-compatible API on port 8000
-
-    Downloads model + mmproj on first launch (~18 GB total) and caches them.
-
   developer: aamsellem
-  website: https://github.com/aamsellem/orales-one-market
-  sourceCode: https://github.com/aamsellem/orales-one-market
+  website: https://huggingface.co/huihui-ai/Huihui-Qwen3.6-35B-A3B-Claude-4.7-Opus-abliterated-MTP-GGUF
+  sourceCode: https://github.com/aamsellem/olares-one-market
   submitter: aamsellem
   locale:
     - en-US
@@ -100,22 +99,159 @@ spec:
     - text: Apache-2.0
       url: https://huggingface.co/huihui-ai/Huihui-Qwen3.6-35B-A3B-Claude-4.7-Opus-abliterated-MTP-GGUF
 
-  limitedCpu: 16
-  requiredCpu: 4
-  requiredDisk: 30Gi
-  limitedDisk: 50Gi
-  limitedMemory: 40Gi
-  requiredMemory: 24Gi
-  requiredGpu: 1Gi
-  limitedGpu: 24Gi
+  accelerator:
+    - mode: nvidia
+      limitedCpu: "15360m"
+      requiredCpu: "1200m"
+      requiredDisk: 50Mi
+      limitedDisk: 500Gi
+      limitedMemory: "32Gi"
+      requiredMemory: "22Gi"
+      requiredGPUMemory: "23Gi"
+      limitedGPUMemory: "23Gi"
 
   supportArch:
     - amd64
 permission:
   appData: true
+  appCommon: true
 options:
   apiTimeout: 0
+  LLMGatewaySupported: true
+  shared: true
+  templateOnly: false
   dependencies:
     - name: olares
-      version: '>=1.12.3-0'
+      version: '>=1.12.6-0'
       type: system
+envs:
+  - envName: MODEL_SOURCE_NUM
+    required: true
+    type: string
+    editable: false
+    applyOnChange: false
+    default: "2"
+    description: "Indexed multi-source count (main GGUF + mmproj)."
+  - envName: MODEL_SOURCE_1
+    required: true
+    type: string
+    editable: false
+    applyOnChange: false
+    default: "hf://huihui-ai/Huihui-Qwen3.6-35B-A3B-Claude-4.7-Opus-abliterated-MTP-GGUF --include Huihui-Qwen3.6-35B-A3B-Claude-4.7-Opus-abliterated-ggml-model-Q4_K.gguf"
+    description: "Main GGUF (role=main)."
+    regex: "^hf://"
+  - envName: MODEL_SOURCE_2
+    required: true
+    type: string
+    editable: false
+    applyOnChange: false
+    default: "hf://huihui-ai/Huihui-Qwen3.6-35B-A3B-Claude-4.7-Opus-abliterated-MTP-GGUF --include mmproj-model-f16.gguf"
+    description: "Vision projector GGUF."
+    regex: "^hf://"
+  - envName: MODEL_SOURCE_2_ROLE
+    required: true
+    type: string
+    editable: false
+    applyOnChange: false
+    default: "mmproj"
+    description: "Must be mmproj so llm-init writes mmproj_path sentinel."
+  - envName: MODEL_NAME
+    required: true
+    type: string
+    editable: false
+    applyOnChange: false
+    default: "huihui-ai/Huihui-Qwen3.6-35B-A3B-Claude-4.7-Opus-abliterated-MTP-GGUF:Q4_K"
+    description: "Client model id / alias (engine loads via model_path, not -hf)."
+  - envName: MODEL_MODE
+    required: true
+    type: string
+    editable: false
+    applyOnChange: false
+    default: "chat"
+    options:
+    - title: Chat
+      value: chat
+    - title: Embedding
+      value: embedding
+  - envName: MODEL_SUPPORTS
+    required: true
+    type: string
+    editable: false
+    applyOnChange: false
+    default: "vision,tools,thinking"
+    multiSelect: true
+    splitter: ","
+    options:
+    - title: Vision
+      value: vision
+    - title: Tools
+      value: tools
+    - title: Thinking
+      value: thinking
+    - title: None
+      value: none
+    description: "Model capabilities exposed to the gateway."
+  - envName: ENGINE_ARGS
+    required: true
+    type: string
+    editable: true
+    applyOnChange: true
+    default: "-c 65536 -ngl 99 --threads 16 -fa on -ctk q8_0 -ctv turbo4 --jinja -np 1 --reasoning off --spec-type draft-mtp --spec-draft-n-max 3 --mmproj-gpu-swap"
+    description: "Aligned with v1.0.9 llama-server flags (ctx 65K, MTP n=3, threads 16)."
+  - envName: LOG_LEVEL
+    required: false
+    type: string
+    editable: true
+    applyOnChange: true
+    default: "info"
+    options:
+    - title: Debug
+      value: debug
+    - title: Info
+      value: info
+    - title: Warn
+      value: warn
+    - title: Error
+      value: error
+  - envName: HF_ENDPOINT
+    required: false
+    applyOnChange: true
+    valueFrom:
+      envName: OLARES_SYSTEM_HUGGINGFACE_SERVICE
+  - envName: HF_TOKEN
+    required: false
+    applyOnChange: true
+    valueFrom:
+      envName: OLARES_SYSTEM_HUGGINGFACE_TOKEN
+  - envName: LLAMACPP_CPU_REQUEST
+    required: true
+    default: "200m"
+    type: string
+    editable: false
+    applyOnChange: false
+  - envName: LLAMACPP_MEMORY_REQUEST
+    required: true
+    default: "21Gi"
+    type: string
+    editable: false
+    applyOnChange: false
+  - envName: LLAMACPP_CPU_LIMIT
+    required: true
+    default: "6"
+    type: string
+    editable: false
+    applyOnChange: false
+  - envName: LLAMACPP_MEMORY_LIMIT
+    required: true
+    default: "30Gi"
+    type: string
+    editable: false
+    applyOnChange: false
+  - envName: LLAMACPP_REQUIRED_GPU_MEMORY
+    required: true
+    type: string
+    editable: false
+    applyOnChange: false
+    default: "23Gi"
+    description: "GPU memory for this preset → nvidia.com/gpumem on NVIDIA."
+    regex: "^[0-9]+(Gi|Mi)?$"

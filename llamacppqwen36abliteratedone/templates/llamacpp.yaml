@@ -1,0 +1,173 @@
+{{- $oe := .Values.olaresEnv | default dict -}}
+{{- $modelName := $oe.MODEL_NAME | default "" -}}
+{{- $engineArgs := $oe.ENGINE_ARGS | default "" -}}
+{{- $modelMode := $oe.MODEL_MODE | default "" -}}
+{{- if and (eq $modelMode "embedding") (not (contains "--embedding" $engineArgs)) -}}
+{{- $engineArgs = trim (printf "%s --embedding" $engineArgs) -}}
+{{- end -}}
+{{- $hfEndpoint := $oe.HF_ENDPOINT | default "" -}}
+{{- $hfToken := $oe.HF_TOKEN | default "" -}}
+{{- $cpuRequest := trim ($oe.LLAMACPP_CPU_REQUEST | default "200m") -}}
+{{- $memRequest := trim ($oe.LLAMACPP_MEMORY_REQUEST | default "21Gi") -}}
+{{- $cpuLimit := trim ($oe.LLAMACPP_CPU_LIMIT | default "6") -}}
+{{- $memLimit := trim ($oe.LLAMACPP_MEMORY_LIMIT | default "30Gi") -}}
+{{- $gpuType := .Values.gpu | default "" -}}
+{{- if not $gpuType -}}
+{{- $gpuType = (.Values.GPU | default dict).Type | default "nvidia" -}}
+{{- end -}}
+{{- $isCpuMode := eq $gpuType "cpu" -}}
+{{- $unifiedMem := eq $gpuType "nvidia-gb10" -}}
+{{- $engineArgs = include "llamacppqwen36abliteratedone.engineArgs" (dict "Args" $engineArgs "IsCpu" $isCpuMode) -}}
+{{- $gpuMiB := include "llmbase.gpuMiB" ($oe.LLAMACPP_REQUIRED_GPU_MEMORY | default "23Gi") -}}
+{{- if $unifiedMem -}}
+{{- $memRequest = printf "%sMi" $gpuMiB -}}
+{{- $memLimit = printf "%sMi" $gpuMiB -}}
+{{- end -}}
+{{- $runStateHostPath := printf "%s/huggingface/llm-init-run/%s" .Values.userspace.appCommon .Release.Name -}}
+---
+# Chat template ConfigMap (BeeLlama PEG parser workaround for Qwen3 thinking).
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: llamacpp-qwen36abliterated-chat-template
+  namespace: "{{ .Release.Namespace }}"
+data:
+  chat_template.jinja: |-
+{{ .Files.Get "chat_template.jinja" | indent 4 }}
+---
+# llama.cpp engine Deployment (BeeLlama). Waits on llm-init sentinel, then
+# serves via wrappers/llamacpp.sh. Models live in appCommon/huggingface.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: '{{ .Release.Name }}'
+  namespace: '{{ .Release.Namespace }}'
+  labels:
+    io.kompose.service: llamacpp
+  {{- if not $isCpuMode }}
+  annotations:
+    applications.app.bytetrade.io/gpu-inject: "llamacpp"
+  {{- end }}
+spec:
+  replicas: {{ .Values.workloads.llamacppqwen36abliteratedone.replicaCount }}
+  selector:
+    matchLabels:
+      io.kompose.service: llamacpp
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        io.kompose.network/chrome-default: "true"
+        io.kompose.service: llamacpp
+    spec:
+      restartPolicy: Always
+      volumes:
+        - name: hf-cache
+          hostPath:
+            path: "{{ .Values.userspace.appCommon }}/huggingface"
+            type: DirectoryOrCreate
+        - name: run-state
+          hostPath:
+            path: "{{ $runStateHostPath }}"
+            type: DirectoryOrCreate
+        - name: wrappers
+          configMap:
+            name: llm-init-wrappers
+            defaultMode: 0555
+        - name: chat-template
+          configMap:
+            name: llamacpp-qwen36abliterated-chat-template
+      containers:
+        - name: llamacpp
+          # buun fork: --mmproj-gpu-swap + reliable --chat-template-file (BeeLlama
+          # v0.3.1 ignored the jinja file and used peg-native → ???? garbage).
+          image: docker.io/aamsellem/buun-llama-cpp:87c351d2
+          imagePullPolicy: IfNotPresent
+          command: ["/bin/sh", "/llm-init/wrappers/llamacpp.sh"]
+          env:
+            - name: ENGINE_KIND
+              value: llamacpp
+            - name: MODEL_NAME
+              value: "{{ $modelName }}"
+            - name: LLAMACPP_PORT
+              value: "8081"
+            - name: WAIT_TIMEOUT
+              value: "3600"
+            - name: ENGINE_ARGS
+              value: "{{ $engineArgs }}"
+            - name: HF_HUB_CACHE
+              value: /cache/hf/hub
+            - name: CHAT_TEMPLATE_FILE
+              value: /chat-template/chat_template.jinja
+            # HAMi-core "0m" parsing bug workaround
+            - name: CUDA_DEVICE_MEMORY_LIMIT_0
+              value: "30000m"
+{{- if $hfEndpoint }}
+            - name: HF_ENDPOINT
+              value: "{{ $hfEndpoint }}"
+{{- end }}
+{{- if $hfToken }}
+            - name: HF_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Release.Name }}-secrets
+                  key: HF_TOKEN
+{{- end }}
+            - name: PYTHONUNBUFFERED
+              value: "1"
+            - name: PGID
+              value: "1000"
+            - name: PUID
+              value: "1000"
+            - name: TZ
+              value: Etc/UTC
+{{- if $isCpuMode }}
+            - name: CUDA_VISIBLE_DEVICES
+              value: ""
+{{- end }}
+          ports:
+            - name: llamacpp
+              containerPort: 8081
+          volumeMounts:
+            - name: hf-cache
+              mountPath: /cache/hf/hub
+              readOnly: true
+            - name: run-state
+              mountPath: /run/llm-init
+              readOnly: true
+            - name: wrappers
+              mountPath: /llm-init/wrappers
+              readOnly: true
+            - name: chat-template
+              mountPath: /chat-template
+              readOnly: true
+          resources:
+            requests:
+              cpu: "{{ $cpuRequest }}"
+              memory: "{{ $memRequest }}"
+{{- if and (not $isCpuMode) (not $unifiedMem) }}
+              nvidia.com/gpumem: {{ $gpuMiB }}
+{{- end }}
+            limits:
+              cpu: "{{ $cpuLimit }}"
+              memory: "{{ $memLimit }}"
+{{- if and (not $isCpuMode) (not $unifiedMem) }}
+              nvidia.com/gpumem: {{ $gpuMiB }}
+{{- end }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: llamacpp
+  namespace: {{ .Release.Namespace }}
+  labels:
+    io.kompose.service: llamacpp
+spec:
+  selector:
+    io.kompose.service: llamacpp
+  ports:
+    - name: llamacpp
+      port: 8081
+      targetPort: 8081
+  type: ClusterIP
