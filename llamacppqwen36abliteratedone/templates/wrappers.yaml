@@ -1,0 +1,136 @@
+# Wait for llm-init model_path (+ finish), then start buun llama-server.
+# Prefer mmproj_path sentinel; if llm-init never wrote it (v1.3.1 HF mmproj
+# gap seen on olarestest001), fall back to mmproj*.gguf next to the main GGUF.
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: llm-init-wrappers
+  namespace: {{ .Release.Namespace }}
+  labels:
+    io.kompose.service: llamacpp
+data:
+  llamacpp.sh: |
+    #!/bin/sh
+    set -eu
+
+    ENGINE=llamacpp
+    MODEL_PATH_SENTINEL=${MODEL_PATH_SENTINEL:-/run/llm-init/model_path}
+    MMPROJ_SENTINEL=${MMPROJ_SENTINEL:-/run/llm-init/mmproj_path}
+    FINISH_SENTINEL=${FINISH_SENTINEL:-/run/llm-init/model_download_finish}
+    WAIT_INTERVAL=${WAIT_INTERVAL:-5}
+    WAIT_TIMEOUT=${WAIT_TIMEOUT:-3600}
+    REQUIRE_MMPROJ=${REQUIRE_MMPROJ:-1}
+    log() { printf '[wrapper-%s] %s\n' "$ENGINE" "$*"; }
+
+    wait_file() {
+        path=$1
+        label=$2
+        elapsed=0
+        while [ ! -f "$path" ]; do
+            if [ "$elapsed" -ge "$WAIT_TIMEOUT" ]; then
+                log "timed out after ${WAIT_TIMEOUT}s waiting for $label ($path)"
+                exit 1
+            fi
+            log "waiting for $label (elapsed=${elapsed}s)"
+            sleep "$WAIT_INTERVAL"
+            elapsed=$((elapsed + WAIT_INTERVAL))
+        done
+        log "$label ready after ${elapsed}s: $path"
+    }
+
+    # Concrete model_path first — do not trust a stale finish flag alone.
+    wait_file "$MODEL_PATH_SENTINEL" "model_path"
+    if [ ! -f "$FINISH_SENTINEL" ]; then
+        wait_file "$FINISH_SENTINEL" "model_download_finish"
+    else
+        log "model_download_finish present"
+    fi
+
+    MODEL_FILE=$(tr -d '\r\n' < "$MODEL_PATH_SENTINEL")
+    if [ -z "$MODEL_FILE" ] || [ ! -f "$MODEL_FILE" ]; then
+        log "model_path unusable: ${MODEL_FILE:-<empty>}"
+        exit 1
+    fi
+    log "model: $MODEL_FILE ($(wc -c < "$MODEL_FILE") bytes)"
+
+    MMPROJ_ARGS=""
+    MMPROJ_PATH=""
+    if [ -f "$MMPROJ_SENTINEL" ]; then
+        MMPROJ_PATH=$(tr -d '\r\n' < "$MMPROJ_SENTINEL")
+        log "mmproj_path sentinel: $MMPROJ_PATH"
+    fi
+    if [ -z "$MMPROJ_PATH" ] || [ ! -f "$MMPROJ_PATH" ]; then
+        # llm-init may download role=mmproj without writing the sentinel.
+        MODEL_DIR=$(dirname "$MODEL_FILE")
+        for cand in "$MODEL_DIR"/mmproj-model-f16.gguf "$MODEL_DIR"/mmproj-F16.gguf "$MODEL_DIR"/mmproj*.gguf; do
+            if [ -f "$cand" ]; then
+                MMPROJ_PATH=$cand
+                log "mmproj fallback (sibling of model): $MMPROJ_PATH"
+                break
+            fi
+        done
+    fi
+    if [ -n "$MMPROJ_PATH" ] && [ -f "$MMPROJ_PATH" ]; then
+        MMPROJ_ARGS="--mmproj $MMPROJ_PATH"
+        log "mmproj: $MMPROJ_PATH ($(wc -c < "$MMPROJ_PATH") bytes)"
+    elif [ "$REQUIRE_MMPROJ" = "1" ]; then
+        log "mmproj required but not found (sentinel missing and no sibling mmproj*.gguf)"
+        exit 1
+    else
+        log "WARNING: continuing without mmproj"
+    fi
+
+    LLAMA_SERVER_BIN="${LLAMA_SERVER_BIN:-}"
+    if [ -z "$LLAMA_SERVER_BIN" ]; then
+        if [ -x /app/llama-server ]; then
+            LLAMA_SERVER_BIN=/app/llama-server
+        else
+            LLAMA_SERVER_BIN="$(command -v llama-server 2>/dev/null || true)"
+        fi
+    fi
+    if [ -z "$LLAMA_SERVER_BIN" ] || [ ! -x "$LLAMA_SERVER_BIN" ]; then
+        log "llama-server binary not found"
+        exit 127
+    fi
+
+    LLAMA_SERVER_DIR=$(dirname "$LLAMA_SERVER_BIN")
+    export LD_LIBRARY_PATH="${LLAMA_SERVER_DIR}${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}"
+    if [ -d "${LLAMA_SERVER_DIR}/lib" ]; then
+        export LD_LIBRARY_PATH="${LLAMA_SERVER_DIR}/lib:${LD_LIBRARY_PATH}"
+    fi
+
+    ARGV=""
+    if [ -n "${ENGINE_ARGS:-}" ]; then
+        # shellcheck disable=SC2086
+        set -- $ENGINE_ARGS
+        for tok in "$@"; do
+            case "$tok" in
+                -*)             ARGV="$ARGV $tok" ;;
+                LLAMA_ARG_*=*)  export "$tok" && log "engine_args export: $tok" ;;
+                *=*)            log "engine_args drop non-LLAMA_ARG env: $tok" ;;
+                *)              ARGV="$ARGV $tok" ;;
+            esac
+        done
+    fi
+
+    CHAT_TEMPLATE_ARGS=""
+    if [ -n "${CHAT_TEMPLATE_FILE:-}" ] && [ -f "$CHAT_TEMPLATE_FILE" ]; then
+        CHAT_TEMPLATE_ARGS="--chat-template-file $CHAT_TEMPLATE_FILE"
+        log "chat template: $CHAT_TEMPLATE_FILE"
+    else
+        log "WARNING: chat template missing — Qwen may emit garbage under peg-native"
+    fi
+
+    ALIAS="${MODEL_ALIAS:-${MODEL_NAME:-llm-init-model}}"
+    log "starting llama.cpp --model alias=$ALIAS argv=${ARGV:-<empty>} mmproj=${MMPROJ_PATH:-none} (bin=$LLAMA_SERVER_BIN)"
+    # shellcheck disable=SC2086
+    exec "$LLAMA_SERVER_BIN" \
+        --model "$MODEL_FILE" \
+        --alias "$ALIAS" \
+        --host 0.0.0.0 \
+        --port "${LLAMACPP_PORT:-8081}" \
+        --metrics \
+        $MMPROJ_ARGS \
+        $CHAT_TEMPLATE_ARGS \
+        $ARGV \
+        "$@"

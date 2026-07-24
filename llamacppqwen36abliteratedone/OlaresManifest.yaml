@@ -1,14 +1,13 @@
----
-olaresManifest.version: '0.10.0'
+olaresManifest.version: '0.12.0'
 olaresManifest.type: app
-apiVersion: 'v2'
+apiVersion: 'v3'
 metadata:
   name: llamacppqwen36abliteratedone
   icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen36abliteratedone.png
   description: "Qwen3.6 35B-A3B abliterated + Claude 4.7 Opus reasoning distilled — Q4_K smarter quant @ 65K, no guardrails, MTP + Vision on Olares One"
   appid: llamacppqwen36abliteratedone
   title: Qwen36 35B-A3B Abliterated Claude
-  version: 1.0.9
+  version: '1.1.5'
   categories:
     - LLM Chat
     - AI Agents
@@ -30,17 +29,31 @@ metadata:
       audio:        false
       mtp:          { enabled: true, accept: 86 }
     stack: "buun-llama.cpp · huihui-ai Q4_K · MTP + mmproj-gpu-swap"
-entrances:
+sharedEntrances:
   - name: llamacppqwen36abliteratedone
-    port: 8000
-    host: llamacppqwen36abliteratedone
+    host: sharedentrances-api
+    port: 0
+    title: Qwen36 35B Abliterated
+    invisible: true
+    authLevel: internal
+    icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen36abliteratedone.png
+entrances:
+  - name: llamacppclient
+    port: 8090
+    host: download-svc
     title: Qwen36 35B Abliterated
     icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen36abliteratedone.png
     openMethod: window
     authLevel: internal
+workloadReplicas:
+  llamacppqwen36abliteratedone: 1
+  llminit: 1
 spec:
-  versionName: 1.0.9
+  onlyAdmin: true
+  versionName: '1.1.5'
   upgradeDescription: |
+    v1.1.5: **Olares 1.12.6 v3 + llm-init + appCommon**. Download via Model Console (`beclab/llm-init:v1.3.1`) into shared `appCommon/huggingface`; entrance :8090. Engine `aamsellem/buun-llama-cpp:87c351d2` with the same v1.0.9 flags (65K ctx, MTP n=3, threads 16, asym KV, mmproj-gpu-swap, chat-template). `requiredGPUMemory` 23Gi.
+
     v1.0.9: **upgrade to BeeLlama v0.3.1** (anbeeld's maintained fork, ghcr.io/anbeeld/beellama.cpp:server-cuda13-v0.3.1). Bumped from custom one-shot `aamsellem/buun-llama-cpp:87c351d2` to BeeLlama which includes everything buun had (asymmetric KV q8_0-K/turbo4-V, MTP) PLUS DFlash speculative decoding, adaptive draft-max controller, reasoning-loop protection, and full multimodal Gemma 4 unified support — all in a maintained upstream image with regular release tags. Bench on Olares One (3 runs Space Invaders): 247.42 / 256.65 / 248.69 t/s = AVG 250.9 t/s with 86-92% MTP accept (vs v1.0.8 245.3 t/s @ 82-88%) = +2.3% speed + higher accept rate ceiling. Same Q4_K + mmproj + asym KV config, just better upstream image.
 
     v1.0.8: **asymmetric KV cache** (free K quality boost). Upgraded buun-llama-cpp image from 316e88e (May 2026) to 87c351d2 (2026-06-04) which adds fused asymmetric q8_0-K + turbo4-V flash-attn kernel. KV config changed from symmetric `q4_0/q4_0` (both 4-bit) to asymmetric `q8_0-K / turbo4-V`: keys at 8-bit precision (matters most for attention quality), values compressed via turbo4 (matters less per-token). Bench on Olares One (3 runs Space Invaders): 246.83 / 249.86 / 239.19 t/s = AVG 245.3 t/s with 82-88% MTP accept — matches v1.0.7 speed (244 t/s) but with measurably higher K precision. Context stays at 65K (asymmetric is for quality not size; 262K still OOMs).
@@ -100,22 +113,159 @@ spec:
     - text: Apache-2.0
       url: https://huggingface.co/huihui-ai/Huihui-Qwen3.6-35B-A3B-Claude-4.7-Opus-abliterated-MTP-GGUF
 
-  limitedCpu: 16
-  requiredCpu: 4
-  requiredDisk: 30Gi
-  limitedDisk: 50Gi
-  limitedMemory: 40Gi
-  requiredMemory: 24Gi
-  requiredGpu: 1Gi
-  limitedGpu: 24Gi
+  accelerator:
+    - mode: nvidia
+      limitedCpu: "15360m"
+      requiredCpu: "1200m"
+      requiredDisk: 50Mi
+      limitedDisk: 500Gi
+      limitedMemory: "32Gi"
+      requiredMemory: "22Gi"
+      requiredGPUMemory: "23Gi"
+      limitedGPUMemory: "23Gi"
 
   supportArch:
     - amd64
 permission:
   appData: true
+  appCommon: true
 options:
   apiTimeout: 0
+  LLMGatewaySupported: true
+  shared: true
+  templateOnly: false
   dependencies:
     - name: olares
-      version: '>=1.12.3-0'
+      version: '>=1.12.6-0'
       type: system
+envs:
+  - envName: MODEL_SOURCE_NUM
+    required: true
+    type: string
+    editable: false
+    applyOnChange: false
+    default: "2"
+    description: "Indexed multi-source count (main GGUF + mmproj)."
+  - envName: MODEL_SOURCE_1
+    required: true
+    type: string
+    editable: false
+    applyOnChange: false
+    default: "hf://huihui-ai/Huihui-Qwen3.6-35B-A3B-Claude-4.7-Opus-abliterated-MTP-GGUF --include Huihui-Qwen3.6-35B-A3B-Claude-4.7-Opus-abliterated-ggml-model-Q4_K.gguf"
+    description: "Main GGUF (role=main)."
+    regex: "^hf://"
+  - envName: MODEL_SOURCE_2
+    required: true
+    type: string
+    editable: false
+    applyOnChange: false
+    default: "hf://huihui-ai/Huihui-Qwen3.6-35B-A3B-Claude-4.7-Opus-abliterated-MTP-GGUF --include mmproj-model-f16.gguf"
+    description: "Vision projector GGUF."
+    regex: "^hf://"
+  - envName: MODEL_SOURCE_2_ROLE
+    required: true
+    type: string
+    editable: false
+    applyOnChange: false
+    default: "mmproj"
+    description: "Must be mmproj so llm-init writes mmproj_path sentinel."
+  - envName: MODEL_NAME
+    required: true
+    type: string
+    editable: false
+    applyOnChange: false
+    default: "huihui-ai/Huihui-Qwen3.6-35B-A3B-Claude-4.7-Opus-abliterated-MTP-GGUF:Q4_K"
+    description: "Client model id / alias (engine loads via model_path, not -hf)."
+  - envName: MODEL_MODE
+    required: true
+    type: string
+    editable: false
+    applyOnChange: false
+    default: "chat"
+    options:
+    - title: Chat
+      value: chat
+    - title: Embedding
+      value: embedding
+  - envName: MODEL_SUPPORTS
+    required: true
+    type: string
+    editable: false
+    applyOnChange: false
+    default: "vision,tools,thinking"
+    multiSelect: true
+    splitter: ","
+    options:
+    - title: Vision
+      value: vision
+    - title: Tools
+      value: tools
+    - title: Thinking
+      value: thinking
+    - title: None
+      value: none
+    description: "Model capabilities exposed to the gateway."
+  - envName: ENGINE_ARGS
+    required: true
+    type: string
+    editable: true
+    applyOnChange: true
+    default: "-c 65536 -ngl 99 --threads 16 -fa on -ctk q8_0 -ctv turbo4 --jinja -np 1 --reasoning off --spec-type draft-mtp --spec-draft-n-max 3 --mmproj-gpu-swap"
+    description: "Aligned with v1.0.9 llama-server flags (ctx 65K, MTP n=3, threads 16)."
+  - envName: LOG_LEVEL
+    required: false
+    type: string
+    editable: true
+    applyOnChange: true
+    default: "info"
+    options:
+    - title: Debug
+      value: debug
+    - title: Info
+      value: info
+    - title: Warn
+      value: warn
+    - title: Error
+      value: error
+  - envName: HF_ENDPOINT
+    required: false
+    applyOnChange: true
+    valueFrom:
+      envName: OLARES_SYSTEM_HUGGINGFACE_SERVICE
+  - envName: HF_TOKEN
+    required: false
+    applyOnChange: true
+    valueFrom:
+      envName: OLARES_SYSTEM_HUGGINGFACE_TOKEN
+  - envName: LLAMACPP_CPU_REQUEST
+    required: true
+    default: "200m"
+    type: string
+    editable: false
+    applyOnChange: false
+  - envName: LLAMACPP_MEMORY_REQUEST
+    required: true
+    default: "21Gi"
+    type: string
+    editable: false
+    applyOnChange: false
+  - envName: LLAMACPP_CPU_LIMIT
+    required: true
+    default: "6"
+    type: string
+    editable: false
+    applyOnChange: false
+  - envName: LLAMACPP_MEMORY_LIMIT
+    required: true
+    default: "30Gi"
+    type: string
+    editable: false
+    applyOnChange: false
+  - envName: LLAMACPP_REQUIRED_GPU_MEMORY
+    required: true
+    type: string
+    editable: false
+    applyOnChange: false
+    default: "23Gi"
+    description: "GPU memory for this preset → nvidia.com/gpumem on NVIDIA."
+    regex: "^[0-9]+(Gi|Mi)?$"

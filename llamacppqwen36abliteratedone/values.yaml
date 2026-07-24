@@ -1,7 +1,19 @@
-admin: ""
-bfl:
-  username: ""
+# Per-workload replica counts (keys match Deployment metadata.name and
+# workloadReplicas in OlaresManifest).
+workloads:
+  llminit:
+    replicaCount: 1
+  llamacppqwen36abliteratedone:
+    replicaCount: 1
+# Placeholders for local lint/render; Olares injects real values at install.
+domain:
+  llamacppclient: "localhost"
+gpu: "nvidia"
+GPU:
+  Type: nvidia
 userspace:
-  appData: ""
+  appData: "/tmp/appData"
+  appCommon: "/tmp/appCommon"
   appCache: ""
   userData: ""
+olaresEnv: {}
