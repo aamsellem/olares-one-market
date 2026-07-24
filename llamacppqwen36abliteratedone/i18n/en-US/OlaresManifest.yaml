@@ -1,5 +1,5 @@
 metadata:
-  title: Qwen36 Abliterated Claude
+  title: Qwen36 35B-A3B Abliterated Claude
   description: "Qwen3.6 35B-A3B abliterated + Claude 4.7 Opus distilled — Q4_K @ 65K, Vision via buun + llm-init"
 
 spec:

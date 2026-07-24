@@ -6,7 +6,7 @@ metadata:
   icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen36abliteratedone.png
   description: "Qwen3.6 35B-A3B abliterated + Claude 4.7 Opus distilled — Q4_K @ 65K, MTP + Vision via BeeLlama + llm-init on Olares One"
   appid: llamacppqwen36abliteratedone
-  title: Qwen36 Abliterated Claude
+  title: Qwen36 35B-A3B Abliterated Claude
   version: '1.1.5'
   categories:
     - AI
