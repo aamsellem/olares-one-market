@@ -8,7 +8,7 @@ metadata:
   description: "Qwen3.5 27B NVFP4 via vLLM — optimized for Olares One"
   appid: vllmqwen3527bone
   title: Qwen3.5 27B NVFP4 vLLM One
-  version: '1.0.4'
+  version: '1.0.5'
   categories:
     - LLM Chat
   bento:
@@ -36,7 +36,7 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.0.4'
+  versionName: '1.0.5'
   fullDescription: |
     Qwen3.5 27B (dense, Mamba-hybrid) served via vLLM with NVFP4 quantization — optimized for Olares One.
     RTX 5090M (24GB) + 96GB DDR5 + Core Ultra 9 275HX.

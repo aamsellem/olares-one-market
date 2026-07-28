@@ -8,7 +8,7 @@ metadata:
   description: "Qwen3-TTS 1.7B — text-to-speech with voice cloning, optimized for Olares One"
   appid: qwen3ttstone
   title: Qwen3-TTS 1.7B (Olares One)
-  version: '1.0.10'
+  version: '1.0.11'
   categories:
     - TTS
   bento:
@@ -36,7 +36,7 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.0.10'
+  versionName: '1.0.11'
   fullDescription: |
     Qwen3-TTS 1.7B CustomVoice served via Gradio — optimized for Olares One.
     RTX 5090M (24GB) + 96GB DDR5 + Core Ultra 9 275HX.

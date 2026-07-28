@@ -8,7 +8,7 @@ metadata:
   description: "Gemma 4 26B-A4B QAT UD-Q4_K_XL + bundled MTP drafter (Unsloth) + vision — 286.6 t/s @ 91% accept, 16.6 GB VRAM, 32K ctx on Olares One"
   appid: llamacppgemma426ba4bone
   title: Gemma 4 26B-A4B One
-  version: 1.0.3
+  version: '1.0.4'
   categories:
     - LLM Chat
     - AI Agents
@@ -38,8 +38,10 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: 1.0.3
+  versionName: '1.0.4'
   upgradeDescription: |
+    v1.0.4: **fix missing `envs:` declaration for HF token**. `templates/deployment.yaml` referenced `HF_TOKEN={{ .Values.olaresEnv.OLARES_USER_HUGGINGFACE_TOKEN }}` but `OlaresManifest.yaml` never declared `OLARES_USER_HUGGINGFACE_TOKEN` in an `envs:` block — so Helm rendered `HF_TOKEN=""` and any gated-model download from HuggingFace failed with 401. Same class of bug as `nemotronlabselastic30bnvfp4one` v1.0.3 (Discord-reported crash loop). No functional change for public models; fixes gated-repo access. Declared `required: false` so install still works when the user hasn't configured a token in Olares Settings.
+
     v1.0.3: **rebuild image against llama.cpp main HEAD b9601** to pick up PR #24086 (Remove padding + multiple D2D copies for MTP, merged 2026-06-10 by gaugarg-nv / NVIDIA). PR claimed +4% throughput on Qwen3.6-35B-A3B MTP measured on DGX Spark. Image bumped `r3 → r4` (built from same Dockerfile recipe on `nvidia/cuda:13.1.1-devel-ubuntu24.04`).
 
     **Bench result on Olares One: 286.39 t/s AVG (3 runs Space Invaders, MTP n=2, 2048 tokens)**:
@@ -138,3 +140,9 @@ options:
     - name: olares
       version: '>=1.12.3-0'
       type: system
+envs:
+  - envName: OLARES_USER_HUGGINGFACE_TOKEN
+    required: false
+    applyOnChange: true
+    valueFrom:
+      envName: OLARES_USER_HUGGINGFACE_TOKEN

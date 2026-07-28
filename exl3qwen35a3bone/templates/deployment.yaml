@@ -109,7 +109,7 @@ spec:
               name: models
       containers:
         - name: tabbyapi
-          image: "docker.io/aamsellem/tabbyapi:latest"
+          image: "docker.io/aamsellem/tabbyapi@sha256:af6c92203f12b38eb3f65b356136e1cbe015d8d74df4447e022c3fa7f9e56abd"
           command: ["sh", "-c"]
           args:
             - |

@@ -1,5 +1,5 @@
 {
-  "hash": "222f2a49d3c5279580b64290002ee0ec",
+  "hash": "cbf598407e59ad917de127cb1aadab17",
   "summaries": {
     "33102786": {
       "id": "33102786",
@@ -18,7 +18,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-06-15T01:44:22.105000000Z"
+      "updated_at": "2026-07-28T22:13:26.958000000Z"
     },
     "e1311c4c": {
       "id": "e1311c4c",
@@ -37,7 +37,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-06-15T01:44:22.096000000Z"
+      "updated_at": "2026-07-28T22:13:26.901000000Z"
     },
     "f9902972": {
       "id": "f9902972",
@@ -56,7 +56,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-06-15T01:44:22.098000000Z"
+      "updated_at": "2026-07-28T22:13:26.920000000Z"
     },
     "8a7e4366": {
       "id": "8a7e4366",
@@ -76,12 +76,12 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-06-15T01:44:22.098000000Z"
+      "updated_at": "2026-07-28T22:13:26.924000000Z"
     },
     "cf587666": {
       "id": "cf587666",
       "name": "exl3qwen35a3bone",
-      "version": "1.0.17",
+      "version": "1.0.18",
       "category": "LLM Chat",
       "categories": [
         "LLM Chat"
@@ -95,7 +95,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-06-15T01:44:22.099000000Z"
+      "updated_at": "2026-07-28T22:13:26.929000000Z"
     },
     "a4f8515c": {
       "id": "a4f8515c",
@@ -114,7 +114,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-06-15T01:44:22.099000000Z"
+      "updated_at": "2026-07-28T22:13:26.932000000Z"
     },
     "65b82978": {
       "id": "65b82978",
@@ -134,12 +134,12 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-06-15T01:44:22.100000000Z"
+      "updated_at": "2026-07-28T22:13:26.935000000Z"
     },
     "3f05b625": {
       "id": "3f05b625",
       "name": "llamacppcodernext40bone",
-      "version": "1.1.4",
+      "version": "1.1.5",
       "category": "LLM Chat",
       "categories": [
         "LLM Chat",
@@ -155,12 +155,12 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-06-15T01:44:22.101000000Z"
+      "updated_at": "2026-07-28T22:13:26.937000000Z"
     },
     "ec27bc37": {
       "id": "ec27bc37",
       "name": "llamacppcodernextq4one",
-      "version": "1.0.4",
+      "version": "1.0.5",
       "category": "LLM Chat",
       "categories": [
         "LLM Chat",
@@ -176,12 +176,12 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-06-15T01:44:22.101000000Z"
+      "updated_at": "2026-07-28T22:13:26.941000000Z"
     },
     "6cd2129a": {
       "id": "6cd2129a",
       "name": "llamacppgemma412blcone",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "category": "LLM Chat",
       "categories": [
         "LLM Chat",
@@ -198,12 +198,12 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-06-15T01:44:22.102000000Z"
+      "updated_at": "2026-07-28T22:13:26.944000000Z"
     },
     "fff8241b": {
       "id": "fff8241b",
       "name": "llamacppgemma412bone",
-      "version": "1.0.7",
+      "version": "1.0.8",
       "category": "LLM Chat",
       "categories": [
         "LLM Chat",
@@ -219,12 +219,12 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-06-15T01:44:22.102000000Z"
+      "updated_at": "2026-07-28T22:13:26.947000000Z"
     },
     "2effb583": {
       "id": "2effb583",
       "name": "llamacppgemma426ba4bone",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "category": "LLM Chat",
       "categories": [
         "LLM Chat",
@@ -240,7 +240,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-06-15T01:44:22.103000000Z"
+      "updated_at": "2026-07-28T22:13:26.949000000Z"
     },
     "8c6443a7": {
       "id": "8c6443a7",
@@ -259,7 +259,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-06-15T01:44:22.103000000Z"
+      "updated_at": "2026-07-28T22:13:26.951000000Z"
     },
     "c1ca229f": {
       "id": "c1ca229f",
@@ -278,7 +278,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-06-15T01:44:22.104000000Z"
+      "updated_at": "2026-07-28T22:13:26.952000000Z"
     },
     "491be3cd": {
       "id": "491be3cd",
@@ -297,7 +297,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-06-15T01:44:22.104000000Z"
+      "updated_at": "2026-07-28T22:13:26.953000000Z"
     },
     "02b1d2a9": {
       "id": "02b1d2a9",
@@ -317,7 +317,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-06-15T01:44:22.104000000Z"
+      "updated_at": "2026-07-28T22:13:26.955000000Z"
     },
     "4ef430dd": {
       "id": "4ef430dd",
@@ -336,12 +336,12 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-06-15T01:44:22.105000000Z"
+      "updated_at": "2026-07-28T22:13:26.956000000Z"
     },
     "059cd05d": {
       "id": "059cd05d",
       "name": "llamacppqwen36a3bone",
-      "version": "2.0.8",
+      "version": "2.0.9",
       "category": "LLM Chat",
       "categories": [
         "LLM Chat",
@@ -357,12 +357,12 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-06-15T01:44:22.106000000Z"
+      "updated_at": "2026-07-28T22:13:26.961000000Z"
     },
     "6ee23f04": {
       "id": "6ee23f04",
       "name": "llamacppqwen36abliteratedone",
-      "version": "1.0.9",
+      "version": "1.0.10",
       "category": "LLM Chat",
       "categories": [
         "LLM Chat",
@@ -379,7 +379,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-06-15T01:44:22.106000000Z"
+      "updated_at": "2026-07-28T22:13:26.963000000Z"
     },
     "9ca1356f": {
       "id": "9ca1356f",
@@ -399,7 +399,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-06-15T01:44:22.106000000Z"
+      "updated_at": "2026-07-28T22:13:26.966000000Z"
     },
     "376c02dd": {
       "id": "376c02dd",
@@ -419,7 +419,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-06-15T01:44:22.107000000Z"
+      "updated_at": "2026-07-28T22:13:26.968000000Z"
     },
     "49ed4ea2": {
       "id": "49ed4ea2",
@@ -438,7 +438,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-06-15T01:44:22.107000000Z"
+      "updated_at": "2026-07-28T22:13:26.969000000Z"
     },
     "6a1ddcf0": {
       "id": "6a1ddcf0",
@@ -457,7 +457,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-06-15T01:44:22.108000000Z"
+      "updated_at": "2026-07-28T22:13:26.971000000Z"
     },
     "43e83ecd": {
       "id": "43e83ecd",
@@ -476,7 +476,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-06-15T01:44:22.108000000Z"
+      "updated_at": "2026-07-28T22:13:26.973000000Z"
     },
     "fa4ef911": {
       "id": "fa4ef911",
@@ -495,7 +495,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-06-15T01:44:22.109000000Z"
+      "updated_at": "2026-07-28T22:13:26.974000000Z"
     },
     "99dafa10": {
       "id": "99dafa10",
@@ -515,7 +515,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-06-15T01:44:22.109000000Z"
+      "updated_at": "2026-07-28T22:13:26.975000000Z"
     },
     "e74eca98": {
       "id": "e74eca98",
@@ -534,7 +534,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-06-15T01:44:22.109000000Z"
+      "updated_at": "2026-07-28T22:13:26.977000000Z"
     },
     "2c5c39c9": {
       "id": "2c5c39c9",
@@ -553,7 +553,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-06-15T01:44:22.110000000Z"
+      "updated_at": "2026-07-28T22:13:26.978000000Z"
     },
     "ed18683c": {
       "id": "ed18683c",
@@ -572,7 +572,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-06-15T01:44:22.110000000Z"
+      "updated_at": "2026-07-28T22:13:26.979000000Z"
     },
     "14fdab3c": {
       "id": "14fdab3c",
@@ -592,7 +592,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-06-15T01:44:22.110000000Z"
+      "updated_at": "2026-07-28T22:13:26.980000000Z"
     },
     "da30d532": {
       "id": "da30d532",
@@ -612,12 +612,12 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-06-15T01:44:22.110000000Z"
+      "updated_at": "2026-07-28T22:13:26.981000000Z"
     },
     "49c5b493": {
       "id": "49c5b493",
       "name": "qwen3ttstone",
-      "version": "1.0.10",
+      "version": "1.0.11",
       "category": "TTS",
       "categories": [
         "TTS"
@@ -631,7 +631,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-06-15T01:44:22.111000000Z"
+      "updated_at": "2026-07-28T22:13:26.982000000Z"
     },
     "fff1cda2": {
       "id": "fff1cda2",
@@ -652,7 +652,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-06-15T01:44:22.111000000Z"
+      "updated_at": "2026-07-28T22:13:26.984000000Z"
     },
     "35ffe672": {
       "id": "35ffe672",
@@ -674,7 +674,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-06-15T01:44:22.112000000Z"
+      "updated_at": "2026-07-28T22:13:26.985000000Z"
     },
     "b3078d17": {
       "id": "b3078d17",
@@ -694,7 +694,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-06-15T01:44:22.112000000Z"
+      "updated_at": "2026-07-28T22:13:26.989000000Z"
     },
     "18a6f781": {
       "id": "18a6f781",
@@ -713,7 +713,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-06-15T01:44:22.112000000Z"
+      "updated_at": "2026-07-28T22:13:26.991000000Z"
     },
     "be32d4df": {
       "id": "be32d4df",
@@ -733,12 +733,12 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-06-15T01:44:22.113000000Z"
+      "updated_at": "2026-07-28T22:13:26.993000000Z"
     },
     "285e9d99": {
       "id": "285e9d99",
       "name": "vllmqwen3527bone",
-      "version": "1.0.4",
+      "version": "1.0.5",
       "category": "LLM Chat",
       "categories": [
         "LLM Chat"
@@ -752,7 +752,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-06-15T01:44:22.113000000Z"
+      "updated_at": "2026-07-28T22:13:26.994000000Z"
     },
     "901d20e0": {
       "id": "901d20e0",
@@ -772,7 +772,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-06-15T01:44:22.114000000Z"
+      "updated_at": "2026-07-28T22:13:26.998000000Z"
     },
     "af406293": {
       "id": "af406293",
@@ -791,7 +791,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-06-15T01:44:22.114000000Z"
+      "updated_at": "2026-07-28T22:13:26.999000000Z"
     },
     "13db403f": {
       "id": "13db403f",
@@ -810,7 +810,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-06-15T01:44:22.115000000Z"
+      "updated_at": "2026-07-28T22:13:27.000000000Z"
     },
     "efd72908": {
       "id": "efd72908",
@@ -829,7 +829,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-06-15T01:44:22.116000000Z"
+      "updated_at": "2026-07-28T22:13:27.001000000Z"
     }
   },
   "details": {
@@ -931,7 +931,7 @@
           "appName": "llamacppqwen35iq4one",
           "version": "1.0.8",
           "versionName": "1.0.8",
-          "mergedAt": "2026-06-15T01:44:22.105000000Z",
+          "mergedAt": "2026-07-28T22:13:26.958000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -941,7 +941,7 @@
         "long ctx"
       ],
       "metadata": null,
-      "updated_at": "2026-06-15T01:44:22.105000000Z"
+      "updated_at": "2026-07-28T22:13:26.958000000Z"
     },
     "e1311c4c": {
       "id": "e1311c4c",
@@ -1041,7 +1041,7 @@
           "appName": "acestepxlone",
           "version": "1.1.9",
           "versionName": "1.1.9",
-          "mergedAt": "2026-06-15T01:44:22.097000000Z",
+          "mergedAt": "2026-07-28T22:13:26.915000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -1051,7 +1051,7 @@
         "music"
       ],
       "metadata": null,
-      "updated_at": "2026-06-15T01:44:22.097000000Z"
+      "updated_at": "2026-07-28T22:13:26.915000000Z"
     },
     "f9902972": {
       "id": "f9902972",
@@ -1151,7 +1151,7 @@
           "appName": "cascade230a3bone",
           "version": "1.0.7",
           "versionName": "1.0.7",
-          "mergedAt": "2026-06-15T01:44:22.098000000Z",
+          "mergedAt": "2026-07-28T22:13:26.920000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -1161,7 +1161,7 @@
         "hybrid"
       ],
       "metadata": null,
-      "updated_at": "2026-06-15T01:44:22.098000000Z"
+      "updated_at": "2026-07-28T22:13:26.920000000Z"
     },
     "8a7e4366": {
       "id": "8a7e4366",
@@ -1262,7 +1262,7 @@
           "appName": "devstralsmallone",
           "version": "1.0.7",
           "versionName": "1.0.7",
-          "mergedAt": "2026-06-15T01:44:22.099000000Z",
+          "mergedAt": "2026-07-28T22:13:26.924000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -1272,22 +1272,22 @@
         "swe-bench"
       ],
       "metadata": null,
-      "updated_at": "2026-06-15T01:44:22.099000000Z"
+      "updated_at": "2026-07-28T22:13:26.924000000Z"
     },
     "cf587666": {
       "id": "cf587666",
       "name": "exl3qwen35a3bone",
       "cfgType": "app",
-      "chartName": "exl3qwen35a3bone-1.0.17.tgz",
+      "chartName": "exl3qwen35a3bone-1.0.18.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen35a3bone.png",
       "description": "Qwen3.5 35B-A3B EXL3 4bpw via TabbyAPI + ExLlamaV3 — optimized for Olares One",
       "appID": "cf587666",
       "title": "Qwen3.5 35B EXL3 One",
-      "version": "1.0.17",
+      "version": "1.0.18",
       "categories": [
         "LLM Chat"
       ],
-      "versionName": "1.0.17",
+      "versionName": "1.0.18",
       "fullDescription": "Qwen3.5 35B-A3B (MoE, 3B active) served via TabbyAPI + ExLlamaV3 — optimized for Olares One.\nRTX 5090M (24GB) + 96GB DDR5 + Core Ultra 9 275HX.\nEXL3 4.09bpw quantization by turboderp (18.24GB model, ~5.7GB free for KV cache).\nExLlamaV3 custom Marlin-inspired GEMM kernels, native sm_120 Blackwell support.\nDownloads the EXL3 model on first launch (~18GB) and caches it.\nExposes an OpenAI-compatible API (v1/chat/completions).\n",
       "upgradeDescription": "",
       "promoteImage": [
@@ -1370,9 +1370,9 @@
       "versionHistory": [
         {
           "appName": "exl3qwen35a3bone",
-          "version": "1.0.17",
-          "versionName": "1.0.17",
-          "mergedAt": "2026-06-15T01:44:22.099000000Z",
+          "version": "1.0.18",
+          "versionName": "1.0.18",
+          "mergedAt": "2026-07-28T22:13:26.929000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -1382,7 +1382,7 @@
         "exl3"
       ],
       "metadata": null,
-      "updated_at": "2026-06-15T01:44:22.099000000Z"
+      "updated_at": "2026-07-28T22:13:26.929000000Z"
     },
     "a4f8515c": {
       "id": "a4f8515c",
@@ -1482,7 +1482,7 @@
           "appName": "gemma426ba4bone",
           "version": "1.0.11",
           "versionName": "1.0.11",
-          "mergedAt": "2026-06-15T01:44:22.099000000Z",
+          "mergedAt": "2026-07-28T22:13:26.932000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -1492,7 +1492,7 @@
         "efficient"
       ],
       "metadata": null,
-      "updated_at": "2026-06-15T01:44:22.099000000Z"
+      "updated_at": "2026-07-28T22:13:26.932000000Z"
     },
     "65b82978": {
       "id": "65b82978",
@@ -1593,7 +1593,7 @@
           "appName": "gemma4e2bone",
           "version": "1.0.3",
           "versionName": "1.0.3",
-          "mergedAt": "2026-06-15T01:44:22.100000000Z",
+          "mergedAt": "2026-07-28T22:13:26.935000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -1603,26 +1603,26 @@
         "voice"
       ],
       "metadata": null,
-      "updated_at": "2026-06-15T01:44:22.100000000Z"
+      "updated_at": "2026-07-28T22:13:26.935000000Z"
     },
     "3f05b625": {
       "id": "3f05b625",
       "name": "llamacppcodernext40bone",
       "cfgType": "app",
-      "chartName": "llamacppcodernext40bone-1.1.4.tgz",
+      "chartName": "llamacppcodernext40bone-1.1.5.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppcodernext40bone.png",
       "description": "Qwen3-Coder-Next REAP 40B-A3B Long Context — 142 t/s @ FULL 262K context coding agent on Olares One",
       "appID": "3f05b625",
       "title": "Qwen3 Coder Next 40B Long Context One",
-      "version": "1.1.4",
+      "version": "1.1.5",
       "categories": [
         "LLM Chat",
         "AI Agents",
         "Coding"
       ],
-      "versionName": "1.1.4",
+      "versionName": "1.1.5",
       "fullDescription": "Qwen3-Coder-Next REAP 40B-A3B — Alibaba's coding-specialized 80B MoE\npruned 50% via REAP to fit a 24GB GPU.\n\nCoder-tuned for agentic workflows: SWE-Bench, Terminal-Bench, tool calling.\nHybrid Gated-DeltaNet + Attention architecture gives 262K full native context\nessentially for free on the KV-cache side.\n\nOlares One config (RTX 5090M 24GB, Core Ultra 9 275HX, 96GB DDR5):\n- Q3_K_M quantization (19.9 GB)\n- q8_0 KV cache, flash attention\n- 262K context out of the box\n- 142 t/s validated bench (Space Invaders, May 2026)\n\nDownloads the GGUF model on first launch (~20 GB) and caches it.\nExposes an OpenAI-compatible API on port 8000.\n",
-      "upgradeDescription": "v1.1.0: rename + branding. Now positioned as the **Long Context** variant\n(262K full native, Q3_K_M) alongside a new Q4 sibling `llamacppcodernextq4one`\noptimized for coding quality at 128K (IQ4_XS, q4_0 KV). Same Q3_K_M model\n+ workflow as v1.0.0, only title/description changed to disambiguate paths.\n\nv1.0.0: initial release. **Qwen3-Coder-Next REAP 40B-A3B** — Alibaba's\ncoder-specialized 80B MoE distilled by lovedheart via REAP (Router-weighted\nExpert Activation Pruning) to 40B total / 3B active. 256 experts kept out of\n512 original (50% pruning), 10 activated per token, 1 shared expert.\n\n**Bench validated 2026-05-26 on Olares One**:\n\n| Context | VRAM used | Speed steady (Space Invaders 3 runs) |\n|---------|-----------|--------------------------------------|\n| 32K     | 19.9 GB   | **142.5 t/s** |\n| 128K    | 21.2 GB   | **142.5 t/s** |\n| **262K (full native)** | **23.3 GB** | **142.4 t/s** |\n\nCold-start first run is ~116 t/s (CUDA warm-up); all subsequent runs at 142 t/s.\n\n**Why 262K full native costs nothing extra**: this model is hybrid (Gated-\nDeltaNet linear attention + standard attention). Only 12 of 48 layers have\na standard KV cache — the other 36 layers are linear-attention with constant\nper-token cost. At q8_0 K/V the KV cache scales from 408 MB @ 32K → 1.6 GB\n@ 128K → 3.3 GB @ 262K. The model weights (19.9 GB Q3_K_M) dominate VRAM.\n\n**No MTP draft head** ships in mradermacher's GGUF. If lovedheart or anyone\nbundles one in the future we'd likely hit 200+ t/s (spec-decode adds ~50%\non A3B class models like the Qwen 3.6 35B-A3B champion in this catalog).\n\n**Coding focus**: REAP-40B targets SWE-Bench / Terminal-Bench / agentic tool\ncalling. Original Qwen3-Coder-Next 80B-A3B scores 44.3% SWE-Bench Pro. The\nREAP-40B accepts ~5-10% quality drop in exchange for fitting on 24 GB at\nQ3_K_M without OOMing the KV cache.\n\nStack:\n- Image: `ghcr.io/ggml-org/llama.cpp:server-cuda13-b8740`\n- Model: `mradermacher/Qwen3-Coder-Next-REAP-40B-A3B-GGUF` Q3_K_M (19.9 GB)\n- `-ngl 99 -ctk q8_0 -ctv q8_0 -fa auto --swa-full -np 1 --mlock`\n- `-b 512 -ub 512 --op-offload --jinja`\n- `GGML_CUDA_GRAPH_OPT=1`\n- 262K full native context out of the box\n\nOpenAI-compatible API on port 8000 with `--jinja` chat template + tool calling.\nDownloads model on first launch (~20 GB) and caches in app data volume.\n\n**NOT recommended below Q3**: A3B + REAP combo at Q2 starts hallucinating\nfunction signatures. If you need a smaller footprint, use `Qwen3-Coder\n30B-A3B Q4_K_XL` instead (smaller but cleaner quants).\n",
+      "upgradeDescription": "v1.1.5: **fix missing `envs:` declaration for HF token**. `templates/deployment.yaml` referenced `HF_TOKEN=` but `OlaresManifest.yaml` never declared `OLARES_USER_HUGGINGFACE_TOKEN` in an `envs:` block — so Helm rendered `HF_TOKEN=\"\"` and any gated-model download from HuggingFace failed with 401. Same class of bug as `nemotronlabselastic30bnvfp4one` v1.0.3 (Discord-reported crash loop). No functional change for public models; fixes gated-repo access. Declared `required: false` so install still works when the user hasn't configured a token in Olares Settings.\n\nv1.1.0: rename + branding. Now positioned as the **Long Context** variant\n(262K full native, Q3_K_M) alongside a new Q4 sibling `llamacppcodernextq4one`\noptimized for coding quality at 128K (IQ4_XS, q4_0 KV). Same Q3_K_M model\n+ workflow as v1.0.0, only title/description changed to disambiguate paths.\n\nv1.0.0: initial release. **Qwen3-Coder-Next REAP 40B-A3B** — Alibaba's\ncoder-specialized 80B MoE distilled by lovedheart via REAP (Router-weighted\nExpert Activation Pruning) to 40B total / 3B active. 256 experts kept out of\n512 original (50% pruning), 10 activated per token, 1 shared expert.\n\n**Bench validated 2026-05-26 on Olares One**:\n\n| Context | VRAM used | Speed steady (Space Invaders 3 runs) |\n|---------|-----------|--------------------------------------|\n| 32K     | 19.9 GB   | **142.5 t/s** |\n| 128K    | 21.2 GB   | **142.5 t/s** |\n| **262K (full native)** | **23.3 GB** | **142.4 t/s** |\n\nCold-start first run is ~116 t/s (CUDA warm-up); all subsequent runs at 142 t/s.\n\n**Why 262K full native costs nothing extra**: this model is hybrid (Gated-\nDeltaNet linear attention + standard attention). Only 12 of 48 layers have\na standard KV cache — the other 36 layers are linear-attention with constant\nper-token cost. At q8_0 K/V the KV cache scales from 408 MB @ 32K → 1.6 GB\n@ 128K → 3.3 GB @ 262K. The model weights (19.9 GB Q3_K_M) dominate VRAM.\n\n**No MTP draft head** ships in mradermacher's GGUF. If lovedheart or anyone\nbundles one in the future we'd likely hit 200+ t/s (spec-decode adds ~50%\non A3B class models like the Qwen 3.6 35B-A3B champion in this catalog).\n\n**Coding focus**: REAP-40B targets SWE-Bench / Terminal-Bench / agentic tool\ncalling. Original Qwen3-Coder-Next 80B-A3B scores 44.3% SWE-Bench Pro. The\nREAP-40B accepts ~5-10% quality drop in exchange for fitting on 24 GB at\nQ3_K_M without OOMing the KV cache.\n\nStack:\n- Image: `ghcr.io/ggml-org/llama.cpp:server-cuda13-b8740`\n- Model: `mradermacher/Qwen3-Coder-Next-REAP-40B-A3B-GGUF` Q3_K_M (19.9 GB)\n- `-ngl 99 -ctk q8_0 -ctv q8_0 -fa auto --swa-full -np 1 --mlock`\n- `-b 512 -ub 512 --op-offload --jinja`\n- `GGML_CUDA_GRAPH_OPT=1`\n- 262K full native context out of the box\n\nOpenAI-compatible API on port 8000 with `--jinja` chat template + tool calling.\nDownloads model on first launch (~20 GB) and caches in app data volume.\n\n**NOT recommended below Q3**: A3B + REAP combo at Q2 starts hallucinating\nfunction signatures. If you need a smaller footprint, use `Qwen3-Coder\n30B-A3B Q4_K_XL` instead (smaller but cleaner quants).\n",
       "promoteImage": [
         "https://orales-one-market.aamsellem.workers.dev/screenshots/llamacppcodernext40bone-bento.png"
       ],
@@ -1703,9 +1703,9 @@
       "versionHistory": [
         {
           "appName": "llamacppcodernext40bone",
-          "version": "1.1.4",
-          "versionName": "1.1.4",
-          "mergedAt": "2026-06-15T01:44:22.101000000Z",
+          "version": "1.1.5",
+          "versionName": "1.1.5",
+          "mergedAt": "2026-07-28T22:13:26.937000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -1715,26 +1715,26 @@
         "long context · 262K"
       ],
       "metadata": null,
-      "updated_at": "2026-06-15T01:44:22.101000000Z"
+      "updated_at": "2026-07-28T22:13:26.937000000Z"
     },
     "ec27bc37": {
       "id": "ec27bc37",
       "name": "llamacppcodernextq4one",
       "cfgType": "app",
-      "chartName": "llamacppcodernextq4one-1.0.4.tgz",
+      "chartName": "llamacppcodernextq4one-1.0.5.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppcodernextq4one.png",
       "description": "Qwen3-Coder-Next REAP 40B-A3B Q4 — 142 t/s @ 128K, higher code quality than Q3 sibling on Olares One",
       "appID": "ec27bc37",
       "title": "Qwen3 Coder Next 40B Q4 One",
-      "version": "1.0.4",
+      "version": "1.0.5",
       "categories": [
         "LLM Chat",
         "AI Agents",
         "Coding"
       ],
-      "versionName": "1.0.4",
+      "versionName": "1.0.5",
       "fullDescription": "Qwen3-Coder-Next REAP 40B-A3B IQ4_XS — higher-quant sibling of the Long\nContext variant. Trade-off: better code quality (Q4 vs Q3) for less context\n(128K vs 262K). Same 142 t/s decode speed (memory-bandwidth bound).\n\nChoose this app for active code generation / tool calling / agentic flows.\nChoose the Long Context sibling (`llamacppcodernext40bone`) for parsing big\ncodebases or long-document workflows.\n\nStack matches the catalog standard for llama.cpp A3B models on Olares One.\n",
-      "upgradeDescription": "v1.0.0: initial release. **Qwen3-Coder-Next REAP 40B-A3B IQ4_XS** sibling\nof `llamacppcodernext40bone` (Q3_K_M Long Context). Higher quant = better\ncode quality (~+5-10% on function signature accuracy), at the cost of a\nsmaller context window.\n\n**Bench validated 2026-05-26 on Olares One** (Space Invaders, 3 runs):\n\n| Context | VRAM used | Speed steady |\n|---------|-----------|--------------|\n| 128K    | 22.8 GB   | **142.1 t/s** |\n| 262K    | OOM       | does not fit |\n\nSame speed envelope as Q3_K_M (memory-bandwidth bound, not compute bound on\nthis A3B-class model) but with the Q4 weights giving cleaner code output.\n\nWhy 262K doesn't fit: IQ4_XS model weights = 22.3 GB on disk → ~21.8 GB on\nGPU. At 262K with q4_0 KV cache (~1.6 GB) + activation buffers, total spikes\nabove the 24 GB VRAM budget. 128K leaves ~1.2 GB headroom which is safe.\n\nStack:\n- Image: `ghcr.io/ggml-org/llama.cpp:server-cuda13-b8740`\n- Model: `mradermacher/Qwen3-Coder-Next-REAP-40B-A3B-GGUF` IQ4_XS (22.3 GB)\n- `-ngl 99 -ctk q4_0 -ctv q4_0 -fa auto --swa-full -np 1 --mlock`\n- `-b 512 -ub 512 --op-offload --jinja`\n- `--ctx-size 131072` (128K)\n- `GGML_CUDA_GRAPH_OPT=1`\n\n**When to pick this vs Long Context (Q3_K_M)**:\n- **This (Q4)**: agentic tool calling, code generation, function-level edits,\n  anything where signature accuracy matters more than context length\n- **Long Context (Q3)**: parsing large codebases, multi-file refactors,\n  RAG over long docs, anything that benefits from 262K window\n\nNo MTP draft head (same as Q3 sibling). If lovedheart bundles one in future\nwe'd hit ~200+ t/s.\n\nOpenAI-compatible API on port 8000 with `--jinja` chat template + tool calling.\nDownloads model on first launch (~22 GB) and caches in app data volume.\n",
+      "upgradeDescription": "v1.0.5: **fix missing `envs:` declaration for HF token**. `templates/deployment.yaml` referenced `HF_TOKEN=` but `OlaresManifest.yaml` never declared `OLARES_USER_HUGGINGFACE_TOKEN` in an `envs:` block — so Helm rendered `HF_TOKEN=\"\"` and any gated-model download from HuggingFace failed with 401. Same class of bug as `nemotronlabselastic30bnvfp4one` v1.0.3 (Discord-reported crash loop). No functional change for public models; fixes gated-repo access. Declared `required: false` so install still works when the user hasn't configured a token in Olares Settings.\n\nv1.0.0: initial release. **Qwen3-Coder-Next REAP 40B-A3B IQ4_XS** sibling\nof `llamacppcodernext40bone` (Q3_K_M Long Context). Higher quant = better\ncode quality (~+5-10% on function signature accuracy), at the cost of a\nsmaller context window.\n\n**Bench validated 2026-05-26 on Olares One** (Space Invaders, 3 runs):\n\n| Context | VRAM used | Speed steady |\n|---------|-----------|--------------|\n| 128K    | 22.8 GB   | **142.1 t/s** |\n| 262K    | OOM       | does not fit |\n\nSame speed envelope as Q3_K_M (memory-bandwidth bound, not compute bound on\nthis A3B-class model) but with the Q4 weights giving cleaner code output.\n\nWhy 262K doesn't fit: IQ4_XS model weights = 22.3 GB on disk → ~21.8 GB on\nGPU. At 262K with q4_0 KV cache (~1.6 GB) + activation buffers, total spikes\nabove the 24 GB VRAM budget. 128K leaves ~1.2 GB headroom which is safe.\n\nStack:\n- Image: `ghcr.io/ggml-org/llama.cpp:server-cuda13-b8740`\n- Model: `mradermacher/Qwen3-Coder-Next-REAP-40B-A3B-GGUF` IQ4_XS (22.3 GB)\n- `-ngl 99 -ctk q4_0 -ctv q4_0 -fa auto --swa-full -np 1 --mlock`\n- `-b 512 -ub 512 --op-offload --jinja`\n- `--ctx-size 131072` (128K)\n- `GGML_CUDA_GRAPH_OPT=1`\n\n**When to pick this vs Long Context (Q3_K_M)**:\n- **This (Q4)**: agentic tool calling, code generation, function-level edits,\n  anything where signature accuracy matters more than context length\n- **Long Context (Q3)**: parsing large codebases, multi-file refactors,\n  RAG over long docs, anything that benefits from 262K window\n\nNo MTP draft head (same as Q3 sibling). If lovedheart bundles one in future\nwe'd hit ~200+ t/s.\n\nOpenAI-compatible API on port 8000 with `--jinja` chat template + tool calling.\nDownloads model on first launch (~22 GB) and caches in app data volume.\n",
       "promoteImage": [
         "https://orales-one-market.aamsellem.workers.dev/screenshots/llamacppcodernextq4one-bento.png"
       ],
@@ -1815,9 +1815,9 @@
       "versionHistory": [
         {
           "appName": "llamacppcodernextq4one",
-          "version": "1.0.4",
-          "versionName": "1.0.4",
-          "mergedAt": "2026-06-15T01:44:22.101000000Z",
+          "version": "1.0.5",
+          "versionName": "1.0.5",
+          "mergedAt": "2026-07-28T22:13:26.941000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -1827,27 +1827,27 @@
         "Q4 · code quality"
       ],
       "metadata": null,
-      "updated_at": "2026-06-15T01:44:22.101000000Z"
+      "updated_at": "2026-07-28T22:13:26.941000000Z"
     },
     "6cd2129a": {
       "id": "6cd2129a",
       "name": "llamacppgemma412blcone",
       "cfgType": "app",
-      "chartName": "llamacppgemma412blcone-1.0.0.tgz",
+      "chartName": "llamacppgemma412blcone-1.0.1.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppgemma412blcone.png",
       "description": "Gemma 4 12B QAT + KVarN4 long-context — 262K full native + vision, 87.8 t/s on Olares One",
       "appID": "6cd2129a",
       "title": "Gemma 4 12B Long Context One",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "categories": [
         "LLM Chat",
         "AI Agents",
         "Vision",
         "Long Context"
       ],
-      "versionName": "1.0.0",
+      "versionName": "1.0.1",
       "fullDescription": "Long-context variant of the Gemma 4 12B Olares One stack. Full 262K native context window with vision + tool calling intact, sustained 87.8 t/s decode on consumer Blackwell mobile.\n\nKVarN k4v2 KV cache compression (Huawei CSL 2026-06-04) makes a 262K context fit in 12 GB total VRAM. The 12B QAT base (Google + Unsloth UD-Q4_K_XL, ~7.5 GB) is the same as the speed sibling — only the inference path differs.\n\nUse this chart when you need long-context. Use the `llamacppgemma412bone` sibling when you need raw speed.\n\nFirst launch downloads ~7.6 GB from HuggingFace and caches it shared across users on the same Olares device at `/olares/share/ai/model/llms/`.\n",
-      "upgradeDescription": "v1.0.0: **initial release — Gemma 4 12B long-context sibling of `llamacppgemma412bone`**.\n\nWhere `llamacppgemma412bone` v1.0.3 prioritizes raw speed (102.8 t/s at 65K with MTP speculative decoding via the am17an gemma4-mtp branch), this variant prioritizes **full-context window**: 262K native context, vision intact, 87.8 t/s sustained decode, all fitting in 12 GB VRAM on a 24 GB consumer Blackwell.\n\n**The unlock**: Huawei CSL published KVarN (arXiv 2606.03458, 2026-06-04), a Hadamard-rotation + variance-normalization KV cache quantization that hits 4-bit keys / 2-bit values with FP16-level accuracy (59.3 vs 59.4 AIME25, calibration-free). Anbeeld integrated it into BeeLlama v0.3.2-preview the same day as `--cache-type-k kvarn4 --cache-type-v kvarn4` (the reference-aligned `k4v2_g128` preset per paper).\n\nOn Gemma 4 12B QAT UD-Q4_K_XL with KVarN4 at 262K full native:\n- 3 runs Space Invaders: **88.57 / 88.77 / 86.07 t/s = AVG 87.80 t/s**\n- GPU: **12 GB** (vs 8.6 GB for v1.0.3 65K + MTP; KVarN compresses keys/values but doesn't eliminate them)\n- Vision: ✓ (BeeLlama loads Google's official mmproj-gemma-4-12b-it-qat-q4_0.gguf cleanly)\n- Tool calling: ✓\n- MTP: ✗ (BeeLlama doesn't carry am17an's Gemma 4 MTP head support; waiting for PR #23398 merge to combine both)\n\n**Comparison vs the speed sibling**:\n- vs `llamacppgemma412bone` v1.0.3 (102.8 t/s at 65K + MTP): **-15% speed, +4× context, +3.4 GB VRAM**\n- vs `llamacppgemma412bone` v1.0.2 baseline (87.5 t/s at 32K Q8_0 + MTP): **same speed, 8× context, -14% VRAM**\n\n**When to use this chart over `llamacppgemma412bone`**:\n- You need real long-context: indexing entire codebases, multi-document RAG, long agent traces, video frames\n- You're CPU-side, not throughput-side: latency per request is fine, you just need the model to remember things from far back\n- You're willing to give up MTP's +17% boost in exchange for the 4× window\n- You don't need agentic multi-turn under load (KVarN4 + 262K is single-user-optimal)\n\n**Stack**:\n- Image: `ghcr.io/anbeeld/beellama.cpp:server-cuda13-preview-v0.3.2`\n- Model: `unsloth/gemma-4-12B-it-qat-GGUF` UD-Q4_K_XL (6.4 GB, same as v1.0.3 sibling)\n- Mmproj: `google/gemma-4-12B-it-qat-q4_0-gguf/mmproj-gemma-4-12b-it-qat-q4_0.gguf` (167 MB)\n- KV: `--cache-type-k kvarn4 --cache-type-v kvarn4` (k4v2_g128 reference preset)\n- Context: **262144** native\n- Spec decoding: none (will be added once PR #23398 merges into ggml-org and a future BeeLlama rebase carries it)\n\nThe \"Long Context\" badge and category surface this chart in market filtering distinct from the speed-optimized sibling.\n",
+      "upgradeDescription": "v1.0.1: **fix missing `envs:` declaration for HF token**. `templates/deployment.yaml` referenced `HF_TOKEN=` but `OlaresManifest.yaml` never declared `OLARES_USER_HUGGINGFACE_TOKEN` in an `envs:` block — so Helm rendered `HF_TOKEN=\"\"` and any gated-model download from HuggingFace failed with 401. Same class of bug as `nemotronlabselastic30bnvfp4one` v1.0.3 (Discord-reported crash loop). No functional change for public models; fixes gated-repo access. Declared `required: false` so install still works when the user hasn't configured a token in Olares Settings.\n\nv1.0.0: **initial release — Gemma 4 12B long-context sibling of `llamacppgemma412bone`**.\n\nWhere `llamacppgemma412bone` v1.0.3 prioritizes raw speed (102.8 t/s at 65K with MTP speculative decoding via the am17an gemma4-mtp branch), this variant prioritizes **full-context window**: 262K native context, vision intact, 87.8 t/s sustained decode, all fitting in 12 GB VRAM on a 24 GB consumer Blackwell.\n\n**The unlock**: Huawei CSL published KVarN (arXiv 2606.03458, 2026-06-04), a Hadamard-rotation + variance-normalization KV cache quantization that hits 4-bit keys / 2-bit values with FP16-level accuracy (59.3 vs 59.4 AIME25, calibration-free). Anbeeld integrated it into BeeLlama v0.3.2-preview the same day as `--cache-type-k kvarn4 --cache-type-v kvarn4` (the reference-aligned `k4v2_g128` preset per paper).\n\nOn Gemma 4 12B QAT UD-Q4_K_XL with KVarN4 at 262K full native:\n- 3 runs Space Invaders: **88.57 / 88.77 / 86.07 t/s = AVG 87.80 t/s**\n- GPU: **12 GB** (vs 8.6 GB for v1.0.3 65K + MTP; KVarN compresses keys/values but doesn't eliminate them)\n- Vision: ✓ (BeeLlama loads Google's official mmproj-gemma-4-12b-it-qat-q4_0.gguf cleanly)\n- Tool calling: ✓\n- MTP: ✗ (BeeLlama doesn't carry am17an's Gemma 4 MTP head support; waiting for PR #23398 merge to combine both)\n\n**Comparison vs the speed sibling**:\n- vs `llamacppgemma412bone` v1.0.3 (102.8 t/s at 65K + MTP): **-15% speed, +4× context, +3.4 GB VRAM**\n- vs `llamacppgemma412bone` v1.0.2 baseline (87.5 t/s at 32K Q8_0 + MTP): **same speed, 8× context, -14% VRAM**\n\n**When to use this chart over `llamacppgemma412bone`**:\n- You need real long-context: indexing entire codebases, multi-document RAG, long agent traces, video frames\n- You're CPU-side, not throughput-side: latency per request is fine, you just need the model to remember things from far back\n- You're willing to give up MTP's +17% boost in exchange for the 4× window\n- You don't need agentic multi-turn under load (KVarN4 + 262K is single-user-optimal)\n\n**Stack**:\n- Image: `ghcr.io/anbeeld/beellama.cpp:server-cuda13-preview-v0.3.2`\n- Model: `unsloth/gemma-4-12B-it-qat-GGUF` UD-Q4_K_XL (6.4 GB, same as v1.0.3 sibling)\n- Mmproj: `google/gemma-4-12B-it-qat-q4_0-gguf/mmproj-gemma-4-12b-it-qat-q4_0.gguf` (167 MB)\n- KV: `--cache-type-k kvarn4 --cache-type-v kvarn4` (k4v2_g128 reference preset)\n- Context: **262144** native\n- Spec decoding: none (will be added once PR #23398 merges into ggml-org and a future BeeLlama rebase carries it)\n\nThe \"Long Context\" badge and category surface this chart in market filtering distinct from the speed-optimized sibling.\n",
       "promoteImage": [
         "https://orales-one-market.aamsellem.workers.dev/screenshots/llamacppgemma412blcone-bento.png"
       ],
@@ -1928,9 +1928,9 @@
       "versionHistory": [
         {
           "appName": "llamacppgemma412blcone",
-          "version": "1.0.0",
-          "versionName": "1.0.0",
-          "mergedAt": "2026-06-15T01:44:22.102000000Z",
+          "version": "1.0.1",
+          "versionName": "1.0.1",
+          "mergedAt": "2026-07-28T22:13:26.944000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -1940,26 +1940,26 @@
         "262K · KVarN · vision"
       ],
       "metadata": null,
-      "updated_at": "2026-06-15T01:44:22.102000000Z"
+      "updated_at": "2026-07-28T22:13:26.944000000Z"
     },
     "fff8241b": {
       "id": "fff8241b",
       "name": "llamacppgemma412bone",
       "cfgType": "app",
-      "chartName": "llamacppgemma412bone-1.0.7.tgz",
+      "chartName": "llamacppgemma412bone-1.0.8.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppgemma412bone.png",
       "description": "Gemma 4 12B QAT UD-Q4_K_XL + bundled MTP drafter (Unsloth) + vision — 169.8 t/s @ 91% accept, 8.6 GB VRAM, 65K ctx on Olares One",
       "appID": "fff8241b",
       "title": "Gemma 4 12B One",
-      "version": "1.0.7",
+      "version": "1.0.8",
       "categories": [
         "LLM Chat",
         "AI Agents",
         "Vision"
       ],
-      "versionName": "1.0.7",
+      "versionName": "1.0.8",
       "fullDescription": "Google Gemma 4 12B IT released 2026-06-03. Dense 12B parameter instruction-tuned model with native vision support via mmproj.\n\nThe mid-tier Gemma 4 size: bigger and more capable than E4B (4B active MoE), smaller and faster than 26B-A4B. Dense architecture (not MoE) means consistent throughput without router overhead.\n\nStack:\n- Image: `ghcr.io/ggml-org/llama.cpp:server-cuda13-b8740` (upstream)\n- Model: `unsloth/gemma-4-12b-it-GGUF` Q8_0 (12.7 GB)\n- Vision: mmproj F16 (175 MB) for image_url inputs\n- 32K context, q8_0 KV cache, flash attention, jinja\n- OpenAI-compatible API at port 8080\n\nFirst launch downloads ~13 GB from HuggingFace and caches it shared across users on the same Olares device at `/olares/share/ai/model/llms/`.\n",
-      "upgradeDescription": "v1.0.7: **swap drafter to Unsloth bundled MTP** (uploaded 2026-06-09 15:12 UTC). Unsloth re-uploaded their Gemma 4 QAT GGUF repos with the MTP drafters bundled in-repo: `unsloth/gemma-4-12B-it-qat-GGUF/mtp-gemma-4-12B-it.gguf` (444 MB, same size and arch as the Janvitos drafter we used in v1.0.4-v1.0.6). Switching to single-repo source — same TARGET_MODEL and DRAFTER_MODEL now, simpler chart config. No perf change expected (same Google-derived drafter, same model weights, same llama.cpp upstream image r3). Bench reference stays 169.76 t/s, 91% MTP draft acceptance.\n\nv1.0.6: **fix CrashLoopBackOff on fresh install** — Discord-reported bug. The custom image v1.0.5 (`aamsellem/llamacpp-gemma4mtp:main-postmerge-cuda131`) shipped without the `curl` CLI binary in the runtime stage (only `libcurl4` shared library). The chart's startup script uses `curl` to fetch the GGUF models from HuggingFace on first launch → fails immediately with `curl: command not found` → CrashLoopBackOff before the server can boot. My own install didn't hit it because the models were already cached from v1.0.4 (`.ok` markers existed, download blocks skipped).\n\nFix: rebuilt image as `:main-postmerge-cuda131-r2` with `apt-get install curl` added to the runtime stage. Same llama.cpp main HEAD source, same speed (169.76 t/s), same everything else — just the missing CLI binary.\n\nv1.0.5: **+67% speed via llama.cpp Gemma 4 MTP upstream merge** — swap our custom `aamsellem/llama-cpp-gemma4mtp:am17an-dd97604` (snapshot of am17an's WIP PR #23398 branch) → `aamsellem/llamacpp-gemma4mtp:main-postmerge-cuda131` (built from ggml-org/llama.cpp main HEAD after PR #23398 merged 2026-06-07T12:50 UTC).\n\n**What's new in upstream main vs the am17an snapshot we had**:\n- ggerganov's review-cycle polish (10+ commits between dd97604 and the final merge)\n- MTP graph reuse fixes (Gemma 4-specific path)\n- llama_context clean-up\n- quantized-cache path corrections\n- All the post-rebase arch fixes that the community drafters (Janvitos, cortexist) now target\n\nSame config otherwise: QAT UD-Q4_K_XL target, Janvitos QAT-matched drafter, Google official mmproj, q8_0/q8_0 KV, 65K ctx, MTP n=2.\n\n**Bench Olares One** (3 runs Space Invaders, same prompt as v1.0.4):\n- 170.03 / 169.46 / 169.78 t/s = **AVG 169.76 t/s** (vs v1.0.4 101.7 t/s = **+66.9%**)\n- MTP draft acceptance: 90.4-90.9% (vs v1.0.4 91.4% = noise)\n- GPU usage: 8.6 GB (unchanged)\n\n**Notable**: this is the same hardware, same model, same drafter, same KV config, same context — pure upstream improvement. The dd97604 snapshot was capturing an in-flight WIP branch; the final merged version is dramatically faster on Gemma 4 + MTP.\n\nImage built locally from ggml-org main HEAD on `nvidia/cuda:13.1.1-devel-ubuntu24.04` base. The official ggml-org Docker pipeline bumped to CUDA 13.3 the same day, which is incompatible with Olares driver 590.44.01 (caps at CUDA 13.1.x) — that's why we keep a custom-built image even though the upstream merge is now public.\n\nv1.0.4: **QAT-matched MTP drafter** — swap `colefuoco00/gemma-4-12B-it-assistant-GGUF` Q8_0 (community, non-QAT base) → `Janvitos/gemma-4-12B-it-qat-assistant-MTP-Q8_0-GGUF` Q8_0 (community GGUF conversion of Google's official `google/gemma-4-12B-it-qat-q4_0-unquantized-assistant` checkpoint).\n\nBoth drafters share the same `gemma4-assistant` GGUF architecture (with hyphen) which is what our am17an `dd97604` image accepts. ji-farthing's `gemma4_mtp` (ik_llama convention) and cortexist's `gemma4_assistant` (underscore, newer am17an convention) both fail to load on our snapshot — verified empirically.\n\n**Bench Olares One** (3 runs Space Invaders @ n_max=2, same config as v1.0.3 except drafter):\n- 103.97 / 102.73 / 98.40 t/s = **AVG 101.7 t/s** (vs v1.0.3 102.78 t/s = noise -1%)\n- **MTP draft acceptance: 91.4%** (vs v1.0.3 colefuoco 72.5-75.0% = **+18 pts**)\n\nThe +18 pts accept rate is the headline: same speed, but the drafter's tokens now match the target's distribution 91% of the time vs 73%. That translates to:\n- Fewer wasted compute cycles on rejected drafts\n- Lower latency variance\n- More reliable structured outputs / tool calling (drafted tool-call structures align better with what target would emit)\n\nTested `--spec-draft-n-max 4` (Janvitos README's suggested value) → regressed to 98.6 t/s with 82% accept. Higher n reduces deep-position accept rate faster than the extra n adds throughput. **n=2 is the sweet spot on this hardware**.\n\nv1.0.3: **Gemma 4 QAT upgrade — +17% speed, -39% VRAM**. Google released Gemma 4 QAT (Quantization-Aware Training) on 2026-06-05. QAT models keep Q8_0-grade quality at Q4_0 file size by training the model to be robust to quantization noise. Unsloth published `unsloth/gemma-4-12B-it-qat-GGUF` 2h after release with their UD-Q4_K_XL imatrix variant (~7.5 GB vs prior Q8_0 12.7 GB).\n\n**Switch**: `unsloth/gemma-4-12b-it-GGUF` Q8_0 → `unsloth/gemma-4-12B-it-qat-GGUF` UD-Q4_K_XL.\n\n**mmproj fix**: unsloth's mmproj-BF16.gguf in the QAT repo has n_embd=2048 (E4B-sized, wrong for 12B which needs 3840). Pulled Google's official `mmproj-gemma-4-12b-it-qat-q4_0.gguf` from `google/gemma-4-12B-it-qat-q4_0-gguf` instead — loads cleanly with unsloth UD weights since both derive from the same Google QAT BF16 base.\n\n**Bench Olares One** (3 runs Space Invaders, vision-loaded, MTP active):\n- 107.18 / 100.89 / 100.27 t/s = **AVG 102.78 t/s** (vs v1.0.2 87.5 t/s = **+17.4%**)\n- MTP draft acceptance: 72.5-75.0% (vs v1.0.2 84-88%; lower but excellent)\n- GPU usage: **8.6 GB** (vs v1.0.2 ~14 GB = **-39% VRAM**)\n\nFree VRAM bumped context **32K → 65K**, with margin to spare. Same am17an PR #23398 image, same colefuoco MTP drafter, same q8_0/q8_0 KV.\n\nv1.0.2: **+86% speedup with MTP** (Gemma 4 12B-it-assistant drafter). Custom image `aamsellem/llama-cpp-gemma4mtp:am17an-dd97604` built from am17an's gemma4-mtp branch (PR #23398) — adds Gemma 4 MTP support AND `gemma4uv` projector for vision (PR #24082) in one image. Drafter `colefuoco00/gemma-4-12B-it-assistant-GGUF` Q8_0 (465 MB) used via `--model-draft + --spec-type draft-mtp + --spec-draft-n-max 2`. Bench on Olares One (3 runs Space Invaders): 86.29 / 88.25 / 88.07 t/s = **AVG 87.5 t/s** with **84-88% MTP accept rate** vs v1.0.1 baseline 47 t/s = **1.86x speedup**. Vision (mmproj F16) re-enabled — gemma4uv projector loaded, accepts `image_url` API.\n\nv1.0.1: **text-only release** — vision (mmproj) disabled because llama.cpp b8740 (CUDA 13.1.1) does not recognize the new `gemma4uv` projector type. Gemma 4 unified vision landed in upstream PR #24082 + #24088 on 2026-06-03 but no community Docker tag has shipped with those yet. Will re-enable vision in v1.0.2 once an upstream image with gemma4uv lands (or buun-llama-cpp rebases). Bench validated on Olares One: **47 t/s avg** (3 runs Space Invaders, very stable σ < 0.1).\n\nv1.0.0: initial release. **Gemma 4 12B IT** by Google — released 2026-06-03. Dense 12B parameter model (not MoE) with native multimodal vision support. The new mid-tier Gemma 4 size sitting between E4B (4B active MoE) and 26B-A4B.\n\nStack:\n- `unsloth/gemma-4-12b-it-GGUF` Q8_0 (12.7 GB, lossless quality on a 12B base)\n- mmproj F16 (175 MB) for vision input\n- llama.cpp upstream `server-cuda13-b8740`\n- 32K context, full GPU offload, flash attention, jinja templates\n- OpenAI-compatible API on port 8080\n\n**No MTP yet**: Google released the assistant drafter (845 MB safetensors) but the GGUF conversion isn't in the community yet (AtomicChat/unsloth assistant-GGUF repos still empty). v1.0.1 will add MTP once the drafter GGUF lands — expected speedup from ~80-100 t/s base to ~150-180 t/s with MTP n=3.\n\nVision: native multimodal input via `image_url` API parameter. Same flow as other mmproj-equipped models on Olares One (Qwen3.6 abliterated, Gemma 4 26B-A4B vision).\n\nUse cases:\n- General-purpose chat with vision (photos, screenshots, documents)\n- Multilingual reasoning (Gemma 4 has stronger non-English coverage than Qwen)\n- Tool calling with mid-tier model size — lighter than 26B-A4B but more capable than E4B\n\nBench TBD on Olares One — expected 80-100 t/s base, will validate after install.\n",
+      "upgradeDescription": "v1.0.8: **fix missing `envs:` declaration for HF token**. `templates/deployment.yaml` referenced `HF_TOKEN=` but `OlaresManifest.yaml` never declared `OLARES_USER_HUGGINGFACE_TOKEN` in an `envs:` block — so Helm rendered `HF_TOKEN=\"\"` and any gated-model download from HuggingFace failed with 401. Same class of bug as `nemotronlabselastic30bnvfp4one` v1.0.3 (Discord-reported crash loop). No functional change for public models; fixes gated-repo access. Declared `required: false` so install still works when the user hasn't configured a token in Olares Settings.\n\nv1.0.7: **swap drafter to Unsloth bundled MTP** (uploaded 2026-06-09 15:12 UTC). Unsloth re-uploaded their Gemma 4 QAT GGUF repos with the MTP drafters bundled in-repo: `unsloth/gemma-4-12B-it-qat-GGUF/mtp-gemma-4-12B-it.gguf` (444 MB, same size and arch as the Janvitos drafter we used in v1.0.4-v1.0.6). Switching to single-repo source — same TARGET_MODEL and DRAFTER_MODEL now, simpler chart config. No perf change expected (same Google-derived drafter, same model weights, same llama.cpp upstream image r3). Bench reference stays 169.76 t/s, 91% MTP draft acceptance.\n\nv1.0.6: **fix CrashLoopBackOff on fresh install** — Discord-reported bug. The custom image v1.0.5 (`aamsellem/llamacpp-gemma4mtp:main-postmerge-cuda131`) shipped without the `curl` CLI binary in the runtime stage (only `libcurl4` shared library). The chart's startup script uses `curl` to fetch the GGUF models from HuggingFace on first launch → fails immediately with `curl: command not found` → CrashLoopBackOff before the server can boot. My own install didn't hit it because the models were already cached from v1.0.4 (`.ok` markers existed, download blocks skipped).\n\nFix: rebuilt image as `:main-postmerge-cuda131-r2` with `apt-get install curl` added to the runtime stage. Same llama.cpp main HEAD source, same speed (169.76 t/s), same everything else — just the missing CLI binary.\n\nv1.0.5: **+67% speed via llama.cpp Gemma 4 MTP upstream merge** — swap our custom `aamsellem/llama-cpp-gemma4mtp:am17an-dd97604` (snapshot of am17an's WIP PR #23398 branch) → `aamsellem/llamacpp-gemma4mtp:main-postmerge-cuda131` (built from ggml-org/llama.cpp main HEAD after PR #23398 merged 2026-06-07T12:50 UTC).\n\n**What's new in upstream main vs the am17an snapshot we had**:\n- ggerganov's review-cycle polish (10+ commits between dd97604 and the final merge)\n- MTP graph reuse fixes (Gemma 4-specific path)\n- llama_context clean-up\n- quantized-cache path corrections\n- All the post-rebase arch fixes that the community drafters (Janvitos, cortexist) now target\n\nSame config otherwise: QAT UD-Q4_K_XL target, Janvitos QAT-matched drafter, Google official mmproj, q8_0/q8_0 KV, 65K ctx, MTP n=2.\n\n**Bench Olares One** (3 runs Space Invaders, same prompt as v1.0.4):\n- 170.03 / 169.46 / 169.78 t/s = **AVG 169.76 t/s** (vs v1.0.4 101.7 t/s = **+66.9%**)\n- MTP draft acceptance: 90.4-90.9% (vs v1.0.4 91.4% = noise)\n- GPU usage: 8.6 GB (unchanged)\n\n**Notable**: this is the same hardware, same model, same drafter, same KV config, same context — pure upstream improvement. The dd97604 snapshot was capturing an in-flight WIP branch; the final merged version is dramatically faster on Gemma 4 + MTP.\n\nImage built locally from ggml-org main HEAD on `nvidia/cuda:13.1.1-devel-ubuntu24.04` base. The official ggml-org Docker pipeline bumped to CUDA 13.3 the same day, which is incompatible with Olares driver 590.44.01 (caps at CUDA 13.1.x) — that's why we keep a custom-built image even though the upstream merge is now public.\n\nv1.0.4: **QAT-matched MTP drafter** — swap `colefuoco00/gemma-4-12B-it-assistant-GGUF` Q8_0 (community, non-QAT base) → `Janvitos/gemma-4-12B-it-qat-assistant-MTP-Q8_0-GGUF` Q8_0 (community GGUF conversion of Google's official `google/gemma-4-12B-it-qat-q4_0-unquantized-assistant` checkpoint).\n\nBoth drafters share the same `gemma4-assistant` GGUF architecture (with hyphen) which is what our am17an `dd97604` image accepts. ji-farthing's `gemma4_mtp` (ik_llama convention) and cortexist's `gemma4_assistant` (underscore, newer am17an convention) both fail to load on our snapshot — verified empirically.\n\n**Bench Olares One** (3 runs Space Invaders @ n_max=2, same config as v1.0.3 except drafter):\n- 103.97 / 102.73 / 98.40 t/s = **AVG 101.7 t/s** (vs v1.0.3 102.78 t/s = noise -1%)\n- **MTP draft acceptance: 91.4%** (vs v1.0.3 colefuoco 72.5-75.0% = **+18 pts**)\n\nThe +18 pts accept rate is the headline: same speed, but the drafter's tokens now match the target's distribution 91% of the time vs 73%. That translates to:\n- Fewer wasted compute cycles on rejected drafts\n- Lower latency variance\n- More reliable structured outputs / tool calling (drafted tool-call structures align better with what target would emit)\n\nTested `--spec-draft-n-max 4` (Janvitos README's suggested value) → regressed to 98.6 t/s with 82% accept. Higher n reduces deep-position accept rate faster than the extra n adds throughput. **n=2 is the sweet spot on this hardware**.\n\nv1.0.3: **Gemma 4 QAT upgrade — +17% speed, -39% VRAM**. Google released Gemma 4 QAT (Quantization-Aware Training) on 2026-06-05. QAT models keep Q8_0-grade quality at Q4_0 file size by training the model to be robust to quantization noise. Unsloth published `unsloth/gemma-4-12B-it-qat-GGUF` 2h after release with their UD-Q4_K_XL imatrix variant (~7.5 GB vs prior Q8_0 12.7 GB).\n\n**Switch**: `unsloth/gemma-4-12b-it-GGUF` Q8_0 → `unsloth/gemma-4-12B-it-qat-GGUF` UD-Q4_K_XL.\n\n**mmproj fix**: unsloth's mmproj-BF16.gguf in the QAT repo has n_embd=2048 (E4B-sized, wrong for 12B which needs 3840). Pulled Google's official `mmproj-gemma-4-12b-it-qat-q4_0.gguf` from `google/gemma-4-12B-it-qat-q4_0-gguf` instead — loads cleanly with unsloth UD weights since both derive from the same Google QAT BF16 base.\n\n**Bench Olares One** (3 runs Space Invaders, vision-loaded, MTP active):\n- 107.18 / 100.89 / 100.27 t/s = **AVG 102.78 t/s** (vs v1.0.2 87.5 t/s = **+17.4%**)\n- MTP draft acceptance: 72.5-75.0% (vs v1.0.2 84-88%; lower but excellent)\n- GPU usage: **8.6 GB** (vs v1.0.2 ~14 GB = **-39% VRAM**)\n\nFree VRAM bumped context **32K → 65K**, with margin to spare. Same am17an PR #23398 image, same colefuoco MTP drafter, same q8_0/q8_0 KV.\n\nv1.0.2: **+86% speedup with MTP** (Gemma 4 12B-it-assistant drafter). Custom image `aamsellem/llama-cpp-gemma4mtp:am17an-dd97604` built from am17an's gemma4-mtp branch (PR #23398) — adds Gemma 4 MTP support AND `gemma4uv` projector for vision (PR #24082) in one image. Drafter `colefuoco00/gemma-4-12B-it-assistant-GGUF` Q8_0 (465 MB) used via `--model-draft + --spec-type draft-mtp + --spec-draft-n-max 2`. Bench on Olares One (3 runs Space Invaders): 86.29 / 88.25 / 88.07 t/s = **AVG 87.5 t/s** with **84-88% MTP accept rate** vs v1.0.1 baseline 47 t/s = **1.86x speedup**. Vision (mmproj F16) re-enabled — gemma4uv projector loaded, accepts `image_url` API.\n\nv1.0.1: **text-only release** — vision (mmproj) disabled because llama.cpp b8740 (CUDA 13.1.1) does not recognize the new `gemma4uv` projector type. Gemma 4 unified vision landed in upstream PR #24082 + #24088 on 2026-06-03 but no community Docker tag has shipped with those yet. Will re-enable vision in v1.0.2 once an upstream image with gemma4uv lands (or buun-llama-cpp rebases). Bench validated on Olares One: **47 t/s avg** (3 runs Space Invaders, very stable σ < 0.1).\n\nv1.0.0: initial release. **Gemma 4 12B IT** by Google — released 2026-06-03. Dense 12B parameter model (not MoE) with native multimodal vision support. The new mid-tier Gemma 4 size sitting between E4B (4B active MoE) and 26B-A4B.\n\nStack:\n- `unsloth/gemma-4-12b-it-GGUF` Q8_0 (12.7 GB, lossless quality on a 12B base)\n- mmproj F16 (175 MB) for vision input\n- llama.cpp upstream `server-cuda13-b8740`\n- 32K context, full GPU offload, flash attention, jinja templates\n- OpenAI-compatible API on port 8080\n\n**No MTP yet**: Google released the assistant drafter (845 MB safetensors) but the GGUF conversion isn't in the community yet (AtomicChat/unsloth assistant-GGUF repos still empty). v1.0.1 will add MTP once the drafter GGUF lands — expected speedup from ~80-100 t/s base to ~150-180 t/s with MTP n=3.\n\nVision: native multimodal input via `image_url` API parameter. Same flow as other mmproj-equipped models on Olares One (Qwen3.6 abliterated, Gemma 4 26B-A4B vision).\n\nUse cases:\n- General-purpose chat with vision (photos, screenshots, documents)\n- Multilingual reasoning (Gemma 4 has stronger non-English coverage than Qwen)\n- Tool calling with mid-tier model size — lighter than 26B-A4B but more capable than E4B\n\nBench TBD on Olares One — expected 80-100 t/s base, will validate after install.\n",
       "promoteImage": [
         "https://orales-one-market.aamsellem.workers.dev/screenshots/llamacppgemma412bone-bento.png"
       ],
@@ -2040,9 +2040,9 @@
       "versionHistory": [
         {
           "appName": "llamacppgemma412bone",
-          "version": "1.0.7",
-          "versionName": "1.0.7",
-          "mergedAt": "2026-06-15T01:44:22.102000000Z",
+          "version": "1.0.8",
+          "versionName": "1.0.8",
+          "mergedAt": "2026-07-28T22:13:26.947000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -2052,26 +2052,26 @@
         "QAT · upstream MTP · 170 t/s"
       ],
       "metadata": null,
-      "updated_at": "2026-06-15T01:44:22.102000000Z"
+      "updated_at": "2026-07-28T22:13:26.947000000Z"
     },
     "2effb583": {
       "id": "2effb583",
       "name": "llamacppgemma426ba4bone",
       "cfgType": "app",
-      "chartName": "llamacppgemma426ba4bone-1.0.3.tgz",
+      "chartName": "llamacppgemma426ba4bone-1.0.4.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppgemma426ba4bone.png",
       "description": "Gemma 4 26B-A4B QAT UD-Q4_K_XL + bundled MTP drafter (Unsloth) + vision — 286.6 t/s @ 91% accept, 16.6 GB VRAM, 32K ctx on Olares One",
       "appID": "2effb583",
       "title": "Gemma 4 26B-A4B One",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "categories": [
         "LLM Chat",
         "AI Agents",
         "Vision"
       ],
-      "versionName": "1.0.3",
+      "versionName": "1.0.4",
       "fullDescription": "Google Gemma 4 26B-A4B QAT — the Mixture-of-Experts variant of Gemma 4. 26 billion total parameters, only 4 billion active per token. QAT (Quantization-Aware Training) means the model was trained to remain accurate after Q4_0 quantization, giving Q8_0-grade quality at Q4_0 file size.\n\nWhy 26B-A4B vs 12B dense:\n- Bigger overall reasoning capacity (26B params total) than 12B dense\n- Decode speed in the same league as a 4B dense model (only 4B params active per token, MoE routes to 2 experts out of 8 per token)\n- Native vision via mmproj\n- Native MTP (Multi-Token Prediction) drafter for ~2x speculative-decode speedup\n\nStack:\n- Image: custom `aamsellem/llamacpp-gemma4mtp:main-postmerge-cuda131-r3` built from llama.cpp main HEAD on `nvidia/cuda:13.1.1-devel-ubuntu24.04` (Olares driver 590.44.01 caps at CUDA 13.1, so we don't use the upstream ggml-org tags that bumped to CUDA 13.3 on 2026-06-07)\n- Target model: `unsloth/gemma-4-26B-A4B-it-qat-GGUF/gemma-4-26B-A4B-it-qat-UD-Q4_K_XL.gguf` (~13.6 GB)\n- Vision: mmproj BF16 (~1.14 GB) from same Unsloth QAT repo\n- MTP drafter: `mtp-gemma-4-26B-A4B-it.gguf` (~240 MB, bundled in same repo)\n- 32K context, q8_0/q8_0 KV cache, flash attention, jinja\n- OpenAI-compatible API at port 8080\n\nFirst launch downloads ~15 GB from HuggingFace and caches it at `/olares/share/ai/model/llms/` (shared across users on the same Olares device).\n\nUse cases:\n- General-purpose chat with vision (photos, screenshots, documents)\n- Tool calling / agentic workflows that need stronger reasoning than 12B dense\n- Multilingual reasoning (Gemma 4 has strong non-English coverage)\n- Best quality-per-VRAM-per-token-per-second on 24 GB consumer Blackwell\n",
-      "upgradeDescription": "v1.0.3: **rebuild image against llama.cpp main HEAD b9601** to pick up PR #24086 (Remove padding + multiple D2D copies for MTP, merged 2026-06-10 by gaugarg-nv / NVIDIA). PR claimed +4% throughput on Qwen3.6-35B-A3B MTP measured on DGX Spark. Image bumped `r3 → r4` (built from same Dockerfile recipe on `nvidia/cuda:13.1.1-devel-ubuntu24.04`).\n\n**Bench result on Olares One: 286.39 t/s AVG (3 runs Space Invaders, MTP n=2, 2048 tokens)**:\n- 288.25 / 286.54 / 284.38 t/s\n- MTP draft acceptance: 92.7% / 91.3% / 90.6% = AVG 91.5%\n\nVersus v1.0.2 (r3, pre-#24086): 286.61 t/s, 91.2% accept.\n\n**Delta: -0.07% speed, +0.3 pts accept = within noise.** PR #24086 optimizes padding+D2D copies which apparently weren't the bottleneck on Gemma 4 26B-A4B + sm_120 mobile. No regression — image stays on b9601 for future-proofing against upcoming MTP PRs (e.g., PR #24431 auto-load MTP drafter).\n\nv1.0.2: **bench validated — 286.6 t/s on Olares One**. 3 runs Space Invaders @ MTP n=2, 2048 tokens each:\n- 288.71 / 284.79 / 286.33 t/s = **AVG 286.61 t/s**\n- MTP draft acceptance: 90.1% / 92.3% / 91.2% = **AVG 91.2%**\n- VRAM: 16.6 GB total (text + mmproj loaded)\n\n**Matches `llamacppgemma4audione` (288.4 t/s, Gemma 4 E4B)** — both run ~4B active params per token, so decode speed converges. But this gives 26B of total reasoning capacity instead of 8B (E4B is MoE 8B-A4B). Same 91% MTP accept as the 12B QAT (`llamacppgemma412bone` v1.0.5).\n\nNo chart changes vs v1.0.1 — metadata bump only to surface the bench numbers in the market UI (bento + hero + description).\n\nv1.0.1: **fix mmproj n_embd mismatch on first launch**. Unsloth's `mmproj-BF16.gguf` in the 26B-A4B QAT repo has `n_embd=2048` (E4B-sized) but the 26B-A4B text model has `n_embd=2816` → llama-server fails with `mismatch between text model (n_embd = 2816) and mmproj (n_embd = 2048)` and CrashLoopBackOffs. Same trap as `llamacppgemma412bone` v1.0.3.\n\nFix: swap to Google's official `gemma-4-26B-it-mmproj.gguf` from `google/gemma-4-26B-A4B-it-qat-q4_0-gguf` repo — correct n_embd=2816, loads cleanly with the Unsloth UD-Q4_K_XL target since both derive from the same Google QAT BF16 base.\n\nEverything else unchanged: same custom image r3, same Unsloth bundled MTP drafter, same 32K context, same KV config.\n\nBench TBD.\n\nv1.0.0: initial release. **Gemma 4 26B-A4B QAT** — Google's MoE variant of Gemma 4 (26B total parameters, 4B active per token). The QAT (Quantization-Aware Training) variant keeps Q8_0-grade quality at Q4_0 file size.\n\nStack:\n- Image: `aamsellem/llamacpp-gemma4mtp:main-postmerge-cuda131-r3` (custom build from llama.cpp main HEAD on CUDA 13.1.1 — Olares driver 590.44.01 caps at CUDA 13.1.x, so upstream ggml-org tags post-2026-06-07 are unusable)\n- Target: `unsloth/gemma-4-26B-A4B-it-qat-GGUF/gemma-4-26B-A4B-it-qat-UD-Q4_K_XL.gguf` (~13.6 GB)\n- Vision: mmproj BF16 (~1.14 GB) from same Unsloth QAT repo\n- MTP drafter: `unsloth/gemma-4-26B-A4B-it-qat-GGUF/mtp-gemma-4-26B-A4B-it.gguf` (~240 MB, bundled in the same Unsloth repo as the target and mmproj)\n- 32K context, q8_0/q8_0 KV cache, flash attention, jinja templates\n- MTP n=2, full GPU offload\n- OpenAI-compatible API at port 8080\n\n**Why this chart**: Olares One already has `llamacppgemma4audione` (E4B + audio, 288 t/s) and `llamacppgemma412bone` (12B dense, 170 t/s). 26B-A4B fills the middle tier — bigger reasoning capacity than 12B (26B total params vs 12B) while keeping decode throughput comparable to a 4B dense model (only 4B params active per token). The MoE architecture makes it the most VRAM-efficient way to get strong reasoning on 24 GB consumer Blackwell.\n\nFirst launch downloads ~15 GB from HuggingFace into `/olares/share/ai/model/llms/` (shared cache across users on the same device).\n\nBench TBD — will validate after install on Olares One. Expected range: 100-150 t/s with MTP n=2 based on extrapolation from E4B (288 t/s, 4B active) and 12B dense (170 t/s).\n",
+      "upgradeDescription": "v1.0.4: **fix missing `envs:` declaration for HF token**. `templates/deployment.yaml` referenced `HF_TOKEN=` but `OlaresManifest.yaml` never declared `OLARES_USER_HUGGINGFACE_TOKEN` in an `envs:` block — so Helm rendered `HF_TOKEN=\"\"` and any gated-model download from HuggingFace failed with 401. Same class of bug as `nemotronlabselastic30bnvfp4one` v1.0.3 (Discord-reported crash loop). No functional change for public models; fixes gated-repo access. Declared `required: false` so install still works when the user hasn't configured a token in Olares Settings.\n\nv1.0.3: **rebuild image against llama.cpp main HEAD b9601** to pick up PR #24086 (Remove padding + multiple D2D copies for MTP, merged 2026-06-10 by gaugarg-nv / NVIDIA). PR claimed +4% throughput on Qwen3.6-35B-A3B MTP measured on DGX Spark. Image bumped `r3 → r4` (built from same Dockerfile recipe on `nvidia/cuda:13.1.1-devel-ubuntu24.04`).\n\n**Bench result on Olares One: 286.39 t/s AVG (3 runs Space Invaders, MTP n=2, 2048 tokens)**:\n- 288.25 / 286.54 / 284.38 t/s\n- MTP draft acceptance: 92.7% / 91.3% / 90.6% = AVG 91.5%\n\nVersus v1.0.2 (r3, pre-#24086): 286.61 t/s, 91.2% accept.\n\n**Delta: -0.07% speed, +0.3 pts accept = within noise.** PR #24086 optimizes padding+D2D copies which apparently weren't the bottleneck on Gemma 4 26B-A4B + sm_120 mobile. No regression — image stays on b9601 for future-proofing against upcoming MTP PRs (e.g., PR #24431 auto-load MTP drafter).\n\nv1.0.2: **bench validated — 286.6 t/s on Olares One**. 3 runs Space Invaders @ MTP n=2, 2048 tokens each:\n- 288.71 / 284.79 / 286.33 t/s = **AVG 286.61 t/s**\n- MTP draft acceptance: 90.1% / 92.3% / 91.2% = **AVG 91.2%**\n- VRAM: 16.6 GB total (text + mmproj loaded)\n\n**Matches `llamacppgemma4audione` (288.4 t/s, Gemma 4 E4B)** — both run ~4B active params per token, so decode speed converges. But this gives 26B of total reasoning capacity instead of 8B (E4B is MoE 8B-A4B). Same 91% MTP accept as the 12B QAT (`llamacppgemma412bone` v1.0.5).\n\nNo chart changes vs v1.0.1 — metadata bump only to surface the bench numbers in the market UI (bento + hero + description).\n\nv1.0.1: **fix mmproj n_embd mismatch on first launch**. Unsloth's `mmproj-BF16.gguf` in the 26B-A4B QAT repo has `n_embd=2048` (E4B-sized) but the 26B-A4B text model has `n_embd=2816` → llama-server fails with `mismatch between text model (n_embd = 2816) and mmproj (n_embd = 2048)` and CrashLoopBackOffs. Same trap as `llamacppgemma412bone` v1.0.3.\n\nFix: swap to Google's official `gemma-4-26B-it-mmproj.gguf` from `google/gemma-4-26B-A4B-it-qat-q4_0-gguf` repo — correct n_embd=2816, loads cleanly with the Unsloth UD-Q4_K_XL target since both derive from the same Google QAT BF16 base.\n\nEverything else unchanged: same custom image r3, same Unsloth bundled MTP drafter, same 32K context, same KV config.\n\nBench TBD.\n\nv1.0.0: initial release. **Gemma 4 26B-A4B QAT** — Google's MoE variant of Gemma 4 (26B total parameters, 4B active per token). The QAT (Quantization-Aware Training) variant keeps Q8_0-grade quality at Q4_0 file size.\n\nStack:\n- Image: `aamsellem/llamacpp-gemma4mtp:main-postmerge-cuda131-r3` (custom build from llama.cpp main HEAD on CUDA 13.1.1 — Olares driver 590.44.01 caps at CUDA 13.1.x, so upstream ggml-org tags post-2026-06-07 are unusable)\n- Target: `unsloth/gemma-4-26B-A4B-it-qat-GGUF/gemma-4-26B-A4B-it-qat-UD-Q4_K_XL.gguf` (~13.6 GB)\n- Vision: mmproj BF16 (~1.14 GB) from same Unsloth QAT repo\n- MTP drafter: `unsloth/gemma-4-26B-A4B-it-qat-GGUF/mtp-gemma-4-26B-A4B-it.gguf` (~240 MB, bundled in the same Unsloth repo as the target and mmproj)\n- 32K context, q8_0/q8_0 KV cache, flash attention, jinja templates\n- MTP n=2, full GPU offload\n- OpenAI-compatible API at port 8080\n\n**Why this chart**: Olares One already has `llamacppgemma4audione` (E4B + audio, 288 t/s) and `llamacppgemma412bone` (12B dense, 170 t/s). 26B-A4B fills the middle tier — bigger reasoning capacity than 12B (26B total params vs 12B) while keeping decode throughput comparable to a 4B dense model (only 4B params active per token). The MoE architecture makes it the most VRAM-efficient way to get strong reasoning on 24 GB consumer Blackwell.\n\nFirst launch downloads ~15 GB from HuggingFace into `/olares/share/ai/model/llms/` (shared cache across users on the same device).\n\nBench TBD — will validate after install on Olares One. Expected range: 100-150 t/s with MTP n=2 based on extrapolation from E4B (288 t/s, 4B active) and 12B dense (170 t/s).\n",
       "promoteImage": [
         "https://orales-one-market.aamsellem.workers.dev/screenshots/llamacppgemma426ba4bone-bento.png"
       ],
@@ -2156,9 +2156,9 @@
       "versionHistory": [
         {
           "appName": "llamacppgemma426ba4bone",
-          "version": "1.0.3",
-          "versionName": "1.0.3",
-          "mergedAt": "2026-06-15T01:44:22.103000000Z",
+          "version": "1.0.4",
+          "versionName": "1.0.4",
+          "mergedAt": "2026-07-28T22:13:26.949000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -2168,7 +2168,7 @@
         "QAT · MoE · MTP 91%"
       ],
       "metadata": null,
-      "updated_at": "2026-06-15T01:44:22.103000000Z"
+      "updated_at": "2026-07-28T22:13:26.949000000Z"
     },
     "8c6443a7": {
       "id": "8c6443a7",
@@ -2272,7 +2272,7 @@
           "appName": "llamacppgemma4audione",
           "version": "1.1.2",
           "versionName": "1.1.2",
-          "mergedAt": "2026-06-15T01:44:22.103000000Z",
+          "mergedAt": "2026-07-28T22:13:26.951000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -2282,7 +2282,7 @@
         "audio · MTP 76%"
       ],
       "metadata": null,
-      "updated_at": "2026-06-15T01:44:22.103000000Z"
+      "updated_at": "2026-07-28T22:13:26.951000000Z"
     },
     "c1ca229f": {
       "id": "c1ca229f",
@@ -2382,7 +2382,7 @@
           "appName": "llamacppglm47flash",
           "version": "1.0.12",
           "versionName": "1.0.12",
-          "mergedAt": "2026-06-15T01:44:22.104000000Z",
+          "mergedAt": "2026-07-28T22:13:26.952000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -2392,7 +2392,7 @@
         "glm"
       ],
       "metadata": null,
-      "updated_at": "2026-06-15T01:44:22.104000000Z"
+      "updated_at": "2026-07-28T22:13:26.952000000Z"
     },
     "491be3cd": {
       "id": "491be3cd",
@@ -2492,7 +2492,7 @@
           "appName": "llamacppnemotron30a3bone",
           "version": "1.0.11",
           "versionName": "1.0.11",
-          "mergedAt": "2026-06-15T01:44:22.104000000Z",
+          "mergedAt": "2026-07-28T22:13:26.953000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -2502,7 +2502,7 @@
         "nano"
       ],
       "metadata": null,
-      "updated_at": "2026-06-15T01:44:22.104000000Z"
+      "updated_at": "2026-07-28T22:13:26.953000000Z"
     },
     "02b1d2a9": {
       "id": "02b1d2a9",
@@ -2603,7 +2603,7 @@
           "appName": "llamacppnemotrondiffusion14bone",
           "version": "1.0.2",
           "versionName": "1.0.2",
-          "mergedAt": "2026-06-15T01:44:22.104000000Z",
+          "mergedAt": "2026-07-28T22:13:26.955000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -2613,7 +2613,7 @@
         "diffusion"
       ],
       "metadata": null,
-      "updated_at": "2026-06-15T01:44:22.104000000Z"
+      "updated_at": "2026-07-28T22:13:26.955000000Z"
     },
     "4ef430dd": {
       "id": "4ef430dd",
@@ -2713,7 +2713,7 @@
           "appName": "llamacppqwen35a3bone",
           "version": "1.0.30",
           "versionName": "1.0.30",
-          "mergedAt": "2026-06-15T01:44:22.105000000Z",
+          "mergedAt": "2026-07-28T22:13:26.956000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -2723,26 +2723,26 @@
         "classic"
       ],
       "metadata": null,
-      "updated_at": "2026-06-15T01:44:22.105000000Z"
+      "updated_at": "2026-07-28T22:13:26.956000000Z"
     },
     "059cd05d": {
       "id": "059cd05d",
       "name": "llamacppqwen36a3bone",
       "cfgType": "app",
-      "chartName": "llamacppqwen36a3bone-2.0.8.tgz",
+      "chartName": "llamacppqwen36a3bone-2.0.9.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen36a3bone.png",
       "description": "Qwen3.6 35B-A3B MTP + Vision — 243 t/s @ FULL 262K context with vision + tool calling on Olares One",
       "appID": "059cd05d",
       "title": "Qwen36 35B-A3B MTP Vision One",
-      "version": "2.0.8",
+      "version": "2.0.9",
       "categories": [
         "LLM Chat",
         "AI Agents",
         "Vision"
       ],
-      "versionName": "2.0.8",
+      "versionName": "2.0.9",
       "fullDescription": "Qwen3.6 35B-A3B (MoE, 3B active) served via llama.cpp — optimized for Olares One.\nRTX 5090M (24GB) + 96GB DDR5 + Core Ultra 9 275HX.\nUnsloth Dynamic Q4_K_XL quantization (important layers upcasted to 8/16-bit).\nllama.cpp b8740 with GATED_DELTA_NET fused op + Hadamard rotation for KV cache.\nKV cache q4_0 (2x smaller than q8_0, same quality via rotation).\nFlash attention, CUDA graph optimization, and op-offload enabled.\nDownloads the GGUF model on first launch (~22GB) and caches it.\nExposes an OpenAI-compatible API on port 8080.\nNative 262K context, extensible to 1M with YaRN.\n",
-      "upgradeDescription": "v2.0.8: **fix CrashLoopBackOff on fresh install** (Discord-reported by user eahnlk, 2026-06-09). The chart writes its ~18 GB model cache to `/olares/share/ai/model/llms/` via hostPath. On a fresh Olares install where no other app has written to this path before, the dir is owned uid 1000 mode 755. The buun-llama-cpp image runs as a non-root `appuser` (UID ≠ 1000): can read (755 lets \"others\" read) but cannot write → curl write fails → container exits within seconds → CrashLoopBackOff. Fix: add a trusted `docker.io/alpine:3.20` initContainer that runs as root and `chmod -R 777 /olares/share/ai/model` before the main container starts. Olares OPA policy allows runAsUser:0 for the `docker.io/` registry, so this passes admission. Same llama-server config otherwise (buun:87c351d2, asym q8_0-K/turbo4-V KV, MTP n=3, mmproj-gpu-swap, 262K context, --reasoning off).\n\nv2.0.7: **rollback BeeLlama → buun (Hermes tool-calling regression fix)**. v2.0.6 swapped image to `ghcr.io/anbeeld/beellama.cpp:server-cuda13-v0.3.1` for slightly higher MTP accept rate, but a user reported on Discord that their Hermes Agent flow stopped working after the upgrade. BeeLlama v0.3.1 has a chat-parser/tool-call detection behavior difference vs spiritbuun `buun-llama-cpp:87c351d2`. Reverting the image to the known-good `aamsellem/buun-llama-cpp:87c351d2` while keeping everything else identical (asym q8_0-K/turbo4-V KV, MTP n=3, mmproj-gpu-swap, 262K context, `--reasoning off`). Bench unchanged from v2.0.5 (~240 t/s, 84-88% accept). Will re-evaluate BeeLlama once the parser regression is fixed upstream.\n\nv2.0.6: ~~upgrade to BeeLlama v0.3.1~~ (rolled back in v2.0.7 due to Hermes tool-calling regression).\n\nv2.0.5: **asymmetric KV cache** (free K quality boost). Image bump 316e88e → 87c351d2 (spiritbuun fused asymmetric flash-attn kernel, 2026-06-04). KV config: symmetric q4_0/q4_0 → asymmetric q8_0-K + turbo4-V. Keys at 8-bit (high attention quality), values at turbo4 (compressed). Native 262K context preserved (smaller Q3_K_XL model has the headroom that abliterated Q4_K does not). Also dropped deprecated `--chat-template-kwargs` for `--reasoning off` flag. Bench Olares One (3 runs Space Invaders): 236.28 / 243.32 / 241.87 t/s = AVG 240.5 t/s with 84-88% MTP accept (vs v1.0.1 baseline 243.59 t/s, -1% speed for measurable K precision uplift). Quality > 1% raw speed for long-context use.\n\nv2.0.0: **vision UNLOCKED on the champion via spiritbuun `--mmproj-gpu-swap`**. The vision regression from v1.0.4/v1.0.5 that forced us back to text-only in v1.0.6 is now solved by a much cleverer mechanism than \"shrink context to make room for mmproj\". The new buun-llama-cpp image (`aamsellem/buun-llama-cpp:316e88e`) ships spiritbuun's `--mmproj-gpu-swap` feature: keeps mmproj on CPU at startup, swaps MTP out of VRAM when an image arrives, loads mmproj to GPU for fast encoding (~1-2s), then swaps back. MTP has no persistent state so the swap is lossless.\n\n**Bench validated 2026-05-24 on Olares One**:\n- Text decode: **243.59 t/s AVG** (10 runs, range 237.60-251.39) — only -2.8% vs v1.0.6 text-only baseline (250.54)\n- Vision test: 64×64 PNG → \"Red\" correct, **1.13s total** for swap + encode + generate\n- Swap latencies: MTP→mmproj 213ms, mmproj→MTP 540ms (~750ms vision overhead per request)\n- Auto-fit context: **262K full native** (vs 64K in v1.0.4/v1.0.5 attempts) — `--mmproj-gpu-swap` frees enough VRAM that the full window fits\n\n**Single endpoint now handles everything**:\n- Text generation at near-champion speed (243 t/s)\n- Vision input via OpenAI-compatible `image_url`\n- Tool calling (Hermes Agent compatible) via `--jinja`\n- Full 262K context window\n- MTP at 86.6% draft acceptance\n\nStack:\n- Image: `aamsellem/buun-llama-cpp:316e88e` — spiritbuun fork at upstream-merge commit (post llama.cpp master + mmproj-gpu-swap + GDN tensor-split fixes)\n- Target model: `unsloth/Qwen3.6-35B-A3B-MTP-GGUF` UD-Q3_K_XL (17.2 GB)\n- Vision encoder: `mmproj-BF16.gguf` from same repo (~900 MB, CPU-resident at idle, GPU-resident during image requests)\n- `--spec-type draft-mtp --spec-draft-n-max 3 --mmproj-gpu-swap`\n- q4_0 KV cache, flash attention, auto-fit context\n\n**Why we're confident in this build**: we built it yesterday (`aamsellem/buun-llama-cpp:316e88e`, downstream of spiritbuun commit `316e88e` which adds `--mmproj-gpu-swap` docs after the feature merge at `8e64d7a`). Validated end-to-end today: text decode tight (σ ≈ 4), vision correct on color test, no cycle bug.\n\nTrade-off vs v1.0.6 text-only: -2.8% throughput + ~750ms per vision request. In exchange: vision + 4× more context. Worth it for any agentic workflow that mixes text and screenshots.\n\nv1.0.6: **revert to text-only champion config**. v1.0.4/v1.0.5 attempted to add mmproj vision encoder but the MTP + mmproj + 192K/64K ctx combo blew the 24 GB VRAM budget (compute pp buffer alone needed ~4 GB at ubatch 2048). Trade-off was not worth it — text speed dropped, context shrank, and stability was fragile. Back to v1.0.3 config: **262K full native context, 246 t/s MTP champion, no vision**. For vision use cases, use `llamacppqwen36beellamavisionone` (Qwen 3.6 27B dense + BeeLlama + mmproj, 106 t/s @ 200K vision) or `vllmgemma426ba4bvisionone` (Gemma 4 + native multimodal, 135 t/s but lower tool-calling reliability).\n\nv1.0.4: **vision unlocked** (rolled back in v1.0.6). Add `--mmproj /models/mmproj-BF16.gguf` (~900 MB, downloaded automatically from `unsloth/Qwen3.6-35B-A3B-MTP-GGUF`). Qwen 3.6 35B-A3B is natively multimodal (vision encoder shipped by Alibaba) and llama.cpp mainline supports `--spec-type draft-mtp` + `--mmproj` together since the MTP merge (b9274+).\n\n**Why this matters for agentic use**: Hermes-Agent style tool calling can now consume images directly through the same endpoint that already wins on BFCL/SWE-bench. No more split between a Qwen text agent and a Gemma vision sibling — one model, one GPU slot, full vision + text + tool calling.\n\nArgs changes vs v1.0.3:\n- `--mmproj $MODELS_DIR/mmproj-BF16.gguf` added\n- `--ubatch-size 512 → 2048` (mandatory: ubatch must be ≥ image_max_tokens or vision encoder asserts per PR #21550)\n- `--batch-size 512 → 2048` (matches ubatch)\n- `CTX_SIZE 262144 → 196608` (192K — gives ~1 GB headroom for mmproj VRAM on 24 GB GPU)\n\nVRAM budget @ 64K (corrected in v1.0.5, then reverted in v1.0.6):\n- Model Q3_K_XL: 17.2 GB\n- mmproj BF16: 1.0 GB\n- KV q4_0 @ 64K: 0.8 GB\n- MTP draft buffer @ n_max=1: ~1.3 GB\n- Compute pp buffer @ ubatch 2048: ~2.0 GB\n- **Total: ~22.3 GB / 23.4 GB usable** (fit but very tight, abandoned in v1.0.6)\n\nImage input via OpenAI-compatible `image_url` (base64 data URI or URL). Expected perf: ~240-245 t/s text decode (down from 249, the 2048 ubatch costs ~2% on pure text but is required once mmproj is loaded). Vision prompt processing on mmproj BF16: tested on Olares One in prior Qwen vision work, comfortable headroom.\n\nv1.0.3: bump image `aamsellem/llama-cpp-mtp:master-ad27757` → `master-bb28c1f`. Picks up am17an's PR [#23461](https://github.com/ggml-org/llama.cpp/pull/23461) \"server: free draft/MTP resources on sleep to fix VRAM leak\" (community Reddit thread confirms necessity on b9274) + #23433 \"mtp: use inp_out_ids for skipping logit computation\" + #23131 SWA null-buffer fix. Bench re-validated 2026-05-22: 250.08 t/s AVG (10 runs, +0.3% vs ad27757 — noise). Real value is sustained-load stability (VRAM leak fix matters for agentic sessions hours-long).\n\nv1.0.2: bump default `CTX_SIZE` from 32K to **262144 (full native Qwen3.6 35B-A3B context window)**. Context sweep validated 2026-05-21 on Olares One showing essentially zero throughput regression across context sizes:\n\n| Context | t/s AVG | runs | delta vs 32K |\n|---------|--------:|-----:|-------------:|\n| 32K | 249.30 | 10 | baseline |\n| 64K | 252.64 | 5 | +1.3% (noise) |\n| 128K | 250.39 | 5 | +0.4% (noise) |\n| **262K (full native)** | **245.71** | 5 | -1.4% |\n\nMemory budget at 262K Q3_K_XL + q4_0 KV + MTP draft buffer:\n- Model: 17.2 GB\n- q4_0 KV @ 262K (32 layers × 262K × 2 KV): ~3.2 GB\n- MTP draft compute buffer: ~1 GB\n- Compute buffer: ~0.5 GB\n- Total: ~21.9 GB / 23.42 GB usable on 24 GB GPU (HAMi overhead-accounted)\n\nComfortable headroom. Full 262K context is essentially free on this stack — the MoE-A3B + MTP path doesn't have the per-token cost scaling with context that dense models exhibit (Mamba-like state-space layers carry constant per-token cost regardless of position).\n\nPractically: this app is now **fastest AND longest-context** Qwen3.6 27B/35B path on Olares One. Beats `llamacppqwen36beellamaone` v1.0.4 (107 t/s @ 262K, dense + DFlash) by **+130%** at the same context window. Beats `llamacppqwen36mtpone` v1.0.9 (74 t/s @ 262K, dense + MTP) by **+232%**. Same image as both (`aamsellem/llama-cpp-mtp:master-ad27757`), different model + architecture pays off entirely.\n\nv1.0.1: complete rebuild. Switch to MTP path with `aamsellem/llama-cpp-mtp:master-ad27757` (ggml-org/llama.cpp master HEAD with PR #22673 MTP + #23269 cleanup + #23287 NVIDIA backend sampling + #22522 PDL Hopper+). Swap target from `unsloth/Qwen3.6-35B-A3B-GGUF` Q4_K_XL → `unsloth/Qwen3.6-35B-A3B-MTP-GGUF` Q3_K_XL (Q4_K_XL=22 GB OOMs with KV at 24 GB; Q3_K_XL=17.2 GB fits comfortably). Args: `--spec-type draft-mtp --spec-draft-n-max 3 --ctx-size 32768 --cache-type-k q4_0 --cache-type-v q4_0 --batch-size 512 --ubatch-size 512 --parallel 1 --flash-attn on --chat-template-kwargs '{\"enable_thinking\": false}'`.\n\n**Bench validated 2026-05-21 on Olares One**: **249.30 t/s AVG** (10 runs, range 10.15, σ ≈ 3.0), **86.6% draft acceptance** (range 83.8–89.0%). NEW absolute champion on Olares One:\n- +37% vs Nemotron-Labs 30B-A3B NVFP4 + vLLM #40082 (182.14 t/s)\n- +83% vs Gemma 4 26B-A4B vLLM (135.97 t/s)\n- +132% vs BeeLlama Qwen3.6 27B + DFlash (107.54 t/s)\n- +236% vs Qwen3.6 27B dense MTP same image (74.28 t/s)\n\nWhy so fast: MoE-A3B = only ~3B params active per token (per-token compute is roughly that of a 3B model) + MTP at 86.6% accept (drafts almost always validate) + NVIDIA backend sampling moves draft sampling onto CUDA backend (fewer host roundtrips). Effective: \"3B-active speed with 35B-breadth quality.\" Context limited to 32K because KV cache + MTP draft buffer fits on 24 GB; higher contexts would need IQ4_XS or larger memory.\n\nTitle renamed \"Qwen 36B-A3B One\" → \"Qwen36 35B-A3B MTP\" for clarity. Port 8080 → 8000 (matches llama-server default in our master image).\n\nv1.0.0: initial release. Qwen3.6-35B-A3B (Apache 2.0, April 2026). Same hybrid SSM/MoE architecture as 3.5 — reuses proven Olares One config (llama.cpp b8740, UD-Q4_K_XL, KV q4_0 with Hadamard rotation, batch 2048/ubatch 1024, 64K ctx). SWE-bench 70.0→73.4, Terminal-Bench 40.5→51.5.\n",
+      "upgradeDescription": "v2.0.9: **fix missing `envs:` declaration for HF token**. `templates/deployment.yaml` referenced `HF_TOKEN=` but `OlaresManifest.yaml` never declared `OLARES_USER_HUGGINGFACE_TOKEN` in an `envs:` block — so Helm rendered `HF_TOKEN=\"\"` and any gated-model download from HuggingFace failed with 401. Same class of bug as `nemotronlabselastic30bnvfp4one` v1.0.3 (Discord-reported crash loop). No functional change for public models; fixes gated-repo access. Declared `required: false` so install still works when the user hasn't configured a token in Olares Settings.\n\nv2.0.8: **fix CrashLoopBackOff on fresh install** (Discord-reported by user eahnlk, 2026-06-09). The chart writes its ~18 GB model cache to `/olares/share/ai/model/llms/` via hostPath. On a fresh Olares install where no other app has written to this path before, the dir is owned uid 1000 mode 755. The buun-llama-cpp image runs as a non-root `appuser` (UID ≠ 1000): can read (755 lets \"others\" read) but cannot write → curl write fails → container exits within seconds → CrashLoopBackOff. Fix: add a trusted `docker.io/alpine:3.20` initContainer that runs as root and `chmod -R 777 /olares/share/ai/model` before the main container starts. Olares OPA policy allows runAsUser:0 for the `docker.io/` registry, so this passes admission. Same llama-server config otherwise (buun:87c351d2, asym q8_0-K/turbo4-V KV, MTP n=3, mmproj-gpu-swap, 262K context, --reasoning off).\n\nv2.0.7: **rollback BeeLlama → buun (Hermes tool-calling regression fix)**. v2.0.6 swapped image to `ghcr.io/anbeeld/beellama.cpp:server-cuda13-v0.3.1` for slightly higher MTP accept rate, but a user reported on Discord that their Hermes Agent flow stopped working after the upgrade. BeeLlama v0.3.1 has a chat-parser/tool-call detection behavior difference vs spiritbuun `buun-llama-cpp:87c351d2`. Reverting the image to the known-good `aamsellem/buun-llama-cpp:87c351d2` while keeping everything else identical (asym q8_0-K/turbo4-V KV, MTP n=3, mmproj-gpu-swap, 262K context, `--reasoning off`). Bench unchanged from v2.0.5 (~240 t/s, 84-88% accept). Will re-evaluate BeeLlama once the parser regression is fixed upstream.\n\nv2.0.6: ~~upgrade to BeeLlama v0.3.1~~ (rolled back in v2.0.7 due to Hermes tool-calling regression).\n\nv2.0.5: **asymmetric KV cache** (free K quality boost). Image bump 316e88e → 87c351d2 (spiritbuun fused asymmetric flash-attn kernel, 2026-06-04). KV config: symmetric q4_0/q4_0 → asymmetric q8_0-K + turbo4-V. Keys at 8-bit (high attention quality), values at turbo4 (compressed). Native 262K context preserved (smaller Q3_K_XL model has the headroom that abliterated Q4_K does not). Also dropped deprecated `--chat-template-kwargs` for `--reasoning off` flag. Bench Olares One (3 runs Space Invaders): 236.28 / 243.32 / 241.87 t/s = AVG 240.5 t/s with 84-88% MTP accept (vs v1.0.1 baseline 243.59 t/s, -1% speed for measurable K precision uplift). Quality > 1% raw speed for long-context use.\n\nv2.0.0: **vision UNLOCKED on the champion via spiritbuun `--mmproj-gpu-swap`**. The vision regression from v1.0.4/v1.0.5 that forced us back to text-only in v1.0.6 is now solved by a much cleverer mechanism than \"shrink context to make room for mmproj\". The new buun-llama-cpp image (`aamsellem/buun-llama-cpp:316e88e`) ships spiritbuun's `--mmproj-gpu-swap` feature: keeps mmproj on CPU at startup, swaps MTP out of VRAM when an image arrives, loads mmproj to GPU for fast encoding (~1-2s), then swaps back. MTP has no persistent state so the swap is lossless.\n\n**Bench validated 2026-05-24 on Olares One**:\n- Text decode: **243.59 t/s AVG** (10 runs, range 237.60-251.39) — only -2.8% vs v1.0.6 text-only baseline (250.54)\n- Vision test: 64×64 PNG → \"Red\" correct, **1.13s total** for swap + encode + generate\n- Swap latencies: MTP→mmproj 213ms, mmproj→MTP 540ms (~750ms vision overhead per request)\n- Auto-fit context: **262K full native** (vs 64K in v1.0.4/v1.0.5 attempts) — `--mmproj-gpu-swap` frees enough VRAM that the full window fits\n\n**Single endpoint now handles everything**:\n- Text generation at near-champion speed (243 t/s)\n- Vision input via OpenAI-compatible `image_url`\n- Tool calling (Hermes Agent compatible) via `--jinja`\n- Full 262K context window\n- MTP at 86.6% draft acceptance\n\nStack:\n- Image: `aamsellem/buun-llama-cpp:316e88e` — spiritbuun fork at upstream-merge commit (post llama.cpp master + mmproj-gpu-swap + GDN tensor-split fixes)\n- Target model: `unsloth/Qwen3.6-35B-A3B-MTP-GGUF` UD-Q3_K_XL (17.2 GB)\n- Vision encoder: `mmproj-BF16.gguf` from same repo (~900 MB, CPU-resident at idle, GPU-resident during image requests)\n- `--spec-type draft-mtp --spec-draft-n-max 3 --mmproj-gpu-swap`\n- q4_0 KV cache, flash attention, auto-fit context\n\n**Why we're confident in this build**: we built it yesterday (`aamsellem/buun-llama-cpp:316e88e`, downstream of spiritbuun commit `316e88e` which adds `--mmproj-gpu-swap` docs after the feature merge at `8e64d7a`). Validated end-to-end today: text decode tight (σ ≈ 4), vision correct on color test, no cycle bug.\n\nTrade-off vs v1.0.6 text-only: -2.8% throughput + ~750ms per vision request. In exchange: vision + 4× more context. Worth it for any agentic workflow that mixes text and screenshots.\n\nv1.0.6: **revert to text-only champion config**. v1.0.4/v1.0.5 attempted to add mmproj vision encoder but the MTP + mmproj + 192K/64K ctx combo blew the 24 GB VRAM budget (compute pp buffer alone needed ~4 GB at ubatch 2048). Trade-off was not worth it — text speed dropped, context shrank, and stability was fragile. Back to v1.0.3 config: **262K full native context, 246 t/s MTP champion, no vision**. For vision use cases, use `llamacppqwen36beellamavisionone` (Qwen 3.6 27B dense + BeeLlama + mmproj, 106 t/s @ 200K vision) or `vllmgemma426ba4bvisionone` (Gemma 4 + native multimodal, 135 t/s but lower tool-calling reliability).\n\nv1.0.4: **vision unlocked** (rolled back in v1.0.6). Add `--mmproj /models/mmproj-BF16.gguf` (~900 MB, downloaded automatically from `unsloth/Qwen3.6-35B-A3B-MTP-GGUF`). Qwen 3.6 35B-A3B is natively multimodal (vision encoder shipped by Alibaba) and llama.cpp mainline supports `--spec-type draft-mtp` + `--mmproj` together since the MTP merge (b9274+).\n\n**Why this matters for agentic use**: Hermes-Agent style tool calling can now consume images directly through the same endpoint that already wins on BFCL/SWE-bench. No more split between a Qwen text agent and a Gemma vision sibling — one model, one GPU slot, full vision + text + tool calling.\n\nArgs changes vs v1.0.3:\n- `--mmproj $MODELS_DIR/mmproj-BF16.gguf` added\n- `--ubatch-size 512 → 2048` (mandatory: ubatch must be ≥ image_max_tokens or vision encoder asserts per PR #21550)\n- `--batch-size 512 → 2048` (matches ubatch)\n- `CTX_SIZE 262144 → 196608` (192K — gives ~1 GB headroom for mmproj VRAM on 24 GB GPU)\n\nVRAM budget @ 64K (corrected in v1.0.5, then reverted in v1.0.6):\n- Model Q3_K_XL: 17.2 GB\n- mmproj BF16: 1.0 GB\n- KV q4_0 @ 64K: 0.8 GB\n- MTP draft buffer @ n_max=1: ~1.3 GB\n- Compute pp buffer @ ubatch 2048: ~2.0 GB\n- **Total: ~22.3 GB / 23.4 GB usable** (fit but very tight, abandoned in v1.0.6)\n\nImage input via OpenAI-compatible `image_url` (base64 data URI or URL). Expected perf: ~240-245 t/s text decode (down from 249, the 2048 ubatch costs ~2% on pure text but is required once mmproj is loaded). Vision prompt processing on mmproj BF16: tested on Olares One in prior Qwen vision work, comfortable headroom.\n\nv1.0.3: bump image `aamsellem/llama-cpp-mtp:master-ad27757` → `master-bb28c1f`. Picks up am17an's PR [#23461](https://github.com/ggml-org/llama.cpp/pull/23461) \"server: free draft/MTP resources on sleep to fix VRAM leak\" (community Reddit thread confirms necessity on b9274) + #23433 \"mtp: use inp_out_ids for skipping logit computation\" + #23131 SWA null-buffer fix. Bench re-validated 2026-05-22: 250.08 t/s AVG (10 runs, +0.3% vs ad27757 — noise). Real value is sustained-load stability (VRAM leak fix matters for agentic sessions hours-long).\n\nv1.0.2: bump default `CTX_SIZE` from 32K to **262144 (full native Qwen3.6 35B-A3B context window)**. Context sweep validated 2026-05-21 on Olares One showing essentially zero throughput regression across context sizes:\n\n| Context | t/s AVG | runs | delta vs 32K |\n|---------|--------:|-----:|-------------:|\n| 32K | 249.30 | 10 | baseline |\n| 64K | 252.64 | 5 | +1.3% (noise) |\n| 128K | 250.39 | 5 | +0.4% (noise) |\n| **262K (full native)** | **245.71** | 5 | -1.4% |\n\nMemory budget at 262K Q3_K_XL + q4_0 KV + MTP draft buffer:\n- Model: 17.2 GB\n- q4_0 KV @ 262K (32 layers × 262K × 2 KV): ~3.2 GB\n- MTP draft compute buffer: ~1 GB\n- Compute buffer: ~0.5 GB\n- Total: ~21.9 GB / 23.42 GB usable on 24 GB GPU (HAMi overhead-accounted)\n\nComfortable headroom. Full 262K context is essentially free on this stack — the MoE-A3B + MTP path doesn't have the per-token cost scaling with context that dense models exhibit (Mamba-like state-space layers carry constant per-token cost regardless of position).\n\nPractically: this app is now **fastest AND longest-context** Qwen3.6 27B/35B path on Olares One. Beats `llamacppqwen36beellamaone` v1.0.4 (107 t/s @ 262K, dense + DFlash) by **+130%** at the same context window. Beats `llamacppqwen36mtpone` v1.0.9 (74 t/s @ 262K, dense + MTP) by **+232%**. Same image as both (`aamsellem/llama-cpp-mtp:master-ad27757`), different model + architecture pays off entirely.\n\nv1.0.1: complete rebuild. Switch to MTP path with `aamsellem/llama-cpp-mtp:master-ad27757` (ggml-org/llama.cpp master HEAD with PR #22673 MTP + #23269 cleanup + #23287 NVIDIA backend sampling + #22522 PDL Hopper+). Swap target from `unsloth/Qwen3.6-35B-A3B-GGUF` Q4_K_XL → `unsloth/Qwen3.6-35B-A3B-MTP-GGUF` Q3_K_XL (Q4_K_XL=22 GB OOMs with KV at 24 GB; Q3_K_XL=17.2 GB fits comfortably). Args: `--spec-type draft-mtp --spec-draft-n-max 3 --ctx-size 32768 --cache-type-k q4_0 --cache-type-v q4_0 --batch-size 512 --ubatch-size 512 --parallel 1 --flash-attn on --chat-template-kwargs '{\"enable_thinking\": false}'`.\n\n**Bench validated 2026-05-21 on Olares One**: **249.30 t/s AVG** (10 runs, range 10.15, σ ≈ 3.0), **86.6% draft acceptance** (range 83.8–89.0%). NEW absolute champion on Olares One:\n- +37% vs Nemotron-Labs 30B-A3B NVFP4 + vLLM #40082 (182.14 t/s)\n- +83% vs Gemma 4 26B-A4B vLLM (135.97 t/s)\n- +132% vs BeeLlama Qwen3.6 27B + DFlash (107.54 t/s)\n- +236% vs Qwen3.6 27B dense MTP same image (74.28 t/s)\n\nWhy so fast: MoE-A3B = only ~3B params active per token (per-token compute is roughly that of a 3B model) + MTP at 86.6% accept (drafts almost always validate) + NVIDIA backend sampling moves draft sampling onto CUDA backend (fewer host roundtrips). Effective: \"3B-active speed with 35B-breadth quality.\" Context limited to 32K because KV cache + MTP draft buffer fits on 24 GB; higher contexts would need IQ4_XS or larger memory.\n\nTitle renamed \"Qwen 36B-A3B One\" → \"Qwen36 35B-A3B MTP\" for clarity. Port 8080 → 8000 (matches llama-server default in our master image).\n\nv1.0.0: initial release. Qwen3.6-35B-A3B (Apache 2.0, April 2026). Same hybrid SSM/MoE architecture as 3.5 — reuses proven Olares One config (llama.cpp b8740, UD-Q4_K_XL, KV q4_0 with Hadamard rotation, batch 2048/ubatch 1024, 64K ctx). SWE-bench 70.0→73.4, Terminal-Bench 40.5→51.5.\n",
       "promoteImage": [
         "https://orales-one-market.aamsellem.workers.dev/screenshots/llamacppqwen36a3bone-bento.png"
       ],
@@ -2823,9 +2823,9 @@
       "versionHistory": [
         {
           "appName": "llamacppqwen36a3bone",
-          "version": "2.0.8",
-          "versionName": "2.0.8",
-          "mergedAt": "2026-06-15T01:44:22.106000000Z",
+          "version": "2.0.9",
+          "versionName": "2.0.9",
+          "mergedAt": "2026-07-28T22:13:26.961000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -2835,27 +2835,27 @@
         "champion vision"
       ],
       "metadata": null,
-      "updated_at": "2026-06-15T01:44:22.106000000Z"
+      "updated_at": "2026-07-28T22:13:26.961000000Z"
     },
     "6ee23f04": {
       "id": "6ee23f04",
       "name": "llamacppqwen36abliteratedone",
       "cfgType": "app",
-      "chartName": "llamacppqwen36abliteratedone-1.0.9.tgz",
+      "chartName": "llamacppqwen36abliteratedone-1.0.10.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen36abliteratedone.png",
       "description": "Qwen3.6 35B-A3B abliterated + Claude 4.7 Opus reasoning distilled — Q4_K smarter quant @ 65K, no guardrails, MTP + Vision on Olares One",
       "appID": "6ee23f04",
       "title": "Qwen36 35B-A3B Abliterated Claude",
-      "version": "1.0.9",
+      "version": "1.0.10",
       "categories": [
         "LLM Chat",
         "AI Agents",
         "Vision",
         "Uncensored"
       ],
-      "versionName": "1.0.9",
+      "versionName": "1.0.10",
       "fullDescription": "Qwen3.6 35B-A3B abliterated + Claude 4.7 Opus reasoning distilled (MoE, 3B active) — uncensored champion stack on Olares One.\n\nSibling of the production text+vision champion (`llamacppqwen36a3bone` v2.0.0), with the same speed envelope (~240 t/s text decode + 262K full native context + vision via mmproj-gpu-swap + tool calling) but with the huihui-ai abliterated + Claude-distilled weights instead of Unsloth's base GGUF.\n\nStack:\n- `huihui-ai/Huihui-Qwen3.6-35B-A3B-Claude-4.7-Opus-abliterated-MTP-GGUF` Q3_K (17.2 GB) + mmproj F16 (~900 MB)\n- buun-llama-cpp 316e88e (spiritbuun fork) with `--mmproj-gpu-swap`\n- MTP n=3, q4_0 KV cache, flash attention, jinja templates\n- OpenAI-compatible API on port 8000\n\nDownloads model + mmproj on first launch (~18 GB total) and caches them.\n",
-      "upgradeDescription": "v1.0.9: **upgrade to BeeLlama v0.3.1** (anbeeld's maintained fork, ghcr.io/anbeeld/beellama.cpp:server-cuda13-v0.3.1). Bumped from custom one-shot `aamsellem/buun-llama-cpp:87c351d2` to BeeLlama which includes everything buun had (asymmetric KV q8_0-K/turbo4-V, MTP) PLUS DFlash speculative decoding, adaptive draft-max controller, reasoning-loop protection, and full multimodal Gemma 4 unified support — all in a maintained upstream image with regular release tags. Bench on Olares One (3 runs Space Invaders): 247.42 / 256.65 / 248.69 t/s = AVG 250.9 t/s with 86-92% MTP accept (vs v1.0.8 245.3 t/s @ 82-88%) = +2.3% speed + higher accept rate ceiling. Same Q4_K + mmproj + asym KV config, just better upstream image.\n\nv1.0.8: **asymmetric KV cache** (free K quality boost). Upgraded buun-llama-cpp image from 316e88e (May 2026) to 87c351d2 (2026-06-04) which adds fused asymmetric q8_0-K + turbo4-V flash-attn kernel. KV config changed from symmetric `q4_0/q4_0` (both 4-bit) to asymmetric `q8_0-K / turbo4-V`: keys at 8-bit precision (matters most for attention quality), values compressed via turbo4 (matters less per-token). Bench on Olares One (3 runs Space Invaders): 246.83 / 249.86 / 239.19 t/s = AVG 245.3 t/s with 82-88% MTP accept — matches v1.0.7 speed (244 t/s) but with measurably higher K precision. Context stays at 65K (asymmetric is for quality not size; 262K still OOMs).\n\nv1.0.7: **hostPath fix** — `type: Directory` → `DirectoryOrCreate` for `/olares/share/ai/model` (Discord bug 2026-06-03 from agedflyer4007).\n\nv1.0.6: **fix thinking-mode garbage output** (Discord bug report 2026-06-02). buun-llama-cpp:316e88e introduced PEG-native chat parser that fails to detect `</think>` close tag on Qwen3's thinking template — model never emits EOS, runs until max_tokens with empty content + reasoning_content stuck mid-stream. Two fixes: (1) explicit `--chat-template-file /chat-template/chat_template.jinja` via ConfigMap mount forces Jinja2 parser over peg-native, (2) replace deprecated `--chat-template-kwargs '{\"enable_thinking\":false}'` with new `--reasoning off` flag (the kwargs path emits a deprecation warning and will be removed). Verified bench non-thinking gen still works at 244 t/s; thinking-mode requests via `chat_template_kwargs.enable_thinking=true` API parameter now properly close think blocks. Same Q4_K model, same speed, just parser correctness restored.\n\nv1.0.5: **upgrade Q3_K → Q4_K for measurably smarter outputs**. New quant size 21.7 GB (vs 17.2 GB Q3_K) = +27% weight = noticeably stronger reasoning, code, structured outputs. Context clamped to 65K (down from 262K full native) to leave VRAM headroom for the bigger model + mmproj + MTP draft buffer (model 21.7 + KV q4_0 ~2.5 + mmproj 0.9 + draft ~1 ≈ 26 GB under 30 GB HAMi limit). Same stack otherwise: buun-llama.cpp 316e88e, MTP n=3, mmproj-gpu-swap, q4_0 KV, flash attention, jinja. Bench TBD on Olares One — expect ~10-15% slower than Q3_K (still in the 195-210 t/s range).\n\nv1.0.1: bench validated 2026-05-24 on Olares One: **227.77 t/s AVG** (10 runs, range 218-234, σ ≈ 5). Vision validated (64×64 PNG → \"Red\"). Slightly slower than the non-abliterated champion (`llamacppqwen36a3bone` v2.0.0 at 243.59 t/s, -6.5%) — the Claude 4.7 distillation + abliteration appears to nudge the MTP draft heads slightly off-distribution, lowering effective acceptance. Vision still works perfectly. Use cases unchanged: research, red-teaming, fiction/roleplay, edge-case agent flows.\n\nv1.0.0: initial release. Uncensored sibling of the `llamacppqwen36a3bone` champion. Same stack (buun-llama.cpp 316e88e + MTP + mmproj-gpu-swap), same speed (~240 t/s text + vision via lossless swap), same 262K full native context — but with the abliterated weights from huihui-ai applied on top of a Claude 4.7 Opus reasoning distillation.\n\n**Model**: `huihui-ai/Huihui-Qwen3.6-35B-A3B-Claude-4.7-Opus-abliterated-MTP-GGUF` (17.2 GB Q3_K).\n\n**Two transformations stacked on Qwen 3.6 35B-A3B**:\n1. **Claude 4.7 Opus reasoning distillation** — student model trained on Claude's thinking outputs. Improves multi-step reasoning, code generation, and structured problem solving over the base Qwen.\n2. **Abliteration** (Maxime Labonne / huihui-ai technique) — surgical removal of refusal directions from the model's representation space. Model no longer refuses sensitive/edge requests. Underlying capabilities unchanged, only the refusal gate is dropped.\n\nUse cases:\n- Adversarial red-teaming / security research\n- Roleplay / fiction without forced disclaimers\n- Edge-case agent flows where the model would otherwise refuse legitimate tasks\n- Local-only deployment where no external moderation layer is needed\n\n**NOT for production-facing apps** — without the safety layer, you own moderation responsibility entirely.\n\nStack identical to v2.0.0 of `llamacppqwen36a3bone`:\n- Image: `aamsellem/buun-llama-cpp:316e88e` (spiritbuun fork with `--mmproj-gpu-swap`)\n- `--spec-type draft-mtp --spec-draft-n-max 3` (MTP head preserved by huihui)\n- q4_0 KV cache, full 262K context (auto-fit), flash attention, jinja templates\n- Vision via mmproj-gpu-swap (~750ms swap overhead per image request, lossless)\n- Tool calling preserved\n\nExpected bench (not yet validated, mirrors v2.0.0 champion): ~240-243 t/s text decode, vision response in ~1.1s, accept rate ~85-86%.\n",
+      "upgradeDescription": "v1.0.10: **fix missing `envs:` declaration for HF token**. `templates/deployment.yaml` referenced `HF_TOKEN=` but `OlaresManifest.yaml` never declared `OLARES_USER_HUGGINGFACE_TOKEN` in an `envs:` block — so Helm rendered `HF_TOKEN=\"\"` and any gated-model download from HuggingFace failed with 401. Same class of bug as `nemotronlabselastic30bnvfp4one` v1.0.3 (Discord-reported crash loop). No functional change for public models; fixes gated-repo access. Declared `required: false` so install still works when the user hasn't configured a token in Olares Settings.\n\nv1.0.9: **upgrade to BeeLlama v0.3.1** (anbeeld's maintained fork, ghcr.io/anbeeld/beellama.cpp:server-cuda13-v0.3.1). Bumped from custom one-shot `aamsellem/buun-llama-cpp:87c351d2` to BeeLlama which includes everything buun had (asymmetric KV q8_0-K/turbo4-V, MTP) PLUS DFlash speculative decoding, adaptive draft-max controller, reasoning-loop protection, and full multimodal Gemma 4 unified support — all in a maintained upstream image with regular release tags. Bench on Olares One (3 runs Space Invaders): 247.42 / 256.65 / 248.69 t/s = AVG 250.9 t/s with 86-92% MTP accept (vs v1.0.8 245.3 t/s @ 82-88%) = +2.3% speed + higher accept rate ceiling. Same Q4_K + mmproj + asym KV config, just better upstream image.\n\nv1.0.8: **asymmetric KV cache** (free K quality boost). Upgraded buun-llama-cpp image from 316e88e (May 2026) to 87c351d2 (2026-06-04) which adds fused asymmetric q8_0-K + turbo4-V flash-attn kernel. KV config changed from symmetric `q4_0/q4_0` (both 4-bit) to asymmetric `q8_0-K / turbo4-V`: keys at 8-bit precision (matters most for attention quality), values compressed via turbo4 (matters less per-token). Bench on Olares One (3 runs Space Invaders): 246.83 / 249.86 / 239.19 t/s = AVG 245.3 t/s with 82-88% MTP accept — matches v1.0.7 speed (244 t/s) but with measurably higher K precision. Context stays at 65K (asymmetric is for quality not size; 262K still OOMs).\n\nv1.0.7: **hostPath fix** — `type: Directory` → `DirectoryOrCreate` for `/olares/share/ai/model` (Discord bug 2026-06-03 from agedflyer4007).\n\nv1.0.6: **fix thinking-mode garbage output** (Discord bug report 2026-06-02). buun-llama-cpp:316e88e introduced PEG-native chat parser that fails to detect `</think>` close tag on Qwen3's thinking template — model never emits EOS, runs until max_tokens with empty content + reasoning_content stuck mid-stream. Two fixes: (1) explicit `--chat-template-file /chat-template/chat_template.jinja` via ConfigMap mount forces Jinja2 parser over peg-native, (2) replace deprecated `--chat-template-kwargs '{\"enable_thinking\":false}'` with new `--reasoning off` flag (the kwargs path emits a deprecation warning and will be removed). Verified bench non-thinking gen still works at 244 t/s; thinking-mode requests via `chat_template_kwargs.enable_thinking=true` API parameter now properly close think blocks. Same Q4_K model, same speed, just parser correctness restored.\n\nv1.0.5: **upgrade Q3_K → Q4_K for measurably smarter outputs**. New quant size 21.7 GB (vs 17.2 GB Q3_K) = +27% weight = noticeably stronger reasoning, code, structured outputs. Context clamped to 65K (down from 262K full native) to leave VRAM headroom for the bigger model + mmproj + MTP draft buffer (model 21.7 + KV q4_0 ~2.5 + mmproj 0.9 + draft ~1 ≈ 26 GB under 30 GB HAMi limit). Same stack otherwise: buun-llama.cpp 316e88e, MTP n=3, mmproj-gpu-swap, q4_0 KV, flash attention, jinja. Bench TBD on Olares One — expect ~10-15% slower than Q3_K (still in the 195-210 t/s range).\n\nv1.0.1: bench validated 2026-05-24 on Olares One: **227.77 t/s AVG** (10 runs, range 218-234, σ ≈ 5). Vision validated (64×64 PNG → \"Red\"). Slightly slower than the non-abliterated champion (`llamacppqwen36a3bone` v2.0.0 at 243.59 t/s, -6.5%) — the Claude 4.7 distillation + abliteration appears to nudge the MTP draft heads slightly off-distribution, lowering effective acceptance. Vision still works perfectly. Use cases unchanged: research, red-teaming, fiction/roleplay, edge-case agent flows.\n\nv1.0.0: initial release. Uncensored sibling of the `llamacppqwen36a3bone` champion. Same stack (buun-llama.cpp 316e88e + MTP + mmproj-gpu-swap), same speed (~240 t/s text + vision via lossless swap), same 262K full native context — but with the abliterated weights from huihui-ai applied on top of a Claude 4.7 Opus reasoning distillation.\n\n**Model**: `huihui-ai/Huihui-Qwen3.6-35B-A3B-Claude-4.7-Opus-abliterated-MTP-GGUF` (17.2 GB Q3_K).\n\n**Two transformations stacked on Qwen 3.6 35B-A3B**:\n1. **Claude 4.7 Opus reasoning distillation** — student model trained on Claude's thinking outputs. Improves multi-step reasoning, code generation, and structured problem solving over the base Qwen.\n2. **Abliteration** (Maxime Labonne / huihui-ai technique) — surgical removal of refusal directions from the model's representation space. Model no longer refuses sensitive/edge requests. Underlying capabilities unchanged, only the refusal gate is dropped.\n\nUse cases:\n- Adversarial red-teaming / security research\n- Roleplay / fiction without forced disclaimers\n- Edge-case agent flows where the model would otherwise refuse legitimate tasks\n- Local-only deployment where no external moderation layer is needed\n\n**NOT for production-facing apps** — without the safety layer, you own moderation responsibility entirely.\n\nStack identical to v2.0.0 of `llamacppqwen36a3bone`:\n- Image: `aamsellem/buun-llama-cpp:316e88e` (spiritbuun fork with `--mmproj-gpu-swap`)\n- `--spec-type draft-mtp --spec-draft-n-max 3` (MTP head preserved by huihui)\n- q4_0 KV cache, full 262K context (auto-fit), flash attention, jinja templates\n- Vision via mmproj-gpu-swap (~750ms swap overhead per image request, lossless)\n- Tool calling preserved\n\nExpected bench (not yet validated, mirrors v2.0.0 champion): ~240-243 t/s text decode, vision response in ~1.1s, accept rate ~85-86%.\n",
       "promoteImage": [
         "https://orales-one-market.aamsellem.workers.dev/screenshots/llamacppqwen36abliteratedone-bento.png"
       ],
@@ -2936,9 +2936,9 @@
       "versionHistory": [
         {
           "appName": "llamacppqwen36abliteratedone",
-          "version": "1.0.9",
-          "versionName": "1.0.9",
-          "mergedAt": "2026-06-15T01:44:22.106000000Z",
+          "version": "1.0.10",
+          "versionName": "1.0.10",
+          "mergedAt": "2026-07-28T22:13:26.963000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -2948,7 +2948,7 @@
         "abliterated + claude · Q4_K"
       ],
       "metadata": null,
-      "updated_at": "2026-06-15T01:44:22.106000000Z"
+      "updated_at": "2026-07-28T22:13:26.963000000Z"
     },
     "9ca1356f": {
       "id": "9ca1356f",
@@ -3049,7 +3049,7 @@
           "appName": "llamacppqwen36beellamaone",
           "version": "1.0.9",
           "versionName": "1.0.9",
-          "mergedAt": "2026-06-15T01:44:22.106000000Z",
+          "mergedAt": "2026-07-28T22:13:26.966000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -3059,7 +3059,7 @@
         "beellama"
       ],
       "metadata": null,
-      "updated_at": "2026-06-15T01:44:22.106000000Z"
+      "updated_at": "2026-07-28T22:13:26.966000000Z"
     },
     "376c02dd": {
       "id": "376c02dd",
@@ -3160,7 +3160,7 @@
           "appName": "llamacppqwen36beellamavisionone",
           "version": "1.0.7",
           "versionName": "1.0.7",
-          "mergedAt": "2026-06-15T01:44:22.107000000Z",
+          "mergedAt": "2026-07-28T22:13:26.968000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -3170,7 +3170,7 @@
         "vision"
       ],
       "metadata": null,
-      "updated_at": "2026-06-15T01:44:22.107000000Z"
+      "updated_at": "2026-07-28T22:13:26.968000000Z"
     },
     "49ed4ea2": {
       "id": "49ed4ea2",
@@ -3270,7 +3270,7 @@
           "appName": "llamacppqwen36dflashone",
           "version": "1.0.6",
           "versionName": "1.0.6",
-          "mergedAt": "2026-06-15T01:44:22.107000000Z",
+          "mergedAt": "2026-07-28T22:13:26.969000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -3280,7 +3280,7 @@
         "dflash"
       ],
       "metadata": null,
-      "updated_at": "2026-06-15T01:44:22.107000000Z"
+      "updated_at": "2026-07-28T22:13:26.969000000Z"
     },
     "6a1ddcf0": {
       "id": "6a1ddcf0",
@@ -3380,7 +3380,7 @@
           "appName": "llamacppqwen36heretic27bone",
           "version": "1.0.3",
           "versionName": "1.0.3",
-          "mergedAt": "2026-06-15T01:44:22.108000000Z",
+          "mergedAt": "2026-07-28T22:13:26.971000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -3390,7 +3390,7 @@
         "long ctx"
       ],
       "metadata": null,
-      "updated_at": "2026-06-15T01:44:22.108000000Z"
+      "updated_at": "2026-07-28T22:13:26.971000000Z"
     },
     "43e83ecd": {
       "id": "43e83ecd",
@@ -3490,7 +3490,7 @@
           "appName": "llamacppqwen36mtpone",
           "version": "1.0.18",
           "versionName": "1.0.18",
-          "mergedAt": "2026-06-15T01:44:22.108000000Z",
+          "mergedAt": "2026-07-28T22:13:26.973000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -3500,7 +3500,7 @@
         "long ctx"
       ],
       "metadata": null,
-      "updated_at": "2026-06-15T01:44:22.108000000Z"
+      "updated_at": "2026-07-28T22:13:26.973000000Z"
     },
     "fa4ef911": {
       "id": "fa4ef911",
@@ -3600,7 +3600,7 @@
           "appName": "nemotron3nano4bone",
           "version": "1.0.6",
           "versionName": "1.0.6",
-          "mergedAt": "2026-06-15T01:44:22.109000000Z",
+          "mergedAt": "2026-07-28T22:13:26.974000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -3610,7 +3610,7 @@
         "nano"
       ],
       "metadata": null,
-      "updated_at": "2026-06-15T01:44:22.109000000Z"
+      "updated_at": "2026-07-28T22:13:26.974000000Z"
     },
     "99dafa10": {
       "id": "99dafa10",
@@ -3711,7 +3711,7 @@
           "appName": "nemotronlabselastic30bnvfp4one",
           "version": "1.0.5",
           "versionName": "1.0.5",
-          "mergedAt": "2026-06-15T01:44:22.109000000Z",
+          "mergedAt": "2026-07-28T22:13:26.975000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -3721,7 +3721,7 @@
         "nvfp4"
       ],
       "metadata": null,
-      "updated_at": "2026-06-15T01:44:22.109000000Z"
+      "updated_at": "2026-07-28T22:13:26.975000000Z"
     },
     "e74eca98": {
       "id": "e74eca98",
@@ -3821,7 +3821,7 @@
           "appName": "omnivoiceone",
           "version": "1.1.2",
           "versionName": "1.1.2",
-          "mergedAt": "2026-06-15T01:44:22.109000000Z",
+          "mergedAt": "2026-07-28T22:13:26.977000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -3831,7 +3831,7 @@
         "tts"
       ],
       "metadata": null,
-      "updated_at": "2026-06-15T01:44:22.109000000Z"
+      "updated_at": "2026-07-28T22:13:26.977000000Z"
     },
     "2c5c39c9": {
       "id": "2c5c39c9",
@@ -3931,7 +3931,7 @@
           "appName": "qwen35a3bvisionone",
           "version": "1.0.10",
           "versionName": "1.0.10",
-          "mergedAt": "2026-06-15T01:44:22.110000000Z",
+          "mergedAt": "2026-07-28T22:13:26.978000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -3941,7 +3941,7 @@
         "vision"
       ],
       "metadata": null,
-      "updated_at": "2026-06-15T01:44:22.110000000Z"
+      "updated_at": "2026-07-28T22:13:26.978000000Z"
     },
     "ed18683c": {
       "id": "ed18683c",
@@ -4041,7 +4041,7 @@
           "appName": "qwen35iq4visionone",
           "version": "1.0.8",
           "versionName": "1.0.8",
-          "mergedAt": "2026-06-15T01:44:22.110000000Z",
+          "mergedAt": "2026-07-28T22:13:26.979000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -4051,7 +4051,7 @@
         "vision long"
       ],
       "metadata": null,
-      "updated_at": "2026-06-15T01:44:22.110000000Z"
+      "updated_at": "2026-07-28T22:13:26.979000000Z"
     },
     "14fdab3c": {
       "id": "14fdab3c",
@@ -4152,7 +4152,7 @@
           "appName": "qwen36a3bvisionone",
           "version": "1.0.3",
           "versionName": "1.0.3",
-          "mergedAt": "2026-06-15T01:44:22.110000000Z",
+          "mergedAt": "2026-07-28T22:13:26.980000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -4162,7 +4162,7 @@
         "vision"
       ],
       "metadata": null,
-      "updated_at": "2026-06-15T01:44:22.110000000Z"
+      "updated_at": "2026-07-28T22:13:26.980000000Z"
     },
     "da30d532": {
       "id": "da30d532",
@@ -4263,7 +4263,7 @@
           "appName": "qwen3coder30a3bone",
           "version": "1.0.1",
           "versionName": "1.0.1",
-          "mergedAt": "2026-06-15T01:44:22.110000000Z",
+          "mergedAt": "2026-07-28T22:13:26.981000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -4273,22 +4273,22 @@
         "coder"
       ],
       "metadata": null,
-      "updated_at": "2026-06-15T01:44:22.110000000Z"
+      "updated_at": "2026-07-28T22:13:26.981000000Z"
     },
     "49c5b493": {
       "id": "49c5b493",
       "name": "qwen3ttstone",
       "cfgType": "app",
-      "chartName": "qwen3ttstone-1.0.10.tgz",
+      "chartName": "qwen3ttstone-1.0.11.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/qwen3ttstone.png",
       "description": "Qwen3-TTS 1.7B — text-to-speech with voice cloning, optimized for Olares One",
       "appID": "49c5b493",
       "title": "Qwen3-TTS 1.7B (Olares One)",
-      "version": "1.0.10",
+      "version": "1.0.11",
       "categories": [
         "TTS"
       ],
-      "versionName": "1.0.10",
+      "versionName": "1.0.11",
       "fullDescription": "Qwen3-TTS 1.7B CustomVoice served via Gradio — optimized for Olares One.\nRTX 5090M (24GB) + 96GB DDR5 + Core Ultra 9 275HX.\n9 built-in premium voices with instruction control.\nZero-shot voice cloning from 3 seconds of reference audio.\n10 languages: French, English, Chinese, Japanese, Korean, German, Russian, Portuguese, Spanish, Italian.\nDownloads the model on first launch (~4.5GB) and caches it.\nExposes a Gradio web UI on port 8000.\n",
       "upgradeDescription": "",
       "promoteImage": [
@@ -4371,9 +4371,9 @@
       "versionHistory": [
         {
           "appName": "qwen3ttstone",
-          "version": "1.0.10",
-          "versionName": "1.0.10",
-          "mergedAt": "2026-06-15T01:44:22.111000000Z",
+          "version": "1.0.11",
+          "versionName": "1.0.11",
+          "mergedAt": "2026-07-28T22:13:26.982000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -4383,7 +4383,7 @@
         "tts"
       ],
       "metadata": null,
-      "updated_at": "2026-06-15T01:44:22.111000000Z"
+      "updated_at": "2026-07-28T22:13:26.982000000Z"
     },
     "fff1cda2": {
       "id": "fff1cda2",
@@ -4485,7 +4485,7 @@
           "appName": "racka4bhuone",
           "version": "1.0.3",
           "versionName": "1.0.3",
-          "mergedAt": "2026-06-15T01:44:22.111000000Z",
+          "mergedAt": "2026-07-28T22:13:26.984000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -4495,7 +4495,7 @@
         "hungarian · special request"
       ],
       "metadata": null,
-      "updated_at": "2026-06-15T01:44:22.111000000Z"
+      "updated_at": "2026-07-28T22:13:26.984000000Z"
     },
     "35ffe672": {
       "id": "35ffe672",
@@ -4598,7 +4598,7 @@
           "appName": "vllmgemma426ba4babliteratedone",
           "version": "1.0.1",
           "versionName": "1.0.1",
-          "mergedAt": "2026-06-15T01:44:22.112000000Z",
+          "mergedAt": "2026-07-28T22:13:26.985000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -4608,7 +4608,7 @@
         "abliterated"
       ],
       "metadata": null,
-      "updated_at": "2026-06-15T01:44:22.112000000Z"
+      "updated_at": "2026-07-28T22:13:26.985000000Z"
     },
     "b3078d17": {
       "id": "b3078d17",
@@ -4709,7 +4709,7 @@
           "appName": "vllmgemma426ba4bvisionone",
           "version": "1.0.5",
           "versionName": "1.0.5",
-          "mergedAt": "2026-06-15T01:44:22.112000000Z",
+          "mergedAt": "2026-07-28T22:13:26.989000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -4719,7 +4719,7 @@
         "champion vision"
       ],
       "metadata": null,
-      "updated_at": "2026-06-15T01:44:22.112000000Z"
+      "updated_at": "2026-07-28T22:13:26.989000000Z"
     },
     "18a6f781": {
       "id": "18a6f781",
@@ -4819,7 +4819,7 @@
           "appName": "vllmgemma4dflashone",
           "version": "1.0.7",
           "versionName": "1.0.7",
-          "mergedAt": "2026-06-15T01:44:22.112000000Z",
+          "mergedAt": "2026-07-28T22:13:26.991000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -4829,7 +4829,7 @@
         "dflash"
       ],
       "metadata": null,
-      "updated_at": "2026-06-15T01:44:22.113000000Z"
+      "updated_at": "2026-07-28T22:13:26.991000000Z"
     },
     "be32d4df": {
       "id": "be32d4df",
@@ -4930,7 +4930,7 @@
           "appName": "vllmgemma4e4bone",
           "version": "1.0.13",
           "versionName": "1.0.13",
-          "mergedAt": "2026-06-15T01:44:22.113000000Z",
+          "mergedAt": "2026-07-28T22:13:26.993000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -4940,22 +4940,22 @@
         "voice mtp"
       ],
       "metadata": null,
-      "updated_at": "2026-06-15T01:44:22.113000000Z"
+      "updated_at": "2026-07-28T22:13:26.993000000Z"
     },
     "285e9d99": {
       "id": "285e9d99",
       "name": "vllmqwen3527bone",
       "cfgType": "app",
-      "chartName": "vllmqwen3527bone-1.0.4.tgz",
+      "chartName": "vllmqwen3527bone-1.0.5.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/vllmqwen3527bone.png",
       "description": "Qwen3.5 27B NVFP4 via vLLM — optimized for Olares One",
       "appID": "285e9d99",
       "title": "Qwen3.5 27B NVFP4 vLLM One",
-      "version": "1.0.4",
+      "version": "1.0.5",
       "categories": [
         "LLM Chat"
       ],
-      "versionName": "1.0.4",
+      "versionName": "1.0.5",
       "fullDescription": "Qwen3.5 27B (dense, Mamba-hybrid) served via vLLM with NVFP4 quantization — optimized for Olares One.\nRTX 5090M (24GB) + 96GB DDR5 + Core Ultra 9 275HX.\nNVFP4 (NVIDIA FP4) native Blackwell quantization — 19.7GB model weights.\nRequires SM 12.0 (Blackwell architecture) for FP4 tensor core instructions.\nUses vLLM cu130-nightly with native NVFP4 Marlin backend.\nDownloads the model from HuggingFace on first launch (~20GB) and caches it.\nExposes an OpenAI-compatible API on port 8000.\n",
       "upgradeDescription": "",
       "promoteImage": [
@@ -5038,9 +5038,9 @@
       "versionHistory": [
         {
           "appName": "vllmqwen3527bone",
-          "version": "1.0.4",
-          "versionName": "1.0.4",
-          "mergedAt": "2026-06-15T01:44:22.113000000Z",
+          "version": "1.0.5",
+          "versionName": "1.0.5",
+          "mergedAt": "2026-07-28T22:13:26.995000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -5050,7 +5050,7 @@
         "nvfp4"
       ],
       "metadata": null,
-      "updated_at": "2026-06-15T01:44:22.113000000Z"
+      "updated_at": "2026-07-28T22:13:26.995000000Z"
     },
     "901d20e0": {
       "id": "901d20e0",
@@ -5151,7 +5151,7 @@
           "appName": "vllmqwen36turbo27bone",
           "version": "2.5.8",
           "versionName": "2.5.8",
-          "mergedAt": "2026-06-15T01:44:22.114000000Z",
+          "mergedAt": "2026-07-28T22:13:26.998000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -5161,7 +5161,7 @@
         "turbo"
       ],
       "metadata": null,
-      "updated_at": "2026-06-15T01:44:22.114000000Z"
+      "updated_at": "2026-07-28T22:13:26.998000000Z"
     },
     "af406293": {
       "id": "af406293",
@@ -5261,7 +5261,7 @@
           "appName": "vllmvoxtral3bone",
           "version": "1.0.9",
           "versionName": "1.0.9",
-          "mergedAt": "2026-06-15T01:44:22.114000000Z",
+          "mergedAt": "2026-07-28T22:13:26.999000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -5271,7 +5271,7 @@
         "asr"
       ],
       "metadata": null,
-      "updated_at": "2026-06-15T01:44:22.114000000Z"
+      "updated_at": "2026-07-28T22:13:26.999000000Z"
     },
     "13db403f": {
       "id": "13db403f",
@@ -5371,7 +5371,7 @@
           "appName": "vllmvoxtralrt4bone",
           "version": "1.0.10",
           "versionName": "1.0.10",
-          "mergedAt": "2026-06-15T01:44:22.115000000Z",
+          "mergedAt": "2026-07-28T22:13:27.000000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -5381,7 +5381,7 @@
         "realtime"
       ],
       "metadata": null,
-      "updated_at": "2026-06-15T01:44:22.115000000Z"
+      "updated_at": "2026-07-28T22:13:27.000000000Z"
     },
     "efd72908": {
       "id": "efd72908",
@@ -5481,7 +5481,7 @@
           "appName": "vllmvoxtraltts4bone",
           "version": "1.0.14",
           "versionName": "1.0.14",
-          "mergedAt": "2026-06-15T01:44:22.116000000Z",
+          "mergedAt": "2026-07-28T22:13:27.001000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -5491,7 +5491,7 @@
         "tts"
       ],
       "metadata": null,
-      "updated_at": "2026-06-15T01:44:22.116000000Z"
+      "updated_at": "2026-07-28T22:13:27.001000000Z"
     }
   },
   "latest": [
@@ -5500,31 +5500,31 @@
     "vllmgemma426ba4babliteratedone",
     "llamacppnemotrondiffusion14bone",
     "gemma4e2bone",
-    "llamacppgemma426ba4bone",
     "llamacppqwen36heretic27bone",
     "qwen36a3bvisionone",
     "racka4bhuone",
+    "llamacppgemma426ba4bone",
     "llamacppcodernextq4one",
-    "vllmqwen3527bone",
     "nemotronlabselastic30bnvfp4one",
     "vllmgemma426ba4bvisionone",
+    "vllmqwen3527bone",
     "llamacppqwen36dflashone",
     "nemotron3nano4bone",
     "cascade230a3bone",
     "devstralsmallone",
-    "llamacppgemma412bone",
     "llamacppqwen36beellamavisionone",
     "vllmgemma4dflashone",
     "llamacppqwen35iq4one",
+    "llamacppgemma412bone",
     "qwen35iq4visionone",
-    "llamacppqwen36abliteratedone",
     "llamacppqwen36beellamaone",
     "vllmvoxtral3bone",
+    "llamacppqwen36abliteratedone",
     "qwen35a3bvisionone",
-    "qwen3ttstone",
     "vllmvoxtralrt4bone",
     "gemma426ba4bone",
     "llamacppnemotron30a3bone",
+    "qwen3ttstone",
     "llamacppglm47flash",
     "vllmgemma4e4bone",
     "vllmvoxtraltts4bone",
@@ -5560,19 +5560,19 @@
       "rank": 5
     },
     {
-      "appId": "llamacppgemma426ba4bone",
+      "appId": "llamacppqwen36heretic27bone",
       "rank": 6
     },
     {
-      "appId": "llamacppqwen36heretic27bone",
+      "appId": "qwen36a3bvisionone",
       "rank": 7
     },
     {
-      "appId": "qwen36a3bvisionone",
+      "appId": "racka4bhuone",
       "rank": 8
     },
     {
-      "appId": "racka4bhuone",
+      "appId": "llamacppgemma426ba4bone",
       "rank": 9
     },
     {
@@ -5580,15 +5580,15 @@
       "rank": 10
     },
     {
-      "appId": "vllmqwen3527bone",
+      "appId": "nemotronlabselastic30bnvfp4one",
       "rank": 11
     },
     {
-      "appId": "nemotronlabselastic30bnvfp4one",
+      "appId": "vllmgemma426ba4bvisionone",
       "rank": 12
     },
     {
-      "appId": "vllmgemma426ba4bvisionone",
+      "appId": "vllmqwen3527bone",
       "rank": 13
     },
     {
@@ -5608,19 +5608,19 @@
       "rank": 17
     },
     {
-      "appId": "llamacppgemma412bone",
+      "appId": "llamacppqwen36beellamavisionone",
       "rank": 18
     },
     {
-      "appId": "llamacppqwen36beellamavisionone",
+      "appId": "vllmgemma4dflashone",
       "rank": 19
     },
     {
-      "appId": "vllmgemma4dflashone",
+      "appId": "llamacppqwen35iq4one",
       "rank": 20
     },
     {
-      "appId": "llamacppqwen35iq4one",
+      "appId": "llamacppgemma412bone",
       "rank": 21
     },
     {
@@ -5628,15 +5628,15 @@
       "rank": 22
     },
     {
-      "appId": "llamacppqwen36abliteratedone",
+      "appId": "llamacppqwen36beellamaone",
       "rank": 23
     },
     {
-      "appId": "llamacppqwen36beellamaone",
+      "appId": "vllmvoxtral3bone",
       "rank": 24
     },
     {
-      "appId": "vllmvoxtral3bone",
+      "appId": "llamacppqwen36abliteratedone",
       "rank": 25
     },
     {
@@ -5644,19 +5644,19 @@
       "rank": 26
     },
     {
-      "appId": "qwen3ttstone",
+      "appId": "vllmvoxtralrt4bone",
       "rank": 27
     },
     {
-      "appId": "vllmvoxtralrt4bone",
+      "appId": "gemma426ba4bone",
       "rank": 28
     },
     {
-      "appId": "gemma426ba4bone",
+      "appId": "llamacppnemotron30a3bone",
       "rank": 29
     },
     {
-      "appId": "llamacppnemotron30a3bone",
+      "appId": "qwen3ttstone",
       "rank": 30
     },
     {

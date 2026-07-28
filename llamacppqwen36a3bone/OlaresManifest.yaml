@@ -8,7 +8,7 @@ metadata:
   description: "Qwen3.6 35B-A3B MTP + Vision — 243 t/s @ FULL 262K context with vision + tool calling on Olares One"
   appid: llamacppqwen36a3bone
   title: Qwen36 35B-A3B MTP Vision One
-  version: 2.0.8
+  version: '2.0.9'
   categories:
     - LLM Chat
     - AI Agents
@@ -38,8 +38,10 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: 2.0.8
+  versionName: '2.0.9'
   upgradeDescription: |
+    v2.0.9: **fix missing `envs:` declaration for HF token**. `templates/deployment.yaml` referenced `HF_TOKEN={{ .Values.olaresEnv.OLARES_USER_HUGGINGFACE_TOKEN }}` but `OlaresManifest.yaml` never declared `OLARES_USER_HUGGINGFACE_TOKEN` in an `envs:` block — so Helm rendered `HF_TOKEN=""` and any gated-model download from HuggingFace failed with 401. Same class of bug as `nemotronlabselastic30bnvfp4one` v1.0.3 (Discord-reported crash loop). No functional change for public models; fixes gated-repo access. Declared `required: false` so install still works when the user hasn't configured a token in Olares Settings.
+
     v2.0.8: **fix CrashLoopBackOff on fresh install** (Discord-reported by user eahnlk, 2026-06-09). The chart writes its ~18 GB model cache to `/olares/share/ai/model/llms/` via hostPath. On a fresh Olares install where no other app has written to this path before, the dir is owned uid 1000 mode 755. The buun-llama-cpp image runs as a non-root `appuser` (UID ≠ 1000): can read (755 lets "others" read) but cannot write → curl write fails → container exits within seconds → CrashLoopBackOff. Fix: add a trusted `docker.io/alpine:3.20` initContainer that runs as root and `chmod -R 777 /olares/share/ai/model` before the main container starts. Olares OPA policy allows runAsUser:0 for the `docker.io/` registry, so this passes admission. Same llama-server config otherwise (buun:87c351d2, asym q8_0-K/turbo4-V KV, MTP n=3, mmproj-gpu-swap, 262K context, --reasoning off).
 
     v2.0.7: **rollback BeeLlama → buun (Hermes tool-calling regression fix)**. v2.0.6 swapped image to `ghcr.io/anbeeld/beellama.cpp:server-cuda13-v0.3.1` for slightly higher MTP accept rate, but a user reported on Discord that their Hermes Agent flow stopped working after the upgrade. BeeLlama v0.3.1 has a chat-parser/tool-call detection behavior difference vs spiritbuun `buun-llama-cpp:87c351d2`. Reverting the image to the known-good `aamsellem/buun-llama-cpp:87c351d2` while keeping everything else identical (asym q8_0-K/turbo4-V KV, MTP n=3, mmproj-gpu-swap, 262K context, `--reasoning off`). Bench unchanged from v2.0.5 (~240 t/s, 84-88% accept). Will re-evaluate BeeLlama once the parser regression is fixed upstream.
@@ -171,3 +173,9 @@ options:
     - name: olares
       version: '>=1.12.3-0'
       type: system
+envs:
+  - envName: OLARES_USER_HUGGINGFACE_TOKEN
+    required: false
+    applyOnChange: true
+    valueFrom:
+      envName: OLARES_USER_HUGGINGFACE_TOKEN
