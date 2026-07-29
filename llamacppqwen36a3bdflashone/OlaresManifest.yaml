@@ -1,0 +1,130 @@
+---
+olaresManifest.version: '0.10.0'
+olaresManifest.type: app
+apiVersion: 'v2'
+metadata:
+  name: llamacppqwen36a3bdflashone
+  icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen36a3bdflashone.png
+  description: "Qwen3.6 35B-A3B + DFlash + Vision — 302 t/s @ 128K on Olares One, upstream llama.cpp (no fork)"
+  appid: llamacppqwen36a3bdflashone
+  title: Qwen36 35B-A3B DFlash Vision One
+  version: '1.0.0'
+  categories:
+    - LLM Chat
+    - AI Agents
+    - Vision
+  bento:
+    family: qwen
+    size_label: "35B-A3B"
+    badge: dflash · upstream
+    hero:
+      value: "302 t/s"
+      label: "DFlash n=6 · 72% accept · vision · 128K"
+    specs:
+      - { label: "context", value: "128K" }
+      - { label: "vram", value: "19.5 GB" }
+    capabilities:
+      tool_calling: true
+      vision:       true
+      audio:        false
+      mtp:          { enabled: false }
+    stack: "upstream llama.cpp server-cuda12 b10156 · Q3_K_XL · DFlash n=6 + mmproj"
+entrances:
+  - name: llamacppqwen36a3bdflashone
+    port: 8000
+    host: llamacppqwen36a3bdflashone
+    title: Qwen36 35B-A3B DFlash Vision
+    icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen36a3bdflashone.png
+    openMethod: window
+    authLevel: internal
+spec:
+  versionName: '1.0.0'
+  upgradeDescription: |
+    v1.0.0: initial release. **Qwen 3.6 35B-A3B + DFlash speculative decoding + vision, on upstream llama.cpp.**
+
+    **Bench validated on Olares One 2026-07-29 (RTX 5090M, 24 GB, sm_120)** — 10 runs Space Invaders HTML @ 2000 tokens, single user:
+    - **302.34 t/s AVG** (MIN 285.47, MAX 318.25), DFlash acceptance **72.3%**
+    - 19.5 GB VRAM, 128K context, vision loaded
+    - warmup run 276.46 t/s, excluded
+
+    **Why this chart exists.** `llamacppqwen36a3bone` reaches 243 t/s at *full 262K* context with vision, using the `buun-llama-cpp` fork (TurboQuant `turbo4` KV + `--mmproj-gpu-swap`). This chart trades half the context for **+24% throughput** and drops the fork entirely.
+
+    Neither chart dominates — pick by need:
+    - want **max context** (262K) → `llamacppqwen36a3bone`
+    - want **max speed** with vision → this one
+
+    **Runs on upstream `ghcr.io/ggml-org/llama.cpp:server-cuda12`** (b10156). This became possible on 2026-07-29 when the Olares NVIDIA driver moved 590.44.01 → **595.84** (CUDA 13.1 → 13.2): a 13.2 driver satisfies the `cuda>=12` container gate, so upstream images finally run. (`server-cuda13` remains blocked — it declares `cuda>=13.3`, enforced by the nvidia-container-cli prestart hook, so CUDA minor-version compatibility does not rescue it.)
+
+    Native `--spec-type draft-dflash` comes from llama.cpp PR #22105 (merged 2026-06-28); DFlash + quantized KV from PR #25823.
+
+    **n_max sweep** (10 runs each) picked 6:
+    - n=3 → 278.24 t/s / 85.0% accept
+    - **n=6 → 287.71, then 293.93 t/s (text-only) / ~69% accept**
+    - n=8 → 260.53 t/s / 62.9% accept
+
+    Context sweep, text-only: 16K ≈ 291 t/s · 128K 294.81 · 262K 296.05. Decode throughput is flat across context here, so the 128K choice is driven purely by VRAM: at 262K the mmproj (861 MB) no longer fits (`cudaMalloc failed: out of memory`) because mainline lacks buun's `--mmproj-gpu-swap`. 128K is the largest context that keeps vision.
+
+    **Drafter note.** Mainline requires `dflash.target_layers` in the GGUF metadata. Pre-#22105 community conversions lack it and fail with `DFlash model requires 'target_layers' in GGUF metadata`. This chart uses `Anbeeld/Qwen3.6-35B-A3B-DFlash-GGUF` (2026-07-19, post-merge), which has it.
+
+    Stack:
+    - Image: `ghcr.io/ggml-org/llama.cpp:server-cuda12` (b10156, upstream — no custom build, no fork)
+    - Target: `unsloth/Qwen3.6-35B-A3B-MTP-GGUF/Qwen3.6-35B-A3B-UD-Q3_K_XL.gguf` (~17 GB)
+    - Drafter: `Anbeeld/Qwen3.6-35B-A3B-DFlash-GGUF/qwen36-35b-a3b-dflash-Q8_0.gguf` (~400 MB)
+    - Vision: `mmproj-BF16.gguf` (~900 MB)
+    - 128K context, q4_0/q4_0 KV, flash attention, jinja, DFlash n=6, full GPU offload
+    - OpenAI-compatible API on port 8000
+  fullDescription: |
+    Qwen 3.6 35B-A3B (MoE, ~3B active per token) with DFlash speculative decoding and vision, served by **upstream llama.cpp** on Olares One.
+
+    The speed-oriented sibling of `llamacppqwen36a3bone`: **302 t/s vs 243 t/s (+24%)**, same model, vision kept, at 128K context instead of 262K.
+
+    Bench (2026-07-29, RTX 5090M 24 GB sm_120, 10 runs Space Invaders 2000 tok):
+      - **302.34 t/s AVG**, MIN 285.47, MAX 318.25
+      - DFlash acceptance 72.3%
+      - 19.5 GB VRAM
+
+    Stack:
+      - Image: ghcr.io/ggml-org/llama.cpp:server-cuda12 (b10156) — upstream, no fork
+      - Target: Qwen3.6-35B-A3B-UD-Q3_K_XL.gguf (~17 GB)
+      - DFlash drafter: Anbeeld post-#22105 conversion (~400 MB)
+      - Vision: mmproj-BF16 (~900 MB), OpenAI `image_url` input
+      - 128K context, q4_0 KV, DFlash n=6
+
+    Choose this for speed + vision. Choose `llamacppqwen36a3bone` if you need the full 262K context.
+
+    First launch downloads ~18 GB into `/olares/share/ai/model/llms/` (shared across users on the device).
+  developer: aamsellem
+  website: https://github.com/aamsellem/olares-one-market
+  sourceCode: https://github.com/aamsellem/olares-one-market
+  submitter: aamsellem
+  locale:
+    - en-US
+  license:
+    - text: Apache-2.0
+      url: https://huggingface.co/Qwen/Qwen3.6-35B-A3B/blob/main/LICENSE
+
+  limitedCpu: 16
+  requiredCpu: 4
+  requiredDisk: 30Gi
+  limitedDisk: 50Gi
+  limitedMemory: 40Gi
+  requiredMemory: 24Gi
+  requiredGpu: 1Gi
+  limitedGpu: 24Gi
+
+  supportArch:
+    - amd64
+permission:
+  appData: true
+options:
+  apiTimeout: 0
+  dependencies:
+    - name: olares
+      version: '>=1.12.3-0'
+      type: system
+envs:
+  - envName: OLARES_USER_HUGGINGFACE_TOKEN
+    required: false
+    applyOnChange: true
+    valueFrom:
+      envName: OLARES_USER_HUGGINGFACE_TOKEN

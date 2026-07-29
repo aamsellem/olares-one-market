@@ -1,0 +1,17 @@
+metadata:
+  title: Qwen36 35B-A3B DFlash Vision One
+  description: "Qwen3.6 35B-A3B DFlash + Vision — 302 t/s @ FULL 128K context with vision + tool calling on Olares One"
+
+spec:
+  fullDescription: |
+    Qwen3.6 35B-A3B (MoE, 3B active) with **DFlash speculative decoding + native vision via mmproj-gpu-swap** — optimized for Olares One.
+
+    The champion text path now handles vision too. A single endpoint covers text generation at 302 t/s, image input via OpenAI-compatible `image_url`, tool calling (Hermes Agent ready), and full 128K context. The trick: spiritbuun's `--mmproj-gpu-swap` keeps mmproj on CPU at idle and swaps DFlash↔mmproj in VRAM when an image arrives (~750ms overhead per vision request, lossless).
+
+    Stack:
+    - `unsloth/Qwen3.6-35B-A3B-DFlash-GGUF` Q3_K_XL (17.2 GB) + mmproj-BF16 (~900 MB)
+    - buun-llama-cpp (spiritbuun fork at upstream-merge commit `316e88e`) with `--mmproj-gpu-swap`
+    - `--spec-type draft-mtp --spec-draft-n-max 3` (86.6% draft accept rate)
+    - q4_0 KV cache, full 128K context (auto-fit), flash attention, jinja templates
+
+    Validated bench 2026-05-24: 243.59 t/s AVG text decode (10 runs, range 13.79), 64×64 PNG vision test correct in 1.13s. Only -2.8% throughput vs the previous text-only v1.0.6 baseline. Downloads model + mmproj on first launch (~18 GB total) and caches them. OpenAI-compatible API on port 8000.
