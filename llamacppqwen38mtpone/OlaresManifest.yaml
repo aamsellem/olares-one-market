@@ -1,0 +1,100 @@
+---
+olaresManifest.version: '0.10.0'
+olaresManifest.type: app
+apiVersion: 'v2'
+metadata:
+  name: llamacppqwen38mtpone
+  icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen38mtpone.png
+  description: "Qwen3.8 27B dense + MTP on upstream llama.cpp b10666 — 131K ctx, reasoning ON (unsloth UD-Q4_K_XL + froggeric v22.5 template)"
+  appid: llamacppqwen38mtpone
+  title: Qwen38 27B MTP
+  version: '1.0.0'
+  categories:
+    - LLM Chat
+    - AI Agents
+  bento:
+    family: qwen
+    size_label: "27B"
+    badge: mtp · upstream
+    hero:
+      value: "TBD t/s"
+      label: "MTP n=2 · 131K"
+    specs:
+      - { label: "context", value: "131K" }
+      - { label: "vram", value: "~20 GB" }
+    capabilities:
+      tool_calling: true
+      vision:       false
+      audio:        false
+      mtp:          { enabled: true, accept: null }
+    stack: "llama.cpp b10666 (upstream) · UD-Q4_K_XL · MTP · froggeric template"
+entrances:
+  - name: llamacppqwen38mtpone
+    port: 8000
+    host: llamacppqwen38mtpone
+    title: Qwen38 27B MTP
+    icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen38mtpone.png
+    openMethod: window
+    authLevel: internal
+spec:
+  versionName: 1.0.0
+  upgradeDescription: |
+    v1.0.0: initial release. Qwen3.8-27B (dense) via upstream llama.cpp with native MTP speculative decoding. Image `ghcr.io/ggml-org/llama.cpp:server-cuda12-b10666` (pinned) — earliest upstream build confirmed by community to run Qwen3.8-27B MTP on CUDA (ggml-org/llama.cpp#27164 + Habr benchmark). The `server-cuda13` family is blocked on Olares One: nvidia-container-cli rejects it (image declares cuda>=13.3, Olares driver 595.84 = CUDA 13.2) — same server-cuda12 pivot as llamacppqwen36a3bdflashone v1.0.0. Target `unsloth/Qwen3.8-27B-GGUF/Qwen3.8-27B-UD-Q4_K_XL.gguf` (~17.6 GB). Chat template downloaded once at container start from froggeric/Qwen-Fixed-Chat-Templates pinned @ 855bffc4 (v22.5, explicit Qwen 3.5/3.6/3.8 support) — the GGUF-embedded template is incomplete for tool calling. Config: 131K context (safe default vs native 262K), q8_0/q8_0 KV, MTP n_max=2 starting point, `--reasoning-format deepseek` + `--reasoning-preserve` for tool-calling clients — reasoning stays ON (unlike the qwen36 MTP chart, which runs `--reasoning off`). CUDA_DEVICE_MEMORY_LIMIT_0=22000m (HAMi workaround). On-device bench numbers pending — see PR for validation plan.
+  fullDescription: |
+    Qwen3.8 27B (dense) with Multi-Token Prediction (MTP) speculative decoding on upstream llama.cpp — no fork, no custom image.
+    RTX 5090M (24GB) + 96GB DDR5 + Core Ultra 9 275HX.
+
+    Stack:
+      - llama.cpp upstream ghcr.io/ggml-org/llama.cpp:server-cuda12-b10666 (pinned build)
+      - --spec-type draft-mtp + --spec-draft-n-max 2 + --cache-type-k/v q8_0 + 131K context
+      - Target model: unsloth/Qwen3.8-27B-GGUF/Qwen3.8-27B-UD-Q4_K_XL.gguf (~17.6 GB, Unsloth Dynamic)
+      - Chat template: froggeric/Qwen-Fixed-Chat-Templates @ 855bffc4 (v22.5), fetched at first boot to /config
+      - Reasoning ON: --reasoning-format deepseek + --reasoning-preserve (template keeps think blocks across turns)
+      - No separate drafter — MTP head is integrated in the GGUF
+
+    Why this matters:
+      - Upstream-pure: one docker pull + one HuggingFace download, switches forward with upstream releases
+      - MTP speculative decoding for a dense 27B on 24 GB — 131K context with q8_0 KV
+      - LM Studio / Open WebUI / Ollama compatible (OpenAI-style API on 8000)
+
+    Performance on Olares One: NOT yet measured — chart ships with conservative starting config
+    (MTP n_max=2, 131K ctx). See PR for the on-device validation plan (MTP sweep, context sweep).
+
+    First launch downloads the 17.6 GB GGUF from HuggingFace — needs HF token configured in Olares user env.
+    Exposes an OpenAI-compatible API on port 8000.
+
+  developer: aamsellem
+  website: https://github.com/aamsellem/olares-one-market
+  sourceCode: https://github.com/ggml-org/llama.cpp
+  submitter: aamsellem
+  locale:
+    - en-US
+  license:
+    - text: MIT
+      url: https://github.com/ggml-org/llama.cpp/blob/master/LICENSE
+
+  limitedCpu: 16
+  requiredCpu: 4
+  requiredDisk: 25Gi
+  limitedDisk: 40Gi
+  limitedMemory: 40Gi
+  requiredMemory: 20Gi
+  requiredGpu: 1Gi
+  limitedGpu: 24Gi
+
+  supportArch:
+    - amd64
+permission:
+  appData: true
+options:
+  apiTimeout: 0
+  dependencies:
+    - name: olares
+      version: '>=1.12.3-0'
+      type: system
+envs:
+  - envName: OLARES_USER_HUGGINGFACE_TOKEN
+    required: false
+    applyOnChange: true
+    valueFrom:
+      envName: OLARES_USER_HUGGINGFACE_TOKEN
