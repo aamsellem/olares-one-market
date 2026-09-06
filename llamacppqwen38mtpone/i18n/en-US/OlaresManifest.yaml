@@ -1,0 +1,13 @@
+metadata:
+  title: Qwen38 27B MTP
+  description: "Qwen3.8 27B dense + MTP on upstream llama.cpp b10666 — 131K ctx, reasoning ON (unsloth UD-Q4_K_XL + froggeric v22.5 template)"
+
+spec:
+  fullDescription: |
+    Qwen3.8 27B (dense) with Multi-Token Prediction (MTP) speculative decoding via upstream llama.cpp.
+    Target: unsloth/Qwen3.8-27B-GGUF/Qwen3.8-27B-UD-Q4_K_XL.gguf (~17.6 GB, Unsloth Dynamic Q4_K_XL with MTP head preserved).
+    Image: ghcr.io/ggml-org/llama.cpp:server-cuda12-b10666 (upstream, pinned — b10666 is the earliest build confirmed by community to run Qwen3.8-27B MTP on CUDA).
+    Chat template: froggeric/Qwen-Fixed-Chat-Templates @ 855bffc4 (v22.5), downloaded once at first boot to /config.
+    Config: 131K context (safe default vs native 262K), q8_0 KV cache, spec-draft-n-max 2.
+    Reasoning ON: --reasoning-format deepseek + --reasoning-preserve for tool-calling clients.
+    OpenAI-compatible API on port 8000.
