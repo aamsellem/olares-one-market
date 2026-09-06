@@ -8,7 +8,7 @@ metadata:
   description: "Qwen3.8 27B dense + MTP on upstream llama.cpp b10666 — 131K ctx, reasoning ON (unsloth UD-Q4_K_XL + froggeric v22.5 template)"
   appid: llamacppqwen38mtpone
   title: Qwen38 27B MTP
-  version: '1.0.0'
+  version: '1.0.1'
   categories:
     - LLM Chat
     - AI Agents
@@ -37,8 +37,10 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: 1.0.0
+  versionName: 1.0.1
   upgradeDescription: |
+    v1.0.1: raise HAMi virtual VRAM cap from 22000m → 24000m. At 22000m the target model + q8_0 KV + 131K context reaches 22340 MiB before the MTP draft context can allocate its 512 MiB KV buffer, causing a CUDA OOM inside common_speculative_init_result and CrashLoopBackOff. 24000m leaves ~576 MiB physical headroom on the 24 GiB 5090M for driver/display. No other runtime flags changed (context, MTP depth, batch size, KV quantization all preserved).
+
     v1.0.0: initial release. Qwen3.8-27B (dense) via upstream llama.cpp with native MTP speculative decoding. Image `ghcr.io/ggml-org/llama.cpp:server-cuda12-b10666` (pinned) — earliest upstream build confirmed by community to run Qwen3.8-27B MTP on CUDA (ggml-org/llama.cpp#27164 + Habr benchmark). The `server-cuda13` family is blocked on Olares One: nvidia-container-cli rejects it (image declares cuda>=13.3, Olares driver 595.84 = CUDA 13.2) — same server-cuda12 pivot as llamacppqwen36a3bdflashone v1.0.0. Target `unsloth/Qwen3.8-27B-GGUF/Qwen3.8-27B-UD-Q4_K_XL.gguf` (~17.6 GB). Chat template downloaded once at container start from froggeric/Qwen-Fixed-Chat-Templates pinned @ 855bffc4 (v22.5, explicit Qwen 3.5/3.6/3.8 support) — the GGUF-embedded template is incomplete for tool calling. Config: 131K context (safe default vs native 262K), q8_0/q8_0 KV, MTP n_max=2 starting point, `--reasoning-format deepseek` + `--reasoning-preserve` for tool-calling clients — reasoning stays ON (unlike the qwen36 MTP chart, which runs `--reasoning off`). CUDA_DEVICE_MEMORY_LIMIT_0=22000m (HAMi workaround). On-device bench numbers pending — see PR for validation plan.
   fullDescription: |
     Qwen3.8 27B (dense) with Multi-Token Prediction (MTP) speculative decoding on upstream llama.cpp — no fork, no custom image.

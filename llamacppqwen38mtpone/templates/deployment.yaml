@@ -108,8 +108,13 @@ spec:
               value: "{{ .Values.olaresEnv.OLARES_USER_HUGGINGFACE_TOKEN }}"
             - name: MODELS_DIR
               value: "/models"
+            # HAMi virtual VRAM cap. 24000m leaves ~500 MiB headroom under the physical
+            # 24 GiB (24576 MiB) 5090M so the driver/display can allocate without contention.
+            # At 22000m the Qwen3.8-27B UD-Q4_K_XL + q8_0 KV + 131K ctx + MTP draft context
+            # OOMs at the 512 MiB MTP KV allocation (target-model reaches 22340 MiB before
+            # the MTP context needs its buffer). See on-device log 2026-09-06.
             - name: CUDA_DEVICE_MEMORY_LIMIT_0
-              value: "22000m"
+              value: "24000m"
           ports:
             - containerPort: 8000
           livenessProbe:
