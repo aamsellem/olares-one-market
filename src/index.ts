@@ -161,7 +161,10 @@ export default {
     }
 
     const url = new URL(request.url);
-    const path = url.pathname;
+    // Olares 1.12.7+ fetches charts via /api/v2/... and only falls back to /api/v1
+    // on a 404 (beclab/Olares PR #3958, merged 2026-08-19). Accept both prefixes so
+    // we answer on the first try, and keep working if the v1 fallback is ever dropped.
+    const path = url.pathname.replace(/^\/api\/v2\//, '/api/v1/');
 
     if (path === '/api/v1/appstore/hash' && request.method === 'GET') {
       return handleHash(url);
