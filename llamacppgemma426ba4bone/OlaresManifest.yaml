@@ -8,7 +8,7 @@ metadata:
   description: "Gemma 4 26B-A4B QAT UD-Q4_K_XL + bundled MTP drafter (Unsloth) + vision — 286.6 t/s @ 91% accept, 16.6 GB VRAM, 32K ctx on Olares One"
   appid: llamacppgemma426ba4bone
   title: Gemma 4 26B-A4B One
-  version: '1.0.4'
+  version: '1.0.5'
   categories:
     - LLM Chat
     - AI Agents
@@ -38,7 +38,7 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.0.4'
+  versionName: '1.0.5'
   upgradeDescription: |
     v1.0.4: **fix missing `envs:` declaration for HF token**. `templates/deployment.yaml` referenced `HF_TOKEN={{ .Values.olaresEnv.OLARES_USER_HUGGINGFACE_TOKEN }}` but `OlaresManifest.yaml` never declared `OLARES_USER_HUGGINGFACE_TOKEN` in an `envs:` block — so Helm rendered `HF_TOKEN=""` and any gated-model download from HuggingFace failed with 401. Same class of bug as `nemotronlabselastic30bnvfp4one` v1.0.3 (Discord-reported crash loop). No functional change for public models; fixes gated-repo access. Declared `required: false` so install still works when the user hasn't configured a token in Olares Settings.
 
