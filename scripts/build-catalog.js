@@ -299,16 +299,48 @@ latest.sort((a, b) => {
 // matching the official api.olares.com/market convention.
 const tops = latest.map((name, i) => ({ appId: name, rank: i + 1 }));
 
-// Deterministic hash based on app content only (no timestamps)
-const catalogPayload = JSON.stringify({ summaries, details, latest, tops });
+// Hash over app content with every `updated_at` stripped. Those fields were
+// previously live `new Date()` values INSIDE the hashed payload, so the hash
+// changed on every build despite the "deterministic" claim — defeating the
+// device-side hash check and the write-if-changed guard below.
+const STAMP_KEYS = new Set(['updated_at', 'mergedAt']);
+const stripStamps = (v) =>
+  Array.isArray(v) ? v.map(stripStamps)
+  : v && typeof v === 'object'
+    ? Object.fromEntries(Object.entries(v).filter(([k]) => !STAMP_KEYS.has(k)).map(([k, x]) => [k, stripStamps(x)]))
+    : v;
+
+const catalogPayload = JSON.stringify(stripStamps({ summaries, details, latest, tops }));
 const hash = crypto.createHash('md5').update(catalogPayload).digest('hex');
 
-const catalog = { hash, summaries, details, latest, tops, categories: allCategories };
-const newContent = JSON.stringify(catalog, null, 2);
-
-// Only write if content actually changed (avoids infinite wrangler rebuild loop)
+// Olares v2 sync (/api/v2/catalog) is built around epoch-ms `last_modify_time`.
+// Anchor it to the content hash: the stamp advances only when app content
+// actually changed, so no-op rebuilds stay byte-identical (no wrangler loop)
+// and the device refetches exactly when there is something new.
 let existingContent = '';
 try { existingContent = fs.readFileSync(OUTPUT, 'utf8'); } catch {}
+
+let generatedAt = Date.now();
+try {
+  const prev = JSON.parse(existingContent);
+  if (prev.hash === hash && prev.generated_at) generatedAt = prev.generated_at;
+} catch {}
+
+// Emitted `updated_at` now means "when this catalog last actually changed".
+const stampIso = isoNanos(new Date(generatedAt));
+const applyStamp = (v) => {
+  if (Array.isArray(v)) return v.forEach(applyStamp);
+  if (!v || typeof v !== 'object') return;
+  for (const [k, x] of Object.entries(v)) {
+    if (STAMP_KEYS.has(k)) v[k] = stampIso;
+    else applyStamp(x);
+  }
+};
+applyStamp(summaries);
+applyStamp(details);
+
+const catalog = { hash, generated_at: generatedAt, summaries, details, latest, tops, categories: allCategories };
+const newContent = JSON.stringify(catalog, null, 2);
 
 if (newContent === existingContent) {
   console.log('\nCatalog unchanged, skipping write.');

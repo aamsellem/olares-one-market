@@ -3,6 +3,15 @@ import charts from './charts.json';
 
 interface Env {}
 
+// The source id the device registered this market under. Echoed back on the v2
+// catalog probe; a caller-supplied source_id wins so a differently-named
+// registration still matches.
+const SOURCE_ID = 'market.aamsellem';
+
+const OLARES_CONSTRAINT = '>=1.12.3-0';
+
+const CATEGORY_ICON = 'https://app.cdn.olares.com/icons/market/sidebar/neurology.svg';
+
 const CORS_HEADERS = {
   'Content-Type': 'application/json',
   'Access-Control-Allow-Origin': '*',
@@ -129,6 +138,129 @@ function handleInfo(url: URL): Response {
   });
 }
 
+// GET /api/v2/catalog
+// Step 1 of the Olares 1.12.7+ sync is a cheap "has anything changed?" probe.
+// It has NO v1 equivalent, so a 404 here aborts the whole source sync — every
+// later step (including the v1 data/detail fetches) is skipped, which is why
+// published chart bumps stopped reaching devices entirely.
+//
+// `apps_filter_digest` maps onto our content-addressed catalog hash, so the
+// device refetches exactly when the catalog content actually changed.
+function handleCatalogV2(url: URL): Response {
+  const stamp = (catalog as { generated_at?: number }).generated_at || 0;
+  return json({
+    code: 0,
+    msg: 'success',
+    data: {
+      schema_version: 'v2',
+      source_id: url.searchParams.get('source_id') || SOURCE_ID,
+      taxonomy_last_modify_time: stamp,
+      apps_last_modify_time: stamp,
+      apps_filter_digest: catalog.hash,
+    },
+  });
+}
+
+// GET /api/v2/taxonomy
+// Step 2 of the v2 sync. Supersedes the category/tag half of /appstore/info:
+// the v1 response nested these as keyed objects, v2 wants flat arrays with
+// per-locale title maps. Content is the same category set, reshaped.
+function handleTaxonomyV2(): Response {
+  const stamp = (catalog as { generated_at?: number }).generated_at || 0;
+  const cats = (catalog.categories || []) as string[];
+
+  const categories = cats.map((cat, i) => ({
+    id: cat,
+    builtin: false,
+    sort: 10 + i,
+    icon: CATEGORY_ICON,
+    title: { 'en-US': cat, 'zh-CN': cat },
+    description: {},
+  }));
+
+  return json({
+    code: 0,
+    msg: 'success',
+    data: {
+      last_modify_time: stamp,
+      source: {
+        source_id: SOURCE_ID,
+        short_label: 'Olares One',
+        display_name: { 'en-US': 'Olares One', 'fr-FR': 'Olares One', 'zh-CN': 'Olares One' },
+        icon: CATEGORY_ICON,
+        is_official: false,
+      },
+      languages: [
+        { code: 'en-US', display_name: 'English', sort: 1, enabled: true },
+        { code: 'zh-CN', display_name: '简体中文', sort: 2, enabled: true },
+      ],
+      categories,
+      nav: cats,
+      // Every category lists all of its apps; we run no curated topics.
+      pages: cats.map((cat) => ({ category_id: cat, items: [{ id: 'all', type: 'all' }] })),
+      tags: [],
+      topic_lists: [],
+      topics: [],
+      recommends: [],
+    },
+  });
+}
+
+// GET /api/v2/applications
+// Step 3 of the v2 sync: the app list. This is the summary tier — the device
+// still pulls full entries from the v1 POST /applications/info afterwards
+// (API_DETAIL_PATH is deliberately left on v1 in the Olares deployment).
+//
+// `last_modify_time` is per-app in the schema, but our catalog only tracks a
+// single content stamp, so every app carries it. That is correct-but-coarse:
+// the device refetches all details whenever any app changed. With 43 apps the
+// extra work is negligible, and it can never miss a change.
+function handleApplicationsV2(url: URL): Response {
+  const stamp = (catalog as { generated_at?: number }).generated_at || 0;
+  const details = catalog.details as Record<string, Record<string, unknown>>;
+
+  const all = Object.values(details).map((d) => ({
+    app_id: d.id,
+    name: d.name,
+    title: d.title,
+    version: d.version,
+    icon: d.icon,
+    featured_image: d.featuredImage ?? '',
+    cfg_type: d.cfgType ?? 'app',
+    categories: d.categories ?? [],
+    categories_v2: d.categories ?? [],
+    tags: d.tags ?? [],
+    app_labels: [],
+    olares_version_constraint: OLARES_CONSTRAINT,
+    // Mind the units: v2 wants `last_modify_time` in epoch MILLIseconds and
+    // `updated_at` in epoch SECONDS (both int64). v1 sent updated_at as an ISO
+    // string, which the Go decoder rejects outright.
+    last_modify_time: stamp,
+    updated_at: Math.floor(stamp / 1000),
+  }));
+
+  // Paginate only when asked; an absent `size` means "give me everything".
+  const size = parseInt(url.searchParams.get('size') || '0', 10);
+  const page = Math.max(1, parseInt(url.searchParams.get('page') || '1', 10));
+  const items = size > 0 ? all.slice((page - 1) * size, page * size) : all;
+
+  return json({
+    code: 0,
+    msg: 'success',
+    data: {
+      items,
+      // We never tombstone apps: a chart removed from the repo simply stops
+      // being published. Nothing to report as explicitly removed.
+      removed: [],
+      has_more: size > 0 ? page * size < all.length : false,
+      max_last_modify_time: stamp,
+      total: all.length,
+      page,
+      page_size: size > 0 ? size : all.length,
+    },
+  });
+}
+
 // POST /api/v1/applications/info
 async function handleDetail(request: Request): Promise<Response> {
   const body = (await request.json()) as { app_ids: string[]; version: string };
@@ -165,6 +297,24 @@ export default {
     // on a 404 (beclab/Olares PR #3958, merged 2026-08-19). Accept both prefixes so
     // we answer on the first try, and keep working if the v1 fallback is ever dropped.
     const path = url.pathname.replace(/^\/api\/v2\//, '/api/v1/');
+
+    if (url.pathname === '/api/v2/catalog' && request.method === 'GET') {
+      return handleCatalogV2(url);
+    }
+
+    if (url.pathname === '/api/v2/taxonomy' && request.method === 'GET') {
+      return handleTaxonomyV2();
+    }
+
+    // /browse/applications is the SPA's paginated view; same rows, so it shares
+    // the handler. Must be tested before /applications — the chart route below
+    // would otherwise swallow it.
+    if (
+      (url.pathname === '/api/v2/applications' || url.pathname === '/api/v2/browse/applications') &&
+      request.method === 'GET'
+    ) {
+      return handleApplicationsV2(url);
+    }
 
     if (path === '/api/v1/appstore/hash' && request.method === 'GET') {
       return handleHash(url);
