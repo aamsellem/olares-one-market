@@ -8,7 +8,7 @@ metadata:
   description: "Qwen3.5 35B-A3B via llama.cpp — optimized for Olares One"
   appid: llamacppqwen35a3bone
   title: Qwen3.5 35B-A3B (Olares One)
-  version: '1.0.30'
+  version: '1.0.31'
   categories:
     - LLM Chat
   bento:
@@ -16,17 +16,17 @@ metadata:
     size_label: "35B-A3B"
     badge: classic
     hero:
-      value: "129 t/s"
+      value: "159 t/s"
       label: "speed"
     specs:
-      - { label: "context", value: "16K" }
+      - { label: "context", value: "64K" }
       - { label: "vram", value: "22 GB" }
     capabilities:
       tool_calling: true
       vision:       false
       audio:        false
       mtp:          { enabled: false }
-    stack: "llama.cpp · UD-Q4_K_XL · Qwen 3.5"
+    stack: "llama.cpp b11046 · CUDA 13.3 · UD-Q4_K_XL"
 entrances:
   - name: llamacppqwen35a3bone
     port: 8080
@@ -36,8 +36,10 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.0.30'
+  versionName: '1.0.31'
   upgradeDescription: |
+    v1.0.31: **CUDA 13.3 image, +11% decode.** Switched from `ghcr.io/ggml-org/llama.cpp:server-cuda13-b8740` to `docker.io/beclab/ggml-org-llama.cpp:server-cuda13-b11046` (CUDA 13.3 runtime via the bundled forward-compat libcuda, runs on the Olares 595.84 / CUDA 13.2 driver). `--mlock` became `--load-mode mmap+mlock` (the flag was merged upstream). Bench on Olares One 2026-09-30, same args, only the image changed (Qwen3.5-35B-A3B UD-Q4_K_XL): Space Invaders HTML 143.23 → **159.04 t/s**, code prompt 141.53 → **158.23 t/s**.
+
     v1.0.25: llama.cpp b8496 → b8667 (Hadamard rotation for KV cache, NVFP4 MMQ kernel, Gemma 4 support). KV cache q8_0 → q4_0 (2x compression, same quality via rotation). Test build.
   fullDescription: |
     Qwen3.5 35B-A3B (MoE, 3B active) served via llama.cpp — optimized for Olares One.

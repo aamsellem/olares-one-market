@@ -8,7 +8,7 @@ metadata:
   description: "Racka 4B — first serious Hungarian LLM (ELTE, Qwen3-4B base, 160B tokens 44% Hungarian) — 133 t/s validated on Olares One"
   appid: racka4bhuone
   title: Racka 4B Hungarian One
-  version: 1.0.3
+  version: '1.0.4'
   categories:
     - Special Request
     - LLM Chat
@@ -18,17 +18,17 @@ metadata:
     size_label: "4B"
     badge: hungarian · special request
     hero:
-      value: "133 t/s"
+      value: "130 t/s"
       label: "Magyar nyelvű LLM by ELTE"
     specs:
       - { label: "context", value: "32K" }
-      - { label: "vram", value: "5 GB" }
+      - { label: "vram", value: "7 GB" }
     capabilities:
       tool_calling: true
       vision:       false
       audio:        false
       mtp:          { enabled: false }
-    stack: "llama.cpp · ELTE-NLP · Qwen3-4B base"
+    stack: "llama.cpp b11046 · CUDA 13.3 · Qwen3-4B base"
 entrances:
   - name: racka4bhuone
     port: 8080
@@ -38,8 +38,10 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: 1.0.3
+  versionName: '1.0.4'
   upgradeDescription: |
+    v1.0.4: **CUDA 13.3 image, +5% decode.** Switched from `ghcr.io/ggml-org/llama.cpp:server-cuda13-b8740` to `docker.io/beclab/ggml-org-llama.cpp:server-cuda13-b11046` (CUDA 13.3 runtime via the bundled forward-compat libcuda, runs on the Olares 595.84 / CUDA 13.2 driver). Bench on Olares One 2026-09-30, same args, only the image changed (Racka-4B Q8_0): Space Invaders HTML 124.19 → **130.05 t/s**, code prompt 124.49 → **130.06 t/s**.
+
     v1.0.2: **slow-connection + diagnostics fix** (Discord bug report 2026-06-03). User reported install crash-looping at startup-probe 503 after 20 min — root cause: HF_TOKEN missing/invalid AND slow HF download exceeding the previous 20-min probe budget. Four fixes: (1) startup-probe failureThreshold 80 → 720 = 6h budget for slow networks, (2) liveness initialDelay 5min → 10min, (3) on missing HF_TOKEN the container now blocks indefinitely with a clear error + recovery steps logged every 5 min (no more exit-1 crash loop, so `kubectl logs` shows what's wrong), (4) post-download size check: if file < 4 GB (HF returned 401/403 HTML disguised as a file), delete + log clear error instead of marking `.ok`. Model still cached at `/olares/share/ai/model/llms/` (unchanged from v1.0.0).
 
     v1.0.1: **bench validated on Olares One** — 133.6 t/s avg across 3 Hungarian prompts (Budapest poem 134.85, quantum physics 133.24, paprikás csirke vs pörkölt 132.73). 3/3 finish_reason=stop, no garbage, fluent Hungarian across creative + technical + culinary domains. Prompt processing ~1700 t/s. Added "Special Request" category — this app was added on user request from the Olares community.
@@ -51,7 +53,7 @@ spec:
     **Quant**: Q8_0 (4.28 GB) — lossless quality on a 4B model, no reason to compress further given Olares One's 24 GB VRAM headroom.
 
     Stack:
-    - `elte-nlp/Racka-4B-GGUF` Q8_0 (4.28 GB) via llama.cpp upstream `server-cuda13-b8740`
+    - `elte-nlp/Racka-4B-GGUF` Q8_0 (4.28 GB) via llama.cpp `server-cuda13-b11046` (beclab build, CUDA 13.3)
     - 32K context, full GPU offload, flash attention, jinja templates
     - OpenAI-compatible API on port 8080
 
@@ -79,7 +81,7 @@ spec:
     - Reasoning mode preserved (Qwen3-style think/no-think toggle)
 
     Stack:
-    - Image: `ghcr.io/ggml-org/llama.cpp:server-cuda13-b8740`
+    - Image: `docker.io/beclab/ggml-org-llama.cpp:server-cuda13-b11046`
     - Model: `elte-nlp/Racka-4B-GGUF` Q8_0 (4.28 GB)
     - 32K context, full GPU layers, flash attention on
     - OpenAI-compatible API at port 8080
@@ -88,7 +90,7 @@ spec:
 
   developer: aamsellem
   website: https://huggingface.co/elte-nlp/Racka-4B
-  sourceCode: https://github.com/aamsellem/orales-one-market
+  sourceCode: https://github.com/aamsellem/olares-one-market
   submitter: aamsellem
   locale:
     - en-US

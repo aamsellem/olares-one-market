@@ -69,7 +69,7 @@ spec:
               name: models
       containers:
         - name: llamacpp-server
-          image: "ghcr.io/ggml-org/llama.cpp:server-cuda13-b8740"
+          image: "docker.io/beclab/ggml-org-llama.cpp:server-cuda13-b11046"
           command: ["/app/llama-server"]
           args:
             - "--host"
@@ -96,7 +96,8 @@ spec:
             - "1024"
             - "--parallel"
             - "1"
-            - "--mlock"
+            - "--load-mode"
+            - "mmap+mlock"
             - "--flash-attn"
             - "auto"
             - "--op-offload"

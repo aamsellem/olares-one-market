@@ -8,7 +8,7 @@ metadata:
   description: "Qwen3.5 35B-A3B Vision IQ4_XS via llama.cpp — long context, optimized for Olares One"
   appid: qwen35iq4visionone
   title: Qwen3.5 Vision IQ4 64K One
-  version: '1.0.8'
+  version: '1.0.9'
   categories:
     - Vision
   bento:
@@ -16,7 +16,7 @@ metadata:
     size_label: "35B IQ4"
     badge: vision long
     hero:
-      value: "118 t/s"
+      value: "163 t/s"
       label: "speed + vision"
     specs:
       - { label: "context", value: "64K" }
@@ -26,7 +26,7 @@ metadata:
       vision:       true
       audio:        false
       mtp:          { enabled: false }
-    stack: "llama.cpp · IQ4_XS · vision"
+    stack: "llama.cpp b11046 · CUDA 13.3 · IQ4_XS vision"
 entrances:
   - name: qwen35iq4visionone
     port: 8080
@@ -36,8 +36,10 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.0.8'
+  versionName: '1.0.9'
   upgradeDescription: |
+    v1.0.9: **CUDA 13.3 image, +13% decode.** Switched from `ghcr.io/ggml-org/llama.cpp:server-cuda13-b8740` to `docker.io/beclab/ggml-org-llama.cpp:server-cuda13-b11046` (CUDA 13.3 runtime via the bundled forward-compat libcuda, runs on the Olares 595.84 / CUDA 13.2 driver). `--mlock` became `--load-mode mmap+mlock` (the flag was merged upstream). Bench on Olares One 2026-09-30, same args, only the image changed (Qwen3.5-35B-A3B UD-IQ4_XS (text path, same weights)): Space Invaders HTML 144.27 → **162.54 t/s**, code prompt 139.94 → **159.12 t/s**. Vision re-validated on the new image (64x64 test PNG, correct answer).
+
     v1.0.3: llama.cpp b8667 → b8667 (Hadamard rotation). KV cache q4_0 (with Hadamard rotation) → q4_0 (2x compression). Context 16K → 32K.
   fullDescription: |
     Qwen3.5 35B-A3B Vision (MoE, 3B active) served via llama.cpp — long context optimized for Olares One.

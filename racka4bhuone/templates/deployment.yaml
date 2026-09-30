@@ -35,7 +35,7 @@ spec:
     spec:
       containers:
         - name: racka-server
-          image: "ghcr.io/ggml-org/llama.cpp:server-cuda13-b8740"
+          image: "docker.io/beclab/ggml-org-llama.cpp:server-cuda13-b11046"
           command: ["/bin/bash", "-c"]
           args:
             - |

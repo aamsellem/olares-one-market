@@ -8,7 +8,7 @@ metadata:
   description: "Nemotron 3 Nano 4B Q8 via llama.cpp — fast edge AI, optimized for Olares One"
   appid: nemotron3nano4bone
   title: Nemotron 3 Nano 4B One
-  version: '1.0.6'
+  version: '1.0.7'
   categories:
     - LLM Chat
   bento:
@@ -16,17 +16,17 @@ metadata:
     size_label: "4B"
     badge: nano
     hero:
-      value: "180 t/s"
+      value: "145 t/s"
       label: "speed"
     specs:
-      - { label: "context", value: "32K" }
-      - { label: "vram", value: "4 GB" }
+      - { label: "context", value: "128K" }
+      - { label: "vram", value: "5 GB" }
     capabilities:
       tool_calling: true
       vision:       false
       audio:        false
       mtp:          { enabled: false }
-    stack: "llama.cpp · Q5_K_XL · Nemotron 3 Nano"
+    stack: "llama.cpp b11046 · CUDA 13.3 · Q8_0"
 entrances:
   - name: nemotron3nano4bone
     port: 8080
@@ -36,7 +36,9 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.0.6'
+  versionName: '1.0.7'
+  upgradeDescription: |
+    v1.0.7: **CUDA 13.3 image, +5% decode.** Switched from `ghcr.io/ggml-org/llama.cpp:server-cuda13-b8740` to `docker.io/beclab/ggml-org-llama.cpp:server-cuda13-b11046` (CUDA 13.3 runtime via the bundled forward-compat libcuda, runs on the Olares 595.84 / CUDA 13.2 driver). `--mlock` became `--load-mode mmap+mlock` (the flag was merged upstream). Bench on Olares One 2026-09-30, same args, only the image changed (Nemotron-3-Nano-4B Q8_0): Space Invaders HTML 138.55 → **145.03 t/s**, code prompt 137.94 → **142.94 t/s**.
   fullDescription: |
     NVIDIA Nemotron 3 Nano 4B (hybrid Mamba-2 + Transformer) served via llama.cpp — optimized for Olares One.
     Ultra-fast 4B parameter model with reasoning support (think tokens).

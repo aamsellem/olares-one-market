@@ -10,7 +10,7 @@ spec:
 
     Stack:
     - `elte-nlp/Racka-4B-GGUF` Q8_0 (4.28 GB, lossless on 4B)
-    - llama.cpp upstream `server-cuda13-b8740`
+    - llama.cpp `server-cuda13-b11046` (beclab build, CUDA 13.3)
     - 32K context, full GPU offload, flash attention
     - OpenAI-compatible API on port 8080
 
