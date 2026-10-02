@@ -1,6 +1,6 @@
 # Create Helm Chart for Olares One
 
-Create a complete Helm chart for a model app optimized for Olares One, ready to import in Studio.
+Create a complete Helm chart for an individual model app optimized for Olares One 1.12.6+, ready to import in Studio.
 
 ## Argument: $ARGUMENTS
 
@@ -11,17 +11,21 @@ The argument should describe what to build:
 
 ## Olares One Constraints (MUST follow)
 
-- `olaresManifest.version: '0.10.0'`
-- `apiVersion: 'v2'` at top level of OlaresManifest.yaml
+- `olaresManifest.version: '0.12.0'`
+- `apiVersion: 'v3'` at top level of OlaresManifest.yaml
+- No `metadata.appid` and no Helm template expressions in `OlaresManifest.yaml`
+- `metadata.categories` must be `AI`; retain richer browsing labels in `scripts/market-taxonomy.json`
+- Declare one NVIDIA `spec.accelerator` envelope, `permission.appData: true`, and Olares `>=1.12.6-0`
+- Add `workloadReplicas.<app>: 1`, `values.yaml` `workloads.<app>.replicaCount: 1`, and wire the Deployment's replicas to that value
 - CPU values: integer cores (NOT millicores)
-- Entrance title: max 30 chars, only `[a-z0-9A-Z-\s]`, NO parentheses
+- Entrance title: max 30 chars; avoid punctuation that Olares cannot render
 - Proxy image: `beclab/aboveos-bitnami-openresty:1.25.3-2`
-- Olares dependency: `>=1.12.3-0`
+- Olares dependency: `>=1.12.6-0`
 
 ## Chart Structure for Olares One apps
 
 These are **simple single-user apps** (no shared/admin split like official beclab/apps).
-No Helm template conditionals needed — single deployment, single service.
+No Helm template conditionals are allowed in the manifest. These are individual applications, not shared Olares apps.
 
 ```
 <app-name>/
@@ -42,14 +46,20 @@ No Helm template conditionals needed — single deployment, single service.
    - vLLM: `vllm<model>one`
    - KTransformers: `kt<model>one`
 
-2. **Create directory structure** with all files.
+2. **Generate the v3 scaffold** rather than copying an old chart. For example:
+   ```bash
+   scripts/generate-model-app.sh --backend llamacpp --name llamacpp<model>one \
+     --title "Model One" --model-url https://.../model.gguf --model-file model.gguf \
+     --taxonomy "LLM Chat,AI Agents"
+   ```
+   For vLLM, use `--backend vllm --model org/model`. The generator creates the chart and the Worker-only taxonomy entry, but does not create an icon or publish the chart.
 
 3. **Chart.yaml**: Standard Helm v2 chart, version starts at `1.0.0`.
 
-4. **OlaresManifest.yaml**: Use the template from existing app (`llamacppqwen35a3bone/`) as reference. Key fields:
+4. **OlaresManifest.yaml**: Use the generated v3 chart and `llamacppqwen35a3bone/` as references. Key fields:
    - Resource requirements based on model size + backend needs
    - Icon URL: `https://orales-one-market.aamsellem.workers.dev/icons/<app-name>.png`
-   - Categories: `AI`
+   - Manifest category: `AI`; keep display taxonomy in `scripts/market-taxonomy.json`
    - Developer: `aamsellem`
    - Website/sourceCode: `https://github.com/aamsellem/olares-one-market`
    - License URL: use `ggml-org` (NOT `ggerganov`) for llama.cpp
@@ -66,7 +76,7 @@ No Helm template conditionals needed — single deployment, single service.
    - **Volume**: hostPath to `{{ .Values.userspace.appData }}/<subdir>`
    - **OPA security constraints**: Olares has an OPA webhook that blocks `runAsUser: 0` + untrusted registries (ghcr.io, quay.io). Trusted: `docker.io/`, `beclab/`. Use trusted images for initContainers that need root.
 
-6. **values.yaml**: Minimal (Olares injects `userspace`, `domain`, etc.)
+6. **values.yaml**: Preserve the generated `userspace` and `workloads.<app>.replicaCount` values.
 
 7. **i18n/en-US/OlaresManifest.yaml**: Localized metadata and spec.
 

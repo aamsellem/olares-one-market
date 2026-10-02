@@ -7,7 +7,8 @@
     "dev": "npm run build:catalog && wrangler dev",
     "deploy": "npm run build:catalog && wrangler deploy",
     "build": "npm run build:catalog",
-    "validate:manifests": "node scripts/validate-manifests-v3.js"
+    "validate:manifests": "node scripts/validate-manifests-v3.js",
+    "test:generator": "node scripts/generate-model-app.sh --self-test"
   },
   "dependencies": {
     "js-yaml": "^4.1.0"

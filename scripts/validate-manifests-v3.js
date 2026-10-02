@@ -3,9 +3,8 @@
 const fs = require('fs');
 const path = require('path');
 const yaml = require('js-yaml');
-const marketTaxonomy = require('./market-taxonomy.json');
-
-const root = path.resolve(__dirname, '..');
+const root = path.resolve(process.env.OLARES_MARKET_ROOT || path.resolve(__dirname, '..'));
+const marketTaxonomy = JSON.parse(fs.readFileSync(path.join(root, 'scripts', 'market-taxonomy.json'), 'utf8'));
 const failures = [];
 const charts = fs.readdirSync(root, { withFileTypes: true })
   .filter((entry) => entry.isDirectory())
