@@ -13,7 +13,6 @@ Self-contained repo: app Helm charts live alongside the market server code.
 ```
 orales-one-market/
 ├── <app-dirs>/              ← Helm charts (Chart.yaml + OlaresManifest.yaml + templates/)
-├── generate-model-app.sh    ← Generator script for new model apps
 ├── scripts/build-catalog.js ← Parses app charts → src/catalog.json
 ├── src/index.ts             ← Cloudflare Worker (serves market API)
 ├── src/catalog.json         ← Generated catalog (committed, deterministic)
@@ -88,7 +87,8 @@ Deployed at: `https://orales-one-market.aamsellem.workers.dev`
 
 The build script:
 - Scans the repo root for directories containing both `Chart.yaml` and `OlaresManifest.yaml`
-- Strips Helm template directives (`{{if}}`, `{{else}}`, `{{end}}`) before YAML parsing — keeps the admin/if branch, drops else branch
+- Rejects v2 manifests through `npm run validate:manifests`; manifests must be
+  plain Olares v3 YAML and must never use Helm control directives
 - Reads `i18n/` subdirectories for locale-specific manifests
 - Generates a deterministic `catalog.json` (no timestamps in content, only writes if changed to avoid wrangler rebuild loops)
 - Hash is MD5 of the JSON payload (deterministic across runs if apps haven't changed)
@@ -114,10 +114,15 @@ Only Olares One optimized apps belong here. Generic apps stay in `orales-market`
 
 - Entrance title: max 30 chars, only `[a-z0-9A-Z-\s]` — NO dots, parentheses, or special chars. Replace dots with hyphens (e.g., `GLM-4.7` → `GLM-47`)
 - Proxy image: `beclab/aboveos-bitnami-openresty:1.25.3-2`
-- Manifest version: `0.10.0` (must match official beclab/apps format, NOT 0.11.0)
-- Top-level `apiVersion: 'v2'` required in OlaresManifest.yaml
+- Manifest version: `0.12.0` and top-level `apiVersion: 'v3'` are required
+  for Olares 1.12.6 and later. Every Deployment must be declared in
+  `workloadReplicas` and consume `values.yaml` `workloads.<name>.replicaCount`.
+- GPU resource envelopes belong in `spec.accelerator` with `mode: nvidia` and
+  `requiredGPUMemory` / `limitedGPUMemory`, not the retired flat `requiredGpu`
+  / `limitedGpu` fields. Do not add `metadata.appid`; v3 resolves the app
+  identity from the chart and `metadata.name`.
 - CPU values in integer cores (e.g., `4`), NOT millicores (`4000m`)
-- Olares dependency: `>=1.12.3-0`
+- Olares dependency: `>=1.12.6-0`
 
 ### Olares Environment Variables (olaresEnv)
 

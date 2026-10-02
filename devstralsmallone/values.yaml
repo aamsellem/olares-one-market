@@ -5,3 +5,7 @@ userspace:
   appData: ""
   appCache: ""
   userData: ""
+workloads:
+  devstralsmallone:
+    replicaCount: 1
+olaresEnv: {}

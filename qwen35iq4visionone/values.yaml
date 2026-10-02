@@ -5,3 +5,7 @@ userspace:
   appData: ""
   appCache: ""
   userData: ""
+workloads:
+  qwen35iq4visionone:
+    replicaCount: 1
+olaresEnv: {}

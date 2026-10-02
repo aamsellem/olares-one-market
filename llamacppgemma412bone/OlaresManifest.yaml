@@ -1,18 +1,17 @@
 ---
-olaresManifest.version: '0.10.0'
+olaresManifest.version: '0.12.0'
 olaresManifest.type: app
-apiVersion: 'v2'
+apiVersion: 'v3'
+workloadReplicas:
+  llamacppgemma412bone: 1
 metadata:
   name: llamacppgemma412bone
   icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppgemma412bone.png
   description: "Gemma 4 12B QAT UD-Q4_K_XL + bundled MTP drafter (Unsloth) + vision — 169.8 t/s @ 91% accept, 8.6 GB VRAM, 65K ctx on Olares One"
-  appid: llamacppgemma412bone
   title: Gemma 4 12B One
-  version: '1.0.9'
+  version: '1.0.10'
   categories:
-    - LLM Chat
-    - AI Agents
-    - Vision
+    - AI
   bento:
     family: gemma
     size_label: "12B"
@@ -142,14 +141,16 @@ spec:
     - text: Gemma Terms of Use
       url: https://ai.google.dev/gemma/terms
 
-  limitedCpu: 12
-  requiredCpu: 4
-  requiredDisk: 20Gi
-  limitedDisk: 30Gi
-  limitedMemory: 24Gi
-  requiredMemory: 12Gi
-  requiredGpu: 1Gi
-  limitedGpu: 18Gi
+  accelerator:
+    - mode: nvidia
+      limitedCpu: 12
+      requiredCpu: 4
+      requiredDisk: 20Gi
+      limitedDisk: 30Gi
+      limitedMemory: 24Gi
+      requiredMemory: 12Gi
+      requiredGPUMemory: 1Gi
+      limitedGPUMemory: 18Gi
 
   supportArch:
     - amd64
@@ -159,7 +160,7 @@ options:
   apiTimeout: 0
   dependencies:
     - name: olares
-      version: '>=1.12.3-0'
+      version: '>=1.12.6-0'
       type: system
 envs:
   - envName: OLARES_USER_HUGGINGFACE_TOKEN

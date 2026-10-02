@@ -1,18 +1,17 @@
 ---
-olaresManifest.version: '0.10.0'
+olaresManifest.version: '0.12.0'
 olaresManifest.type: app
-apiVersion: 'v2'
+apiVersion: 'v3'
+workloadReplicas:
+  llamacppqwen36a3bdflashone: 1
 metadata:
   name: llamacppqwen36a3bdflashone
   icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen36a3bdflashone.png
   description: "Qwen3.6 35B-A3B + DFlash + Vision — 302 t/s @ 128K on Olares One, upstream llama.cpp (no fork)"
-  appid: llamacppqwen36a3bdflashone
   title: Qwen36 35B-A3B DFlash Vision One
-  version: '1.0.0'
+  version: '1.0.1'
   categories:
-    - LLM Chat
-    - AI Agents
-    - Vision
+    - AI
   bento:
     family: qwen
     size_label: "35B-A3B"
@@ -103,14 +102,16 @@ spec:
     - text: Apache-2.0
       url: https://huggingface.co/Qwen/Qwen3.6-35B-A3B/blob/main/LICENSE
 
-  limitedCpu: 16
-  requiredCpu: 4
-  requiredDisk: 30Gi
-  limitedDisk: 50Gi
-  limitedMemory: 40Gi
-  requiredMemory: 24Gi
-  requiredGpu: 1Gi
-  limitedGpu: 24Gi
+  accelerator:
+    - mode: nvidia
+      limitedCpu: 16
+      requiredCpu: 4
+      requiredDisk: 30Gi
+      limitedDisk: 50Gi
+      limitedMemory: 40Gi
+      requiredMemory: 24Gi
+      requiredGPUMemory: 1Gi
+      limitedGPUMemory: 24Gi
 
   supportArch:
     - amd64
@@ -120,7 +121,7 @@ options:
   apiTimeout: 0
   dependencies:
     - name: olares
-      version: '>=1.12.3-0'
+      version: '>=1.12.6-0'
       type: system
 envs:
   - envName: OLARES_USER_HUGGINGFACE_TOKEN

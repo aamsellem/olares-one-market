@@ -1,16 +1,17 @@
 ---
-olaresManifest.version: '0.10.0'
+olaresManifest.version: '0.12.0'
 olaresManifest.type: app
-apiVersion: 'v2'
+apiVersion: 'v3'
+workloadReplicas:
+  llamacppnemotron30a3bone: 1
 metadata:
   name: llamacppnemotron30a3bone
   icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppnemotron30a3bone.png
   description: "Nemotron 3 Nano 30B-A3B via llama.cpp — optimized for Olares One"
-  appid: llamacppnemotron30a3bone
   title: Nemotron 30B-A3B Olares One
-  version: '1.0.11'
+  version: '1.0.12'
   categories:
-    - LLM Chat
+    - AI
   bento:
     family: nemotron
     size_label: "30B-A3B"
@@ -61,14 +62,16 @@ spec:
     - text: NVIDIA Nemotron Open Model License
       url: https://www.nvidia.com/en-us/agreements/enterprise-software/nvidia-nemotron-open-model-license/
 
-  limitedCpu: 16
-  requiredCpu: 4
-  requiredDisk: 30Gi
-  limitedDisk: 50Gi
-  limitedMemory: 40Gi
-  requiredMemory: 24Gi
-  requiredGpu: 1Gi
-  limitedGpu: 24Gi
+  accelerator:
+    - mode: nvidia
+      limitedCpu: 16
+      requiredCpu: 4
+      requiredDisk: 30Gi
+      limitedDisk: 50Gi
+      limitedMemory: 40Gi
+      requiredMemory: 24Gi
+      requiredGPUMemory: 1Gi
+      limitedGPUMemory: 24Gi
 
   supportArch:
     - amd64
@@ -78,5 +81,5 @@ options:
   apiTimeout: 0
   dependencies:
     - name: olares
-      version: '>=1.12.3-0'
+      version: '>=1.12.6-0'
       type: system

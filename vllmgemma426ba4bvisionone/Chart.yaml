@@ -3,4 +3,4 @@ appVersion: '1.0.5'
 description: Gemma 4 26B-A4B vision + MTP via vLLM — 250 t/s @ 128K native + vision + tool calling on Olares One
 name: vllmgemma426ba4bvisionone
 type: application
-version: '1.0.5'
+version: '1.0.6'

@@ -3,4 +3,4 @@ appVersion: '1.0.7'
 description: Gemma 4 26B-A4B (MoE) + DFlash speculative decoding + AWQ-4bit via vLLM — Olares One
 name: vllmgemma4dflashone
 type: application
-version: '1.0.7'
+version: '1.0.8'

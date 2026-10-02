@@ -1,18 +1,17 @@
 ---
-olaresManifest.version: '0.10.0'
+olaresManifest.version: '0.12.0'
 olaresManifest.type: app
-apiVersion: 'v2'
+apiVersion: 'v3'
+workloadReplicas:
+  llamacppgemma426ba4bone: 1
 metadata:
   name: llamacppgemma426ba4bone
   icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppgemma426ba4bone.png
   description: "Gemma 4 26B-A4B QAT UD-Q4_K_XL + bundled MTP drafter (Unsloth) + vision — 286.6 t/s @ 91% accept, 16.6 GB VRAM, 32K ctx on Olares One"
-  appid: llamacppgemma426ba4bone
   title: Gemma 4 26B-A4B One
-  version: '1.0.6'
+  version: '1.0.7'
   categories:
-    - LLM Chat
-    - AI Agents
-    - Vision
+    - AI
   bento:
     family: gemma
     size_label: "26B-A4B"
@@ -121,14 +120,16 @@ spec:
     - text: Apache 2.0
       url: https://www.apache.org/licenses/LICENSE-2.0
 
-  limitedCpu: 16
-  requiredCpu: 4
-  requiredDisk: 25Gi
-  limitedDisk: 35Gi
-  limitedMemory: 30Gi
-  requiredMemory: 16Gi
-  requiredGpu: 1Gi
-  limitedGpu: 22Gi
+  accelerator:
+    - mode: nvidia
+      limitedCpu: 16
+      requiredCpu: 4
+      requiredDisk: 25Gi
+      limitedDisk: 35Gi
+      limitedMemory: 30Gi
+      requiredMemory: 16Gi
+      requiredGPUMemory: 1Gi
+      limitedGPUMemory: 22Gi
 
   supportArch:
     - amd64
@@ -138,7 +139,7 @@ options:
   apiTimeout: 0
   dependencies:
     - name: olares
-      version: '>=1.12.3-0'
+      version: '>=1.12.6-0'
       type: system
 envs:
   - envName: OLARES_USER_HUGGINGFACE_TOKEN

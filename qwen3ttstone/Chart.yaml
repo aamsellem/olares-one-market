@@ -3,4 +3,4 @@ appVersion: '1.0.11'
 description: Qwen3-TTS 1.7B with voice cloning — optimized for Olares One
 name: qwen3ttstone
 type: application
-version: '1.0.11'
+version: '1.0.12'

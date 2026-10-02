@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build:catalog": "node scripts/build-catalog.js",
+    "build:catalog": "npm run validate:manifests && node scripts/build-catalog.js",
     "dev": "npm run build:catalog && wrangler dev",
     "deploy": "npm run build:catalog && wrangler deploy",
-    "build": "npm run build:catalog"
+    "build": "npm run build:catalog",
+    "validate:manifests": "node scripts/validate-manifests-v3.js"
   },
   "dependencies": {
     "js-yaml": "^4.1.0"

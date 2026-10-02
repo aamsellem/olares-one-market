@@ -1,16 +1,17 @@
 ---
-olaresManifest.version: '0.10.0'
+olaresManifest.version: '0.12.0'
 olaresManifest.type: app
-apiVersion: 'v2'
+apiVersion: 'v3'
+workloadReplicas:
+  vllmqwen3527bone: 1
 metadata:
   name: vllmqwen3527bone
   icon: https://orales-one-market.aamsellem.workers.dev/icons/vllmqwen3527bone.png
   description: "Qwen3.5 27B NVFP4 via vLLM — optimized for Olares One"
-  appid: vllmqwen3527bone
   title: Qwen3.5 27B NVFP4 vLLM One
-  version: '1.0.5'
+  version: '1.0.6'
   categories:
-    - LLM Chat
+    - AI
   bento:
     family: qwen
     size_label: "27B"
@@ -56,14 +57,16 @@ spec:
     - text: Apache-2.0
       url: https://github.com/vllm-project/vllm/blob/main/LICENSE
 
-  limitedCpu: 16
-  requiredCpu: 4
-  requiredDisk: 40Gi
-  limitedDisk: 60Gi
-  limitedMemory: 40Gi
-  requiredMemory: 24Gi
-  requiredGpu: 1Gi
-  limitedGpu: 24Gi
+  accelerator:
+    - mode: nvidia
+      limitedCpu: 16
+      requiredCpu: 4
+      requiredDisk: 40Gi
+      limitedDisk: 60Gi
+      limitedMemory: 40Gi
+      requiredMemory: 24Gi
+      requiredGPUMemory: 1Gi
+      limitedGPUMemory: 24Gi
 
   supportArch:
     - amd64
@@ -73,5 +76,5 @@ options:
   apiTimeout: 0
   dependencies:
     - name: olares
-      version: '>=1.12.3-0'
+      version: '>=1.12.6-0'
       type: system

@@ -1,7 +1,9 @@
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
+const { execFileSync } = require('child_process');
 const yaml = require('js-yaml');
+const MARKET_TAXONOMY = require('./market-taxonomy.json');
 
 // Scan app charts from this repo's root
 const APPS_REPO = path.resolve(__dirname, '..');
@@ -36,23 +38,12 @@ function parseBytes(value) {
   return str;
 }
 
-// Strip Helm template directives from YAML.
-// Keeps the "if" branch (admin), removes "else" branch (user proxy).
-function stripHelmTemplates(content) {
-  const lines = content.split('\n');
-  const result = [];
-  let inElse = false;
-
-  for (const line of lines) {
-    const trimmed = line.trim();
-    if (/^\{\{-?\s*if\b/.test(trimmed)) continue;
-    if (/^\{\{-?\s*else\b/.test(trimmed)) { inElse = true; continue; }
-    if (/^\{\{-?\s*end\b/.test(trimmed)) { inElse = false; continue; }
-    if (inElse) continue;
-    // Remove inline template expressions
-    result.push(line.replace(/\{\{.*?\}\}/g, ''));
+function assertPlainManifest(content, file) {
+  // Opening delimiters are sufficient: a valid Helm directive always has one,
+  // while JSON examples in app descriptions can legitimately contain `}}`.
+  if (content.includes('{{')) {
+    throw new Error(`${file}: OlaresManifest.yaml must not contain Helm template directives`);
   }
-  return result.join('\n');
 }
 
 // --- Read i18n locales ---
@@ -66,12 +57,9 @@ function readI18n(appDir) {
     if (!locale.isDirectory()) continue;
     const manifestPath = path.join(i18nDir, locale.name, 'OlaresManifest.yaml');
     if (!fs.existsSync(manifestPath)) continue;
-    try {
-      const raw = fs.readFileSync(manifestPath, 'utf8');
-      i18n[locale.name] = yaml.load(stripHelmTemplates(raw));
-    } catch (e) {
-      console.warn(`  Warning: failed to parse i18n/${locale.name}: ${e.message}`);
-    }
+    const raw = fs.readFileSync(manifestPath, 'utf8');
+    assertPlainManifest(raw, manifestPath);
+    i18n[locale.name] = yaml.load(raw);
   }
   return i18n;
 }
@@ -98,28 +86,29 @@ function scanApps() {
     try {
       chart = yaml.load(fs.readFileSync(chartPath, 'utf8'));
       const rawManifest = fs.readFileSync(manifestPath, 'utf8');
-      manifest = yaml.load(stripHelmTemplates(rawManifest));
+      assertPlainManifest(rawManifest, manifestPath);
+      manifest = yaml.load(rawManifest);
     } catch (e) {
-      console.warn(`  Skipping ${entry.name}: ${e.message}`);
-      continue;
+      throw new Error(`Cannot build catalog for ${entry.name}: ${e.message}`);
     }
 
     const meta = manifest.metadata || {};
     const spec = manifest.spec || {};
+    const accelerator = (spec.accelerator || []).find((entry) => entry.mode === 'nvidia') || {};
     const appName = chart.name || meta.name || entry.name;
     const appId = generateAppId(appName);
     const i18n = readI18n(appDir);
-    const categories = meta.categories || [];
+    // The Olares v3 manifest permits only the platform category. Keep the
+    // richer browsing taxonomy in this Worker-only source artifact instead.
+    const categories = MARKET_TAXONOMY[appName] || ['AI'];
 
     const bento = meta.bento || null;
     const baseUrl = 'https://orales-one-market.aamsellem.workers.dev';
     const bentoUrl = `${baseUrl}/screenshots/${appName}-bento.png`;
     const tagList = bento ? [bento.family, ...(bento.badge ? [bento.badge] : [])].filter(Boolean) : null;
 
-    // Olares Studio sidebar filter:
-    //   menuList.filter(item => appCategories.includes(item.name) || item.name === 'All')
-    // → custom category names work as long as they appear in BOTH the apps' `categories` array
-    //   AND the worker's `tags` object (menuList source). Keep our 7-category taxonomy.
+    // Olares Studio sidebar filter uses this Worker-provided taxonomy. The
+    // manifest itself remains strictly `AI` for the Olares v3 validator.
 
     // Simplified entry for /api/v1/appstore/info
     // `categories` array is REQUIRED — Studio's calcCategories() iterates this to
@@ -161,12 +150,12 @@ function scanApps() {
         ? ['en-US', ...Object.keys(i18n).filter(l => l !== 'en-US')]
         : spec.locale || ['en-US'],
       developer: spec.developer || '',
-      requiredMemory: parseBytes(spec.requiredMemory),
-      requiredDisk: parseBytes(spec.requiredDisk),
+      requiredMemory: parseBytes(accelerator.requiredMemory || spec.requiredMemory),
+      requiredDisk: parseBytes(accelerator.requiredDisk || spec.requiredDisk),
       supportClient: spec.supportClient || {},
       supportArch: spec.supportArch || [],
-      requiredGPU: parseBytes(spec.requiredGpu),
-      requiredCPU: parseCpu(spec.requiredCpu),
+      requiredGPU: parseBytes(accelerator.requiredGPUMemory || spec.requiredGpu),
+      requiredCPU: parseCpu(accelerator.requiredCpu || spec.requiredCpu),
       rating: 0,
       target: spec.target || '',
       permission: manifest.permission || {},
@@ -229,19 +218,34 @@ function scanApps() {
   return apps;
 }
 
-// --- Build charts.json from charts/ directory ---
+// --- Package charts and build charts.json ---
+
+function chartDirectories() {
+  return fs.readdirSync(APPS_REPO, { withFileTypes: true })
+    .filter((entry) => entry.isDirectory() && !entry.name.startsWith('.'))
+    .map((entry) => entry.name)
+    .filter((name) => fs.existsSync(path.join(APPS_REPO, name, 'Chart.yaml')) && fs.existsSync(path.join(APPS_REPO, name, 'OlaresManifest.yaml')))
+    .sort();
+}
 
 function buildCharts() {
   const chartsDir = path.resolve(__dirname, '../charts');
   const chartsOutput = path.resolve(__dirname, '../src/charts.json');
   const charts = {};
 
-  if (fs.existsSync(chartsDir)) {
-    for (const file of fs.readdirSync(chartsDir)) {
-      if (!file.endsWith('.tgz')) continue;
-      charts[file] = fs.readFileSync(path.join(chartsDir, file)).toString('base64');
-      console.log(`Chart: ${file} (${Math.round(fs.statSync(path.join(chartsDir, file)).size / 1024)}KB)`);
-    }
+  // Archive bytes are what the Worker serves, so packaging must happen in the
+  // same deterministic build as the catalog.  `charts/` remains an ignored
+  // build directory; src/charts.json is the reviewed, deployed artifact.
+  fs.rmSync(chartsDir, { recursive: true, force: true });
+  fs.mkdirSync(chartsDir, { recursive: true });
+  for (const chartName of chartDirectories()) {
+    execFileSync('helm', ['package', path.join(APPS_REPO, chartName), '--destination', chartsDir], { stdio: 'inherit' });
+  }
+
+  for (const file of fs.readdirSync(chartsDir).sort()) {
+    if (!file.endsWith('.tgz')) continue;
+    charts[file] = fs.readFileSync(path.join(chartsDir, file)).toString('base64');
+    console.log(`Chart: ${file} (${Math.round(fs.statSync(path.join(chartsDir, file)).size / 1024)}KB)`);
   }
 
   const newContent = JSON.stringify(charts);
@@ -266,7 +270,7 @@ function buildCharts() {
 console.log('Building catalog from', APPS_REPO);
 console.log();
 
-buildCharts();
+const charts = buildCharts();
 const apps = scanApps();
 
 const summaries = {};
@@ -282,6 +286,13 @@ for (const [id, app] of Object.entries(apps)) {
 }
 
 const allCategories = Array.from(categorySet).sort();
+
+for (const app of Object.values(apps)) {
+  const archive = app.detail.chartName;
+  if (!Object.hasOwn(charts, archive)) {
+    throw new Error(`Missing packaged chart archive for ${app.detail.name}: ${archive}`);
+  }
+}
 
 // Sort latest: newest apps first (by version, higher = newer)
 latest.sort((a, b) => {

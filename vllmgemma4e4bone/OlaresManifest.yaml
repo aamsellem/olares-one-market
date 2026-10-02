@@ -1,17 +1,17 @@
 ---
-olaresManifest.version: '0.10.0'
+olaresManifest.version: '0.12.0'
 olaresManifest.type: app
-apiVersion: 'v2'
+apiVersion: 'v3'
+workloadReplicas:
+  vllmgemma4e4bone: 1
 metadata:
   name: vllmgemma4e4bone
   icon: https://orales-one-market.aamsellem.workers.dev/icons/vllmgemma4e4bone.png
   description: "Gemma 4 E4B (Vision + Audio) via vLLM — optimized for Olares One"
-  appid: vllmgemma4e4bone
   title: Gemma 4 E4B Voice One
-  version: '1.0.13'
+  version: '1.0.14'
   categories:
-    - Audio
-    - LLM Chat
+    - AI
   bento:
     family: gemma
     size_label: "E4B"
@@ -63,14 +63,16 @@ spec:
     - text: Apache 2.0
       url: https://www.apache.org/licenses/LICENSE-2.0
 
-  limitedCpu: 16
-  requiredCpu: 4
-  requiredDisk: 20Gi
-  limitedDisk: 30Gi
-  limitedMemory: 40Gi
-  requiredMemory: 4Gi
-  requiredGpu: 1Gi
-  limitedGpu: 24Gi
+  accelerator:
+    - mode: nvidia
+      limitedCpu: 16
+      requiredCpu: 4
+      requiredDisk: 20Gi
+      limitedDisk: 30Gi
+      limitedMemory: 40Gi
+      requiredMemory: 4Gi
+      requiredGPUMemory: 1Gi
+      limitedGPUMemory: 24Gi
 
   supportArch:
     - amd64
@@ -80,5 +82,5 @@ options:
   apiTimeout: 0
   dependencies:
     - name: olares
-      version: '>=1.12.3-0'
+      version: '>=1.12.6-0'
       type: system

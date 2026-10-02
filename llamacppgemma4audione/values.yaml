@@ -1,1 +1,6 @@
-{}
+workloads:
+  llamacppgemma4audione:
+    replicaCount: 1
+userspace:
+  appData: ""
+olaresEnv: {}

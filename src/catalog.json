@@ -1,11 +1,11 @@
 {
-  "hash": "65ae1ca328cfce36c1e098ea2960069f",
-  "generated_at": 1790721595044,
+  "hash": "465026cc660b3a993e0e9bb45d4aa0bf",
+  "generated_at": 1790949010775,
   "summaries": {
     "33102786": {
       "id": "33102786",
       "name": "llamacppqwen35iq4one",
-      "version": "1.0.9",
+      "version": "1.0.10",
       "category": "LLM Chat",
       "categories": [
         "LLM Chat"
@@ -19,12 +19,12 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "e1311c4c": {
       "id": "e1311c4c",
       "name": "acestepxlone",
-      "version": "1.1.9",
+      "version": "1.1.10",
       "category": "Music",
       "categories": [
         "Music"
@@ -38,12 +38,12 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "f9902972": {
       "id": "f9902972",
       "name": "cascade230a3bone",
-      "version": "1.0.7",
+      "version": "1.0.8",
       "category": "LLM Chat",
       "categories": [
         "LLM Chat"
@@ -57,12 +57,12 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "8a7e4366": {
       "id": "8a7e4366",
       "name": "devstralsmallone",
-      "version": "1.0.7",
+      "version": "1.0.8",
       "category": "Coding",
       "categories": [
         "Coding",
@@ -77,12 +77,12 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "cf587666": {
       "id": "cf587666",
       "name": "exl3qwen35a3bone",
-      "version": "1.0.18",
+      "version": "1.0.19",
       "category": "LLM Chat",
       "categories": [
         "LLM Chat"
@@ -96,12 +96,12 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "a4f8515c": {
       "id": "a4f8515c",
       "name": "gemma426ba4bone",
-      "version": "1.0.11",
+      "version": "1.0.12",
       "category": "LLM Chat",
       "categories": [
         "LLM Chat"
@@ -115,12 +115,12 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "65b82978": {
       "id": "65b82978",
       "name": "gemma4e2bone",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "category": "Audio",
       "categories": [
         "Audio",
@@ -135,12 +135,12 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "3f05b625": {
       "id": "3f05b625",
       "name": "llamacppcodernext40bone",
-      "version": "1.1.6",
+      "version": "1.1.7",
       "category": "LLM Chat",
       "categories": [
         "LLM Chat",
@@ -156,12 +156,12 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "ec27bc37": {
       "id": "ec27bc37",
       "name": "llamacppcodernextq4one",
-      "version": "1.0.6",
+      "version": "1.0.7",
       "category": "LLM Chat",
       "categories": [
         "LLM Chat",
@@ -177,12 +177,12 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "6cd2129a": {
       "id": "6cd2129a",
       "name": "llamacppgemma412blcone",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "category": "LLM Chat",
       "categories": [
         "LLM Chat",
@@ -199,12 +199,12 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "fff8241b": {
       "id": "fff8241b",
       "name": "llamacppgemma412bone",
-      "version": "1.0.9",
+      "version": "1.0.10",
       "category": "LLM Chat",
       "categories": [
         "LLM Chat",
@@ -220,12 +220,12 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "2effb583": {
       "id": "2effb583",
       "name": "llamacppgemma426ba4bone",
-      "version": "1.0.6",
+      "version": "1.0.7",
       "category": "LLM Chat",
       "categories": [
         "LLM Chat",
@@ -241,12 +241,12 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "8c6443a7": {
       "id": "8c6443a7",
       "name": "llamacppgemma4audione",
-      "version": "1.1.2",
+      "version": "1.1.3",
       "category": "Audio",
       "categories": [
         "Audio"
@@ -260,12 +260,12 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "c1ca229f": {
       "id": "c1ca229f",
       "name": "llamacppglm47flash",
-      "version": "1.0.12",
+      "version": "1.0.13",
       "category": "LLM Chat",
       "categories": [
         "LLM Chat"
@@ -279,12 +279,12 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "491be3cd": {
       "id": "491be3cd",
       "name": "llamacppnemotron30a3bone",
-      "version": "1.0.11",
+      "version": "1.0.12",
       "category": "LLM Chat",
       "categories": [
         "LLM Chat"
@@ -298,12 +298,12 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "02b1d2a9": {
       "id": "02b1d2a9",
       "name": "llamacppnemotrondiffusion14bone",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "category": "LLM Chat",
       "categories": [
         "LLM Chat",
@@ -318,12 +318,12 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "4ef430dd": {
       "id": "4ef430dd",
       "name": "llamacppqwen35a3bone",
-      "version": "1.0.31",
+      "version": "1.0.32",
       "category": "LLM Chat",
       "categories": [
         "LLM Chat"
@@ -337,12 +337,12 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "a1ac4529": {
       "id": "a1ac4529",
       "name": "llamacppqwen36a3bdflashone",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "category": "LLM Chat",
       "categories": [
         "LLM Chat",
@@ -358,12 +358,12 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "059cd05d": {
       "id": "059cd05d",
       "name": "llamacppqwen36a3bone",
-      "version": "2.0.10",
+      "version": "2.0.11",
       "category": "LLM Chat",
       "categories": [
         "LLM Chat",
@@ -379,12 +379,12 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "6ee23f04": {
       "id": "6ee23f04",
       "name": "llamacppqwen36abliteratedone",
-      "version": "1.0.11",
+      "version": "1.0.12",
       "category": "LLM Chat",
       "categories": [
         "LLM Chat",
@@ -401,12 +401,12 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "9ca1356f": {
       "id": "9ca1356f",
       "name": "llamacppqwen36beellamaone",
-      "version": "1.0.9",
+      "version": "1.0.10",
       "category": "LLM Chat",
       "categories": [
         "LLM Chat",
@@ -421,12 +421,12 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "376c02dd": {
       "id": "376c02dd",
       "name": "llamacppqwen36beellamavisionone",
-      "version": "1.0.7",
+      "version": "1.0.8",
       "category": "Vision",
       "categories": [
         "Vision",
@@ -441,12 +441,12 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "49ed4ea2": {
       "id": "49ed4ea2",
       "name": "llamacppqwen36dflashone",
-      "version": "1.0.6",
+      "version": "1.0.7",
       "category": "LLM Chat",
       "categories": [
         "LLM Chat"
@@ -460,12 +460,12 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "6a1ddcf0": {
       "id": "6a1ddcf0",
       "name": "llamacppqwen36heretic27bone",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "category": "LLM Chat",
       "categories": [
         "LLM Chat"
@@ -479,12 +479,12 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "43e83ecd": {
       "id": "43e83ecd",
       "name": "llamacppqwen36mtpone",
-      "version": "1.0.18",
+      "version": "1.0.19",
       "category": "LLM Chat",
       "categories": [
         "LLM Chat"
@@ -498,12 +498,12 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "fa4ef911": {
       "id": "fa4ef911",
       "name": "nemotron3nano4bone",
-      "version": "1.0.7",
+      "version": "1.0.8",
       "category": "LLM Chat",
       "categories": [
         "LLM Chat"
@@ -517,12 +517,12 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "99dafa10": {
       "id": "99dafa10",
       "name": "nemotronlabselastic30bnvfp4one",
-      "version": "1.0.6",
+      "version": "1.0.7",
       "category": "LLM Chat",
       "categories": [
         "LLM Chat",
@@ -537,12 +537,12 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "e74eca98": {
       "id": "e74eca98",
       "name": "omnivoiceone",
-      "version": "1.1.2",
+      "version": "1.1.3",
       "category": "TTS",
       "categories": [
         "TTS"
@@ -556,12 +556,12 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "2c5c39c9": {
       "id": "2c5c39c9",
       "name": "qwen35a3bvisionone",
-      "version": "1.0.11",
+      "version": "1.0.12",
       "category": "Vision",
       "categories": [
         "Vision"
@@ -575,12 +575,12 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "ed18683c": {
       "id": "ed18683c",
       "name": "qwen35iq4visionone",
-      "version": "1.0.9",
+      "version": "1.0.10",
       "category": "Vision",
       "categories": [
         "Vision"
@@ -594,12 +594,12 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "14fdab3c": {
       "id": "14fdab3c",
       "name": "qwen36a3bvisionone",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "category": "Vision",
       "categories": [
         "Vision",
@@ -614,12 +614,12 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "da30d532": {
       "id": "da30d532",
       "name": "qwen3coder30a3bone",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "category": "Coding",
       "categories": [
         "Coding",
@@ -634,12 +634,12 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "49c5b493": {
       "id": "49c5b493",
       "name": "qwen3ttstone",
-      "version": "1.0.11",
+      "version": "1.0.12",
       "category": "TTS",
       "categories": [
         "TTS"
@@ -653,12 +653,12 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "fff1cda2": {
       "id": "fff1cda2",
       "name": "racka4bhuone",
-      "version": "1.0.4",
+      "version": "1.0.5",
       "category": "Special Request",
       "categories": [
         "Special Request",
@@ -674,12 +674,12 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "35ffe672": {
       "id": "35ffe672",
       "name": "vllmgemma426ba4babliteratedone",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "category": "LLM Chat",
       "categories": [
         "LLM Chat",
@@ -696,12 +696,12 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "b3078d17": {
       "id": "b3078d17",
       "name": "vllmgemma426ba4bvisionone",
-      "version": "1.0.5",
+      "version": "1.0.6",
       "category": "Vision",
       "categories": [
         "Vision",
@@ -716,12 +716,12 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "18a6f781": {
       "id": "18a6f781",
       "name": "vllmgemma4dflashone",
-      "version": "1.0.7",
+      "version": "1.0.8",
       "category": "LLM Chat",
       "categories": [
         "LLM Chat"
@@ -735,12 +735,12 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "be32d4df": {
       "id": "be32d4df",
       "name": "vllmgemma4e4bone",
-      "version": "1.0.13",
+      "version": "1.0.14",
       "category": "Audio",
       "categories": [
         "Audio",
@@ -755,12 +755,12 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "285e9d99": {
       "id": "285e9d99",
       "name": "vllmqwen3527bone",
-      "version": "1.0.5",
+      "version": "1.0.6",
       "category": "LLM Chat",
       "categories": [
         "LLM Chat"
@@ -774,12 +774,12 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "901d20e0": {
       "id": "901d20e0",
       "name": "vllmqwen36turbo27bone",
-      "version": "2.5.8",
+      "version": "2.5.9",
       "category": "LLM Chat",
       "categories": [
         "LLM Chat",
@@ -794,12 +794,12 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "af406293": {
       "id": "af406293",
       "name": "vllmvoxtral3bone",
-      "version": "1.0.9",
+      "version": "1.0.10",
       "category": "Audio",
       "categories": [
         "Audio"
@@ -813,12 +813,12 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "13db403f": {
       "id": "13db403f",
       "name": "vllmvoxtralrt4bone",
-      "version": "1.0.10",
+      "version": "1.0.11",
       "category": "Audio",
       "categories": [
         "Audio"
@@ -832,12 +832,12 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "efd72908": {
       "id": "efd72908",
       "name": "vllmvoxtraltts4bone",
-      "version": "1.0.14",
+      "version": "1.0.15",
       "category": "TTS",
       "categories": [
         "TTS"
@@ -851,7 +851,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     }
   },
   "details": {
@@ -859,12 +859,12 @@
       "id": "33102786",
       "name": "llamacppqwen35iq4one",
       "cfgType": "app",
-      "chartName": "llamacppqwen35iq4one-1.0.9.tgz",
+      "chartName": "llamacppqwen35iq4one-1.0.10.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen35iq4one.png",
       "description": "Qwen3.5 35B-A3B IQ4_XS via llama.cpp — long context, optimized for Olares One",
       "appID": "33102786",
       "title": "Qwen3.5 35B IQ4 128K One",
-      "version": "1.0.9",
+      "version": "1.0.10",
       "categories": [
         "LLM Chat"
       ],
@@ -912,7 +912,7 @@
         "dependencies": [
           {
             "name": "olares",
-            "version": ">=1.12.3-0",
+            "version": ">=1.12.6-0",
             "type": "system"
           }
         ]
@@ -951,9 +951,9 @@
       "versionHistory": [
         {
           "appName": "llamacppqwen35iq4one",
-          "version": "1.0.9",
+          "version": "1.0.10",
           "versionName": "1.0.9",
-          "mergedAt": "2026-09-29T22:39:55.044000000Z",
+          "mergedAt": "2026-10-02T13:50:10.775000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -963,18 +963,18 @@
         "long ctx"
       ],
       "metadata": null,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "e1311c4c": {
       "id": "e1311c4c",
       "name": "acestepxlone",
       "cfgType": "app",
-      "chartName": "acestepxlone-1.1.9.tgz",
+      "chartName": "acestepxlone-1.1.10.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/acestepxlone.png",
       "description": "ACE-Step 1.5 XL — AI music generation (4B DiT, Turbo+SFT modes), optimized for Olares One",
       "appID": "e1311c4c",
       "title": "ACE-Step XL One",
-      "version": "1.1.9",
+      "version": "1.1.10",
       "categories": [
         "Music"
       ],
@@ -1022,7 +1022,7 @@
         "dependencies": [
           {
             "name": "olares",
-            "version": ">=1.12.3-0",
+            "version": ">=1.12.6-0",
             "type": "system"
           }
         ]
@@ -1061,9 +1061,9 @@
       "versionHistory": [
         {
           "appName": "acestepxlone",
-          "version": "1.1.9",
+          "version": "1.1.10",
           "versionName": "1.1.9",
-          "mergedAt": "2026-09-29T22:39:55.044000000Z",
+          "mergedAt": "2026-10-02T13:50:10.775000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -1073,18 +1073,18 @@
         "music"
       ],
       "metadata": null,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "f9902972": {
       "id": "f9902972",
       "name": "cascade230a3bone",
       "cfgType": "app",
-      "chartName": "cascade230a3bone-1.0.7.tgz",
+      "chartName": "cascade230a3bone-1.0.8.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppnemotron30a3bone.png",
       "description": "Nemotron Cascade 2 30B-A3B via llama.cpp — math and code, optimized for Olares One",
       "appID": "f9902972",
       "title": "Cascade 2 30B-A3B One",
-      "version": "1.0.7",
+      "version": "1.0.8",
       "categories": [
         "LLM Chat"
       ],
@@ -1132,7 +1132,7 @@
         "dependencies": [
           {
             "name": "olares",
-            "version": ">=1.12.3-0",
+            "version": ">=1.12.6-0",
             "type": "system"
           }
         ]
@@ -1171,9 +1171,9 @@
       "versionHistory": [
         {
           "appName": "cascade230a3bone",
-          "version": "1.0.7",
+          "version": "1.0.8",
           "versionName": "1.0.7",
-          "mergedAt": "2026-09-29T22:39:55.044000000Z",
+          "mergedAt": "2026-10-02T13:50:10.775000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -1183,18 +1183,18 @@
         "hybrid"
       ],
       "metadata": null,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "8a7e4366": {
       "id": "8a7e4366",
       "name": "devstralsmallone",
       "cfgType": "app",
-      "chartName": "devstralsmallone-1.0.7.tgz",
+      "chartName": "devstralsmallone-1.0.8.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/devstralsmallone.png",
       "description": "Devstral Small 2507 via llama.cpp — coding agent optimized for Olares One",
       "appID": "8a7e4366",
       "title": "Devstral Small Code One",
-      "version": "1.0.7",
+      "version": "1.0.8",
       "categories": [
         "Coding",
         "AI Agents"
@@ -1243,7 +1243,7 @@
         "dependencies": [
           {
             "name": "olares",
-            "version": ">=1.12.3-0",
+            "version": ">=1.12.6-0",
             "type": "system"
           }
         ]
@@ -1282,9 +1282,9 @@
       "versionHistory": [
         {
           "appName": "devstralsmallone",
-          "version": "1.0.7",
+          "version": "1.0.8",
           "versionName": "1.0.7",
-          "mergedAt": "2026-09-29T22:39:55.044000000Z",
+          "mergedAt": "2026-10-02T13:50:10.775000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -1294,18 +1294,18 @@
         "swe-bench"
       ],
       "metadata": null,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "cf587666": {
       "id": "cf587666",
       "name": "exl3qwen35a3bone",
       "cfgType": "app",
-      "chartName": "exl3qwen35a3bone-1.0.18.tgz",
+      "chartName": "exl3qwen35a3bone-1.0.19.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen35a3bone.png",
       "description": "Qwen3.5 35B-A3B EXL3 4bpw via TabbyAPI + ExLlamaV3 — optimized for Olares One",
       "appID": "cf587666",
       "title": "Qwen3.5 35B EXL3 One",
-      "version": "1.0.18",
+      "version": "1.0.19",
       "categories": [
         "LLM Chat"
       ],
@@ -1353,7 +1353,7 @@
         "dependencies": [
           {
             "name": "olares",
-            "version": ">=1.12.3-0",
+            "version": ">=1.12.6-0",
             "type": "system"
           }
         ]
@@ -1392,9 +1392,9 @@
       "versionHistory": [
         {
           "appName": "exl3qwen35a3bone",
-          "version": "1.0.18",
+          "version": "1.0.19",
           "versionName": "1.0.18",
-          "mergedAt": "2026-09-29T22:39:55.044000000Z",
+          "mergedAt": "2026-10-02T13:50:10.775000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -1404,18 +1404,18 @@
         "exl3"
       ],
       "metadata": null,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "a4f8515c": {
       "id": "a4f8515c",
       "name": "gemma426ba4bone",
       "cfgType": "app",
-      "chartName": "gemma426ba4bone-1.0.11.tgz",
+      "chartName": "gemma426ba4bone-1.0.12.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/gemma426ba4bone.png",
       "description": "Gemma 4 26B-A4B (MoE) with MTP speculative decoding via Atomic Chat llama.cpp fork — Olares One",
       "appID": "a4f8515c",
       "title": "Gemma 4 26B-A4B One",
-      "version": "1.0.11",
+      "version": "1.0.12",
       "categories": [
         "LLM Chat"
       ],
@@ -1463,7 +1463,7 @@
         "dependencies": [
           {
             "name": "olares",
-            "version": ">=1.12.3-0",
+            "version": ">=1.12.6-0",
             "type": "system"
           }
         ]
@@ -1502,9 +1502,9 @@
       "versionHistory": [
         {
           "appName": "gemma426ba4bone",
-          "version": "1.0.11",
+          "version": "1.0.12",
           "versionName": "1.0.11",
-          "mergedAt": "2026-09-29T22:39:55.044000000Z",
+          "mergedAt": "2026-10-02T13:50:10.775000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -1514,18 +1514,18 @@
         "efficient"
       ],
       "metadata": null,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "65b82978": {
       "id": "65b82978",
       "name": "gemma4e2bone",
       "cfgType": "app",
-      "chartName": "gemma4e2bone-1.0.3.tgz",
+      "chartName": "gemma4e2bone-1.0.4.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/gemma426ba4bone.png",
       "description": "Gemma 4 E2B (ultra-fast 2.3B) via llama.cpp — voice pipeline brain for Olares One",
       "appID": "65b82978",
       "title": "Gemma 4 E2B Voice Brain One",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "categories": [
         "Audio",
         "LLM Chat"
@@ -1574,7 +1574,7 @@
         "dependencies": [
           {
             "name": "olares",
-            "version": ">=1.12.3-0",
+            "version": ">=1.12.6-0",
             "type": "system"
           }
         ]
@@ -1613,9 +1613,9 @@
       "versionHistory": [
         {
           "appName": "gemma4e2bone",
-          "version": "1.0.3",
+          "version": "1.0.4",
           "versionName": "1.0.3",
-          "mergedAt": "2026-09-29T22:39:55.044000000Z",
+          "mergedAt": "2026-10-02T13:50:10.775000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -1625,18 +1625,18 @@
         "voice"
       ],
       "metadata": null,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "3f05b625": {
       "id": "3f05b625",
       "name": "llamacppcodernext40bone",
       "cfgType": "app",
-      "chartName": "llamacppcodernext40bone-1.1.6.tgz",
+      "chartName": "llamacppcodernext40bone-1.1.7.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppcodernext40bone.png",
       "description": "Qwen3-Coder-Next REAP 40B-A3B Long Context — 142 t/s @ FULL 262K context coding agent on Olares One",
       "appID": "3f05b625",
       "title": "Qwen3 Coder Next 40B Long Context One",
-      "version": "1.1.6",
+      "version": "1.1.7",
       "categories": [
         "LLM Chat",
         "AI Agents",
@@ -1686,7 +1686,7 @@
         "dependencies": [
           {
             "name": "olares",
-            "version": ">=1.12.3-0",
+            "version": ">=1.12.6-0",
             "type": "system"
           }
         ]
@@ -1725,9 +1725,9 @@
       "versionHistory": [
         {
           "appName": "llamacppcodernext40bone",
-          "version": "1.1.6",
+          "version": "1.1.7",
           "versionName": "1.1.6",
-          "mergedAt": "2026-09-29T22:39:55.044000000Z",
+          "mergedAt": "2026-10-02T13:50:10.775000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -1737,18 +1737,18 @@
         "long context · 262K"
       ],
       "metadata": null,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "ec27bc37": {
       "id": "ec27bc37",
       "name": "llamacppcodernextq4one",
       "cfgType": "app",
-      "chartName": "llamacppcodernextq4one-1.0.6.tgz",
+      "chartName": "llamacppcodernextq4one-1.0.7.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppcodernextq4one.png",
       "description": "Qwen3-Coder-Next REAP 40B-A3B Q4 — 142 t/s @ 128K, higher code quality than Q3 sibling on Olares One",
       "appID": "ec27bc37",
       "title": "Qwen3 Coder Next 40B Q4 One",
-      "version": "1.0.6",
+      "version": "1.0.7",
       "categories": [
         "LLM Chat",
         "AI Agents",
@@ -1798,7 +1798,7 @@
         "dependencies": [
           {
             "name": "olares",
-            "version": ">=1.12.3-0",
+            "version": ">=1.12.6-0",
             "type": "system"
           }
         ]
@@ -1837,9 +1837,9 @@
       "versionHistory": [
         {
           "appName": "llamacppcodernextq4one",
-          "version": "1.0.6",
+          "version": "1.0.7",
           "versionName": "1.0.6",
-          "mergedAt": "2026-09-29T22:39:55.044000000Z",
+          "mergedAt": "2026-10-02T13:50:10.775000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -1849,18 +1849,18 @@
         "Q4 · code quality"
       ],
       "metadata": null,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "6cd2129a": {
       "id": "6cd2129a",
       "name": "llamacppgemma412blcone",
       "cfgType": "app",
-      "chartName": "llamacppgemma412blcone-1.0.2.tgz",
+      "chartName": "llamacppgemma412blcone-1.0.3.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppgemma412blcone.png",
       "description": "Gemma 4 12B QAT + KVarN4 long-context — 262K full native + vision, 87.8 t/s on Olares One",
       "appID": "6cd2129a",
       "title": "Gemma 4 12B Long Context One",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "categories": [
         "LLM Chat",
         "AI Agents",
@@ -1911,7 +1911,7 @@
         "dependencies": [
           {
             "name": "olares",
-            "version": ">=1.12.3-0",
+            "version": ">=1.12.6-0",
             "type": "system"
           }
         ]
@@ -1950,9 +1950,9 @@
       "versionHistory": [
         {
           "appName": "llamacppgemma412blcone",
-          "version": "1.0.2",
+          "version": "1.0.3",
           "versionName": "1.0.2",
-          "mergedAt": "2026-09-29T22:39:55.044000000Z",
+          "mergedAt": "2026-10-02T13:50:10.775000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -1962,18 +1962,18 @@
         "262K · KVarN · vision"
       ],
       "metadata": null,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "fff8241b": {
       "id": "fff8241b",
       "name": "llamacppgemma412bone",
       "cfgType": "app",
-      "chartName": "llamacppgemma412bone-1.0.9.tgz",
+      "chartName": "llamacppgemma412bone-1.0.10.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppgemma412bone.png",
       "description": "Gemma 4 12B QAT UD-Q4_K_XL + bundled MTP drafter (Unsloth) + vision — 169.8 t/s @ 91% accept, 8.6 GB VRAM, 65K ctx on Olares One",
       "appID": "fff8241b",
       "title": "Gemma 4 12B One",
-      "version": "1.0.9",
+      "version": "1.0.10",
       "categories": [
         "LLM Chat",
         "AI Agents",
@@ -2023,7 +2023,7 @@
         "dependencies": [
           {
             "name": "olares",
-            "version": ">=1.12.3-0",
+            "version": ">=1.12.6-0",
             "type": "system"
           }
         ]
@@ -2062,9 +2062,9 @@
       "versionHistory": [
         {
           "appName": "llamacppgemma412bone",
-          "version": "1.0.9",
+          "version": "1.0.10",
           "versionName": "1.0.9",
-          "mergedAt": "2026-09-29T22:39:55.044000000Z",
+          "mergedAt": "2026-10-02T13:50:10.775000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -2074,18 +2074,18 @@
         "QAT · upstream MTP · 170 t/s"
       ],
       "metadata": null,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "2effb583": {
       "id": "2effb583",
       "name": "llamacppgemma426ba4bone",
       "cfgType": "app",
-      "chartName": "llamacppgemma426ba4bone-1.0.6.tgz",
+      "chartName": "llamacppgemma426ba4bone-1.0.7.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppgemma426ba4bone.png",
       "description": "Gemma 4 26B-A4B QAT UD-Q4_K_XL + bundled MTP drafter (Unsloth) + vision — 286.6 t/s @ 91% accept, 16.6 GB VRAM, 32K ctx on Olares One",
       "appID": "2effb583",
       "title": "Gemma 4 26B-A4B One",
-      "version": "1.0.6",
+      "version": "1.0.7",
       "categories": [
         "LLM Chat",
         "AI Agents",
@@ -2135,7 +2135,7 @@
         "dependencies": [
           {
             "name": "olares",
-            "version": ">=1.12.3-0",
+            "version": ">=1.12.6-0",
             "type": "system"
           }
         ]
@@ -2178,9 +2178,9 @@
       "versionHistory": [
         {
           "appName": "llamacppgemma426ba4bone",
-          "version": "1.0.6",
+          "version": "1.0.7",
           "versionName": "1.0.6",
-          "mergedAt": "2026-09-29T22:39:55.044000000Z",
+          "mergedAt": "2026-10-02T13:50:10.775000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -2190,18 +2190,18 @@
         "QAT · MoE · MTP 91%"
       ],
       "metadata": null,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "8c6443a7": {
       "id": "8c6443a7",
       "name": "llamacppgemma4audione",
       "cfgType": "app",
-      "chartName": "llamacppgemma4audione-1.1.2.tgz",
+      "chartName": "llamacppgemma4audione-1.1.3.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppgemma4audione.png",
       "description": "Gemma 4 E4B + audio + bundled MTP drafter (Unsloth) — 288.4 t/s on Olares One (6.1x vs baseline 47 t/s)",
       "appID": "8c6443a7",
       "title": "Gemma 4 Audio One",
-      "version": "1.1.2",
+      "version": "1.1.3",
       "categories": [
         "Audio"
       ],
@@ -2249,7 +2249,7 @@
         "dependencies": [
           {
             "name": "olares",
-            "version": ">=1.12.3-0",
+            "version": ">=1.12.6-0",
             "type": "system"
           }
         ]
@@ -2292,9 +2292,9 @@
       "versionHistory": [
         {
           "appName": "llamacppgemma4audione",
-          "version": "1.1.2",
+          "version": "1.1.3",
           "versionName": "1.1.2",
-          "mergedAt": "2026-09-29T22:39:55.044000000Z",
+          "mergedAt": "2026-10-02T13:50:10.775000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -2304,18 +2304,18 @@
         "audio · MTP 76%"
       ],
       "metadata": null,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "c1ca229f": {
       "id": "c1ca229f",
       "name": "llamacppglm47flash",
       "cfgType": "app",
-      "chartName": "llamacppglm47flash-1.0.12.tgz",
+      "chartName": "llamacppglm47flash-1.0.13.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppglm47flash.png",
       "description": "GLM-4.7-Flash 30B-A3B via llama.cpp — optimized for Olares One",
       "appID": "c1ca229f",
       "title": "GLM-4.7-Flash (Olares One)",
-      "version": "1.0.12",
+      "version": "1.0.13",
       "categories": [
         "LLM Chat"
       ],
@@ -2363,7 +2363,7 @@
         "dependencies": [
           {
             "name": "olares",
-            "version": ">=1.12.3-0",
+            "version": ">=1.12.6-0",
             "type": "system"
           }
         ]
@@ -2402,9 +2402,9 @@
       "versionHistory": [
         {
           "appName": "llamacppglm47flash",
-          "version": "1.0.12",
+          "version": "1.0.13",
           "versionName": "1.0.12",
-          "mergedAt": "2026-09-29T22:39:55.044000000Z",
+          "mergedAt": "2026-10-02T13:50:10.775000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -2414,18 +2414,18 @@
         "glm"
       ],
       "metadata": null,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "491be3cd": {
       "id": "491be3cd",
       "name": "llamacppnemotron30a3bone",
       "cfgType": "app",
-      "chartName": "llamacppnemotron30a3bone-1.0.11.tgz",
+      "chartName": "llamacppnemotron30a3bone-1.0.12.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppnemotron30a3bone.png",
       "description": "Nemotron 3 Nano 30B-A3B via llama.cpp — optimized for Olares One",
       "appID": "491be3cd",
       "title": "Nemotron 30B-A3B Olares One",
-      "version": "1.0.11",
+      "version": "1.0.12",
       "categories": [
         "LLM Chat"
       ],
@@ -2473,7 +2473,7 @@
         "dependencies": [
           {
             "name": "olares",
-            "version": ">=1.12.3-0",
+            "version": ">=1.12.6-0",
             "type": "system"
           }
         ]
@@ -2512,9 +2512,9 @@
       "versionHistory": [
         {
           "appName": "llamacppnemotron30a3bone",
-          "version": "1.0.11",
+          "version": "1.0.12",
           "versionName": "1.0.11",
-          "mergedAt": "2026-09-29T22:39:55.044000000Z",
+          "mergedAt": "2026-10-02T13:50:10.775000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -2524,18 +2524,18 @@
         "nano"
       ],
       "metadata": null,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "02b1d2a9": {
       "id": "02b1d2a9",
       "name": "llamacppnemotrondiffusion14bone",
       "cfgType": "app",
-      "chartName": "llamacppnemotrondiffusion14bone-1.0.2.tgz",
+      "chartName": "llamacppnemotrondiffusion14bone-1.0.3.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppnemotrondiffusion14bone.png",
       "description": "NVIDIA Nemotron-Labs-Diffusion 14B — tri-mode (AR + parallel diffusion + self-spec) — first public diffusion LLM on consumer Blackwell",
       "appID": "02b1d2a9",
       "title": "Nemotron Diffusion 14B One",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "categories": [
         "LLM Chat",
         "AI Agents"
@@ -2584,7 +2584,7 @@
         "dependencies": [
           {
             "name": "olares",
-            "version": ">=1.12.3-0",
+            "version": ">=1.12.6-0",
             "type": "system"
           }
         ]
@@ -2623,9 +2623,9 @@
       "versionHistory": [
         {
           "appName": "llamacppnemotrondiffusion14bone",
-          "version": "1.0.2",
+          "version": "1.0.3",
           "versionName": "1.0.2",
-          "mergedAt": "2026-09-29T22:39:55.044000000Z",
+          "mergedAt": "2026-10-02T13:50:10.775000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -2635,18 +2635,18 @@
         "diffusion"
       ],
       "metadata": null,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "4ef430dd": {
       "id": "4ef430dd",
       "name": "llamacppqwen35a3bone",
       "cfgType": "app",
-      "chartName": "llamacppqwen35a3bone-1.0.31.tgz",
+      "chartName": "llamacppqwen35a3bone-1.0.32.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen35a3bone.png",
       "description": "Qwen3.5 35B-A3B via llama.cpp — optimized for Olares One",
       "appID": "4ef430dd",
       "title": "Qwen3.5 35B-A3B (Olares One)",
-      "version": "1.0.31",
+      "version": "1.0.32",
       "categories": [
         "LLM Chat"
       ],
@@ -2694,7 +2694,7 @@
         "dependencies": [
           {
             "name": "olares",
-            "version": ">=1.12.3-0",
+            "version": ">=1.12.6-0",
             "type": "system"
           }
         ]
@@ -2733,9 +2733,9 @@
       "versionHistory": [
         {
           "appName": "llamacppqwen35a3bone",
-          "version": "1.0.31",
+          "version": "1.0.32",
           "versionName": "1.0.31",
-          "mergedAt": "2026-09-29T22:39:55.044000000Z",
+          "mergedAt": "2026-10-02T13:50:10.775000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -2745,18 +2745,18 @@
         "classic"
       ],
       "metadata": null,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "a1ac4529": {
       "id": "a1ac4529",
       "name": "llamacppqwen36a3bdflashone",
       "cfgType": "app",
-      "chartName": "llamacppqwen36a3bdflashone-1.0.0.tgz",
+      "chartName": "llamacppqwen36a3bdflashone-1.0.1.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen36a3bdflashone.png",
       "description": "Qwen3.6 35B-A3B + DFlash + Vision — 302 t/s @ 128K on Olares One, upstream llama.cpp (no fork)",
       "appID": "a1ac4529",
       "title": "Qwen36 35B-A3B DFlash Vision One",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "categories": [
         "LLM Chat",
         "AI Agents",
@@ -2806,7 +2806,7 @@
         "dependencies": [
           {
             "name": "olares",
-            "version": ">=1.12.3-0",
+            "version": ">=1.12.6-0",
             "type": "system"
           }
         ]
@@ -2845,9 +2845,9 @@
       "versionHistory": [
         {
           "appName": "llamacppqwen36a3bdflashone",
-          "version": "1.0.0",
+          "version": "1.0.1",
           "versionName": "1.0.0",
-          "mergedAt": "2026-09-29T22:39:55.044000000Z",
+          "mergedAt": "2026-10-02T13:50:10.775000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -2857,18 +2857,18 @@
         "dflash · upstream"
       ],
       "metadata": null,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "059cd05d": {
       "id": "059cd05d",
       "name": "llamacppqwen36a3bone",
       "cfgType": "app",
-      "chartName": "llamacppqwen36a3bone-2.0.10.tgz",
+      "chartName": "llamacppqwen36a3bone-2.0.11.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen36a3bone.png",
       "description": "Qwen3.6 35B-A3B MTP + Vision — 243 t/s @ FULL 262K context with vision + tool calling on Olares One",
       "appID": "059cd05d",
       "title": "Qwen36 35B-A3B MTP Vision One",
-      "version": "2.0.10",
+      "version": "2.0.11",
       "categories": [
         "LLM Chat",
         "AI Agents",
@@ -2918,7 +2918,7 @@
         "dependencies": [
           {
             "name": "olares",
-            "version": ">=1.12.3-0",
+            "version": ">=1.12.6-0",
             "type": "system"
           }
         ]
@@ -2957,9 +2957,9 @@
       "versionHistory": [
         {
           "appName": "llamacppqwen36a3bone",
-          "version": "2.0.10",
+          "version": "2.0.11",
           "versionName": "2.0.10",
-          "mergedAt": "2026-09-29T22:39:55.044000000Z",
+          "mergedAt": "2026-10-02T13:50:10.775000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -2969,18 +2969,18 @@
         "champion vision"
       ],
       "metadata": null,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "6ee23f04": {
       "id": "6ee23f04",
       "name": "llamacppqwen36abliteratedone",
       "cfgType": "app",
-      "chartName": "llamacppqwen36abliteratedone-1.0.11.tgz",
+      "chartName": "llamacppqwen36abliteratedone-1.0.12.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen36abliteratedone.png",
       "description": "Qwen3.6 35B-A3B abliterated + Claude 4.7 Opus reasoning distilled — Q4_K smarter quant @ 65K, no guardrails, MTP + Vision on Olares One",
       "appID": "6ee23f04",
       "title": "Qwen36 35B-A3B Abliterated Claude",
-      "version": "1.0.11",
+      "version": "1.0.12",
       "categories": [
         "LLM Chat",
         "AI Agents",
@@ -3031,7 +3031,7 @@
         "dependencies": [
           {
             "name": "olares",
-            "version": ">=1.12.3-0",
+            "version": ">=1.12.6-0",
             "type": "system"
           }
         ]
@@ -3070,9 +3070,9 @@
       "versionHistory": [
         {
           "appName": "llamacppqwen36abliteratedone",
-          "version": "1.0.11",
+          "version": "1.0.12",
           "versionName": "1.0.11",
-          "mergedAt": "2026-09-29T22:39:55.044000000Z",
+          "mergedAt": "2026-10-02T13:50:10.775000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -3082,18 +3082,18 @@
         "abliterated + claude · Q4_K"
       ],
       "metadata": null,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "9ca1356f": {
       "id": "9ca1356f",
       "name": "llamacppqwen36beellamaone",
       "cfgType": "app",
-      "chartName": "llamacppqwen36beellamaone-1.0.9.tgz",
+      "chartName": "llamacppqwen36beellamaone-1.0.10.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen36beellamaone.png",
       "description": "Qwen3.6 27B fastest + longest local — 106 t/s @ FULL 262K via BeeLlama.cpp + DFlash + turbo3 KV",
       "appID": "9ca1356f",
       "title": "Qwen36 27B BeeLlama One",
-      "version": "1.0.9",
+      "version": "1.0.10",
       "categories": [
         "LLM Chat",
         "AI Agents"
@@ -3142,7 +3142,7 @@
         "dependencies": [
           {
             "name": "olares",
-            "version": ">=1.12.3-0",
+            "version": ">=1.12.6-0",
             "type": "system"
           }
         ]
@@ -3181,9 +3181,9 @@
       "versionHistory": [
         {
           "appName": "llamacppqwen36beellamaone",
-          "version": "1.0.9",
+          "version": "1.0.10",
           "versionName": "1.0.9",
-          "mergedAt": "2026-09-29T22:39:55.044000000Z",
+          "mergedAt": "2026-10-02T13:50:10.775000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -3193,18 +3193,18 @@
         "beellama"
       ],
       "metadata": null,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "376c02dd": {
       "id": "376c02dd",
       "name": "llamacppqwen36beellamavisionone",
       "cfgType": "app",
-      "chartName": "llamacppqwen36beellamavisionone-1.0.7.tgz",
+      "chartName": "llamacppqwen36beellamavisionone-1.0.8.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen36beellamavisionone.png",
       "description": "Qwen3.6 27B vision-capable — 106 t/s @ 200K via BeeLlama.cpp + mmproj F16 + DFlash + turbo3 KV",
       "appID": "376c02dd",
       "title": "Qwen36 27B BeeLlama Vision One",
-      "version": "1.0.7",
+      "version": "1.0.8",
       "categories": [
         "Vision",
         "AI Agents"
@@ -3253,7 +3253,7 @@
         "dependencies": [
           {
             "name": "olares",
-            "version": ">=1.12.3-0",
+            "version": ">=1.12.6-0",
             "type": "system"
           }
         ]
@@ -3292,9 +3292,9 @@
       "versionHistory": [
         {
           "appName": "llamacppqwen36beellamavisionone",
-          "version": "1.0.7",
+          "version": "1.0.8",
           "versionName": "1.0.7",
-          "mergedAt": "2026-09-29T22:39:55.044000000Z",
+          "mergedAt": "2026-10-02T13:50:10.775000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -3304,18 +3304,18 @@
         "vision"
       ],
       "metadata": null,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "49ed4ea2": {
       "id": "49ed4ea2",
       "name": "llamacppqwen36dflashone",
       "cfgType": "app",
-      "chartName": "llamacppqwen36dflashone-1.0.6.tgz",
+      "chartName": "llamacppqwen36dflashone-1.0.7.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen36dflashone.png",
       "description": "Qwen3.6 27B + DFlash speculative + TurboQuant turbo3 KV — 76 t/s @ 96K via buun-llama-cpp fork",
       "appID": "49ed4ea2",
       "title": "Qwen36 27B DFlash One",
-      "version": "1.0.6",
+      "version": "1.0.7",
       "categories": [
         "LLM Chat"
       ],
@@ -3363,7 +3363,7 @@
         "dependencies": [
           {
             "name": "olares",
-            "version": ">=1.12.3-0",
+            "version": ">=1.12.6-0",
             "type": "system"
           }
         ]
@@ -3402,9 +3402,9 @@
       "versionHistory": [
         {
           "appName": "llamacppqwen36dflashone",
-          "version": "1.0.6",
+          "version": "1.0.7",
           "versionName": "1.0.6",
-          "mergedAt": "2026-09-29T22:39:55.044000000Z",
+          "mergedAt": "2026-10-02T13:50:10.775000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -3414,18 +3414,18 @@
         "dflash"
       ],
       "metadata": null,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "6a1ddcf0": {
       "id": "6a1ddcf0",
       "name": "llamacppqwen36heretic27bone",
       "cfgType": "app",
-      "chartName": "llamacppqwen36heretic27bone-1.0.3.tgz",
+      "chartName": "llamacppqwen36heretic27bone-1.0.4.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen36heretic27bone.png",
       "description": "Qwen3.6 27B longest context — 74 t/s / 86.7% accept @ full 262K (unsloth UD-Q3_K_XL + MTP master ad27757)",
       "appID": "6a1ddcf0",
       "title": "Qwen36 27B Long Context",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "categories": [
         "LLM Chat"
       ],
@@ -3473,7 +3473,7 @@
         "dependencies": [
           {
             "name": "olares",
-            "version": ">=1.12.3-0",
+            "version": ">=1.12.6-0",
             "type": "system"
           }
         ]
@@ -3512,9 +3512,9 @@
       "versionHistory": [
         {
           "appName": "llamacppqwen36heretic27bone",
-          "version": "1.0.3",
+          "version": "1.0.4",
           "versionName": "1.0.3",
-          "mergedAt": "2026-09-29T22:39:55.044000000Z",
+          "mergedAt": "2026-10-02T13:50:10.775000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -3524,18 +3524,18 @@
         "long ctx"
       ],
       "metadata": null,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "43e83ecd": {
       "id": "43e83ecd",
       "name": "llamacppqwen36mtpone",
       "cfgType": "app",
-      "chartName": "llamacppqwen36mtpone-1.0.18.tgz",
+      "chartName": "llamacppqwen36mtpone-1.0.19.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen36mtpone.png",
       "description": "Qwen3.6 27B longest context — 74 t/s / 86.7% accept @ full 262K (unsloth UD-Q3_K_XL + MTP master ad27757)",
       "appID": "43e83ecd",
       "title": "Qwen36 27B Long Context",
-      "version": "1.0.18",
+      "version": "1.0.19",
       "categories": [
         "LLM Chat"
       ],
@@ -3583,7 +3583,7 @@
         "dependencies": [
           {
             "name": "olares",
-            "version": ">=1.12.3-0",
+            "version": ">=1.12.6-0",
             "type": "system"
           }
         ]
@@ -3622,9 +3622,9 @@
       "versionHistory": [
         {
           "appName": "llamacppqwen36mtpone",
-          "version": "1.0.18",
+          "version": "1.0.19",
           "versionName": "1.0.18",
-          "mergedAt": "2026-09-29T22:39:55.044000000Z",
+          "mergedAt": "2026-10-02T13:50:10.775000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -3634,18 +3634,18 @@
         "long ctx"
       ],
       "metadata": null,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "fa4ef911": {
       "id": "fa4ef911",
       "name": "nemotron3nano4bone",
       "cfgType": "app",
-      "chartName": "nemotron3nano4bone-1.0.7.tgz",
+      "chartName": "nemotron3nano4bone-1.0.8.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/nemotron3nano4bone.png",
       "description": "Nemotron 3 Nano 4B Q8 via llama.cpp — fast edge AI, optimized for Olares One",
       "appID": "fa4ef911",
       "title": "Nemotron 3 Nano 4B One",
-      "version": "1.0.7",
+      "version": "1.0.8",
       "categories": [
         "LLM Chat"
       ],
@@ -3693,7 +3693,7 @@
         "dependencies": [
           {
             "name": "olares",
-            "version": ">=1.12.3-0",
+            "version": ">=1.12.6-0",
             "type": "system"
           }
         ]
@@ -3732,9 +3732,9 @@
       "versionHistory": [
         {
           "appName": "nemotron3nano4bone",
-          "version": "1.0.7",
+          "version": "1.0.8",
           "versionName": "1.0.7",
-          "mergedAt": "2026-09-29T22:39:55.044000000Z",
+          "mergedAt": "2026-10-02T13:50:10.775000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -3744,18 +3744,18 @@
         "nano"
       ],
       "metadata": null,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "99dafa10": {
       "id": "99dafa10",
       "name": "nemotronlabselastic30bnvfp4one",
       "cfgType": "app",
-      "chartName": "nemotronlabselastic30bnvfp4one-1.0.6.tgz",
+      "chartName": "nemotronlabselastic30bnvfp4one-1.0.7.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/nemotronlabselastic30bnvfp4one.png",
       "description": "NVIDIA Nemotron-Labs Elastic 30B-A3B NVFP4 — 182 t/s via FlashInfer SM120 (PR #40082) on Olares One",
       "appID": "99dafa10",
       "title": "Nemotron-Labs 30B NVFP4 One",
-      "version": "1.0.6",
+      "version": "1.0.7",
       "categories": [
         "LLM Chat",
         "AI Agents"
@@ -3804,7 +3804,7 @@
         "dependencies": [
           {
             "name": "olares",
-            "version": ">=1.12.3-0",
+            "version": ">=1.12.6-0",
             "type": "system"
           }
         ]
@@ -3843,9 +3843,9 @@
       "versionHistory": [
         {
           "appName": "nemotronlabselastic30bnvfp4one",
-          "version": "1.0.6",
+          "version": "1.0.7",
           "versionName": "1.0.6",
-          "mergedAt": "2026-09-29T22:39:55.044000000Z",
+          "mergedAt": "2026-10-02T13:50:10.775000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -3855,18 +3855,18 @@
         "nvfp4"
       ],
       "metadata": null,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "e74eca98": {
       "id": "e74eca98",
       "name": "omnivoiceone",
       "cfgType": "app",
-      "chartName": "omnivoiceone-1.1.2.tgz",
+      "chartName": "omnivoiceone-1.1.3.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/omnivoiceone.png",
       "description": "OmniVoice TTS (646 languages, voice cloning, voice design, 0.6B) — optimized for Olares One",
       "appID": "e74eca98",
       "title": "OmniVoice TTS One",
-      "version": "1.1.2",
+      "version": "1.1.3",
       "categories": [
         "TTS"
       ],
@@ -3914,7 +3914,7 @@
         "dependencies": [
           {
             "name": "olares",
-            "version": ">=1.12.3-0",
+            "version": ">=1.12.6-0",
             "type": "system"
           }
         ]
@@ -3953,9 +3953,9 @@
       "versionHistory": [
         {
           "appName": "omnivoiceone",
-          "version": "1.1.2",
+          "version": "1.1.3",
           "versionName": "1.1.2",
-          "mergedAt": "2026-09-29T22:39:55.044000000Z",
+          "mergedAt": "2026-10-02T13:50:10.775000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -3965,18 +3965,18 @@
         "tts"
       ],
       "metadata": null,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "2c5c39c9": {
       "id": "2c5c39c9",
       "name": "qwen35a3bvisionone",
       "cfgType": "app",
-      "chartName": "qwen35a3bvisionone-1.0.11.tgz",
+      "chartName": "qwen35a3bvisionone-1.0.12.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/qwen35a3bvisionone.png",
       "description": "Qwen3.5 35B-A3B Vision via llama.cpp — image + text, optimized for Olares One",
       "appID": "2c5c39c9",
       "title": "Qwen3.5 Vision (Olares One)",
-      "version": "1.0.11",
+      "version": "1.0.12",
       "categories": [
         "Vision"
       ],
@@ -4024,7 +4024,7 @@
         "dependencies": [
           {
             "name": "olares",
-            "version": ">=1.12.3-0",
+            "version": ">=1.12.6-0",
             "type": "system"
           }
         ]
@@ -4063,9 +4063,9 @@
       "versionHistory": [
         {
           "appName": "qwen35a3bvisionone",
-          "version": "1.0.11",
+          "version": "1.0.12",
           "versionName": "1.0.11",
-          "mergedAt": "2026-09-29T22:39:55.044000000Z",
+          "mergedAt": "2026-10-02T13:50:10.775000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -4075,18 +4075,18 @@
         "vision"
       ],
       "metadata": null,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "ed18683c": {
       "id": "ed18683c",
       "name": "qwen35iq4visionone",
       "cfgType": "app",
-      "chartName": "qwen35iq4visionone-1.0.9.tgz",
+      "chartName": "qwen35iq4visionone-1.0.10.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/qwen35iq4visionone.png",
       "description": "Qwen3.5 35B-A3B Vision IQ4_XS via llama.cpp — long context, optimized for Olares One",
       "appID": "ed18683c",
       "title": "Qwen3.5 Vision IQ4 64K One",
-      "version": "1.0.9",
+      "version": "1.0.10",
       "categories": [
         "Vision"
       ],
@@ -4134,7 +4134,7 @@
         "dependencies": [
           {
             "name": "olares",
-            "version": ">=1.12.3-0",
+            "version": ">=1.12.6-0",
             "type": "system"
           }
         ]
@@ -4173,9 +4173,9 @@
       "versionHistory": [
         {
           "appName": "qwen35iq4visionone",
-          "version": "1.0.9",
+          "version": "1.0.10",
           "versionName": "1.0.9",
-          "mergedAt": "2026-09-29T22:39:55.044000000Z",
+          "mergedAt": "2026-10-02T13:50:10.775000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -4185,18 +4185,18 @@
         "vision long"
       ],
       "metadata": null,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "14fdab3c": {
       "id": "14fdab3c",
       "name": "qwen36a3bvisionone",
       "cfgType": "app",
-      "chartName": "qwen36a3bvisionone-1.0.3.tgz",
+      "chartName": "qwen36a3bvisionone-1.0.4.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/qwen36a3bvisionone.png",
       "description": "Qwen3.6 35B-A3B Vision via llama.cpp — image + text, optimized for Olares One",
       "appID": "14fdab3c",
       "title": "Qwen3.6 Vision (Olares One)",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "categories": [
         "Vision",
         "AI Agents"
@@ -4245,7 +4245,7 @@
         "dependencies": [
           {
             "name": "olares",
-            "version": ">=1.12.3-0",
+            "version": ">=1.12.6-0",
             "type": "system"
           }
         ]
@@ -4284,9 +4284,9 @@
       "versionHistory": [
         {
           "appName": "qwen36a3bvisionone",
-          "version": "1.0.3",
+          "version": "1.0.4",
           "versionName": "1.0.3",
-          "mergedAt": "2026-09-29T22:39:55.044000000Z",
+          "mergedAt": "2026-10-02T13:50:10.775000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -4296,18 +4296,18 @@
         "vision"
       ],
       "metadata": null,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "da30d532": {
       "id": "da30d532",
       "name": "qwen3coder30a3bone",
       "cfgType": "app",
-      "chartName": "qwen3coder30a3bone-1.0.1.tgz",
+      "chartName": "qwen3coder30a3bone-1.0.2.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/qwen3coder30a3bone.png",
       "description": "Qwen3 Coder 30B-A3B via llama.cpp — coding agent optimized for Olares One",
       "appID": "da30d532",
       "title": "Qwen3 Coder 30B-A3B One",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "categories": [
         "Coding",
         "AI Agents"
@@ -4356,7 +4356,7 @@
         "dependencies": [
           {
             "name": "olares",
-            "version": ">=1.12.3-0",
+            "version": ">=1.12.6-0",
             "type": "system"
           }
         ]
@@ -4395,9 +4395,9 @@
       "versionHistory": [
         {
           "appName": "qwen3coder30a3bone",
-          "version": "1.0.1",
+          "version": "1.0.2",
           "versionName": "1.0.1",
-          "mergedAt": "2026-09-29T22:39:55.044000000Z",
+          "mergedAt": "2026-10-02T13:50:10.775000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -4407,18 +4407,18 @@
         "coder"
       ],
       "metadata": null,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "49c5b493": {
       "id": "49c5b493",
       "name": "qwen3ttstone",
       "cfgType": "app",
-      "chartName": "qwen3ttstone-1.0.11.tgz",
+      "chartName": "qwen3ttstone-1.0.12.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/qwen3ttstone.png",
       "description": "Qwen3-TTS 1.7B — text-to-speech with voice cloning, optimized for Olares One",
       "appID": "49c5b493",
       "title": "Qwen3-TTS 1.7B (Olares One)",
-      "version": "1.0.11",
+      "version": "1.0.12",
       "categories": [
         "TTS"
       ],
@@ -4466,7 +4466,7 @@
         "dependencies": [
           {
             "name": "olares",
-            "version": ">=1.12.3-0",
+            "version": ">=1.12.6-0",
             "type": "system"
           }
         ]
@@ -4505,9 +4505,9 @@
       "versionHistory": [
         {
           "appName": "qwen3ttstone",
-          "version": "1.0.11",
+          "version": "1.0.12",
           "versionName": "1.0.11",
-          "mergedAt": "2026-09-29T22:39:55.044000000Z",
+          "mergedAt": "2026-10-02T13:50:10.775000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -4517,18 +4517,18 @@
         "tts"
       ],
       "metadata": null,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "fff1cda2": {
       "id": "fff1cda2",
       "name": "racka4bhuone",
       "cfgType": "app",
-      "chartName": "racka4bhuone-1.0.4.tgz",
+      "chartName": "racka4bhuone-1.0.5.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/racka4bhuone.png",
       "description": "Racka 4B — first serious Hungarian LLM (ELTE, Qwen3-4B base, 160B tokens 44% Hungarian) — 133 t/s validated on Olares One",
       "appID": "fff1cda2",
       "title": "Racka 4B Hungarian One",
-      "version": "1.0.4",
+      "version": "1.0.5",
       "categories": [
         "Special Request",
         "LLM Chat",
@@ -4578,7 +4578,7 @@
         "dependencies": [
           {
             "name": "olares",
-            "version": ">=1.12.3-0",
+            "version": ">=1.12.6-0",
             "type": "system"
           }
         ]
@@ -4617,9 +4617,9 @@
       "versionHistory": [
         {
           "appName": "racka4bhuone",
-          "version": "1.0.4",
+          "version": "1.0.5",
           "versionName": "1.0.4",
-          "mergedAt": "2026-09-29T22:39:55.044000000Z",
+          "mergedAt": "2026-10-02T13:50:10.775000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -4629,18 +4629,18 @@
         "hungarian · special request"
       ],
       "metadata": null,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "35ffe672": {
       "id": "35ffe672",
       "name": "vllmgemma426ba4babliteratedone",
       "cfgType": "app",
-      "chartName": "vllmgemma426ba4babliteratedone-1.0.1.tgz",
+      "chartName": "vllmgemma426ba4babliteratedone-1.0.2.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/vllmgemma426ba4babliteratedone.png",
       "description": "Gemma 4 26B-A4B abliterated + MTP via vLLM — 250 t/s @ 128K, no guardrails, vision + tool calling on Olares One",
       "appID": "35ffe672",
       "title": "Gemma 4 26B Abliterated One",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "categories": [
         "LLM Chat",
         "AI Agents",
@@ -4691,7 +4691,7 @@
         "dependencies": [
           {
             "name": "olares",
-            "version": ">=1.12.3-0",
+            "version": ">=1.12.6-0",
             "type": "system"
           }
         ]
@@ -4730,9 +4730,9 @@
       "versionHistory": [
         {
           "appName": "vllmgemma426ba4babliteratedone",
-          "version": "1.0.1",
+          "version": "1.0.2",
           "versionName": "1.0.1",
-          "mergedAt": "2026-09-29T22:39:55.044000000Z",
+          "mergedAt": "2026-10-02T13:50:10.775000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -4742,18 +4742,18 @@
         "abliterated"
       ],
       "metadata": null,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "b3078d17": {
       "id": "b3078d17",
       "name": "vllmgemma426ba4bvisionone",
       "cfgType": "app",
-      "chartName": "vllmgemma426ba4bvisionone-1.0.5.tgz",
+      "chartName": "vllmgemma426ba4bvisionone-1.0.6.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/vllmgemma426ba4bvisionone.png",
       "description": "Gemma 4 26B-A4B vision + MTP via vLLM — 250 t/s @ 128K native + vision + tool calling on Olares One",
       "appID": "b3078d17",
       "title": "Gemma 4 26B Vision MTP One",
-      "version": "1.0.5",
+      "version": "1.0.6",
       "categories": [
         "Vision",
         "AI Agents"
@@ -4802,7 +4802,7 @@
         "dependencies": [
           {
             "name": "olares",
-            "version": ">=1.12.3-0",
+            "version": ">=1.12.6-0",
             "type": "system"
           }
         ]
@@ -4841,9 +4841,9 @@
       "versionHistory": [
         {
           "appName": "vllmgemma426ba4bvisionone",
-          "version": "1.0.5",
+          "version": "1.0.6",
           "versionName": "1.0.5",
-          "mergedAt": "2026-09-29T22:39:55.044000000Z",
+          "mergedAt": "2026-10-02T13:50:10.775000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -4853,18 +4853,18 @@
         "champion vision"
       ],
       "metadata": null,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "18a6f781": {
       "id": "18a6f781",
       "name": "vllmgemma4dflashone",
       "cfgType": "app",
-      "chartName": "vllmgemma4dflashone-1.0.7.tgz",
+      "chartName": "vllmgemma4dflashone-1.0.8.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/vllmgemma4dflashone.png",
       "description": "Gemma 4 26B-A4B + DFlash + AWQ via vLLM — Olares One (fastest Gemma 4 path)",
       "appID": "18a6f781",
       "title": "Gemma 4 26B DFlash One",
-      "version": "1.0.7",
+      "version": "1.0.8",
       "categories": [
         "LLM Chat"
       ],
@@ -4912,7 +4912,7 @@
         "dependencies": [
           {
             "name": "olares",
-            "version": ">=1.12.3-0",
+            "version": ">=1.12.6-0",
             "type": "system"
           }
         ]
@@ -4951,9 +4951,9 @@
       "versionHistory": [
         {
           "appName": "vllmgemma4dflashone",
-          "version": "1.0.7",
+          "version": "1.0.8",
           "versionName": "1.0.7",
-          "mergedAt": "2026-09-29T22:39:55.044000000Z",
+          "mergedAt": "2026-10-02T13:50:10.775000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -4963,18 +4963,18 @@
         "dflash"
       ],
       "metadata": null,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "be32d4df": {
       "id": "be32d4df",
       "name": "vllmgemma4e4bone",
       "cfgType": "app",
-      "chartName": "vllmgemma4e4bone-1.0.13.tgz",
+      "chartName": "vllmgemma4e4bone-1.0.14.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/vllmgemma4e4bone.png",
       "description": "Gemma 4 E4B (Vision + Audio) via vLLM — optimized for Olares One",
       "appID": "be32d4df",
       "title": "Gemma 4 E4B Voice One",
-      "version": "1.0.13",
+      "version": "1.0.14",
       "categories": [
         "Audio",
         "LLM Chat"
@@ -5023,7 +5023,7 @@
         "dependencies": [
           {
             "name": "olares",
-            "version": ">=1.12.3-0",
+            "version": ">=1.12.6-0",
             "type": "system"
           }
         ]
@@ -5062,9 +5062,9 @@
       "versionHistory": [
         {
           "appName": "vllmgemma4e4bone",
-          "version": "1.0.13",
+          "version": "1.0.14",
           "versionName": "1.0.13",
-          "mergedAt": "2026-09-29T22:39:55.044000000Z",
+          "mergedAt": "2026-10-02T13:50:10.775000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -5074,18 +5074,18 @@
         "voice mtp"
       ],
       "metadata": null,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "285e9d99": {
       "id": "285e9d99",
       "name": "vllmqwen3527bone",
       "cfgType": "app",
-      "chartName": "vllmqwen3527bone-1.0.5.tgz",
+      "chartName": "vllmqwen3527bone-1.0.6.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/vllmqwen3527bone.png",
       "description": "Qwen3.5 27B NVFP4 via vLLM — optimized for Olares One",
       "appID": "285e9d99",
       "title": "Qwen3.5 27B NVFP4 vLLM One",
-      "version": "1.0.5",
+      "version": "1.0.6",
       "categories": [
         "LLM Chat"
       ],
@@ -5133,7 +5133,7 @@
         "dependencies": [
           {
             "name": "olares",
-            "version": ">=1.12.3-0",
+            "version": ">=1.12.6-0",
             "type": "system"
           }
         ]
@@ -5172,9 +5172,9 @@
       "versionHistory": [
         {
           "appName": "vllmqwen3527bone",
-          "version": "1.0.5",
+          "version": "1.0.6",
           "versionName": "1.0.5",
-          "mergedAt": "2026-09-29T22:39:55.044000000Z",
+          "mergedAt": "2026-10-02T13:50:10.775000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -5184,18 +5184,18 @@
         "nvfp4"
       ],
       "metadata": null,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "901d20e0": {
       "id": "901d20e0",
       "name": "vllmqwen36turbo27bone",
       "cfgType": "app",
-      "chartName": "vllmqwen36turbo27bone-2.5.8.tgz",
+      "chartName": "vllmqwen36turbo27bone-2.5.9.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/vllmqwen36turbo27bone.png",
       "description": "Qwen3.6 27B fastest stack — vLLM Turbo + Genesis on 24GB",
       "appID": "901d20e0",
       "title": "Qwen36 27B Fast",
-      "version": "2.5.8",
+      "version": "2.5.9",
       "categories": [
         "LLM Chat",
         "AI Agents"
@@ -5244,7 +5244,7 @@
         "dependencies": [
           {
             "name": "olares",
-            "version": ">=1.12.3-0",
+            "version": ">=1.12.6-0",
             "type": "system"
           }
         ]
@@ -5283,9 +5283,9 @@
       "versionHistory": [
         {
           "appName": "vllmqwen36turbo27bone",
-          "version": "2.5.8",
+          "version": "2.5.9",
           "versionName": "2.5.8",
-          "mergedAt": "2026-09-29T22:39:55.044000000Z",
+          "mergedAt": "2026-10-02T13:50:10.775000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -5295,18 +5295,18 @@
         "turbo"
       ],
       "metadata": null,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "af406293": {
       "id": "af406293",
       "name": "vllmvoxtral3bone",
       "cfgType": "app",
-      "chartName": "vllmvoxtral3bone-1.0.9.tgz",
+      "chartName": "vllmvoxtral3bone-1.0.10.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/vllmvoxtral3bone.png",
       "description": "Voxtral Mini 3B ASR via vLLM — audio transcription and understanding, optimized for Olares One",
       "appID": "af406293",
       "title": "Voxtral Mini 3B ASR One",
-      "version": "1.0.9",
+      "version": "1.0.10",
       "categories": [
         "Audio"
       ],
@@ -5354,7 +5354,7 @@
         "dependencies": [
           {
             "name": "olares",
-            "version": ">=1.12.3-0",
+            "version": ">=1.12.6-0",
             "type": "system"
           }
         ]
@@ -5393,9 +5393,9 @@
       "versionHistory": [
         {
           "appName": "vllmvoxtral3bone",
-          "version": "1.0.9",
+          "version": "1.0.10",
           "versionName": "1.0.9",
-          "mergedAt": "2026-09-29T22:39:55.044000000Z",
+          "mergedAt": "2026-10-02T13:50:10.775000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -5405,18 +5405,18 @@
         "asr"
       ],
       "metadata": null,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "13db403f": {
       "id": "13db403f",
       "name": "vllmvoxtralrt4bone",
       "cfgType": "app",
-      "chartName": "vllmvoxtralrt4bone-1.0.10.tgz",
+      "chartName": "vllmvoxtralrt4bone-1.0.11.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/vllmvoxtralrt4bone.png",
       "description": "Voxtral Realtime 4B streaming ASR via vLLM — real-time speech transcription, optimized for Olares One",
       "appID": "13db403f",
       "title": "Voxtral Realtime 4B One",
-      "version": "1.0.10",
+      "version": "1.0.11",
       "categories": [
         "Audio"
       ],
@@ -5464,7 +5464,7 @@
         "dependencies": [
           {
             "name": "olares",
-            "version": ">=1.12.3-0",
+            "version": ">=1.12.6-0",
             "type": "system"
           }
         ]
@@ -5503,9 +5503,9 @@
       "versionHistory": [
         {
           "appName": "vllmvoxtralrt4bone",
-          "version": "1.0.10",
+          "version": "1.0.11",
           "versionName": "1.0.10",
-          "mergedAt": "2026-09-29T22:39:55.044000000Z",
+          "mergedAt": "2026-10-02T13:50:10.775000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -5515,18 +5515,18 @@
         "realtime"
       ],
       "metadata": null,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     },
     "efd72908": {
       "id": "efd72908",
       "name": "vllmvoxtraltts4bone",
       "cfgType": "app",
-      "chartName": "vllmvoxtraltts4bone-1.0.14.tgz",
+      "chartName": "vllmvoxtraltts4bone-1.0.15.tgz",
       "icon": "https://orales-one-market.aamsellem.workers.dev/icons/vllmvoxtraltts4bone.png",
       "description": "Voxtral 4B TTS via vLLM-Omni — text-to-speech with 20 voices, optimized for Olares One",
       "appID": "efd72908",
       "title": "Voxtral 4B TTS One",
-      "version": "1.0.14",
+      "version": "1.0.15",
       "categories": [
         "TTS"
       ],
@@ -5574,7 +5574,7 @@
         "dependencies": [
           {
             "name": "olares",
-            "version": ">=1.12.3-0",
+            "version": ">=1.12.6-0",
             "type": "system"
           }
         ]
@@ -5613,9 +5613,9 @@
       "versionHistory": [
         {
           "appName": "vllmvoxtraltts4bone",
-          "version": "1.0.14",
+          "version": "1.0.15",
           "versionName": "1.0.14",
-          "mergedAt": "2026-09-29T22:39:55.044000000Z",
+          "mergedAt": "2026-10-02T13:50:10.775000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -5625,7 +5625,7 @@
         "tts"
       ],
       "metadata": null,
-      "updated_at": "2026-09-29T22:39:55.044000000Z"
+      "updated_at": "2026-10-02T13:50:10.775000000Z"
     }
   },
   "latest": [

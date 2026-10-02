@@ -3,4 +3,4 @@ appVersion: '2.5.8'
 description: Qwen3.6 27B fastest stack — vLLM Turbo + Genesis on 24GB
 name: vllmqwen36turbo27bone
 type: application
-version: '2.5.8'
+version: '2.5.9'

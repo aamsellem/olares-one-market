@@ -3,4 +3,4 @@ appVersion: '1.0.10'
 description: Voxtral Realtime 4B streaming ASR via vLLM — optimized for Olares One
 name: vllmvoxtralrt4bone
 type: application
-version: '1.0.10'
+version: '1.0.11'

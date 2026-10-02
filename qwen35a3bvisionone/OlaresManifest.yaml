@@ -1,16 +1,17 @@
 ---
-olaresManifest.version: '0.10.0'
+olaresManifest.version: '0.12.0'
 olaresManifest.type: app
-apiVersion: 'v2'
+apiVersion: 'v3'
+workloadReplicas:
+  qwen35a3bvisionone: 1
 metadata:
   name: qwen35a3bvisionone
   icon: https://orales-one-market.aamsellem.workers.dev/icons/qwen35a3bvisionone.png
   description: "Qwen3.5 35B-A3B Vision via llama.cpp — image + text, optimized for Olares One"
-  appid: qwen35a3bvisionone
   title: Qwen3.5 Vision (Olares One)
-  version: '1.0.11'
+  version: '1.0.12'
   categories:
-    - Vision
+    - AI
   bento:
     family: qwen
     size_label: "35B-A3B"
@@ -62,14 +63,16 @@ spec:
     - text: MIT
       url: https://github.com/ggerganov/llama.cpp/blob/master/LICENSE
 
-  limitedCpu: 16
-  requiredCpu: 4
-  requiredDisk: 35Gi
-  limitedDisk: 50Gi
-  limitedMemory: 40Gi
-  requiredMemory: 24Gi
-  requiredGpu: 1Gi
-  limitedGpu: 24Gi
+  accelerator:
+    - mode: nvidia
+      limitedCpu: 16
+      requiredCpu: 4
+      requiredDisk: 35Gi
+      limitedDisk: 50Gi
+      limitedMemory: 40Gi
+      requiredMemory: 24Gi
+      requiredGPUMemory: 1Gi
+      limitedGPUMemory: 24Gi
 
   supportArch:
     - amd64
@@ -79,5 +82,5 @@ options:
   apiTimeout: 0
   dependencies:
     - name: olares
-      version: '>=1.12.3-0'
+      version: '>=1.12.6-0'
       type: system

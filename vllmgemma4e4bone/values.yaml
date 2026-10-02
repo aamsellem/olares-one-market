@@ -1,1 +1,6 @@
-{}
+workloads:
+  vllmgemma4e4bone:
+    replicaCount: 1
+userspace:
+  appData: ""
+olaresEnv: {}

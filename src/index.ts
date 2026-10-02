@@ -8,7 +8,8 @@ interface Env {}
 // registration still matches.
 const SOURCE_ID = 'market.aamsellem';
 
-const OLARES_CONSTRAINT = '>=1.12.3-0';
+const OLARES_CONSTRAINT = '>=1.12.6-0';
+const DEFAULT_OLARES_VERSION = '1.12.6';
 
 const CATEGORY_ICON = 'https://app.cdn.olares.com/icons/market/sidebar/neurology.svg';
 
@@ -25,7 +26,7 @@ function json(data: unknown, status = 200): Response {
 
 // GET /api/v1/appstore/hash?version=X
 function handleHash(url: URL): Response {
-  const version = url.searchParams.get('version') || '1.12.3';
+  const version = url.searchParams.get('version') || DEFAULT_OLARES_VERSION;
   return json({
     hash: catalog.hash,
     last_updated: isoNanos(),
@@ -41,7 +42,7 @@ function isoNanos(d: Date = new Date()): string {
 }
 
 function handleInfo(url: URL): Response {
-  const version = url.searchParams.get('version') || '1.12.3';
+  const version = url.searchParams.get('version') || DEFAULT_OLARES_VERSION;
   const now = isoNanos();
 
   // Studio sidebar: menuList = response.tags. categoryMenu = menuList filtered by app categories.
@@ -264,7 +265,7 @@ function handleApplicationsV2(url: URL): Response {
 // POST /api/v1/applications/info
 async function handleDetail(request: Request): Promise<Response> {
   const body = (await request.json()) as { app_ids: string[]; version: string };
-  const version = body.version || '1.12.3';
+  const version = body.version || DEFAULT_OLARES_VERSION;
   const apps: Record<string, unknown> = {};
   const notFound: string[] = [];
 

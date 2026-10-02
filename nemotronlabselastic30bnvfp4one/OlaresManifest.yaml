@@ -1,17 +1,17 @@
 ---
-olaresManifest.version: '0.10.0'
+olaresManifest.version: '0.12.0'
 olaresManifest.type: app
-apiVersion: 'v2'
+apiVersion: 'v3'
+workloadReplicas:
+  nemotronlabselastic30bnvfp4one: 1
 metadata:
   name: nemotronlabselastic30bnvfp4one
   icon: https://orales-one-market.aamsellem.workers.dev/icons/nemotronlabselastic30bnvfp4one.png
   description: "NVIDIA Nemotron-Labs Elastic 30B-A3B NVFP4 — 182 t/s via FlashInfer SM120 (PR #40082) on Olares One"
-  appid: nemotronlabselastic30bnvfp4one
   title: Nemotron-Labs 30B NVFP4 One
-  version: '1.0.6'
+  version: '1.0.7'
   categories:
-    - LLM Chat
-    - AI Agents
+    - AI
   bento:
     family: nemotron
     size_label: "30B-A3B"
@@ -123,14 +123,16 @@ spec:
     - text: NVIDIA Open Model License
       url: https://huggingface.co/nvidia/NVIDIA-Nemotron-Labs-3-Elastic-30B-A3B-NVFP4/blob/main/LICENSE.md
 
-  limitedCpu: 16
-  requiredCpu: 4
-  requiredDisk: 25Gi
-  limitedDisk: 40Gi
-  limitedMemory: 40Gi
-  requiredMemory: 20Gi
-  requiredGpu: 1Gi
-  limitedGpu: 24Gi
+  accelerator:
+    - mode: nvidia
+      limitedCpu: 16
+      requiredCpu: 4
+      requiredDisk: 25Gi
+      limitedDisk: 40Gi
+      limitedMemory: 40Gi
+      requiredMemory: 20Gi
+      requiredGPUMemory: 1Gi
+      limitedGPUMemory: 24Gi
 
   supportArch:
     - amd64
@@ -140,7 +142,7 @@ options:
   apiTimeout: 0
   dependencies:
     - name: olares
-      version: '>=1.12.3-0'
+      version: '>=1.12.6-0'
       type: system
 envs:
   - envName: OLARES_USER_HUGGINGFACE_SERVICE

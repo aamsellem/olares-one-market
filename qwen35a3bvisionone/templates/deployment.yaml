@@ -26,7 +26,7 @@ metadata:
   annotations:
     applications.app.bytetrade.io/gpu-inject: "true"
 spec:
-  replicas: 1
+  replicas: {{ .Values.workloads.qwen35a3bvisionone.replicaCount }}
   selector:
     matchLabels:
       io.kompose.service: qwen35a3bvisionone

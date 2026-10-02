@@ -3,4 +3,4 @@ appVersion: '1.0.11'
 description: Nemotron 3 Nano 30B-A3B served via llama.cpp — optimized for Olares One
 name: llamacppnemotron30a3bone
 type: application
-version: '1.0.11'
+version: '1.0.12'

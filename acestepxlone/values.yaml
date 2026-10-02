@@ -1,1 +1,6 @@
-{}
+workloads:
+  acestepxlone:
+    replicaCount: 1
+userspace:
+  appData: ""
+olaresEnv: {}

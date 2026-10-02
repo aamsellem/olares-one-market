@@ -1,16 +1,17 @@
 ---
-olaresManifest.version: '0.10.0'
+olaresManifest.version: '0.12.0'
 olaresManifest.type: app
-apiVersion: 'v2'
+apiVersion: 'v3'
+workloadReplicas:
+  omnivoiceone: 1
 metadata:
   name: omnivoiceone
   icon: https://orales-one-market.aamsellem.workers.dev/icons/omnivoiceone.png
   description: "OmniVoice TTS (646 languages, voice cloning, voice design, 0.6B) — optimized for Olares One"
-  appid: omnivoiceone
   title: OmniVoice TTS One
-  version: '1.1.2'
+  version: '1.1.3'
   categories:
-    - TTS
+    - AI
   bento:
     family: other
     size_label: "OmniVoice"
@@ -127,14 +128,16 @@ spec:
     - text: Apache 2.0
       url: https://www.apache.org/licenses/LICENSE-2.0
 
-  limitedCpu: 16
-  requiredCpu: 4
-  requiredDisk: 10Gi
-  limitedDisk: 20Gi
-  limitedMemory: 16Gi
-  requiredMemory: 4Gi
-  requiredGpu: 1Gi
-  limitedGpu: 24Gi
+  accelerator:
+    - mode: nvidia
+      limitedCpu: 16
+      requiredCpu: 4
+      requiredDisk: 10Gi
+      limitedDisk: 20Gi
+      limitedMemory: 16Gi
+      requiredMemory: 4Gi
+      requiredGPUMemory: 1Gi
+      limitedGPUMemory: 24Gi
 
   supportArch:
     - amd64
@@ -144,5 +147,5 @@ options:
   apiTimeout: 0
   dependencies:
     - name: olares
-      version: '>=1.12.3-0'
+      version: '>=1.12.6-0'
       type: system

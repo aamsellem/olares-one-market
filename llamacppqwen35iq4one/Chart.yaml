@@ -3,4 +3,4 @@ appVersion: '1.0.9'
 description: Qwen3.5 35B-A3B IQ4_XS served via llama.cpp — long context optimized for Olares One
 name: llamacppqwen35iq4one
 type: application
-version: '1.0.9'
+version: '1.0.10'
