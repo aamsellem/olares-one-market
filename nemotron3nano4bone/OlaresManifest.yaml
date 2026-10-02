@@ -1,16 +1,17 @@
 ---
-olaresManifest.version: '0.10.0'
+olaresManifest.version: '0.12.0'
 olaresManifest.type: app
-apiVersion: 'v2'
+apiVersion: 'v3'
+workloadReplicas:
+  nemotron3nano4bone: 1
 metadata:
   name: nemotron3nano4bone
   icon: https://orales-one-market.aamsellem.workers.dev/icons/nemotron3nano4bone.png
   description: "Nemotron 3 Nano 4B Q8 via llama.cpp — fast edge AI, optimized for Olares One"
-  appid: nemotron3nano4bone
   title: Nemotron 3 Nano 4B One
-  version: '1.0.7'
+  version: '1.0.8'
   categories:
-    - LLM Chat
+    - AI
   bento:
     family: nemotron
     size_label: "4B"
@@ -59,14 +60,16 @@ spec:
     - text: NVIDIA Open Model License
       url: https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Nano-4B-BF16/blob/main/LICENSE
 
-  limitedCpu: 8
-  requiredCpu: 2
-  requiredDisk: 10Gi
-  limitedDisk: 20Gi
-  limitedMemory: 16Gi
-  requiredMemory: 8Gi
-  requiredGpu: 1Gi
-  limitedGpu: 24Gi
+  accelerator:
+    - mode: nvidia
+      limitedCpu: 8
+      requiredCpu: 2
+      requiredDisk: 10Gi
+      limitedDisk: 20Gi
+      limitedMemory: 16Gi
+      requiredMemory: 8Gi
+      requiredGPUMemory: 1Gi
+      limitedGPUMemory: 24Gi
 
   supportArch:
     - amd64
@@ -76,5 +79,5 @@ options:
   apiTimeout: 0
   dependencies:
     - name: olares
-      version: '>=1.12.3-0'
+      version: '>=1.12.6-0'
       type: system

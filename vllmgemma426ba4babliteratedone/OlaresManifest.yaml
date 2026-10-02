@@ -1,19 +1,17 @@
 ---
-olaresManifest.version: '0.10.0'
+olaresManifest.version: '0.12.0'
 olaresManifest.type: app
-apiVersion: 'v2'
+apiVersion: 'v3'
+workloadReplicas:
+  vllmgemma426ba4babliteratedone: 1
 metadata:
   name: vllmgemma426ba4babliteratedone
   icon: https://orales-one-market.aamsellem.workers.dev/icons/vllmgemma426ba4babliteratedone.png
   description: "Gemma 4 26B-A4B abliterated + MTP via vLLM — 250 t/s @ 128K, no guardrails, vision + tool calling on Olares One"
-  appid: vllmgemma426ba4babliteratedone
   title: Gemma 4 26B Abliterated One
-  version: '1.0.1'
+  version: '1.0.2'
   categories:
-    - LLM Chat
-    - AI Agents
-    - Vision
-    - Uncensored
+    - AI
   bento:
     family: gemma
     size_label: "26B-A4B"
@@ -87,14 +85,16 @@ spec:
     - text: Gemma-Terms
       url: https://ai.google.dev/gemma/terms
 
-  limitedCpu: 16
-  requiredCpu: 4
-  requiredDisk: 30Gi
-  limitedDisk: 50Gi
-  limitedMemory: 40Gi
-  requiredMemory: 24Gi
-  requiredGpu: 1Gi
-  limitedGpu: 24Gi
+  accelerator:
+    - mode: nvidia
+      limitedCpu: 16
+      requiredCpu: 4
+      requiredDisk: 30Gi
+      limitedDisk: 50Gi
+      limitedMemory: 40Gi
+      requiredMemory: 24Gi
+      requiredGPUMemory: 1Gi
+      limitedGPUMemory: 24Gi
 
   supportArch:
     - amd64
@@ -115,5 +115,5 @@ options:
   apiTimeout: 0
   dependencies:
     - name: olares
-      version: '>=1.12.3-0'
+      version: '>=1.12.6-0'
       type: system

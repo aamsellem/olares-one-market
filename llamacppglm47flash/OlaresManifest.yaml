@@ -1,16 +1,17 @@
 ---
-olaresManifest.version: '0.10.0'
+olaresManifest.version: '0.12.0'
 olaresManifest.type: app
-apiVersion: 'v2'
+apiVersion: 'v3'
+workloadReplicas:
+  llamacppglm47flash: 1
 metadata:
   name: llamacppglm47flash
   icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppglm47flash.png
   description: "GLM-4.7-Flash 30B-A3B via llama.cpp — optimized for Olares One"
-  appid: llamacppglm47flash
   title: GLM-4.7-Flash (Olares One)
-  version: '1.0.12'
+  version: '1.0.13'
   categories:
-    - LLM Chat
+    - AI
   bento:
     family: other
     size_label: "Flash"
@@ -58,14 +59,16 @@ spec:
     - text: MIT
       url: https://github.com/THUDM/GLM-4/blob/main/LICENSE
 
-  limitedCpu: 16
-  requiredCpu: 4
-  requiredDisk: 25Gi
-  limitedDisk: 40Gi
-  limitedMemory: 40Gi
-  requiredMemory: 20Gi
-  requiredGpu: 1Gi
-  limitedGpu: 24Gi
+  accelerator:
+    - mode: nvidia
+      limitedCpu: 16
+      requiredCpu: 4
+      requiredDisk: 25Gi
+      limitedDisk: 40Gi
+      limitedMemory: 40Gi
+      requiredMemory: 20Gi
+      requiredGPUMemory: 1Gi
+      limitedGPUMemory: 24Gi
 
   supportArch:
     - amd64
@@ -75,5 +78,5 @@ options:
   apiTimeout: 0
   dependencies:
     - name: olares
-      version: '>=1.12.3-0'
+      version: '>=1.12.6-0'
       type: system

@@ -5,3 +5,7 @@ userspace:
   appData: ""
   appCache: ""
   userData: ""
+workloads:
+  llamacppqwen36beellamavisionone:
+    replicaCount: 1
+olaresEnv: {}

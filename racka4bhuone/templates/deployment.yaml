@@ -21,7 +21,7 @@ metadata:
   annotations:
     applications.app.bytetrade.io/gpu-inject: "true"
 spec:
-  replicas: 1
+  replicas: {{ .Values.workloads.racka4bhuone.replicaCount }}
   selector:
     matchLabels:
       io.kompose.service: racka4bhuone

@@ -1,18 +1,17 @@
 ---
-olaresManifest.version: '0.10.0'
+olaresManifest.version: '0.12.0'
 olaresManifest.type: app
-apiVersion: 'v2'
+apiVersion: 'v3'
+workloadReplicas:
+  racka4bhuone: 1
 metadata:
   name: racka4bhuone
   icon: https://orales-one-market.aamsellem.workers.dev/icons/racka4bhuone.png
   description: "Racka 4B — first serious Hungarian LLM (ELTE, Qwen3-4B base, 160B tokens 44% Hungarian) — 133 t/s validated on Olares One"
-  appid: racka4bhuone
   title: Racka 4B Hungarian One
-  version: '1.0.4'
+  version: '1.0.5'
   categories:
-    - Special Request
-    - LLM Chat
-    - AI Agents
+    - AI
   bento:
     family: qwen
     size_label: "4B"
@@ -99,14 +98,16 @@ spec:
     - text: CC-BY-NC-SA-4.0 (non-commercial)
       url: https://huggingface.co/elte-nlp/Racka-4B-GGUF
 
-  limitedCpu: 8
-  requiredCpu: 2
-  requiredDisk: 8Gi
-  limitedDisk: 12Gi
-  limitedMemory: 16Gi
-  requiredMemory: 6Gi
-  requiredGpu: 1Gi
-  limitedGpu: 8Gi
+  accelerator:
+    - mode: nvidia
+      limitedCpu: 8
+      requiredCpu: 2
+      requiredDisk: 8Gi
+      limitedDisk: 12Gi
+      limitedMemory: 16Gi
+      requiredMemory: 6Gi
+      requiredGPUMemory: 1Gi
+      limitedGPUMemory: 8Gi
 
   supportArch:
     - amd64
@@ -116,7 +117,7 @@ options:
   apiTimeout: 0
   dependencies:
     - name: olares
-      version: '>=1.12.3-0'
+      version: '>=1.12.6-0'
       type: system
 envs:
   - envName: OLARES_USER_HUGGINGFACE_TOKEN

@@ -4,3 +4,7 @@ bfl:
 userspace:
   appData: ""
   userData: ""
+workloads:
+  vllmqwen3527bone:
+    replicaCount: 1
+olaresEnv: {}

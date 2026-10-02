@@ -3,4 +3,4 @@ appVersion: '1.0.7'
 description: Nemotron Cascade 2 30B-A3B served via llama.cpp — math and code optimized for Olares One
 name: cascade230a3bone
 type: application
-version: '1.0.7'
+version: '1.0.8'

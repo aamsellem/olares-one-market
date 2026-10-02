@@ -1,16 +1,17 @@
 ---
-olaresManifest.version: '0.10.0'
+olaresManifest.version: '0.12.0'
 olaresManifest.type: app
-apiVersion: 'v2'
+apiVersion: 'v3'
+workloadReplicas:
+  qwen3ttstone: 1
 metadata:
   name: qwen3ttstone
   icon: https://orales-one-market.aamsellem.workers.dev/icons/qwen3ttstone.png
   description: "Qwen3-TTS 1.7B — text-to-speech with voice cloning, optimized for Olares One"
-  appid: qwen3ttstone
   title: Qwen3-TTS 1.7B (Olares One)
-  version: '1.0.11'
+  version: '1.0.12'
   categories:
-    - TTS
+    - AI
   bento:
     family: qwen
     size_label: "1.7B"
@@ -56,14 +57,16 @@ spec:
     - text: Apache-2.0
       url: https://github.com/QwenLM/Qwen3-TTS/blob/main/LICENSE
 
-  limitedCpu: 8
-  requiredCpu: 4
-  requiredDisk: 15Gi
-  limitedDisk: 30Gi
-  limitedMemory: 16Gi
-  requiredMemory: 8Gi
-  requiredGpu: 1Gi
-  limitedGpu: 8Gi
+  accelerator:
+    - mode: nvidia
+      limitedCpu: 8
+      requiredCpu: 4
+      requiredDisk: 15Gi
+      limitedDisk: 30Gi
+      limitedMemory: 16Gi
+      requiredMemory: 8Gi
+      requiredGPUMemory: 1Gi
+      limitedGPUMemory: 8Gi
 
   supportArch:
     - amd64
@@ -73,5 +76,5 @@ options:
   apiTimeout: 0
   dependencies:
     - name: olares
-      version: '>=1.12.3-0'
+      version: '>=1.12.6-0'
       type: system

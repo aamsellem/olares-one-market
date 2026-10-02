@@ -1,16 +1,17 @@
 ---
-olaresManifest.version: '0.10.0'
+olaresManifest.version: '0.12.0'
 olaresManifest.type: app
-apiVersion: 'v2'
+apiVersion: 'v3'
+workloadReplicas:
+  vllmvoxtral3bone: 1
 metadata:
   name: vllmvoxtral3bone
   icon: https://orales-one-market.aamsellem.workers.dev/icons/vllmvoxtral3bone.png
   description: "Voxtral Mini 3B ASR via vLLM — audio transcription and understanding, optimized for Olares One"
-  appid: vllmvoxtral3bone
   title: Voxtral Mini 3B ASR One
-  version: '1.0.9'
+  version: '1.0.10'
   categories:
-    - Audio
+    - AI
   bento:
     family: voxtral
     size_label: "Mini 3B"
@@ -57,14 +58,16 @@ spec:
     - text: Apache 2.0
       url: https://www.apache.org/licenses/LICENSE-2.0
 
-  limitedCpu: 16
-  requiredCpu: 4
-  requiredDisk: 20Gi
-  limitedDisk: 30Gi
-  limitedMemory: 40Gi
-  requiredMemory: 4Gi
-  requiredGpu: 1Gi
-  limitedGpu: 24Gi
+  accelerator:
+    - mode: nvidia
+      limitedCpu: 16
+      requiredCpu: 4
+      requiredDisk: 20Gi
+      limitedDisk: 30Gi
+      limitedMemory: 40Gi
+      requiredMemory: 4Gi
+      requiredGPUMemory: 1Gi
+      limitedGPUMemory: 24Gi
 
   supportArch:
     - amd64
@@ -74,5 +77,5 @@ options:
   apiTimeout: 0
   dependencies:
     - name: olares
-      version: '>=1.12.3-0'
+      version: '>=1.12.6-0'
       type: system

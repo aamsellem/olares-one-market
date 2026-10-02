@@ -3,4 +3,4 @@ appVersion: '1.0.2'
 description: NVIDIA Nemotron-Labs-Diffusion 14B — tri-mode (AR + Diffusion + self-spec) on llama.cpp via spiritbuun fork
 name: llamacppnemotrondiffusion14bone
 type: application
-version: '1.0.2'
+version: '1.0.3'

@@ -1,1 +1,6 @@
-{}
+workloads:
+  vllmvoxtral3bone:
+    replicaCount: 1
+userspace:
+  appData: ""
+olaresEnv: {}

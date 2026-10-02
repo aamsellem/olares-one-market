@@ -1,18 +1,17 @@
 ---
-olaresManifest.version: '0.10.0'
+olaresManifest.version: '0.12.0'
 olaresManifest.type: app
-apiVersion: 'v2'
+apiVersion: 'v3'
+workloadReplicas:
+  llamacppcodernext40bone: 1
 metadata:
   name: llamacppcodernext40bone
   icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppcodernext40bone.png
   description: "Qwen3-Coder-Next REAP 40B-A3B — 142 t/s @ FULL 262K context coding agent on Olares One"
-  appid: llamacppcodernext40bone
   title: Qwen3 Coder Next 40B One
-  version: '1.0.0'
+  version: '1.1.7'
   categories:
-    - LLM Chat
-    - AI Agents
-    - Coding
+    - AI
   bento:
     family: qwen
     size_label: "40B-A3B"
@@ -111,14 +110,16 @@ spec:
     - text: Apache-2.0
       url: https://huggingface.co/Qwen/Qwen3-Coder-Next/blob/main/LICENSE
 
-  limitedCpu: 16
-  requiredCpu: 4
-  requiredDisk: 30Gi
-  limitedDisk: 50Gi
-  limitedMemory: 40Gi
-  requiredMemory: 24Gi
-  requiredGpu: 1Gi
-  limitedGpu: 24Gi
+  accelerator:
+    - mode: nvidia
+      limitedCpu: 16
+      requiredCpu: 4
+      requiredDisk: 30Gi
+      limitedDisk: 50Gi
+      limitedMemory: 40Gi
+      requiredMemory: 24Gi
+      requiredGPUMemory: 1Gi
+      limitedGPUMemory: 24Gi
 
   supportArch:
     - amd64
@@ -128,5 +129,5 @@ options:
   apiTimeout: 0
   dependencies:
     - name: olares
-      version: '>=1.12.3-0'
+      version: '>=1.12.6-0'
       type: system

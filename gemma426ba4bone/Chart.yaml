@@ -3,4 +3,4 @@ appVersion: '1.0.11'
 description: Gemma 4 26B-A4B (MoE) with MTP speculative decoding via Atomic Chat llama.cpp fork — Olares One
 name: gemma426ba4bone
 type: application
-version: '1.0.11'
+version: '1.0.12'

@@ -11,10 +11,12 @@ The argument is the app name (directory name in the repo root, e.g., "llamacppqw
 ### Step 1: Validate and package the chart
 
 - Verify Chart.yaml + OlaresManifest.yaml exist and are correct:
-  - `olaresManifest.version: '0.10.0'`
-  - `apiVersion: 'v2'` present
-  - CPU values in integer cores (not millicores)
-  - All required spec fields present
+  - `olaresManifest.version: '0.12.0'`
+  - `apiVersion: 'v3'` present, with no `metadata.appid` or manifest template directives
+  - `spec.accelerator` declares the NVIDIA resource envelope and `permission.appData: true`
+  - `workloadReplicas`, `values.yaml` workload replica count, and Deployment replicas agree
+  - Olares system dependency is `>=1.12.6-0`
+- Run `npm run validate:manifests` before packaging
 - Run `helm template <app-dir>` to verify template rendering (check for YAML errors)
 - Package: `helm package <app-dir> -d charts/`
 - Report the `.tgz` file path and size

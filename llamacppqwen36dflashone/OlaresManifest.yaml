@@ -1,16 +1,17 @@
 ---
-olaresManifest.version: '0.10.0'
+olaresManifest.version: '0.12.0'
 olaresManifest.type: app
-apiVersion: 'v2'
+apiVersion: 'v3'
+workloadReplicas:
+  llamacppqwen36dflashone: 1
 metadata:
   name: llamacppqwen36dflashone
   icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen36dflashone.png
   description: "Qwen3.6 27B + DFlash speculative + TurboQuant turbo3 KV — 76 t/s @ 96K via buun-llama-cpp fork"
-  appid: llamacppqwen36dflashone
   title: Qwen36 27B DFlash One
-  version: 1.0.6
+  version: '1.0.7'
   categories:
-    - LLM Chat
+    - AI
   bento:
     family: qwen
     size_label: "27B"
@@ -79,14 +80,16 @@ spec:
     - text: MIT
       url: https://github.com/ggml-org/llama.cpp/blob/master/LICENSE
 
-  limitedCpu: 16
-  requiredCpu: 4
-  requiredDisk: 25Gi
-  limitedDisk: 40Gi
-  limitedMemory: 40Gi
-  requiredMemory: 20Gi
-  requiredGpu: 1Gi
-  limitedGpu: 24Gi
+  accelerator:
+    - mode: nvidia
+      limitedCpu: 16
+      requiredCpu: 4
+      requiredDisk: 25Gi
+      limitedDisk: 40Gi
+      limitedMemory: 40Gi
+      requiredMemory: 20Gi
+      requiredGPUMemory: 1Gi
+      limitedGPUMemory: 24Gi
 
   supportArch:
     - amd64
@@ -96,7 +99,7 @@ options:
   apiTimeout: 0
   dependencies:
     - name: olares
-      version: '>=1.12.3-0'
+      version: '>=1.12.6-0'
       type: system
 envs:
   - envName: OLARES_USER_HUGGINGFACE_TOKEN

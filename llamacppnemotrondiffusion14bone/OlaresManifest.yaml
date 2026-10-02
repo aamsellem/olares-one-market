@@ -1,17 +1,17 @@
 ---
-olaresManifest.version: '0.10.0'
+olaresManifest.version: '0.12.0'
 olaresManifest.type: app
-apiVersion: 'v2'
+apiVersion: 'v3'
+workloadReplicas:
+  llamacppnemotrondiffusion14bone: 1
 metadata:
   name: llamacppnemotrondiffusion14bone
   icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppnemotrondiffusion14bone.png
   description: "NVIDIA Nemotron-Labs-Diffusion 14B — tri-mode (AR + parallel diffusion + self-spec) — first public diffusion LLM on consumer Blackwell"
-  appid: llamacppnemotrondiffusion14bone
   title: Nemotron Diffusion 14B One
-  version: 1.0.2
+  version: '1.0.3'
   categories:
-    - LLM Chat
-    - AI Agents
+    - AI
   bento:
     family: nemotron
     size_label: "14B"
@@ -89,14 +89,16 @@ spec:
     - text: NVIDIA Nemotron Open Model License
       url: https://huggingface.co/nvidia/Nemotron-Labs-Diffusion-14B/blob/main/LICENSE
 
-  limitedCpu: 16
-  requiredCpu: 4
-  requiredDisk: 20Gi
-  limitedDisk: 30Gi
-  limitedMemory: 32Gi
-  requiredMemory: 12Gi
-  requiredGpu: 1Gi
-  limitedGpu: 24Gi
+  accelerator:
+    - mode: nvidia
+      limitedCpu: 16
+      requiredCpu: 4
+      requiredDisk: 20Gi
+      limitedDisk: 30Gi
+      limitedMemory: 32Gi
+      requiredMemory: 12Gi
+      requiredGPUMemory: 1Gi
+      limitedGPUMemory: 24Gi
 
   supportArch:
     - amd64
@@ -106,7 +108,7 @@ options:
   apiTimeout: 0
   dependencies:
     - name: olares
-      version: '>=1.12.3-0'
+      version: '>=1.12.6-0'
       type: system
 envs:
   - envName: OLARES_USER_HUGGINGFACE_TOKEN
