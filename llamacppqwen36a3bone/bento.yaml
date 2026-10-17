@@ -14,4 +14,4 @@ capabilities:
   vision:       true
   audio:        false
   mtp:          { enabled: true, accept: 86.6 }
-stack: "buun-llama.cpp 87c351d2 · Q3_K_XL · MTP + mmproj-gpu-swap"
+stack: "buun-llama.cpp 316e88e · Q3_K_XL · MTP + mmproj-gpu-swap"

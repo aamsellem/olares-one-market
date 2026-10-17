@@ -12,7 +12,7 @@ metadata:
   description: "Qwen3.6 35B-A3B MTP + Vision — 243 t/s @ FULL 262K context with vision + tool calling on Olares One"
   appid: llamacppqwen36a3bone
   title: Qwen36 35B-A3B MTP Vision One
-  version: '2.1.0'
+  version: '2.1.1'
   categories:
     - LLM Chat
     - AI Agents
@@ -26,9 +26,11 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '2.1.0'
+  versionName: '2.1.1'
   upgradeDescription: |
-    v2.1.0: **Olares 1.12.6+ compatibility: manifest migrated to apiVersion v3.** Olares 1.12.6 deprecated apiVersion v2 apps: installed v2 versions keep running but can no longer be upgraded or installed ("This app version has been deprecated and cannot be upgraded"). If you run 2.0.x, **uninstall it and install 2.1.0** — the model files in `/olares/share/ai/model/llms/` are kept, nothing is re-downloaded. Inference stack unchanged (buun-llama-cpp `87c351d2`, Qwen3.6 35B-A3B UD-Q3_K_XL + MTP + vision). Requires Olares >= 1.12.6.
+    v2.1.1: **fix: text request after an image crashed the server.** With `buun-llama-cpp:87c351d2` (used since v2.0.7), after a vision request `--mmproj-gpu-swap` did not put the MTP drafter back ("no MTP to restore") and the next text request segfaulted (exit 139, pod restart). Image back to `buun-llama-cpp:316e88e`, the build `--mmproj-gpu-swap` was validated on. Tested on Olares One 2026-10-17 with the exact chart args: text → image → text → image → text, no crash, MTP restored after each image; Space Invaders 239-244 t/s; 16.8K-token prompt 3.9K t/s prefill, 148 t/s gen; tool calling OK (parallel `get_weather` calls, finish_reason=tool_calls, 3/3). Same speed as 87c351d2 with the asymmetric q8_0-K/turbo4-V KV.
+
+    v2.1.0: **Olares 1.12.6+ compatibility: manifest migrated to apiVersion v3.** Olares 1.12.6 deprecated apiVersion v2 apps: installed v2 versions keep running but can no longer be upgraded or installed ("This app version has been deprecated and cannot be upgraded"). If you run 2.0.x, **uninstall it and install 2.1.0** — the model files in `/olares/share/ai/model/llms/` are kept, nothing is re-downloaded. Inference stack unchanged (buun-llama-cpp, Qwen3.6 35B-A3B UD-Q3_K_XL + MTP + vision). Requires Olares >= 1.12.6.
 
     v2.0.9: **fix missing `envs:` declaration for HF token**. `templates/deployment.yaml` referenced `HF_TOKEN=.Values.olaresEnv.OLARES_USER_HUGGINGFACE_TOKEN` but `OlaresManifest.yaml` never declared `OLARES_USER_HUGGINGFACE_TOKEN` in an `envs:` block — so Helm rendered `HF_TOKEN=""` and any gated-model download from HuggingFace failed with 401. Same class of bug as `nemotronlabselastic30bnvfp4one` v1.0.3 (Discord-reported crash loop). No functional change for public models; fixes gated-repo access. Declared `required: false` so install still works when the user hasn't configured a token in Olares Settings.
 
