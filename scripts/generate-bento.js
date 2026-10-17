@@ -1,6 +1,7 @@
 // Generate impactful Bento PNG screenshots for Olares One Market apps.
 // Asymmetric grid + decorative SVG graphics (speedometer, progress bar, icons).
-// Reads `metadata.bento` from each OlaresManifest.yaml.
+// Reads the bento block from <app>/bento.yaml (apiVersion v3 charts: the v3 manifest
+// schema rejects unknown metadata fields) or, for v2 charts, `metadata.bento`.
 
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, statSync, existsSync } from 'node:fs'
 import { join, dirname } from 'node:path'
@@ -443,8 +444,10 @@ function loadManifest(appDir) {
 
 async function renderApp(appDir, appName) {
   const mf = loadManifest(appDir)
-  if (!mf || !mf.metadata || !mf.metadata.bento) return { skipped: true, reason: 'no bento block' }
-  const bento = { ...mf.metadata.bento, title: mf.metadata.title || mf.metadata.bento.title }
+  const bentoPath = join(appDir, 'bento.yaml')
+  const block = existsSync(bentoPath) ? yaml.load(readFileSync(bentoPath, 'utf8')) : mf && mf.metadata && mf.metadata.bento
+  if (!mf || !mf.metadata || !block) return { skipped: true, reason: 'no bento block' }
+  const bento = { ...block, title: mf.metadata.title || block.title }
   const tree = buildBento(bento, appName)
   const svg = await satori(tree, { width: W, height: H, fonts: FONTS })
   const png = new Resvg(svg, { fitTo: { mode: 'width', value: W } }).render().asPng()

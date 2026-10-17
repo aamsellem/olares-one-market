@@ -111,7 +111,9 @@ function scanApps() {
     const i18n = readI18n(appDir);
     const categories = meta.categories || [];
 
-    const bento = meta.bento || null;
+    // v3 manifests reject unknown metadata fields, so v3 charts keep the bento block in bento.yaml
+    const bentoPath = path.join(appDir, 'bento.yaml');
+    const bento = fs.existsSync(bentoPath) ? yaml.load(fs.readFileSync(bentoPath, 'utf8')) : (meta.bento || null);
     const baseUrl = 'https://orales-one-market.aamsellem.workers.dev';
     const bentoUrl = `${baseUrl}/screenshots/${appName}-bento.png`;
     const tagList = bento ? [bento.family, ...(bento.badge ? [bento.badge] : [])].filter(Boolean) : null;
@@ -144,6 +146,13 @@ function scanApps() {
       id: appId,
       name: appName,
       cfgType: manifest['olaresManifest.type'] || 'app',
+      // v3 apps (Olares >= 1.12.6) carry apiVersion + accelerator like the official market;
+      // v2 entries keep omitting apiVersion as before
+      ...(String(manifest.apiVersion) === 'v3' ? {
+        apiVersion: 'v3',
+        accelerator: spec.accelerator || [],
+        envs: manifest.envs || [],
+      } : {}),
       chartName: `${appName}-${chart.version}.tgz`,
       icon: meta.icon || '',
       description: meta.description || '',
