@@ -1,44 +1,34 @@
 ---
-olaresManifest.version: '0.10.0'
+olaresManifest.version: '0.12.0'
 olaresManifest.type: app
-apiVersion: 'v2'
+apiVersion: 'v3'
+
+workloadReplicas:
+  qwen36beellamavisionone: 1
+
 metadata:
-  name: llamacppqwen36beellamavisionone
-  icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen36beellamavisionone.png
+  name: qwen36beellamavisionone
+  icon: https://orales-one-market.aamsellem.workers.dev/icons/qwen36beellamavisionone.png
   description: "Qwen3.6 27B vision-capable — 106 t/s @ 200K via BeeLlama.cpp + mmproj F16 + DFlash + turbo3 KV"
-  appid: llamacppqwen36beellamavisionone
+  appid: qwen36beellamavisionone
   title: Qwen36 27B BeeLlama Vision One
-  version: 1.0.7
+  version: '1.1.1'
   categories:
     - Vision
     - AI Agents
-  bento:
-    family: qwen
-    size_label: "27B"
-    badge: vision
-    hero:
-      value: "106 t/s"
-      label: "speed + vision"
-    specs:
-      - { label: "context", value: "200K" }
-      - { label: "vram", value: "22 GB" }
-    capabilities:
-      tool_calling: true
-      vision:       true
-      audio:        false
-      mtp:          { enabled: true, accept: 24 }
-    stack: "BeeLlama · DFlash · mmproj BF16"
 entrances:
-  - name: llamacppqwen36beellamavisionone
+  - name: qwen36beellamavisionone
     port: 8000
-    host: llamacppqwen36beellamavisionone
+    host: qwen36beellamavisionone
     title: Qwen36 27B BeeLlama Vision
-    icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen36beellamavisionone.png
+    icon: https://orales-one-market.aamsellem.workers.dev/icons/qwen36beellamavisionone.png
     openMethod: window
     authLevel: internal
 spec:
-  versionName: 1.0.7
+  versionName: '1.1.1'
   upgradeDescription: |
+    v1.1.1: **Olares 1.12.6+ compatibility: manifest migrated to apiVersion v3.** Olares 1.12.6 deprecated apiVersion v2 apps: installed v2 versions keep running but can no longer be upgraded ("This app version has been deprecated and cannot be upgraded") or installed. If you run a previous version, **uninstall it and install 1.1.1**; model files in the shared model folder are kept. No change to the inference stack. Requires Olares >= 1.12.6.
+
     v1.0.2: upgrade to BeeLlama HEAD commit `75ae2a6af` (built as `aamsellem/beellama-cpp:0.1.3-rc1`) — includes Anbeeld's fix for GPU ring crash in `llm_build_dflash_kv_update` at long context prefill (issue #16, merged 2026-05-15 17:55). This is the upstream resolution for the crash that v1.0.1 worked around via the HAMi-core memory limit bump. The original symptom on RTX 5090M sm_120 + Hermes Agent workload was a HAMi-core UINT64 underflow (`Device 0 OOM 18446744073709500456 / 25480396800`) which we now suspect was a downstream artifact of orphaned ring-buffer allocations after the underlying GPU ring crash — fixed upstream by `75ae2a6af`. Bench validated 2026-05-16 on Olares One: 105.52 t/s AVG @ 200K (10 runs, range 34.92) — perf parity with v1.0.1 (106.43 t/s, range 23.4) within noise. `system_fingerprint: b16-75ae2a6af` confirms commit. Long-context multi-turn validation (Hermes Agent at 100K+ accumulated context) is the real test — pending real-world user session.
 
     Keeping `CUDA_DEVICE_MEMORY_LIMIT_0=30000m` (bumped from 24300m in v1.0.1) as a safety belt until the user's next long agentic session confirms the fix holds. A future v1.0.3 will restore the strict 24300m once we have empirical proof the GPU ring fix eliminates the HAMi underflow downstream.
@@ -114,27 +104,31 @@ spec:
     - text: MIT
       url: https://github.com/ggml-org/llama.cpp/blob/master/LICENSE
 
-  limitedCpu: 16
-  requiredCpu: 4
-  requiredDisk: 25Gi
-  limitedDisk: 40Gi
-  limitedMemory: 40Gi
-  requiredMemory: 20Gi
-  requiredGpu: 1Gi
-  limitedGpu: 24Gi
 
   supportArch:
     - amd64
+  accelerator:
+    - mode: nvidia
+      supportMultiCard: false
+      supportMultiNodes: false
+      requiredCpu: "4"
+      limitedCpu: "16"
+      requiredMemory: 24Gi
+      limitedMemory: 40Gi
+      requiredDisk: 25Gi
+      limitedDisk: 40Gi
+      requiredGPUMemory: 23Gi
+      limitedGPUMemory: 23Gi
 permission:
   appData: true
 options:
   apiTimeout: 0
   dependencies:
     - name: olares
-      version: '>=1.12.3-0'
+      version: '>=1.12.6-0'
       type: system
 envs:
-  - envName: OLARES_USER_HUGGINGFACE_TOKEN
+  - envName: HUGGINGFACE_TOKEN
     required: false
     applyOnChange: true
     valueFrom:

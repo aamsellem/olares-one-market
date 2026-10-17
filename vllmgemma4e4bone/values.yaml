@@ -1,1 +1,3 @@
-{}
+workloads:
+  vllmgemma4e4bone:
+    replicaCount: 1

@@ -5,3 +5,6 @@ userspace:
   appData: ""
   appCache: ""
   userData: ""
+workloads:
+  qwen36a3bvisionone:
+    replicaCount: 1

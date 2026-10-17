@@ -1,1 +1,3 @@
-{}
+workloads:
+  omnivoiceone:
+    replicaCount: 1

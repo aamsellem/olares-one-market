@@ -22,7 +22,7 @@ metadata:
   annotations:
     applications.app.bytetrade.io/gpu-inject: "true"
 spec:
-  replicas: 1
+  replicas: {{ .Values.workloads.vllmqwen36turbo27bone.replicaCount }}
   selector:
     matchLabels:
       io.kompose.service: vllmqwen36turbo27bone
@@ -86,9 +86,9 @@ spec:
           env:
             - name: HF_HOME
               value: "/models/huggingface"
-            {{- if .Values.olaresEnv.OLARES_USER_HUGGINGFACE_TOKEN }}
+            {{- if .Values.olaresEnv.HUGGINGFACE_TOKEN }}
             - name: HF_TOKEN
-              value: "{{ .Values.olaresEnv.OLARES_USER_HUGGINGFACE_TOKEN }}"
+              value: "{{ .Values.olaresEnv.HUGGINGFACE_TOKEN }}"
             {{- end }}
             - name: VLLM_USE_FLASHINFER_SAMPLER
               value: "1"

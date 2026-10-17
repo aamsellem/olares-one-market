@@ -1,0 +1,17 @@
+# Bento card config (scripts/generate-bento.js). Kept out of OlaresManifest.yaml:
+# the apiVersion v3 schema rejects unknown metadata fields.
+family: other
+size_label: "OmniVoice"
+badge: tts
+hero:
+  value: "TTS"
+  label: "text-to-speech"
+specs:
+  - { label: "context", value: "4K" }
+  - { label: "vram", value: "8 GB" }
+capabilities:
+  tool_calling: false
+  vision:       false
+  audio:        true
+  mtp:          { enabled: false }
+stack: "PyTorch · OmniVoice"

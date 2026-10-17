@@ -25,7 +25,7 @@ metadata:
   annotations:
     applications.app.bytetrade.io/gpu-inject: "true"
 spec:
-  replicas: 1
+  replicas: {{ .Values.workloads.llamacppgemma412bone.replicaCount }}
   selector:
     matchLabels:
       io.kompose.service: llamacppgemma412bone
@@ -101,7 +101,7 @@ spec:
             - name: HF_HOME
               value: "/models/huggingface"
             - name: HF_TOKEN
-              value: "{{ .Values.olaresEnv.OLARES_USER_HUGGINGFACE_TOKEN }}"
+              value: "{{ .Values.olaresEnv.HUGGINGFACE_TOKEN }}"
             - name: MODELS_DIR
               value: "/models"
             - name: CUDA_DEVICE_MEMORY_LIMIT_0
@@ -130,11 +130,9 @@ spec:
             limits:
               cpu: "12"
               memory: 24Gi
-              nvidia.com/gpu: "1"
             requests:
               cpu: 4000m
               memory: 12Gi
-              nvidia.com/gpu: "1"
           volumeMounts:
             - mountPath: "/models"
               name: models

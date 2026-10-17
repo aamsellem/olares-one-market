@@ -1,44 +1,34 @@
 ---
-olaresManifest.version: '0.10.0'
+olaresManifest.version: '0.12.0'
 olaresManifest.type: app
-apiVersion: 'v2'
+apiVersion: 'v3'
+
+workloadReplicas:
+  nemotrondiffusion14bone: 1
+
 metadata:
-  name: llamacppnemotrondiffusion14bone
-  icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppnemotrondiffusion14bone.png
+  name: nemotrondiffusion14bone
+  icon: https://orales-one-market.aamsellem.workers.dev/icons/nemotrondiffusion14bone.png
   description: "NVIDIA Nemotron-Labs-Diffusion 14B — tri-mode (AR + parallel diffusion + self-spec) — first public diffusion LLM on consumer Blackwell"
-  appid: llamacppnemotrondiffusion14bone
+  appid: nemotrondiffusion14bone
   title: Nemotron Diffusion 14B One
-  version: 1.0.2
+  version: '1.1.1'
   categories:
     - LLM Chat
     - AI Agents
-  bento:
-    family: nemotron
-    size_label: "14B"
-    badge: diffusion
-    hero:
-      value: "50 t/s"
-      label: "self-spec ref RTX 3090"
-    specs:
-      - { label: "context", value: "16K" }
-      - { label: "vram", value: "15 GB" }
-    capabilities:
-      tool_calling: true
-      vision:       false
-      audio:        false
-      mtp:          { enabled: true, accept: 0 }
-    stack: "buun-llama-cpp · diffusion + self-spec"
 entrances:
-  - name: llamacppnemotrondiffusion14bone
+  - name: nemotrondiffusion14bone
     port: 8000
-    host: llamacppnemotrondiffusion14bone
+    host: nemotrondiffusion14bone
     title: Nemotron Diffusion 14B
-    icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppnemotrondiffusion14bone.png
+    icon: https://orales-one-market.aamsellem.workers.dev/icons/nemotrondiffusion14bone.png
     openMethod: window
     authLevel: internal
 spec:
-  versionName: 1.0.2
+  versionName: '1.1.1'
   upgradeDescription: |
+    v1.1.1: **Olares 1.12.6+ compatibility: manifest migrated to apiVersion v3.** Olares 1.12.6 deprecated apiVersion v2 apps: installed v2 versions keep running but can no longer be upgraded ("This app version has been deprecated and cannot be upgraded") or installed. If you run a previous version, **uninstall it and install 1.1.1**; model files in the shared model folder are kept. No change to the inference stack. Requires Olares >= 1.12.6.
+
     v1.0.0: initial release. NVIDIA Nemotron-Labs-Diffusion 14B served via spiritbuun/buun-llama-cpp (custom fork with diffusion-mode patches). First public diffusion LLM runnable on consumer Blackwell mobile (RTX 5090M 24 GB) — NVIDIA's own Python reference OOMs on 14B at 24 GB. Stack: spiritbuun/Nemotron-Labs-Diffusion-14B-Q8_0-GGUF (14.4 GB) + buun-llama-cpp:316e88e (2026-05-24) + auto-detected self-speculation. Tri-mode: AR / Diffusion parallel decoding / Linear self-speculation (k=4, recommended).
 
     Reference benchmarks (RTX 3090 24 GB, spiritbuun): 42-50 t/s prose/code @ temp 0/0.7, 126-132 t/s short responses. Olares One (RTX 5090M sm_120) bench TBD on first install.
@@ -89,27 +79,31 @@ spec:
     - text: NVIDIA Nemotron Open Model License
       url: https://huggingface.co/nvidia/Nemotron-Labs-Diffusion-14B/blob/main/LICENSE
 
-  limitedCpu: 16
-  requiredCpu: 4
-  requiredDisk: 20Gi
-  limitedDisk: 30Gi
-  limitedMemory: 32Gi
-  requiredMemory: 12Gi
-  requiredGpu: 1Gi
-  limitedGpu: 24Gi
 
   supportArch:
     - amd64
+  accelerator:
+    - mode: nvidia
+      supportMultiCard: false
+      supportMultiNodes: false
+      requiredCpu: "4"
+      limitedCpu: "16"
+      requiredMemory: 16Gi
+      limitedMemory: 32Gi
+      requiredDisk: 20Gi
+      limitedDisk: 30Gi
+      requiredGPUMemory: 23Gi
+      limitedGPUMemory: 23Gi
 permission:
   appData: true
 options:
   apiTimeout: 0
   dependencies:
     - name: olares
-      version: '>=1.12.3-0'
+      version: '>=1.12.6-0'
       type: system
 envs:
-  - envName: OLARES_USER_HUGGINGFACE_TOKEN
+  - envName: HUGGINGFACE_TOKEN
     required: false
     applyOnChange: true
     valueFrom:

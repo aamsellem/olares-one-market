@@ -22,7 +22,7 @@ metadata:
   annotations:
     applications.app.bytetrade.io/gpu-inject: "true"
 spec:
-  replicas: 1
+  replicas: {{ .Values.workloads.vllmgemma426ba4bvisionone.replicaCount }}
   selector:
     matchLabels:
       io.kompose.service: vllmgemma426ba4bvisionone
@@ -80,9 +80,9 @@ spec:
             - name: HF_HOME
               value: "/models/huggingface"
             - name: HF_ENDPOINT
-              value: "{{ .Values.olaresEnv.OLARES_USER_HUGGINGFACE_SERVICE }}"
+              value: "{{ .Values.olaresEnv.HUGGINGFACE_SERVICE }}"
             - name: HF_TOKEN
-              value: "{{ .Values.olaresEnv.OLARES_USER_HUGGINGFACE_TOKEN }}"
+              value: "{{ .Values.olaresEnv.HUGGINGFACE_TOKEN }}"
             # HAMi-core "0m" parsing bug workaround: Olares default
             # CUDA_DEVICE_MEMORY_LIMIT_0=0m parses as "0 bytes". Override to
             # 24400m (~80 MB margin under hardware 24463 MB).
@@ -112,11 +112,9 @@ spec:
             limits:
               cpu: "16"
               memory: 40Gi
-              nvidia.com/gpu: "1"
             requests:
               cpu: 4000m
               memory: 24Gi
-              nvidia.com/gpu: "1"
           volumeMounts:
             - mountPath: "/models"
               name: models

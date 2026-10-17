@@ -1,0 +1,18 @@
+# Bento card config (scripts/generate-bento.js). Kept out of OlaresManifest.yaml:
+# the apiVersion v3 schema rejects unknown metadata fields.
+family: ace
+size_label: "XL"
+badge: music
+hero:
+  value: "Music"
+  label: "text-to-audio"
+  sub: "lyrics → song"
+specs:
+  - { label: "context", value: "4K" }
+  - { label: "vram", value: "12 GB" }
+capabilities:
+  tool_calling: false
+  vision:       false
+  audio:        true
+  mtp:          { enabled: false }
+stack: "PyTorch · Diffusers · ACE-Step XL"

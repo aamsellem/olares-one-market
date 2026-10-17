@@ -1,32 +1,20 @@
 ---
-olaresManifest.version: '0.10.0'
+olaresManifest.version: '0.12.0'
 olaresManifest.type: app
-apiVersion: 'v2'
+apiVersion: 'v3'
+
+workloadReplicas:
+  llamacppgemma4audione: 1
+
 metadata:
   name: llamacppgemma4audione
   icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppgemma4audione.png
   description: "Gemma 4 E4B + audio + bundled MTP drafter (Unsloth) — 288.4 t/s on Olares One (6.1x vs baseline 47 t/s)"
   appid: llamacppgemma4audione
   title: Gemma 4 Audio One
-  version: '1.1.2'
+  version: '1.2.0'
   categories:
     - Audio
-  bento:
-    family: gemma
-    size_label: "E4B"
-    badge: audio · MTP 76%
-    hero:
-      value: "288.4 t/s"
-      label: "Gemma 4 E4B + MTP n=2 · audio 30s · 76% accept"
-    specs:
-      - { label: "context", value: "32K" }
-      - { label: "vram", value: "7 GB" }
-    capabilities:
-      tool_calling: true
-      vision:       false
-      audio:        true
-      mtp:          { enabled: true, accept: 76 }
-    stack: "llama.cpp main HEAD · audio + MTP · 288 t/s"
 entrances:
   - name: llamacppgemma4audione
     port: 8080
@@ -36,8 +24,10 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.1.2'
+  versionName: '1.2.0'
   upgradeDescription: |
+    v1.2.0: **Olares 1.12.6+ compatibility: manifest migrated to apiVersion v3.** Olares 1.12.6 deprecated apiVersion v2 apps: installed v2 versions keep running but can no longer be upgraded ("This app version has been deprecated and cannot be upgraded") or installed. If you run a previous version, **uninstall it and install 1.2.0**; model files in the shared model folder are kept. No change to the inference stack. Requires Olares >= 1.12.6.
+
     v1.1.2: **swap drafter to Unsloth bundled MTP** (uploaded 2026-06-09 15:12 UTC). Unsloth re-uploaded `unsloth/gemma-4-E4B-it-qat-GGUF` with the MTP drafter bundled in-repo: `mtp-gemma-4-E4B-it.gguf` (94 MB, same size and arch as NicklausCairns drafter we used in v1.1.1). Cleaner source (one official Unsloth repo). No perf change expected — same Google-derived drafter, same custom main HEAD image r3, same `--flash-attn off` workaround. Bench reference stays 288.4 t/s, 76% MTP accept.
 
     v1.1.1: **fix FA crash + bench validated = 288.4 t/s (+513% vs v1.0.1 baseline 47 t/s)**. v1.1.0's `--flash-attn on` flag triggered a CUDA crash in `ggml_cuda_flash_attn_ext` (fattn.cu:110) on the combo Gemma 4 E4B + audio mmproj + MTP draft. Root cause likely the E4B's novel KV-layer-sharing optimization (layers 0-2 share with layer 40, layer 3 shares with 41) interacting badly with FA + spec-decode. Workaround: disable FA (`--flash-attn off`). Bench Olares One (3 runs Space Invaders): 289.32 / 295.22 / 280.51 t/s = **AVG 288.4 t/s** with MTP draft acceptance 72-79% (AVG 76%). VRAM ~7 GB total.
@@ -86,22 +76,26 @@ spec:
     - text: Apache 2.0
       url: https://www.apache.org/licenses/LICENSE-2.0
 
-  limitedCpu: 16
-  requiredCpu: 4
-  requiredDisk: 10Gi
-  limitedDisk: 15Gi
-  limitedMemory: 16Gi
-  requiredMemory: 4Gi
-  requiredGpu: 1Gi
-  limitedGpu: 8Gi
 
   supportArch:
     - amd64
+  accelerator:
+    - mode: nvidia
+      supportMultiCard: false
+      supportMultiNodes: false
+      requiredCpu: "4"
+      limitedCpu: "16"
+      requiredMemory: 4Gi
+      limitedMemory: 16Gi
+      requiredDisk: 10Gi
+      limitedDisk: 15Gi
+      requiredGPUMemory: 8Gi
+      limitedGPUMemory: 8Gi
 permission:
   appData: true
 options:
   apiTimeout: 0
   dependencies:
     - name: olares
-      version: '>=1.12.3-0'
+      version: '>=1.12.6-0'
       type: system

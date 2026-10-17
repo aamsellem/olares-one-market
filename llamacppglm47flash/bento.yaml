@@ -1,0 +1,17 @@
+# Bento card config (scripts/generate-bento.js). Kept out of OlaresManifest.yaml:
+# the apiVersion v3 schema rejects unknown metadata fields.
+family: other
+size_label: "Flash"
+badge: glm
+hero:
+  value: "GLM-4.7"
+  label: "zhipu flash"
+specs:
+  - { label: "context", value: "128K" }
+  - { label: "vram", value: "18 GB" }
+capabilities:
+  tool_calling: true
+  vision:       false
+  audio:        false
+  mtp:          { enabled: false }
+stack: "llama.cpp · GLM-4.7-Flash"

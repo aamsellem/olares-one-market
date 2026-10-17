@@ -1,33 +1,20 @@
 ---
-olaresManifest.version: '0.10.0'
+olaresManifest.version: '0.12.0'
 olaresManifest.type: app
-apiVersion: 'v2'
+apiVersion: 'v3'
+
+workloadReplicas:
+  acestepxlone: 1
+
 metadata:
   name: acestepxlone
   icon: https://orales-one-market.aamsellem.workers.dev/icons/acestepxlone.png
   description: "ACE-Step 1.5 XL — AI music generation (4B DiT, Turbo+SFT modes), optimized for Olares One"
   appid: acestepxlone
   title: ACE-Step XL One
-  version: '1.1.9'
+  version: '1.2.1'
   categories:
     - Music
-  bento:
-    family: ace
-    size_label: "XL"
-    badge: music
-    hero:
-      value: "Music"
-      label: "text-to-audio"
-      sub: "lyrics → song"
-    specs:
-      - { label: "context", value: "4K" }
-      - { label: "vram", value: "12 GB" }
-    capabilities:
-      tool_calling: false
-      vision:       false
-      audio:        true
-      mtp:          { enabled: false }
-    stack: "PyTorch · Diffusers · ACE-Step XL"
 entrances:
   - name: acestepxlone
     port: 7860
@@ -37,7 +24,10 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.1.9'
+  versionName: '1.2.1'
+  upgradeDescription: |
+    v1.2.1: **Olares 1.12.6+ compatibility: manifest migrated to apiVersion v3.** Olares 1.12.6 deprecated apiVersion v2 apps: installed v2 versions keep running but can no longer be upgraded ("This app version has been deprecated and cannot be upgraded") or installed. If you run a previous version, **uninstall it and install 1.2.1**; model files in the shared model folder are kept. No change to the inference stack. Requires Olares >= 1.12.6.
+
   fullDescription: |
     ACE-Step 1.5 XL Turbo — AI music generation foundation model, optimized for Olares One.
     RTX 5090M (24GB) + 96GB DDR5 + Core Ultra 9 275HX.
@@ -63,26 +53,30 @@ spec:
     - text: MIT
       url: https://github.com/ace-step/ACE-Step-1.5/blob/main/LICENSE
 
-  limitedCpu: 16
-  requiredCpu: 4
-  requiredDisk: 80Gi
-  limitedDisk: 80Gi
-  limitedMemory: 32Gi
-  requiredMemory: 12Gi
-  requiredGpu: 12Gi
-  limitedGpu: 24Gi
 
   supportArch:
     - amd64
+  accelerator:
+    - mode: nvidia
+      supportMultiCard: false
+      supportMultiNodes: false
+      requiredCpu: "4"
+      limitedCpu: "16"
+      requiredMemory: 12Gi
+      limitedMemory: 32Gi
+      requiredDisk: 80Gi
+      limitedDisk: 80Gi
+      requiredGPUMemory: 23Gi
+      limitedGPUMemory: 23Gi
 permission:
   appData: true
 envs:
-  - envName: OLARES_USER_HUGGINGFACE_SERVICE
+  - envName: HUGGINGFACE_SERVICE
     required: true
     applyOnChange: true
     valueFrom:
       envName: OLARES_USER_HUGGINGFACE_SERVICE
-  - envName: OLARES_USER_HUGGINGFACE_TOKEN
+  - envName: HUGGINGFACE_TOKEN
     required: true
     applyOnChange: true
     valueFrom:
@@ -91,5 +85,5 @@ options:
   apiTimeout: 0
   dependencies:
     - name: olares
-      version: '>=1.12.3-0'
+      version: '>=1.12.6-0'
       type: system

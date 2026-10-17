@@ -1,1 +1,3 @@
-{}
+workloads:
+  vllmgemma426ba4bvisionone:
+    replicaCount: 1

@@ -1,0 +1,17 @@
+# Bento card config (scripts/generate-bento.js). Kept out of OlaresManifest.yaml:
+# the apiVersion v3 schema rejects unknown metadata fields.
+family: nemotron
+size_label: "30B-A3B"
+badge: nvfp4
+hero:
+  value: "182 t/s"
+  label: "speed"
+specs:
+  - { label: "context", value: "32K" }
+  - { label: "vram", value: "19 GB" }
+capabilities:
+  tool_calling: true
+  vision:       false
+  audio:        false
+  mtp:          { enabled: false }
+stack: "vLLM · NVFP4 native · Blackwell tensor"

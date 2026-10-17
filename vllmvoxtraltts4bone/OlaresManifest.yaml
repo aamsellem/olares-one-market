@@ -1,32 +1,20 @@
 ---
-olaresManifest.version: '0.10.0'
+olaresManifest.version: '0.12.0'
 olaresManifest.type: app
-apiVersion: 'v2'
+apiVersion: 'v3'
+
+workloadReplicas:
+  vllmvoxtraltts4bone: 1
+
 metadata:
   name: vllmvoxtraltts4bone
   icon: https://orales-one-market.aamsellem.workers.dev/icons/vllmvoxtraltts4bone.png
   description: "Voxtral 4B TTS via vLLM-Omni — text-to-speech with 20 voices, optimized for Olares One"
   appid: vllmvoxtraltts4bone
   title: Voxtral 4B TTS One
-  version: '1.0.14'
+  version: '1.1.1'
   categories:
     - TTS
-  bento:
-    family: voxtral
-    size_label: "4B"
-    badge: tts
-    hero:
-      value: "TTS"
-      label: "voice synth"
-    specs:
-      - { label: "context", value: "32K" }
-      - { label: "vram", value: "8 GB" }
-    capabilities:
-      tool_calling: false
-      vision:       false
-      audio:        true
-      mtp:          { enabled: false }
-    stack: "vLLM · Voxtral TTS 4B"
 entrances:
   - name: vllmvoxtraltts4bone
     port: 8000
@@ -36,7 +24,10 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.0.14'
+  versionName: '1.1.1'
+  upgradeDescription: |
+    v1.1.1: **Olares 1.12.6+ compatibility: manifest migrated to apiVersion v3.** Olares 1.12.6 deprecated apiVersion v2 apps: installed v2 versions keep running but can no longer be upgraded ("This app version has been deprecated and cannot be upgraded") or installed. If you run a previous version, **uninstall it and install 1.1.1**; model files in the shared model folder are kept. No change to the inference stack. Requires Olares >= 1.12.6.
+
   fullDescription: |
     Mistral Voxtral 4B TTS served via vLLM-Omni — optimized for Olares One.
     RTX 5090M (24GB) + 96GB DDR5 + Core Ultra 9 275HX.
@@ -58,22 +49,26 @@ spec:
     - text: CC BY-NC 4.0
       url: https://creativecommons.org/licenses/by-nc/4.0/
 
-  limitedCpu: 16
-  requiredCpu: 4
-  requiredDisk: 20Gi
-  limitedDisk: 30Gi
-  limitedMemory: 40Gi
-  requiredMemory: 4Gi
-  requiredGpu: 1Gi
-  limitedGpu: 24Gi
 
   supportArch:
     - amd64
+  accelerator:
+    - mode: nvidia
+      supportMultiCard: false
+      supportMultiNodes: false
+      requiredCpu: "4"
+      limitedCpu: "16"
+      requiredMemory: 4Gi
+      limitedMemory: 40Gi
+      requiredDisk: 20Gi
+      limitedDisk: 30Gi
+      requiredGPUMemory: 23Gi
+      limitedGPUMemory: 23Gi
 permission:
   appData: true
 options:
   apiTimeout: 0
   dependencies:
     - name: olares
-      version: '>=1.12.3-0'
+      version: '>=1.12.6-0'
       type: system

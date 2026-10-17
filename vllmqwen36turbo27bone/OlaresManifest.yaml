@@ -1,33 +1,21 @@
 ---
-olaresManifest.version: '0.10.0'
+olaresManifest.version: '0.12.0'
 olaresManifest.type: app
-apiVersion: 'v2'
+apiVersion: 'v3'
+
+workloadReplicas:
+  vllmqwen36turbo27bone: 1
+
 metadata:
   name: vllmqwen36turbo27bone
   icon: https://orales-one-market.aamsellem.workers.dev/icons/vllmqwen36turbo27bone.png
   description: "Qwen3.6 27B fastest stack — vLLM Turbo + Genesis on 24GB"
   appid: vllmqwen36turbo27bone
   title: Qwen36 27B Fast
-  version: '2.5.8'
+  version: '2.6.1'
   categories:
     - LLM Chat
     - AI Agents
-  bento:
-    family: qwen
-    size_label: "27B"
-    badge: turbo
-    hero:
-      value: "88 t/s"
-      label: "speed @ 88K"
-    specs:
-      - { label: "context", value: "88K" }
-      - { label: "vram", value: "20 GB" }
-    capabilities:
-      tool_calling: true
-      vision:       false
-      audio:        false
-      mtp:          { enabled: true, accept: 75 }
-    stack: "vLLM · TurboQuant K8V4 · MTP n=3"
 entrances:
   - name: vllmqwen36turbo27bone
     port: 8000
@@ -37,8 +25,10 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '2.5.8'
+  versionName: '2.6.1'
   upgradeDescription: |
+    v2.6.1: **Olares 1.12.6+ compatibility: manifest migrated to apiVersion v3.** Olares 1.12.6 deprecated apiVersion v2 apps: installed v2 versions keep running but can no longer be upgraded ("This app version has been deprecated and cannot be upgraded") or installed. If you run a previous version, **uninstall it and install 2.6.1**; model files in the shared model folder are kept. No change to the inference stack. Requires Olares >= 1.12.6.
+
     v2.5.7: revert MAX_MODEL_LEN 128000 → 88000. The 128K bump (v2.5.6) was attempted with the new HAMi cap at 24300m hoping for +1.3 GB KV cache headroom, but vLLM still reports the practical cap at 88704 tokens (3.94 GiB KV needed at 128K vs only 2.97 GiB available after model + cudagraphs + mamba state). The KV cache budget calculation is not improved by the HAMi cap bump because vLLM allocates `gpu_memory_utilization=0.97 * total_vram` first and the KV cache fits in what's left — the HAMi cap was already large enough vs `0.97 * 24300m`. To go higher than 88K we'd need either 0.99 GPU util (HAMi-risky) or MTP n=3 → n=1 (-spec speedup). Bonus log finding: Genesis P22 auto-skipped because vLLM PR #40655 merged upstream (bhoomit moved init out) — one less patch to maintain over time.
     v2.5.6: bump MAX_MODEL_LEN 88000 → 128000. Previously 96K and 128K OOMed at gpu_memory_utilization=0.97 with HAMi cap at 23000m (3.17 GiB / 3.94 GiB KV needed vs 2.97 GiB available). With v2.5.2 HAMi override 24300m (+1.3 GB headroom) we should fit 128K (3.94 GiB KV needed, ~4.27 GiB now available). If boot OOMs at KV cache profiling, downgrade to v2.5.5 (88K) or try 96K. Also drop t/s from title and description (reality may vary by hardware/config).
     v2.5.5: revert P5B — `GENESIS_ENABLE_P5B_KV=1` causes CUDA OOM at first inference on 24GB. P5B pre-allocates padded buffers for KV homogenization, which combined with P38 (TQ continuation memory prealloc) overflows the 24300m HAMi cap (512 MiB requested when only 646 MiB free). P5B is incompatible with our stack on 24GB hardware regardless of K8V4 vs 4bit_nc. Sticking with the v2.5.3 config minus P5B as the stable baseline.
@@ -97,29 +87,33 @@ spec:
     - text: Apache-2.0
       url: https://github.com/vllm-project/vllm/blob/main/LICENSE
 
-  envs:
-    - envName: OLARES_USER_HUGGINGFACE_TOKEN
-      required: false
-      applyOnChange: true
-      valueFrom:
-        envName: OLARES_USER_HUGGINGFACE_TOKEN
 
-  limitedCpu: 16
-  requiredCpu: 4
-  requiredDisk: 30Gi
-  limitedDisk: 50Gi
-  limitedMemory: 40Gi
-  requiredMemory: 20Gi
-  requiredGpu: 1Gi
-  limitedGpu: 24Gi
 
   supportArch:
     - amd64
+  accelerator:
+    - mode: nvidia
+      supportMultiCard: false
+      supportMultiNodes: false
+      requiredCpu: "4"
+      limitedCpu: "16"
+      requiredMemory: 24Gi
+      limitedMemory: 40Gi
+      requiredDisk: 30Gi
+      limitedDisk: 50Gi
+      requiredGPUMemory: 23Gi
+      limitedGPUMemory: 23Gi
 permission:
   appData: true
 options:
   apiTimeout: 0
   dependencies:
     - name: olares
-      version: '>=1.12.3-0'
+      version: '>=1.12.6-0'
       type: system
+envs:
+  - envName: HUGGINGFACE_TOKEN
+    required: false
+    applyOnChange: true
+    valueFrom:
+      envName: OLARES_USER_HUGGINGFACE_TOKEN

@@ -1,34 +1,22 @@
 ---
-olaresManifest.version: '0.10.0'
+olaresManifest.version: '0.12.0'
 olaresManifest.type: app
-apiVersion: 'v2'
+apiVersion: 'v3'
+
+workloadReplicas:
+  llamacppgemma426ba4bone: 1
+
 metadata:
   name: llamacppgemma426ba4bone
   icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppgemma426ba4bone.png
   description: "Gemma 4 26B-A4B QAT UD-Q4_K_XL + bundled MTP drafter (Unsloth) + vision — 286.6 t/s @ 91% accept, 16.6 GB VRAM, 32K ctx on Olares One"
   appid: llamacppgemma426ba4bone
   title: Gemma 4 26B-A4B One
-  version: '1.0.6'
+  version: '1.1.0'
   categories:
     - LLM Chat
     - AI Agents
     - Vision
-  bento:
-    family: gemma
-    size_label: "26B-A4B"
-    badge: QAT · MoE · MTP 91%
-    hero:
-      value: "286.6 t/s"
-      label: "Gemma 4 26B-A4B QAT + MTP n=2 · 91% accept · 4B active params"
-    specs:
-      - { label: "context", value: "32K" }
-      - { label: "vram", value: "16.6 GB" }
-    capabilities:
-      tool_calling: true
-      vision:       true
-      audio:        false
-      mtp:          { enabled: true, accept: 91 }
-    stack: "llama.cpp main HEAD · Gemma 4 MTP upstream · QAT MoE 4B active"
 entrances:
   - name: llamacppgemma426ba4bone
     port: 8080
@@ -38,8 +26,10 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.0.6'
+  versionName: '1.1.0'
   upgradeDescription: |
+    v1.1.0: **Olares 1.12.6+ compatibility: manifest migrated to apiVersion v3.** Olares 1.12.6 deprecated apiVersion v2 apps: installed v2 versions keep running but can no longer be upgraded ("This app version has been deprecated and cannot be upgraded") or installed. If you run a previous version, **uninstall it and install 1.1.0**; model files in the shared model folder are kept. No change to the inference stack. Requires Olares >= 1.12.6.
+
     v1.0.4: **fix missing `envs:` declaration for HF token**. `templates/deployment.yaml` referenced `HF_TOKEN=.Values.olaresEnv.OLARES_USER_HUGGINGFACE_TOKEN` but `OlaresManifest.yaml` never declared `OLARES_USER_HUGGINGFACE_TOKEN` in an `envs:` block — so Helm rendered `HF_TOKEN=""` and any gated-model download from HuggingFace failed with 401. Same class of bug as `nemotronlabselastic30bnvfp4one` v1.0.3 (Discord-reported crash loop). No functional change for public models; fixes gated-repo access. Declared `required: false` so install still works when the user hasn't configured a token in Olares Settings.
 
     v1.0.3: **rebuild image against llama.cpp main HEAD b9601** to pick up PR #24086 (Remove padding + multiple D2D copies for MTP, merged 2026-06-10 by gaugarg-nv / NVIDIA). PR claimed +4% throughput on Qwen3.6-35B-A3B MTP measured on DGX Spark. Image bumped `r3 → r4` (built from same Dockerfile recipe on `nvidia/cuda:13.1.1-devel-ubuntu24.04`).
@@ -121,27 +111,31 @@ spec:
     - text: Apache 2.0
       url: https://www.apache.org/licenses/LICENSE-2.0
 
-  limitedCpu: 16
-  requiredCpu: 4
-  requiredDisk: 25Gi
-  limitedDisk: 35Gi
-  limitedMemory: 30Gi
-  requiredMemory: 16Gi
-  requiredGpu: 1Gi
-  limitedGpu: 22Gi
 
   supportArch:
     - amd64
+  accelerator:
+    - mode: nvidia
+      supportMultiCard: false
+      supportMultiNodes: false
+      requiredCpu: "4"
+      limitedCpu: "16"
+      requiredMemory: 16Gi
+      limitedMemory: 30Gi
+      requiredDisk: 25Gi
+      limitedDisk: 35Gi
+      requiredGPUMemory: 21Gi
+      limitedGPUMemory: 22Gi
 permission:
   appData: true
 options:
   apiTimeout: 0
   dependencies:
     - name: olares
-      version: '>=1.12.3-0'
+      version: '>=1.12.6-0'
       type: system
 envs:
-  - envName: OLARES_USER_HUGGINGFACE_TOKEN
+  - envName: HUGGINGFACE_TOKEN
     required: false
     applyOnChange: true
     valueFrom:

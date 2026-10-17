@@ -1,0 +1,17 @@
+# Bento card config (scripts/generate-bento.js). Kept out of OlaresManifest.yaml:
+# the apiVersion v3 schema rejects unknown metadata fields.
+family: gemma
+size_label: "26B-A4B"
+badge: dflash
+hero:
+  value: "224 t/s"
+  label: "speed"
+specs:
+  - { label: "context", value: "128K" }
+  - { label: "vram", value: "21 GB" }
+capabilities:
+  tool_calling: true
+  vision:       false
+  audio:        false
+  mtp:          { enabled: false }
+stack: "vLLM · AWQ · DFlash drafter"

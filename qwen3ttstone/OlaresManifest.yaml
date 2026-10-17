@@ -1,32 +1,20 @@
 ---
-olaresManifest.version: '0.10.0'
+olaresManifest.version: '0.12.0'
 olaresManifest.type: app
-apiVersion: 'v2'
+apiVersion: 'v3'
+
+workloadReplicas:
+  qwen3ttstone: 1
+
 metadata:
   name: qwen3ttstone
   icon: https://orales-one-market.aamsellem.workers.dev/icons/qwen3ttstone.png
   description: "Qwen3-TTS 1.7B — text-to-speech with voice cloning, optimized for Olares One"
   appid: qwen3ttstone
   title: Qwen3-TTS 1.7B (Olares One)
-  version: '1.0.11'
+  version: '1.1.0'
   categories:
     - TTS
-  bento:
-    family: qwen
-    size_label: "1.7B"
-    badge: tts
-    hero:
-      value: "TTS"
-      label: "qwen voice"
-    specs:
-      - { label: "context", value: "8K" }
-      - { label: "vram", value: "4 GB" }
-    capabilities:
-      tool_calling: false
-      vision:       false
-      audio:        true
-      mtp:          { enabled: false }
-    stack: "llama.cpp · Qwen3-TTS 1.7B"
 entrances:
   - name: qwen3ttstone
     port: 8000
@@ -36,7 +24,10 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.0.11'
+  versionName: '1.1.0'
+  upgradeDescription: |
+    v1.1.0: **Olares 1.12.6+ compatibility: manifest migrated to apiVersion v3.** Olares 1.12.6 deprecated apiVersion v2 apps: installed v2 versions keep running but can no longer be upgraded ("This app version has been deprecated and cannot be upgraded") or installed. If you run a previous version, **uninstall it and install 1.1.0**; model files in the shared model folder are kept. No change to the inference stack. Requires Olares >= 1.12.6.
+
   fullDescription: |
     Qwen3-TTS 1.7B CustomVoice served via Gradio — optimized for Olares One.
     RTX 5090M (24GB) + 96GB DDR5 + Core Ultra 9 275HX.
@@ -56,22 +47,26 @@ spec:
     - text: Apache-2.0
       url: https://github.com/QwenLM/Qwen3-TTS/blob/main/LICENSE
 
-  limitedCpu: 8
-  requiredCpu: 4
-  requiredDisk: 15Gi
-  limitedDisk: 30Gi
-  limitedMemory: 16Gi
-  requiredMemory: 8Gi
-  requiredGpu: 1Gi
-  limitedGpu: 8Gi
 
   supportArch:
     - amd64
+  accelerator:
+    - mode: nvidia
+      supportMultiCard: false
+      supportMultiNodes: false
+      requiredCpu: "4"
+      limitedCpu: "8"
+      requiredMemory: 8Gi
+      limitedMemory: 16Gi
+      requiredDisk: 15Gi
+      limitedDisk: 30Gi
+      requiredGPUMemory: 8Gi
+      limitedGPUMemory: 8Gi
 permission:
   appData: true
 options:
   apiTimeout: 0
   dependencies:
     - name: olares
-      version: '>=1.12.3-0'
+      version: '>=1.12.6-0'
       type: system

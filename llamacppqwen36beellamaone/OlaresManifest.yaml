@@ -1,33 +1,21 @@
 ---
-olaresManifest.version: '0.10.0'
+olaresManifest.version: '0.12.0'
 olaresManifest.type: app
-apiVersion: 'v2'
+apiVersion: 'v3'
+
+workloadReplicas:
+  llamacppqwen36beellamaone: 1
+
 metadata:
   name: llamacppqwen36beellamaone
   icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen36beellamaone.png
   description: "Qwen3.6 27B fastest + longest local — 106 t/s @ FULL 262K via BeeLlama.cpp + DFlash + turbo3 KV"
   appid: llamacppqwen36beellamaone
   title: Qwen36 27B BeeLlama One
-  version: 1.0.9
+  version: '1.1.1'
   categories:
     - LLM Chat
     - AI Agents
-  bento:
-    family: qwen
-    size_label: "27B"
-    badge: beellama
-    hero:
-      value: "107 t/s"
-      label: "speed @ 262K"
-    specs:
-      - { label: "context", value: "262K" }
-      - { label: "vram", value: "20 GB" }
-    capabilities:
-      tool_calling: true
-      vision:       false
-      audio:        false
-      mtp:          { enabled: true, accept: 25 }
-    stack: "BeeLlama · DFlash · turbo3 KV"
 entrances:
   - name: llamacppqwen36beellamaone
     port: 8000
@@ -37,8 +25,10 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: 1.0.9
+  versionName: '1.1.1'
   upgradeDescription: |
+    v1.1.1: **Olares 1.12.6+ compatibility: manifest migrated to apiVersion v3.** Olares 1.12.6 deprecated apiVersion v2 apps: installed v2 versions keep running but can no longer be upgraded ("This app version has been deprecated and cannot be upgraded") or installed. If you run a previous version, **uninstall it and install 1.1.1**; model files in the shared model folder are kept. No change to the inference stack. Requires Olares >= 1.12.6.
+
     v1.0.4: swap to `aamsellem/beellama-cpp:0.1.3-rc3` — built from Anbeeld HEAD `0ef12a52c3` (2026-05-17) **without** the `-lcuda` linker-flag workaround used in rc2. Validates Anbeeld's upstream CMake fix for `ggml-cuda` driver propagation: `target_link_libraries(ggml-cuda INTERFACE $<LINK_ONLY:CUDA::cuda_driver>)` (commit `2b9aa77aa6`, closes issue [#18](https://github.com/Anbeeld/beellama.cpp/issues/18)). Also picks up LPFchan PR #19 / commit `e50d29eed4` (DFlash GPU ring hang fix on turbo4 — sync ggml backend after decode). No behavioral or perf change expected vs rc2 (same binary semantics, cleaner build configuration). Same target/drafter/KV stack + `LLAMA_ARG_SPEC_DM_ADAPTIVE=true` env var as v1.0.3.
 
     v1.0.3: upgrade to BeeLlama.cpp HEAD commit `2661abf270` (2026-05-16, built as `aamsellem/beellama-cpp:0.1.3-rc2`). Pulls in 3 post-v0.1.2 commits: `185bc3de` (Fix op table drift, harden GDN kernels, stream-safe DFlash replay), `f1d9677c` (partial revert), `2661abf2` (.kld baseline truncation fix). Critically: re-enables `LLAMA_ARG_SPEC_DM_ADAPTIVE=true` — v1.0.2 had to disable the adaptive profit controller via the env var to work around the HAMI-core UINT64 underflow under sustained agentic load (~50-99K active context). With the stream-safe DFlash replay fix in HEAD, the adaptive controller's allocation pattern should no longer drift the HAMi memory counter. Build also includes upstream CMake fix for `target_link_libraries(ggml-cuda PRIVATE CUDA::cuda_driver)` scope (reported upstream as issue #18; current build uses an equivalent `-DCMAKE_EXE_LINKER_FLAGS="-lcuda"` workaround). Same target/drafter/KV stack as v1.0.2.
@@ -94,27 +84,31 @@ spec:
     - text: MIT
       url: https://github.com/ggml-org/llama.cpp/blob/master/LICENSE
 
-  limitedCpu: 16
-  requiredCpu: 4
-  requiredDisk: 25Gi
-  limitedDisk: 40Gi
-  limitedMemory: 40Gi
-  requiredMemory: 20Gi
-  requiredGpu: 1Gi
-  limitedGpu: 24Gi
 
   supportArch:
     - amd64
+  accelerator:
+    - mode: nvidia
+      supportMultiCard: false
+      supportMultiNodes: false
+      requiredCpu: "4"
+      limitedCpu: "16"
+      requiredMemory: 24Gi
+      limitedMemory: 40Gi
+      requiredDisk: 25Gi
+      limitedDisk: 40Gi
+      requiredGPUMemory: 23Gi
+      limitedGPUMemory: 23Gi
 permission:
   appData: true
 options:
   apiTimeout: 0
   dependencies:
     - name: olares
-      version: '>=1.12.3-0'
+      version: '>=1.12.6-0'
       type: system
 envs:
-  - envName: OLARES_USER_HUGGINGFACE_TOKEN
+  - envName: HUGGINGFACE_TOKEN
     required: false
     applyOnChange: true
     valueFrom:

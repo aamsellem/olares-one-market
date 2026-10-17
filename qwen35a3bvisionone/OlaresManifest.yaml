@@ -1,32 +1,20 @@
 ---
-olaresManifest.version: '0.10.0'
+olaresManifest.version: '0.12.0'
 olaresManifest.type: app
-apiVersion: 'v2'
+apiVersion: 'v3'
+
+workloadReplicas:
+  qwen35a3bvisionone: 1
+
 metadata:
   name: qwen35a3bvisionone
   icon: https://orales-one-market.aamsellem.workers.dev/icons/qwen35a3bvisionone.png
   description: "Qwen3.5 35B-A3B Vision via llama.cpp — image + text, optimized for Olares One"
   appid: qwen35a3bvisionone
   title: Qwen3.5 Vision (Olares One)
-  version: '1.0.11'
+  version: '1.1.1'
   categories:
     - Vision
-  bento:
-    family: qwen
-    size_label: "35B-A3B"
-    badge: vision
-    hero:
-      value: "159 t/s"
-      label: "speed + vision"
-    specs:
-      - { label: "context", value: "32K" }
-      - { label: "vram", value: "22 GB" }
-    capabilities:
-      tool_calling: true
-      vision:       true
-      audio:        false
-      mtp:          { enabled: false }
-    stack: "llama.cpp b11046 · CUDA 13.3 · mmproj F16"
 entrances:
   - name: qwen35a3bvisionone
     port: 8080
@@ -36,8 +24,10 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.0.11'
+  versionName: '1.1.1'
   upgradeDescription: |
+    v1.1.1: **Olares 1.12.6+ compatibility: manifest migrated to apiVersion v3.** Olares 1.12.6 deprecated apiVersion v2 apps: installed v2 versions keep running but can no longer be upgraded ("This app version has been deprecated and cannot be upgraded") or installed. If you run a previous version, **uninstall it and install 1.1.1**; model files in the shared model folder are kept. No change to the inference stack. Requires Olares >= 1.12.6.
+
     v1.0.11: **CUDA 13.3 image, +11% decode.** Switched from `ghcr.io/ggml-org/llama.cpp:server-cuda13-b8740` to `docker.io/beclab/ggml-org-llama.cpp:server-cuda13-b11046` (CUDA 13.3 runtime via the bundled forward-compat libcuda, runs on the Olares 595.84 / CUDA 13.2 driver). `--mlock` became `--load-mode mmap+mlock` (the flag was merged upstream). Bench on Olares One 2026-09-30, same args, only the image changed (Qwen3.5-35B-A3B UD-Q4_K_XL (text path, same weights)): Space Invaders HTML 143.23 → **159.04 t/s**, code prompt 141.53 → **158.23 t/s**. Vision re-validated on the new image (64x64 test PNG, correct answer).
 
     v1.0.5: llama.cpp b8667 → b8667 (Hadamard rotation). KV cache q4_0 (with Hadamard rotation) → q4_0 (2x compression). Context 16K → 32K.
@@ -62,22 +52,26 @@ spec:
     - text: MIT
       url: https://github.com/ggerganov/llama.cpp/blob/master/LICENSE
 
-  limitedCpu: 16
-  requiredCpu: 4
-  requiredDisk: 35Gi
-  limitedDisk: 50Gi
-  limitedMemory: 40Gi
-  requiredMemory: 24Gi
-  requiredGpu: 1Gi
-  limitedGpu: 24Gi
 
   supportArch:
     - amd64
+  accelerator:
+    - mode: nvidia
+      supportMultiCard: false
+      supportMultiNodes: false
+      requiredCpu: "4"
+      limitedCpu: "16"
+      requiredMemory: 24Gi
+      limitedMemory: 40Gi
+      requiredDisk: 35Gi
+      limitedDisk: 50Gi
+      requiredGPUMemory: 23Gi
+      limitedGPUMemory: 23Gi
 permission:
   appData: true
 options:
   apiTimeout: 0
   dependencies:
     - name: olares
-      version: '>=1.12.3-0'
+      version: '>=1.12.6-0'
       type: system

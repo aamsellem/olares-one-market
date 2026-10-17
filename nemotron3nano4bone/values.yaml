@@ -5,3 +5,6 @@ userspace:
   appData: ""
   appCache: ""
   userData: ""
+workloads:
+  nemotron3nano4bone:
+    replicaCount: 1

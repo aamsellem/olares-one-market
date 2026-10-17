@@ -1,1 +1,3 @@
-{}
+workloads:
+  vllmvoxtralrt4bone:
+    replicaCount: 1

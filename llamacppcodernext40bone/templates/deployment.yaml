@@ -21,7 +21,7 @@ metadata:
   annotations:
     applications.app.bytetrade.io/gpu-inject: "true"
 spec:
-  replicas: 1
+  replicas: {{ .Values.workloads.llamacppcodernext40bone.replicaCount }}
   selector:
     matchLabels:
       io.kompose.service: llamacppcodernext40bone
@@ -80,7 +80,7 @@ spec:
             - name: HF_HOME
               value: "/models/huggingface"
             - name: HF_TOKEN
-              value: "{{ .Values.olaresEnv.OLARES_USER_HUGGINGFACE_TOKEN }}"
+              value: "{{ .Values.olaresEnv.HUGGINGFACE_TOKEN }}"
             - name: MODELS_DIR
               value: "/models"
             - name: GGML_CUDA_GRAPH_OPT
@@ -111,11 +111,9 @@ spec:
             limits:
               cpu: "16"
               memory: 40Gi
-              nvidia.com/gpu: "1"
             requests:
               cpu: 4000m
               memory: 24Gi
-              nvidia.com/gpu: "1"
           volumeMounts:
             - mountPath: "/models"
               name: models

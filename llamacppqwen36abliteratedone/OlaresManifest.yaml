@@ -1,35 +1,23 @@
 ---
-olaresManifest.version: '0.10.0'
+olaresManifest.version: '0.12.0'
 olaresManifest.type: app
-apiVersion: 'v2'
+apiVersion: 'v3'
+
+workloadReplicas:
+  llamacppqwen36abliteratedone: 1
+
 metadata:
   name: llamacppqwen36abliteratedone
   icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen36abliteratedone.png
   description: "Qwen3.6 35B-A3B abliterated + Claude 4.7 Opus reasoning distilled — Q4_K smarter quant @ 65K, no guardrails, MTP + Vision on Olares One"
   appid: llamacppqwen36abliteratedone
-  title: Qwen36 35B-A3B Abliterated Claude
-  version: '1.0.11'
+  title: Qwen36 35B Abliterated Claude
+  version: '1.1.1'
   categories:
     - LLM Chat
     - AI Agents
     - Vision
     - Uncensored
-  bento:
-    family: qwen
-    size_label: "35B-A3B"
-    badge: abliterated + claude · Q4_K
-    hero:
-      value: "244 t/s"
-      label: "Q4_K smarter quant · no guardrails"
-    specs:
-      - { label: "context", value: "65K" }
-      - { label: "vram", value: "26 GB" }
-    capabilities:
-      tool_calling: true
-      vision:       true
-      audio:        false
-      mtp:          { enabled: true, accept: 86 }
-    stack: "buun-llama.cpp · huihui-ai Q4_K · MTP + mmproj-gpu-swap"
 entrances:
   - name: llamacppqwen36abliteratedone
     port: 8000
@@ -39,8 +27,10 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.0.11'
+  versionName: '1.1.1'
   upgradeDescription: |
+    v1.1.1: **Olares 1.12.6+ compatibility: manifest migrated to apiVersion v3.** Olares 1.12.6 deprecated apiVersion v2 apps: installed v2 versions keep running but can no longer be upgraded ("This app version has been deprecated and cannot be upgraded") or installed. If you run a previous version, **uninstall it and install 1.1.1**; model files in the shared model folder are kept. No change to the inference stack. Requires Olares >= 1.12.6.
+
     v1.0.10: **fix missing `envs:` declaration for HF token**. `templates/deployment.yaml` referenced `HF_TOKEN=.Values.olaresEnv.OLARES_USER_HUGGINGFACE_TOKEN` but `OlaresManifest.yaml` never declared `OLARES_USER_HUGGINGFACE_TOKEN` in an `envs:` block — so Helm rendered `HF_TOKEN=""` and any gated-model download from HuggingFace failed with 401. Same class of bug as `nemotronlabselastic30bnvfp4one` v1.0.3 (Discord-reported crash loop). No functional change for public models; fixes gated-repo access. Declared `required: false` so install still works when the user hasn't configured a token in Olares Settings.
 
     v1.0.9: **upgrade to BeeLlama v0.3.1** (anbeeld's maintained fork, ghcr.io/anbeeld/beellama.cpp:server-cuda13-v0.3.1). Bumped from custom one-shot `aamsellem/buun-llama-cpp:87c351d2` to BeeLlama which includes everything buun had (asymmetric KV q8_0-K/turbo4-V, MTP) PLUS DFlash speculative decoding, adaptive draft-max controller, reasoning-loop protection, and full multimodal Gemma 4 unified support — all in a maintained upstream image with regular release tags. Bench on Olares One (3 runs Space Invaders): 247.42 / 256.65 / 248.69 t/s = AVG 250.9 t/s with 86-92% MTP accept (vs v1.0.8 245.3 t/s @ 82-88%) = +2.3% speed + higher accept rate ceiling. Same Q4_K + mmproj + asym KV config, just better upstream image.
@@ -102,27 +92,31 @@ spec:
     - text: Apache-2.0
       url: https://huggingface.co/huihui-ai/Huihui-Qwen3.6-35B-A3B-Claude-4.7-Opus-abliterated-MTP-GGUF
 
-  limitedCpu: 16
-  requiredCpu: 4
-  requiredDisk: 30Gi
-  limitedDisk: 50Gi
-  limitedMemory: 40Gi
-  requiredMemory: 24Gi
-  requiredGpu: 1Gi
-  limitedGpu: 24Gi
 
   supportArch:
     - amd64
+  accelerator:
+    - mode: nvidia
+      supportMultiCard: false
+      supportMultiNodes: false
+      requiredCpu: "4"
+      limitedCpu: "16"
+      requiredMemory: 24Gi
+      limitedMemory: 40Gi
+      requiredDisk: 30Gi
+      limitedDisk: 50Gi
+      requiredGPUMemory: 23Gi
+      limitedGPUMemory: 23Gi
 permission:
   appData: true
 options:
   apiTimeout: 0
   dependencies:
     - name: olares
-      version: '>=1.12.3-0'
+      version: '>=1.12.6-0'
       type: system
 envs:
-  - envName: OLARES_USER_HUGGINGFACE_TOKEN
+  - envName: HUGGINGFACE_TOKEN
     required: false
     applyOnChange: true
     valueFrom:

@@ -1,5 +1,5 @@
 metadata:
-  title: Qwen36 35B-A3B DFlash Vision One
+  title: Qwen36 35B DFlash Vision One
   description: "Qwen3.6 35B-A3B DFlash + Vision — 302 t/s @ FULL 128K context with vision + tool calling on Olares One"
 
 spec:

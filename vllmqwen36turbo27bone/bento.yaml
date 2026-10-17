@@ -1,0 +1,17 @@
+# Bento card config (scripts/generate-bento.js). Kept out of OlaresManifest.yaml:
+# the apiVersion v3 schema rejects unknown metadata fields.
+family: qwen
+size_label: "27B"
+badge: turbo
+hero:
+  value: "88 t/s"
+  label: "speed @ 88K"
+specs:
+  - { label: "context", value: "88K" }
+  - { label: "vram", value: "20 GB" }
+capabilities:
+  tool_calling: true
+  vision:       false
+  audio:        false
+  mtp:          { enabled: true, accept: 75 }
+stack: "vLLM · TurboQuant K8V4 · MTP n=3"

@@ -16,3 +16,4 @@
 *.tmproj
 .vscode/
 docker/
+bento.yaml

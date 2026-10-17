@@ -1,33 +1,21 @@
 ---
-olaresManifest.version: '0.10.0'
+olaresManifest.version: '0.12.0'
 olaresManifest.type: app
-apiVersion: 'v2'
+apiVersion: 'v3'
+
+workloadReplicas:
+  vllmgemma4e4bone: 1
+
 metadata:
   name: vllmgemma4e4bone
   icon: https://orales-one-market.aamsellem.workers.dev/icons/vllmgemma4e4bone.png
   description: "Gemma 4 E4B (Vision + Audio) via vLLM — optimized for Olares One"
   appid: vllmgemma4e4bone
   title: Gemma 4 E4B Voice One
-  version: '1.0.13'
+  version: '1.1.1'
   categories:
     - Audio
     - LLM Chat
-  bento:
-    family: gemma
-    size_label: "E4B"
-    badge: voice mtp
-    hero:
-      value: "178 t/s"
-      label: "speed"
-    specs:
-      - { label: "context", value: "32K" }
-      - { label: "vram", value: "6 GB" }
-    capabilities:
-      tool_calling: true
-      vision:       false
-      audio:        true
-      mtp:          { enabled: true, accept: 77 }
-    stack: "vLLM · Gemma4MTP · centroids"
 entrances:
   - name: vllmgemma4e4bone
     port: 8000
@@ -37,8 +25,10 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.0.13'
+  versionName: '1.1.1'
   upgradeDescription: |
+    v1.1.1: **Olares 1.12.6+ compatibility: manifest migrated to apiVersion v3.** Olares 1.12.6 deprecated apiVersion v2 apps: installed v2 versions keep running but can no longer be upgraded ("This app version has been deprecated and cannot be upgraded") or installed. If you run a previous version, **uninstall it and install 1.1.1**; model files in the shared model folder are kept. No change to the inference stack. Requires Olares >= 1.12.6.
+
     v1.0.12: align chart with validated MTP bench (178 t/s avg, 77% draft acceptance, first public Blackwell consumer mobile result for Gemma 4 E4B MTP). Image bumped to `vllm/vllm-openai:nightly-1acd67a795ebccdf9b9db7697ae9082058301657` (built post vLLM PR #41745 merge on 2026-05-06, native Gemma4MTP + Gemma4Proposer + centroids masking with CUDA graph capture). Adds `--speculative-config` with `google/gemma-4-E4B-it-assistant` MTP drafter (num_speculative_tokens=3). max-model-len 4K → 32K. gpu-memory-utilization 0.75 → 0.85.
   fullDescription: |
     Google Gemma 4 E4B (8B params, 4.5B effective) with native audio + vision input + MTP speculative decoding — served via vLLM, optimized for Olares One.
@@ -63,22 +53,26 @@ spec:
     - text: Apache 2.0
       url: https://www.apache.org/licenses/LICENSE-2.0
 
-  limitedCpu: 16
-  requiredCpu: 4
-  requiredDisk: 20Gi
-  limitedDisk: 30Gi
-  limitedMemory: 40Gi
-  requiredMemory: 4Gi
-  requiredGpu: 1Gi
-  limitedGpu: 24Gi
 
   supportArch:
     - amd64
+  accelerator:
+    - mode: nvidia
+      supportMultiCard: false
+      supportMultiNodes: false
+      requiredCpu: "4"
+      limitedCpu: "16"
+      requiredMemory: 4Gi
+      limitedMemory: 40Gi
+      requiredDisk: 20Gi
+      limitedDisk: 30Gi
+      requiredGPUMemory: 23Gi
+      limitedGPUMemory: 23Gi
 permission:
   appData: true
 options:
   apiTimeout: 0
   dependencies:
     - name: olares
-      version: '>=1.12.3-0'
+      version: '>=1.12.6-0'
       type: system

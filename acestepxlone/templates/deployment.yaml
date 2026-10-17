@@ -9,7 +9,7 @@ metadata:
   annotations:
     applications.app.bytetrade.io/gpu-inject: "true"
 spec:
-  replicas: 1
+  replicas: {{ .Values.workloads.acestepxlone.replicaCount }}
   selector:
     matchLabels:
       io.kompose.service: acestepxlone
@@ -201,9 +201,9 @@ spec:
               done
           env:
             - name: HF_ENDPOINT
-              value: "{{ .Values.olaresEnv.OLARES_USER_HUGGINGFACE_SERVICE | default "https://huggingface.co" }}"
+              value: "{{ .Values.olaresEnv.HUGGINGFACE_SERVICE | default "https://huggingface.co" }}"
             - name: HF_TOKEN
-              value: "{{ .Values.olaresEnv.OLARES_USER_HUGGINGFACE_TOKEN | default "" }}"
+              value: "{{ .Values.olaresEnv.HUGGINGFACE_TOKEN | default "" }}"
           volumeMounts:
             - mountPath: "/checkpoints"
               name: checkpoints

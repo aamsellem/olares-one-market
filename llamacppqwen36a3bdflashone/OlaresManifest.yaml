@@ -1,34 +1,22 @@
 ---
-olaresManifest.version: '0.10.0'
+olaresManifest.version: '0.12.0'
 olaresManifest.type: app
-apiVersion: 'v2'
+apiVersion: 'v3'
+
+workloadReplicas:
+  llamacppqwen36a3bdflashone: 1
+
 metadata:
   name: llamacppqwen36a3bdflashone
   icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen36a3bdflashone.png
   description: "Qwen3.6 35B-A3B + DFlash + Vision — 302 t/s @ 128K on Olares One, upstream llama.cpp (no fork)"
   appid: llamacppqwen36a3bdflashone
-  title: Qwen36 35B-A3B DFlash Vision One
-  version: '1.0.0'
+  title: Qwen36 35B DFlash Vision One
+  version: '1.1.1'
   categories:
     - LLM Chat
     - AI Agents
     - Vision
-  bento:
-    family: qwen
-    size_label: "35B-A3B"
-    badge: dflash · upstream
-    hero:
-      value: "302 t/s"
-      label: "DFlash n=6 · 72% accept · vision · 128K"
-    specs:
-      - { label: "context", value: "128K" }
-      - { label: "vram", value: "19.5 GB" }
-    capabilities:
-      tool_calling: true
-      vision:       true
-      audio:        false
-      mtp:          { enabled: false }
-    stack: "upstream llama.cpp server-cuda12 b10156 · Q3_K_XL · DFlash n=6 + mmproj"
 entrances:
   - name: llamacppqwen36a3bdflashone
     port: 8000
@@ -38,8 +26,10 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.0.0'
+  versionName: '1.1.1'
   upgradeDescription: |
+    v1.1.1: **Olares 1.12.6+ compatibility: manifest migrated to apiVersion v3.** Olares 1.12.6 deprecated apiVersion v2 apps: installed v2 versions keep running but can no longer be upgraded ("This app version has been deprecated and cannot be upgraded") or installed. If you run a previous version, **uninstall it and install 1.1.1**; model files in the shared model folder are kept. No change to the inference stack. Requires Olares >= 1.12.6.
+
     v1.0.0: initial release. **Qwen 3.6 35B-A3B + DFlash speculative decoding + vision, on upstream llama.cpp.**
 
     **Bench validated on Olares One 2026-07-29 (RTX 5090M, 24 GB, sm_120)** — 10 runs Space Invaders HTML @ 2000 tokens, single user:
@@ -103,27 +93,31 @@ spec:
     - text: Apache-2.0
       url: https://huggingface.co/Qwen/Qwen3.6-35B-A3B/blob/main/LICENSE
 
-  limitedCpu: 16
-  requiredCpu: 4
-  requiredDisk: 30Gi
-  limitedDisk: 50Gi
-  limitedMemory: 40Gi
-  requiredMemory: 24Gi
-  requiredGpu: 1Gi
-  limitedGpu: 24Gi
 
   supportArch:
     - amd64
+  accelerator:
+    - mode: nvidia
+      supportMultiCard: false
+      supportMultiNodes: false
+      requiredCpu: "4"
+      limitedCpu: "16"
+      requiredMemory: 24Gi
+      limitedMemory: 40Gi
+      requiredDisk: 30Gi
+      limitedDisk: 50Gi
+      requiredGPUMemory: 23Gi
+      limitedGPUMemory: 23Gi
 permission:
   appData: true
 options:
   apiTimeout: 0
   dependencies:
     - name: olares
-      version: '>=1.12.3-0'
+      version: '>=1.12.6-0'
       type: system
 envs:
-  - envName: OLARES_USER_HUGGINGFACE_TOKEN
+  - envName: HUGGINGFACE_TOKEN
     required: false
     applyOnChange: true
     valueFrom:

@@ -1,32 +1,20 @@
 ---
-olaresManifest.version: '0.10.0'
+olaresManifest.version: '0.12.0'
 olaresManifest.type: app
-apiVersion: 'v2'
+apiVersion: 'v3'
+
+workloadReplicas:
+  exl3qwen35a3bone: 1
+
 metadata:
   name: exl3qwen35a3bone
   icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen35a3bone.png
   description: "Qwen3.5 35B-A3B EXL3 4bpw via TabbyAPI + ExLlamaV3 — optimized for Olares One"
   appid: exl3qwen35a3bone
   title: Qwen3.5 35B EXL3 One
-  version: '1.0.18'
+  version: '1.1.1'
   categories:
     - LLM Chat
-  bento:
-    family: qwen
-    size_label: "35B-A3B"
-    badge: exl3
-    hero:
-      value: "110 t/s"
-      label: "speed"
-    specs:
-      - { label: "context", value: "32K" }
-      - { label: "vram", value: "20 GB" }
-    capabilities:
-      tool_calling: true
-      vision:       false
-      audio:        false
-      mtp:          { enabled: false }
-    stack: "ExLlamaV3 · 3.5bpw · MoE"
 entrances:
   - name: exl3qwen35a3bone
     port: 8080
@@ -36,7 +24,10 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.0.18'
+  versionName: '1.1.1'
+  upgradeDescription: |
+    v1.1.1: **Olares 1.12.6+ compatibility: manifest migrated to apiVersion v3.** Olares 1.12.6 deprecated apiVersion v2 apps: installed v2 versions keep running but can no longer be upgraded ("This app version has been deprecated and cannot be upgraded") or installed. If you run a previous version, **uninstall it and install 1.1.1**; model files in the shared model folder are kept. No change to the inference stack. Requires Olares >= 1.12.6.
+
   fullDescription: |
     Qwen3.5 35B-A3B (MoE, 3B active) served via TabbyAPI + ExLlamaV3 — optimized for Olares One.
     RTX 5090M (24GB) + 96GB DDR5 + Core Ultra 9 275HX.
@@ -55,17 +46,21 @@ spec:
     - text: MIT
       url: https://github.com/turboderp-org/exllamav3/blob/master/LICENSE
 
-  limitedCpu: 16
-  requiredCpu: 4
-  requiredDisk: 30Gi
-  limitedDisk: 50Gi
-  limitedMemory: 40Gi
-  requiredMemory: 24Gi
-  requiredGpu: 1Gi
-  limitedGpu: 24Gi
 
   supportArch:
     - amd64
+  accelerator:
+    - mode: nvidia
+      supportMultiCard: false
+      supportMultiNodes: false
+      requiredCpu: "4"
+      limitedCpu: "16"
+      requiredMemory: 24Gi
+      limitedMemory: 40Gi
+      requiredDisk: 30Gi
+      limitedDisk: 50Gi
+      requiredGPUMemory: 23Gi
+      limitedGPUMemory: 23Gi
 envs:
   - envName: HF_TOKEN
     required: false
@@ -83,5 +78,5 @@ options:
   apiTimeout: 0
   dependencies:
     - name: olares
-      version: '>=1.12.3-0'
+      version: '>=1.12.6-0'
       type: system

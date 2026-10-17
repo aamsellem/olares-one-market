@@ -1,35 +1,23 @@
 ---
-olaresManifest.version: '0.10.0'
+olaresManifest.version: '0.12.0'
 olaresManifest.type: app
-apiVersion: 'v2'
+apiVersion: 'v3'
+
+workloadReplicas:
+  vllmgemma426ba4babliteratedone: 1
+
 metadata:
   name: vllmgemma426ba4babliteratedone
   icon: https://orales-one-market.aamsellem.workers.dev/icons/vllmgemma426ba4babliteratedone.png
   description: "Gemma 4 26B-A4B abliterated + MTP via vLLM — 250 t/s @ 128K, no guardrails, vision + tool calling on Olares One"
   appid: vllmgemma426ba4babliteratedone
   title: Gemma 4 26B Abliterated One
-  version: '1.0.1'
+  version: '1.1.1'
   categories:
     - LLM Chat
     - AI Agents
     - Vision
     - Uncensored
-  bento:
-    family: gemma
-    size_label: "26B-A4B"
-    badge: abliterated
-    hero:
-      value: "250 t/s"
-      label: "no guardrails + champion speed"
-    specs:
-      - { label: "context", value: "128K" }
-      - { label: "vram", value: "22 GB" }
-    capabilities:
-      tool_calling: true
-      vision:       true
-      audio:        false
-      mtp:          { enabled: true, accept: 85.7 }
-    stack: "vLLM v0.21 · abhishekchohan AWQ · MTP · fp8 KV"
 entrances:
   - name: vllmgemma426ba4babliteratedone
     port: 8000
@@ -39,8 +27,10 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.0.1'
+  versionName: '1.1.1'
   upgradeDescription: |
+    v1.1.1: **Olares 1.12.6+ compatibility: manifest migrated to apiVersion v3.** Olares 1.12.6 deprecated apiVersion v2 apps: installed v2 versions keep running but can no longer be upgraded ("This app version has been deprecated and cannot be upgraded") or installed. If you run a previous version, **uninstall it and install 1.1.1**; model files in the shared model folder are kept. No change to the inference stack. Requires Olares >= 1.12.6.
+
     v1.0.1: bench validated 2026-05-24 on Olares One: **249.83 t/s AVG** (10 runs excl cold, range 242-253, σ ≈ 3.5), **85.7% MTP draft acceptance** (16503/19248 tokens). Vision validated (64×64 PNG → "Red"). **Only -0.4% vs the non-abliterated vision champion** (`vllmgemma426ba4bvisionone` v1.0.5 at 250.80 t/s) — the abliteration is so surgical that the MTP drafter's logits still align with the abliterated target at near-original quality. Best speed/safety-drop ratio in the catalog.
 
     v1.0.0: initial release. Uncensored sibling of the `vllmgemma426ba4bvisionone` v1.0.5 vision champion. Same stack (vLLM v0.21 + Gemma4 MTP + triton_attn + fp8 KV + 128K native context + vision + tool calling), but with the abliterated weights applied on top of Gemma 4 26B-A4B-it.
@@ -87,26 +77,30 @@ spec:
     - text: Gemma-Terms
       url: https://ai.google.dev/gemma/terms
 
-  limitedCpu: 16
-  requiredCpu: 4
-  requiredDisk: 30Gi
-  limitedDisk: 50Gi
-  limitedMemory: 40Gi
-  requiredMemory: 24Gi
-  requiredGpu: 1Gi
-  limitedGpu: 24Gi
 
   supportArch:
     - amd64
+  accelerator:
+    - mode: nvidia
+      supportMultiCard: false
+      supportMultiNodes: false
+      requiredCpu: "4"
+      limitedCpu: "16"
+      requiredMemory: 24Gi
+      limitedMemory: 40Gi
+      requiredDisk: 30Gi
+      limitedDisk: 50Gi
+      requiredGPUMemory: 23Gi
+      limitedGPUMemory: 23Gi
 permission:
   appData: true
 envs:
-  - envName: OLARES_USER_HUGGINGFACE_SERVICE
+  - envName: HUGGINGFACE_SERVICE
     required: true
     applyOnChange: true
     valueFrom:
       envName: OLARES_USER_HUGGINGFACE_SERVICE
-  - envName: OLARES_USER_HUGGINGFACE_TOKEN
+  - envName: HUGGINGFACE_TOKEN
     required: true
     applyOnChange: true
     valueFrom:
@@ -115,5 +109,5 @@ options:
   apiTimeout: 0
   dependencies:
     - name: olares
-      version: '>=1.12.3-0'
+      version: '>=1.12.6-0'
       type: system

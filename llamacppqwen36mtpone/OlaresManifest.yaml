@@ -1,32 +1,20 @@
 ---
-olaresManifest.version: '0.10.0'
+olaresManifest.version: '0.12.0'
 olaresManifest.type: app
-apiVersion: 'v2'
+apiVersion: 'v3'
+
+workloadReplicas:
+  llamacppqwen36mtpone: 1
+
 metadata:
   name: llamacppqwen36mtpone
   icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppqwen36mtpone.png
   description: "Qwen3.6 27B longest context — 74 t/s / 86.7% accept @ full 262K (unsloth UD-Q3_K_XL + MTP master ad27757)"
   appid: llamacppqwen36mtpone
   title: Qwen36 27B Long Context
-  version: 1.0.18
+  version: '1.1.1'
   categories:
     - LLM Chat
-  bento:
-    family: qwen
-    size_label: "27B"
-    badge: long ctx
-    hero:
-      value: "72 t/s"
-      label: "speed @ 262K"
-    specs:
-      - { label: "context", value: "262K" }
-      - { label: "vram", value: "20 GB" }
-    capabilities:
-      tool_calling: true
-      vision:       false
-      audio:        false
-      mtp:          { enabled: true, accept: 64 }
-    stack: "llama.cpp · Q3_K_XL · MTP"
 entrances:
   - name: llamacppqwen36mtpone
     port: 8000
@@ -36,8 +24,10 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: 1.0.18
+  versionName: '1.1.1'
   upgradeDescription: |
+    v1.1.1: **Olares 1.12.6+ compatibility: manifest migrated to apiVersion v3.** Olares 1.12.6 deprecated apiVersion v2 apps: installed v2 versions keep running but can no longer be upgraded ("This app version has been deprecated and cannot be upgraded") or installed. If you run a previous version, **uninstall it and install 1.1.1**; model files in the shared model folder are kept. No change to the inference stack. Requires Olares >= 1.12.6.
+
     v1.0.18: **rollback BeeLlama → buun (preemptive Hermes regression fix)**. v1.0.17 swapped to `ghcr.io/anbeeld/beellama.cpp:server-cuda13-v0.3.1` for the maintained fork. A Discord user reported the same swap broke Hermes tool-calling on the sibling `llamacppqwen36a3bone` v2.0.6 (rolled back as v2.0.7). Reverting this chart's image to the known-good `aamsellem/buun-llama-cpp:87c351d2` proactively to avoid the same regression — same asym q8_0/turbo4 KV + MTP + `--reasoning off` config as v1.0.17, just the buun image instead of BeeLlama. No bench delta expected (buun is the original source BeeLlama forked from).
 
     v1.0.10: bump image `aamsellem/llama-cpp-mtp:master-ad27757` → `master-bb28c1f`. Picks up am17an's PR [#23461](https://github.com/ggml-org/llama.cpp/pull/23461) "server: free draft/MTP resources on sleep to fix VRAM leak" (validated by community Reddit thread on b9274) + #23433 "mtp: use inp_out_ids for skipping logit computation" + #23131 SWA null-buffer fix + #23287 NVIDIA backend sampling (same as v1.0.9). Bench re-validated 2026-05-22: 250.08 t/s AVG on Qwen3.6 35B-A3B (10 runs, +0.3% vs ad27757 — within noise). Real win is the VRAM leak fix for sustained agentic load. Same model bits, same flags, same context.
@@ -103,27 +93,31 @@ spec:
     - text: MIT
       url: https://github.com/ggml-org/llama.cpp/blob/master/LICENSE
 
-  limitedCpu: 16
-  requiredCpu: 4
-  requiredDisk: 25Gi
-  limitedDisk: 40Gi
-  limitedMemory: 40Gi
-  requiredMemory: 20Gi
-  requiredGpu: 1Gi
-  limitedGpu: 24Gi
 
   supportArch:
     - amd64
+  accelerator:
+    - mode: nvidia
+      supportMultiCard: false
+      supportMultiNodes: false
+      requiredCpu: "4"
+      limitedCpu: "16"
+      requiredMemory: 24Gi
+      limitedMemory: 40Gi
+      requiredDisk: 25Gi
+      limitedDisk: 40Gi
+      requiredGPUMemory: 23Gi
+      limitedGPUMemory: 23Gi
 permission:
   appData: true
 options:
   apiTimeout: 0
   dependencies:
     - name: olares
-      version: '>=1.12.3-0'
+      version: '>=1.12.6-0'
       type: system
 envs:
-  - envName: OLARES_USER_HUGGINGFACE_TOKEN
+  - envName: HUGGINGFACE_TOKEN
     required: false
     applyOnChange: true
     valueFrom:

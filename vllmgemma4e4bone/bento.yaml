@@ -1,0 +1,17 @@
+# Bento card config (scripts/generate-bento.js). Kept out of OlaresManifest.yaml:
+# the apiVersion v3 schema rejects unknown metadata fields.
+family: gemma
+size_label: "E4B"
+badge: voice mtp
+hero:
+  value: "178 t/s"
+  label: "speed"
+specs:
+  - { label: "context", value: "32K" }
+  - { label: "vram", value: "6 GB" }
+capabilities:
+  tool_calling: true
+  vision:       false
+  audio:        true
+  mtp:          { enabled: true, accept: 77 }
+stack: "vLLM · Gemma4MTP · centroids"

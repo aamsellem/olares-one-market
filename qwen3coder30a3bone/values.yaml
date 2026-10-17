@@ -5,3 +5,6 @@ userspace:
   appData: ""
   appCache: ""
   userData: ""
+workloads:
+  qwen3coder30a3bone:
+    replicaCount: 1

@@ -1,33 +1,21 @@
 ---
-olaresManifest.version: '0.10.0'
+olaresManifest.version: '0.12.0'
 olaresManifest.type: app
-apiVersion: 'v2'
+apiVersion: 'v3'
+
+workloadReplicas:
+  devstralsmallone: 1
+
 metadata:
   name: devstralsmallone
   icon: https://orales-one-market.aamsellem.workers.dev/icons/devstralsmallone.png
   description: "Devstral Small 2507 via llama.cpp — coding agent optimized for Olares One"
   appid: devstralsmallone
   title: Devstral Small Code One
-  version: '1.0.7'
+  version: '1.1.1'
   categories:
     - Coding
     - AI Agents
-  bento:
-    family: mistral
-    size_label: "24B"
-    badge: swe-bench
-    hero:
-      value: "53.6%"
-      label: "swe-bench verified"
-    specs:
-      - { label: "context", value: "128K" }
-      - { label: "vram", value: "17 GB" }
-    capabilities:
-      tool_calling: true
-      vision:       false
-      audio:        false
-      mtp:          { enabled: false }
-    stack: "llama.cpp · UD-Q5_K_XL · Devstral"
 entrances:
   - name: devstralsmallone
     port: 8080
@@ -37,7 +25,10 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.0.7'
+  versionName: '1.1.1'
+  upgradeDescription: |
+    v1.1.1: **Olares 1.12.6+ compatibility: manifest migrated to apiVersion v3.** Olares 1.12.6 deprecated apiVersion v2 apps: installed v2 versions keep running but can no longer be upgraded ("This app version has been deprecated and cannot be upgraded") or installed. If you run a previous version, **uninstall it and install 1.1.1**; model files in the shared model folder are kept. No change to the inference stack. Requires Olares >= 1.12.6.
+
   fullDescription: |
     Devstral Small 2507 (24B dense) served via llama.cpp — coding agent optimized for Olares One.
     #1 open-source on SWE-Bench Verified (53.6%) — outperforms models 10x larger.
@@ -59,22 +50,26 @@ spec:
     - text: Apache-2.0
       url: https://huggingface.co/mistralai/Devstral-Small-2507/blob/main/LICENSE
 
-  limitedCpu: 16
-  requiredCpu: 4
-  requiredDisk: 30Gi
-  limitedDisk: 50Gi
-  limitedMemory: 40Gi
-  requiredMemory: 24Gi
-  requiredGpu: 1Gi
-  limitedGpu: 24Gi
 
   supportArch:
     - amd64
+  accelerator:
+    - mode: nvidia
+      supportMultiCard: false
+      supportMultiNodes: false
+      requiredCpu: "4"
+      limitedCpu: "16"
+      requiredMemory: 24Gi
+      limitedMemory: 40Gi
+      requiredDisk: 30Gi
+      limitedDisk: 50Gi
+      requiredGPUMemory: 23Gi
+      limitedGPUMemory: 23Gi
 permission:
   appData: true
 options:
   apiTimeout: 0
   dependencies:
     - name: olares
-      version: '>=1.12.3-0'
+      version: '>=1.12.6-0'
       type: system

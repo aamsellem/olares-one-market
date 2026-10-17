@@ -25,7 +25,7 @@ metadata:
   annotations:
     applications.app.bytetrade.io/gpu-inject: "true"
 spec:
-  replicas: 1
+  replicas: {{ .Values.workloads.llamacppgemma426ba4bone.replicaCount }}
   selector:
     matchLabels:
       io.kompose.service: llamacppgemma426ba4bone
@@ -37,17 +37,6 @@ spec:
         io.kompose.network/chrome-default: "true"
         io.kompose.service: llamacppgemma426ba4bone
     spec:
-      initContainers:
-        # Fix hostPath perms — /olares/share/ai/model is created uid 1000 mode 755 on fresh
-        # Olares installs; non-root appuser in the main image can't write to it.
-        - name: fix-shared-perms
-          image: "docker.io/alpine:3.20"
-          command: ["sh", "-c", "mkdir -p /shared-models/llms && chmod -R 777 /shared-models && echo perms-fixed"]
-          securityContext:
-            runAsUser: 0
-          volumeMounts:
-            - mountPath: "/shared-models"
-              name: shared-models
       containers:
         - name: gemma426ba4b-server
           image: "ghcr.io/ggml-org/llama.cpp@sha256:b98cf7adba78b3a8053724949fafcea8094182f1fd4d28e0de46e471dffe75d0"
@@ -58,6 +47,9 @@ spec:
               MODELS_DIR=${MODELS_DIR:-/models}
               SHARED_DIR=${SHARED_DIR:-/shared-models/llms}
               mkdir -p "$MODELS_DIR" "$SHARED_DIR"
+              # /olares/share/ai/model is uid 1000 mode 755 on fresh installs; open it up for
+              # other apps sharing the weights (this image runs as root)
+              chmod 777 "$SHARED_DIR" 2>/dev/null || true
               HF_AUTH=""
               if [ -n "$HF_TOKEN" ]; then HF_AUTH="-H \"Authorization: Bearer $HF_TOKEN\""; fi
               if [ ! -f "$SHARED_DIR/$TARGET_FILE.ok" ]; then
@@ -104,7 +96,7 @@ spec:
             - name: HF_HOME
               value: "/models/huggingface"
             - name: HF_TOKEN
-              value: "{{ .Values.olaresEnv.OLARES_USER_HUGGINGFACE_TOKEN }}"
+              value: "{{ .Values.olaresEnv.HUGGINGFACE_TOKEN }}"
             - name: MODELS_DIR
               value: "/models"
             - name: CUDA_DEVICE_MEMORY_LIMIT_0
@@ -133,11 +125,9 @@ spec:
             limits:
               cpu: "16"
               memory: 30Gi
-              nvidia.com/gpu: "1"
             requests:
               cpu: 4000m
               memory: 16Gi
-              nvidia.com/gpu: "1"
           volumeMounts:
             - mountPath: "/models"
               name: models

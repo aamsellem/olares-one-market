@@ -1,1 +1,3 @@
-{}
+workloads:
+  gemma4e2bone:
+    replicaCount: 1

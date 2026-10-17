@@ -1,33 +1,21 @@
 ---
-olaresManifest.version: '0.10.0'
+olaresManifest.version: '0.12.0'
 olaresManifest.type: app
-apiVersion: 'v2'
+apiVersion: 'v3'
+
+workloadReplicas:
+  nemotronlabselastic30bnvfp4one: 1
+
 metadata:
   name: nemotronlabselastic30bnvfp4one
   icon: https://orales-one-market.aamsellem.workers.dev/icons/nemotronlabselastic30bnvfp4one.png
   description: "NVIDIA Nemotron-Labs Elastic 30B-A3B NVFP4 — 182 t/s via FlashInfer SM120 (PR #40082) on Olares One"
   appid: nemotronlabselastic30bnvfp4one
   title: Nemotron-Labs 30B NVFP4 One
-  version: '1.0.6'
+  version: '1.1.1'
   categories:
     - LLM Chat
     - AI Agents
-  bento:
-    family: nemotron
-    size_label: "30B-A3B"
-    badge: nvfp4
-    hero:
-      value: "182 t/s"
-      label: "speed"
-    specs:
-      - { label: "context", value: "32K" }
-      - { label: "vram", value: "19 GB" }
-    capabilities:
-      tool_calling: true
-      vision:       false
-      audio:        false
-      mtp:          { enabled: false }
-    stack: "vLLM · NVFP4 native · Blackwell tensor"
 entrances:
   - name: nemotronlabselastic30bnvfp4one
     port: 8000
@@ -37,8 +25,10 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.0.6'
+  versionName: '1.1.1'
   upgradeDescription: |
+    v1.1.1: **Olares 1.12.6+ compatibility: manifest migrated to apiVersion v3.** Olares 1.12.6 deprecated apiVersion v2 apps: installed v2 versions keep running but can no longer be upgraded ("This app version has been deprecated and cannot be upgraded") or installed. If you run a previous version, **uninstall it and install 1.1.1**; model files in the shared model folder are kept. No change to the inference stack. Requires Olares >= 1.12.6.
+
     v1.0.5: **bench-validated 181.4 t/s** (10 runs Space Invaders @ 2000 tokens). Run 1 = 30 t/s (CUDA graph warmup as documented in v1.0.0). Runs 2-10: 181.01 – 182.17 t/s, AVG **181.40 t/s** — matches v1.0.1 reference (182.14 t/s) within noise. Same hardware (RTX 5090M mobile sm_120), same model (`nvidia/NVIDIA-Nemotron-Labs-3-Elastic-30B-A3B-NVFP4`), now with the v1.0.4 fixes baked in (vLLM v0.22.1 pin + HF_ENDPOINT Helm guard + OLARES_USER_HUGGINGFACE_SERVICE declared in envs).
 
     Note for users stuck on v1.0.2 / v1.0.3 CrashLoopBackOff: Olares device chart cache may not auto-refresh after a worker bump (see https://github.com/beclab/Olares/issues/3369). Workaround if you hit this: `ssh olares@<box>` then `sudo rm -rf /olares/userdata/Cache/chartrepo/v2/<user>/market.aamsellem/nemotronlabselastic30bnvfp4one*` followed by `kubectl delete pod -n os-framework -l name=chartrepo-deployment` and reinstall via Olares market.
@@ -123,32 +113,36 @@ spec:
     - text: NVIDIA Open Model License
       url: https://huggingface.co/nvidia/NVIDIA-Nemotron-Labs-3-Elastic-30B-A3B-NVFP4/blob/main/LICENSE.md
 
-  limitedCpu: 16
-  requiredCpu: 4
-  requiredDisk: 25Gi
-  limitedDisk: 40Gi
-  limitedMemory: 40Gi
-  requiredMemory: 20Gi
-  requiredGpu: 1Gi
-  limitedGpu: 24Gi
 
   supportArch:
     - amd64
+  accelerator:
+    - mode: nvidia
+      supportMultiCard: false
+      supportMultiNodes: false
+      requiredCpu: "4"
+      limitedCpu: "16"
+      requiredMemory: 24Gi
+      limitedMemory: 40Gi
+      requiredDisk: 25Gi
+      limitedDisk: 40Gi
+      requiredGPUMemory: 23Gi
+      limitedGPUMemory: 23Gi
 permission:
   appData: true
 options:
   apiTimeout: 0
   dependencies:
     - name: olares
-      version: '>=1.12.3-0'
+      version: '>=1.12.6-0'
       type: system
 envs:
-  - envName: OLARES_USER_HUGGINGFACE_SERVICE
+  - envName: HUGGINGFACE_SERVICE
     required: false
     applyOnChange: true
     valueFrom:
       envName: OLARES_USER_HUGGINGFACE_SERVICE
-  - envName: OLARES_USER_HUGGINGFACE_TOKEN
+  - envName: HUGGINGFACE_TOKEN
     required: false
     applyOnChange: true
     valueFrom:

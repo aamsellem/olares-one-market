@@ -5,3 +5,6 @@ userspace:
   appData: ""
   appCache: ""
   userData: ""
+workloads:
+  llamacppqwen35a3bone:
+    replicaCount: 1

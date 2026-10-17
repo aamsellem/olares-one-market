@@ -1,1 +1,3 @@
-{}
+workloads:
+  nemotronlabselastic30bnvfp4one:
+    replicaCount: 1

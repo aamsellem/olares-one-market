@@ -1,34 +1,22 @@
 ---
-olaresManifest.version: '0.10.0'
+olaresManifest.version: '0.12.0'
 olaresManifest.type: app
-apiVersion: 'v2'
+apiVersion: 'v3'
+
+workloadReplicas:
+  racka4bhuone: 1
+
 metadata:
   name: racka4bhuone
   icon: https://orales-one-market.aamsellem.workers.dev/icons/racka4bhuone.png
   description: "Racka 4B — first serious Hungarian LLM (ELTE, Qwen3-4B base, 160B tokens 44% Hungarian) — 133 t/s validated on Olares One"
   appid: racka4bhuone
   title: Racka 4B Hungarian One
-  version: '1.0.4'
+  version: '1.1.0'
   categories:
     - Special Request
     - LLM Chat
     - AI Agents
-  bento:
-    family: qwen
-    size_label: "4B"
-    badge: hungarian · special request
-    hero:
-      value: "130 t/s"
-      label: "Magyar nyelvű LLM by ELTE"
-    specs:
-      - { label: "context", value: "32K" }
-      - { label: "vram", value: "7 GB" }
-    capabilities:
-      tool_calling: true
-      vision:       false
-      audio:        false
-      mtp:          { enabled: false }
-    stack: "llama.cpp b11046 · CUDA 13.3 · Qwen3-4B base"
 entrances:
   - name: racka4bhuone
     port: 8080
@@ -38,8 +26,10 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.0.4'
+  versionName: '1.1.0'
   upgradeDescription: |
+    v1.1.0: **Olares 1.12.6+ compatibility: manifest migrated to apiVersion v3.** Olares 1.12.6 deprecated apiVersion v2 apps: installed v2 versions keep running but can no longer be upgraded ("This app version has been deprecated and cannot be upgraded") or installed. If you run a previous version, **uninstall it and install 1.1.0**; model files in the shared model folder are kept. No change to the inference stack. Requires Olares >= 1.12.6.
+
     v1.0.4: **CUDA 13.3 image, +5% decode.** Switched from `ghcr.io/ggml-org/llama.cpp:server-cuda13-b8740` to `docker.io/beclab/ggml-org-llama.cpp:server-cuda13-b11046` (CUDA 13.3 runtime via the bundled forward-compat libcuda, runs on the Olares 595.84 / CUDA 13.2 driver). Bench on Olares One 2026-09-30, same args, only the image changed (Racka-4B Q8_0): Space Invaders HTML 124.19 → **130.05 t/s**, code prompt 124.49 → **130.06 t/s**.
 
     v1.0.2: **slow-connection + diagnostics fix** (Discord bug report 2026-06-03). User reported install crash-looping at startup-probe 503 after 20 min — root cause: HF_TOKEN missing/invalid AND slow HF download exceeding the previous 20-min probe budget. Four fixes: (1) startup-probe failureThreshold 80 → 720 = 6h budget for slow networks, (2) liveness initialDelay 5min → 10min, (3) on missing HF_TOKEN the container now blocks indefinitely with a clear error + recovery steps logged every 5 min (no more exit-1 crash loop, so `kubectl logs` shows what's wrong), (4) post-download size check: if file < 4 GB (HF returned 401/403 HTML disguised as a file), delete + log clear error instead of marking `.ok`. Model still cached at `/olares/share/ai/model/llms/` (unchanged from v1.0.0).
@@ -99,27 +89,31 @@ spec:
     - text: CC-BY-NC-SA-4.0 (non-commercial)
       url: https://huggingface.co/elte-nlp/Racka-4B-GGUF
 
-  limitedCpu: 8
-  requiredCpu: 2
-  requiredDisk: 8Gi
-  limitedDisk: 12Gi
-  limitedMemory: 16Gi
-  requiredMemory: 6Gi
-  requiredGpu: 1Gi
-  limitedGpu: 8Gi
 
   supportArch:
     - amd64
+  accelerator:
+    - mode: nvidia
+      supportMultiCard: false
+      supportMultiNodes: false
+      requiredCpu: "2"
+      limitedCpu: "8"
+      requiredMemory: 6Gi
+      limitedMemory: 16Gi
+      requiredDisk: 8Gi
+      limitedDisk: 12Gi
+      requiredGPUMemory: 8Gi
+      limitedGPUMemory: 8Gi
 permission:
   appData: true
 options:
   apiTimeout: 0
   dependencies:
     - name: olares
-      version: '>=1.12.3-0'
+      version: '>=1.12.6-0'
       type: system
 envs:
-  - envName: OLARES_USER_HUGGINGFACE_TOKEN
+  - envName: HUGGINGFACE_TOKEN
     required: true
     applyOnChange: true
     valueFrom:

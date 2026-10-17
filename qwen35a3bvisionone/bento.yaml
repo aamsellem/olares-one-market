@@ -1,0 +1,17 @@
+# Bento card config (scripts/generate-bento.js). Kept out of OlaresManifest.yaml:
+# the apiVersion v3 schema rejects unknown metadata fields.
+family: qwen
+size_label: "35B-A3B"
+badge: vision
+hero:
+  value: "159 t/s"
+  label: "speed + vision"
+specs:
+  - { label: "context", value: "32K" }
+  - { label: "vram", value: "22 GB" }
+capabilities:
+  tool_calling: true
+  vision:       true
+  audio:        false
+  mtp:          { enabled: false }
+stack: "llama.cpp b11046 · CUDA 13.3 · mmproj F16"

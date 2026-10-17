@@ -1,35 +1,22 @@
 ---
-olaresManifest.version: '0.10.0'
+olaresManifest.version: '0.12.0'
 olaresManifest.type: app
-apiVersion: 'v2'
+apiVersion: 'v3'
+
+workloadReplicas:
+  llamacppcodernextq4one: 1
+
 metadata:
   name: llamacppcodernextq4one
   icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppcodernextq4one.png
   description: "Qwen3-Coder-Next REAP 40B-A3B Q4 — 142 t/s @ 128K, higher code quality than Q3 sibling on Olares One"
   appid: llamacppcodernextq4one
   title: Qwen3 Coder Next 40B Q4 One
-  version: '1.0.6'
+  version: '1.1.1'
   categories:
     - LLM Chat
     - AI Agents
     - Coding
-  bento:
-    family: qwen
-    size_label: "40B-A3B"
-    badge: Q4 · code quality
-    hero:
-      value: "142 t/s"
-      label: "Q4 quality · 128K context"
-    specs:
-      - { label: "context", value: "128K" }
-      - { label: "vram", value: "22.8 GB" }
-      - { label: "quant", value: "IQ4_XS" }
-    capabilities:
-      tool_calling: true
-      vision:       false
-      audio:        false
-      mtp:          { enabled: false, accept: 0 }
-    stack: "llama.cpp b8740 · IQ4_XS · q4_0 KV"
 entrances:
   - name: llamacppcodernextq4one
     port: 8000
@@ -39,8 +26,10 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.0.6'
+  versionName: '1.1.1'
   upgradeDescription: |
+    v1.1.1: **Olares 1.12.6+ compatibility: manifest migrated to apiVersion v3.** Olares 1.12.6 deprecated apiVersion v2 apps: installed v2 versions keep running but can no longer be upgraded ("This app version has been deprecated and cannot be upgraded") or installed. If you run a previous version, **uninstall it and install 1.1.1**; model files in the shared model folder are kept. No change to the inference stack. Requires Olares >= 1.12.6.
+
     v1.0.5: **fix missing `envs:` declaration for HF token**. `templates/deployment.yaml` referenced `HF_TOKEN=.Values.olaresEnv.OLARES_USER_HUGGINGFACE_TOKEN` but `OlaresManifest.yaml` never declared `OLARES_USER_HUGGINGFACE_TOKEN` in an `envs:` block — so Helm rendered `HF_TOKEN=""` and any gated-model download from HuggingFace failed with 401. Same class of bug as `nemotronlabselastic30bnvfp4one` v1.0.3 (Discord-reported crash loop). No functional change for public models; fixes gated-repo access. Declared `required: false` so install still works when the user hasn't configured a token in Olares Settings.
 
     v1.0.0: initial release. **Qwen3-Coder-Next REAP 40B-A3B IQ4_XS** sibling
@@ -102,27 +91,31 @@ spec:
     - text: Apache-2.0
       url: https://huggingface.co/Qwen/Qwen3-Coder-Next/blob/main/LICENSE
 
-  limitedCpu: 16
-  requiredCpu: 4
-  requiredDisk: 30Gi
-  limitedDisk: 50Gi
-  limitedMemory: 40Gi
-  requiredMemory: 24Gi
-  requiredGpu: 1Gi
-  limitedGpu: 24Gi
 
   supportArch:
     - amd64
+  accelerator:
+    - mode: nvidia
+      supportMultiCard: false
+      supportMultiNodes: false
+      requiredCpu: "4"
+      limitedCpu: "16"
+      requiredMemory: 24Gi
+      limitedMemory: 40Gi
+      requiredDisk: 30Gi
+      limitedDisk: 50Gi
+      requiredGPUMemory: 23Gi
+      limitedGPUMemory: 23Gi
 permission:
   appData: true
 options:
   apiTimeout: 0
   dependencies:
     - name: olares
-      version: '>=1.12.3-0'
+      version: '>=1.12.6-0'
       type: system
 envs:
-  - envName: OLARES_USER_HUGGINGFACE_TOKEN
+  - envName: HUGGINGFACE_TOKEN
     required: false
     applyOnChange: true
     valueFrom:

@@ -140,7 +140,7 @@ const APPS = {
       stack: 'BeeLlama · DFlash · turbo3 KV',
     },
   },
-  llamacppqwen36beellamavisionone: {
+  qwen36beellamavisionone: {
     cats: ['Vision', 'AI Agents'],
     bento: {
       family: 'qwen', size_label: '27B', badge: 'vision',

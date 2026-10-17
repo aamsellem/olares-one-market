@@ -23,7 +23,7 @@ metadata:
   annotations:
     applications.app.bytetrade.io/gpu-inject: "true"
 spec:
-  replicas: 1
+  replicas: {{ .Values.workloads.nemotron3nano4bone.replicaCount }}
   selector:
     matchLabels:
       io.kompose.service: nemotron3nano4bone

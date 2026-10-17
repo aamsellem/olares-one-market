@@ -1,0 +1,17 @@
+# Bento card config (scripts/generate-bento.js). Kept out of OlaresManifest.yaml:
+# the apiVersion v3 schema rejects unknown metadata fields.
+family: nemotron
+size_label: "14B"
+badge: diffusion
+hero:
+  value: "50 t/s"
+  label: "self-spec ref RTX 3090"
+specs:
+  - { label: "context", value: "16K" }
+  - { label: "vram", value: "15 GB" }
+capabilities:
+  tool_calling: true
+  vision:       false
+  audio:        false
+  mtp:          { enabled: true, accept: 0 }
+stack: "buun-llama-cpp · diffusion + self-spec"

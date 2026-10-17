@@ -15,23 +15,23 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    io.kompose.service: llamacppnemotrondiffusion14bone
-  name: llamacppnemotrondiffusion14bone
+    io.kompose.service: nemotrondiffusion14bone
+  name: nemotrondiffusion14bone
   namespace: "{{ .Release.Namespace }}"
   annotations:
     applications.app.bytetrade.io/gpu-inject: "true"
 spec:
-  replicas: 1
+  replicas: {{ .Values.workloads.nemotrondiffusion14bone.replicaCount }}
   selector:
     matchLabels:
-      io.kompose.service: llamacppnemotrondiffusion14bone
+      io.kompose.service: nemotrondiffusion14bone
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
         io.kompose.network/chrome-default: "true"
-        io.kompose.service: llamacppnemotrondiffusion14bone
+        io.kompose.service: nemotrondiffusion14bone
     spec:
       containers:
         - name: nemodiff-server
@@ -76,7 +76,7 @@ spec:
             - name: HF_HOME
               value: "/models/huggingface"
             - name: HF_TOKEN
-              value: "{{ .Values.olaresEnv.OLARES_USER_HUGGINGFACE_TOKEN }}"
+              value: "{{ .Values.olaresEnv.HUGGINGFACE_TOKEN }}"
             - name: MODELS_DIR
               value: "/models"
             - name: CUDA_DEVICE_MEMORY_LIMIT_0
@@ -105,11 +105,9 @@ spec:
             limits:
               cpu: "16"
               memory: 32Gi
-              nvidia.com/gpu: "1"
             requests:
               cpu: 4000m
               memory: 16Gi
-              nvidia.com/gpu: "1"
           volumeMounts:
             - mountPath: "/models"
               name: models
@@ -130,8 +128,8 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    io.kompose.service: llamacppnemotrondiffusion14bone
-  name: llamacppnemotrondiffusion14bone
+    io.kompose.service: nemotrondiffusion14bone
+  name: nemotrondiffusion14bone
   namespace: "{{ .Release.Namespace }}"
 spec:
   ports:
@@ -139,4 +137,4 @@ spec:
       port: 8000
       targetPort: 8000
   selector:
-    io.kompose.service: llamacppnemotrondiffusion14bone
+    io.kompose.service: nemotrondiffusion14bone

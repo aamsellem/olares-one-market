@@ -1,1 +1,3 @@
-{}
+workloads:
+  vllmgemma4dflashone:
+    replicaCount: 1

@@ -1,0 +1,17 @@
+# Bento card config (scripts/generate-bento.js). Kept out of OlaresManifest.yaml:
+# the apiVersion v3 schema rejects unknown metadata fields.
+family: qwen
+size_label: "1.7B"
+badge: tts
+hero:
+  value: "TTS"
+  label: "qwen voice"
+specs:
+  - { label: "context", value: "8K" }
+  - { label: "vram", value: "4 GB" }
+capabilities:
+  tool_calling: false
+  vision:       false
+  audio:        true
+  mtp:          { enabled: false }
+stack: "llama.cpp · Qwen3-TTS 1.7B"

@@ -1,32 +1,20 @@
 ---
-olaresManifest.version: '0.10.0'
+olaresManifest.version: '0.12.0'
 olaresManifest.type: app
-apiVersion: 'v2'
+apiVersion: 'v3'
+
+workloadReplicas:
+  vllmqwen3527bone: 1
+
 metadata:
   name: vllmqwen3527bone
   icon: https://orales-one-market.aamsellem.workers.dev/icons/vllmqwen3527bone.png
   description: "Qwen3.5 27B NVFP4 via vLLM — optimized for Olares One"
   appid: vllmqwen3527bone
   title: Qwen3.5 27B NVFP4 vLLM One
-  version: '1.0.5'
+  version: '1.1.1'
   categories:
     - LLM Chat
-  bento:
-    family: qwen
-    size_label: "27B"
-    badge: nvfp4
-    hero:
-      value: "100 t/s"
-      label: "speed"
-    specs:
-      - { label: "context", value: "32K" }
-      - { label: "vram", value: "19 GB" }
-    capabilities:
-      tool_calling: true
-      vision:       false
-      audio:        false
-      mtp:          { enabled: false }
-    stack: "vLLM · NVFP4 native · Blackwell"
 entrances:
   - name: vllmqwen3527bone
     port: 8000
@@ -36,7 +24,10 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.0.5'
+  versionName: '1.1.1'
+  upgradeDescription: |
+    v1.1.1: **Olares 1.12.6+ compatibility: manifest migrated to apiVersion v3.** Olares 1.12.6 deprecated apiVersion v2 apps: installed v2 versions keep running but can no longer be upgraded ("This app version has been deprecated and cannot be upgraded") or installed. If you run a previous version, **uninstall it and install 1.1.1**; model files in the shared model folder are kept. No change to the inference stack. Requires Olares >= 1.12.6.
+
   fullDescription: |
     Qwen3.5 27B (dense, Mamba-hybrid) served via vLLM with NVFP4 quantization — optimized for Olares One.
     RTX 5090M (24GB) + 96GB DDR5 + Core Ultra 9 275HX.
@@ -56,22 +47,26 @@ spec:
     - text: Apache-2.0
       url: https://github.com/vllm-project/vllm/blob/main/LICENSE
 
-  limitedCpu: 16
-  requiredCpu: 4
-  requiredDisk: 40Gi
-  limitedDisk: 60Gi
-  limitedMemory: 40Gi
-  requiredMemory: 24Gi
-  requiredGpu: 1Gi
-  limitedGpu: 24Gi
 
   supportArch:
     - amd64
+  accelerator:
+    - mode: nvidia
+      supportMultiCard: false
+      supportMultiNodes: false
+      requiredCpu: "4"
+      limitedCpu: "16"
+      requiredMemory: 24Gi
+      limitedMemory: 40Gi
+      requiredDisk: 40Gi
+      limitedDisk: 60Gi
+      requiredGPUMemory: 23Gi
+      limitedGPUMemory: 23Gi
 permission:
   appData: true
 options:
   apiTimeout: 0
   dependencies:
     - name: olares
-      version: '>=1.12.3-0'
+      version: '>=1.12.6-0'
       type: system

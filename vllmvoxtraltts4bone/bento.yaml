@@ -1,0 +1,17 @@
+# Bento card config (scripts/generate-bento.js). Kept out of OlaresManifest.yaml:
+# the apiVersion v3 schema rejects unknown metadata fields.
+family: voxtral
+size_label: "4B"
+badge: tts
+hero:
+  value: "TTS"
+  label: "voice synth"
+specs:
+  - { label: "context", value: "32K" }
+  - { label: "vram", value: "8 GB" }
+capabilities:
+  tool_calling: false
+  vision:       false
+  audio:        true
+  mtp:          { enabled: false }
+stack: "vLLM · Voxtral TTS 4B"

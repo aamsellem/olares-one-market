@@ -22,7 +22,7 @@ metadata:
   annotations:
     applications.app.bytetrade.io/gpu-inject: "true"
 spec:
-  replicas: 1
+  replicas: {{ .Values.workloads.vllmgemma4e4bone.replicaCount }}
   selector:
     matchLabels:
       io.kompose.service: vllmgemma4e4bone

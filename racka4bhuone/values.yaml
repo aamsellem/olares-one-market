@@ -1,1 +1,3 @@
-{}
+workloads:
+  racka4bhuone:
+    replicaCount: 1

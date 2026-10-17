@@ -114,10 +114,17 @@ Only Olares One optimized apps belong here. Generic apps stay in `orales-market`
 
 - Entrance title: max 30 chars, only `[a-z0-9A-Z-\s]` — NO dots, parentheses, or special chars. Replace dots with hyphens (e.g., `GLM-4.7` → `GLM-47`)
 - Proxy image: `beclab/aboveos-bitnami-openresty:1.25.3-2`
-- Manifest version: `0.10.0` (must match official beclab/apps format, NOT 0.11.0)
-- Top-level `apiVersion: 'v2'` required in OlaresManifest.yaml
-- CPU values in integer cores (e.g., `4`), NOT millicores (`4000m`)
-- Olares dependency: `>=1.12.3-0`
+- **apiVersion v3 only** (since 2026-10-17): Olares 1.12.6+ can't install or upgrade `apiVersion: 'v2'` apps ("This app version has been deprecated and cannot be upgraded"). Every chart uses `olaresManifest.version: '0.12.0'` + `apiVersion: 'v3'`.
+- `workloadReplicas: {<deployment-name>: 1}` at top level, and the Deployment's `spec.replicas` must be `{{ .Values.workloads.<name>.replicaCount }}` (declared in `values.yaml`)
+- Resources go in `spec.accelerator: [{mode: nvidia, requiredCpu, limitedCpu, requiredMemory, limitedMemory, requiredDisk, limitedDisk, requiredGPUMemory, limitedGPUMemory}]` — NOT the old flat `spec.requiredCpu`/`requiredGpu` fields. Container requests/limits must fit inside it.
+- `requiredGPUMemory` ≤ **23Gi** (the 5090M reports 23.9 GiB; 24Gi → "compute resource is not enough for selected mode nvidia")
+- App name (= folder name) must match `^[a-z0-9]{1,30}$`; titles 1-30 chars
+- No unknown metadata fields: the bento block lives in `<app>/bento.yaml` (listed in `.helmignore`)
+- `envs[].envName` must NOT start with `OLARES_USER_` — use an app-local name mapped via `valueFrom.envName: OLARES_USER_...`, and read it as `.Values.olaresEnv.<app-local name>`
+- Non-beclab images may not run with `runAsUser: 0` / privileged securityContext (no root alpine initContainers — chmod from the main container if its image runs as root)
+- CPU values in integer cores as strings (e.g., `"4"`)
+- Olares dependency: `>=1.12.6-0`
+- Validate a chart before deploying: `env -u NODE_OPTIONS olares-cli market upload <tgz>` runs the same v3 checks, then `olares-cli market delete <app>`
 
 ### Olares Environment Variables (olaresEnv)
 
@@ -125,14 +132,14 @@ Apps can request system-level environment variables via the `envs` section in Ol
 
 **Declaration in OlaresManifest.yaml:**
 ```yaml
-envs:
-  - envName: OLARES_USER_HUGGINGFACE_SERVICE
-    required: true
+envs:   # top level (sibling of spec), app-local names (v3 rejects OLARES_USER_ names)
+  - envName: HUGGINGFACE_SERVICE
+    required: false
     applyOnChange: true
     valueFrom:
       envName: OLARES_USER_HUGGINGFACE_SERVICE
-  - envName: OLARES_USER_HUGGINGFACE_TOKEN
-    required: true
+  - envName: HUGGINGFACE_TOKEN
+    required: false
     applyOnChange: true
     valueFrom:
       envName: OLARES_USER_HUGGINGFACE_TOKEN
@@ -142,12 +149,12 @@ envs:
 ```yaml
 env:
   - name: HF_ENDPOINT
-    value: "{{ .Values.olaresEnv.OLARES_USER_HUGGINGFACE_SERVICE }}"
+    value: "{{ .Values.olaresEnv.HUGGINGFACE_SERVICE }}"
   - name: HF_TOKEN
-    value: "{{ .Values.olaresEnv.OLARES_USER_HUGGINGFACE_TOKEN }}"
+    value: "{{ .Values.olaresEnv.HUGGINGFACE_TOKEN }}"
 ```
 
-**Available variables:**
+**Available system variables (map them via `valueFrom.envName`):**
 - `OLARES_USER_HUGGINGFACE_SERVICE` — HuggingFace API endpoint (proxy)
 - `OLARES_USER_HUGGINGFACE_TOKEN` — User's HuggingFace token (for gated models)
 

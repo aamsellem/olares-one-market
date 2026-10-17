@@ -1,32 +1,20 @@
 ---
-olaresManifest.version: '0.10.0'
+olaresManifest.version: '0.12.0'
 olaresManifest.type: app
-apiVersion: 'v2'
+apiVersion: 'v3'
+
+workloadReplicas:
+  nemotron3nano4bone: 1
+
 metadata:
   name: nemotron3nano4bone
   icon: https://orales-one-market.aamsellem.workers.dev/icons/nemotron3nano4bone.png
   description: "Nemotron 3 Nano 4B Q8 via llama.cpp — fast edge AI, optimized for Olares One"
   appid: nemotron3nano4bone
   title: Nemotron 3 Nano 4B One
-  version: '1.0.7'
+  version: '1.1.1'
   categories:
     - LLM Chat
-  bento:
-    family: nemotron
-    size_label: "4B"
-    badge: nano
-    hero:
-      value: "145 t/s"
-      label: "speed"
-    specs:
-      - { label: "context", value: "128K" }
-      - { label: "vram", value: "5 GB" }
-    capabilities:
-      tool_calling: true
-      vision:       false
-      audio:        false
-      mtp:          { enabled: false }
-    stack: "llama.cpp b11046 · CUDA 13.3 · Q8_0"
 entrances:
   - name: nemotron3nano4bone
     port: 8080
@@ -36,8 +24,10 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.0.7'
+  versionName: '1.1.1'
   upgradeDescription: |
+    v1.1.1: **Olares 1.12.6+ compatibility: manifest migrated to apiVersion v3.** Olares 1.12.6 deprecated apiVersion v2 apps: installed v2 versions keep running but can no longer be upgraded ("This app version has been deprecated and cannot be upgraded") or installed. If you run a previous version, **uninstall it and install 1.1.1**; model files in the shared model folder are kept. No change to the inference stack. Requires Olares >= 1.12.6.
+
     v1.0.7: **CUDA 13.3 image, +5% decode.** Switched from `ghcr.io/ggml-org/llama.cpp:server-cuda13-b8740` to `docker.io/beclab/ggml-org-llama.cpp:server-cuda13-b11046` (CUDA 13.3 runtime via the bundled forward-compat libcuda, runs on the Olares 595.84 / CUDA 13.2 driver). `--mlock` became `--load-mode mmap+mlock` (the flag was merged upstream). Bench on Olares One 2026-09-30, same args, only the image changed (Nemotron-3-Nano-4B Q8_0): Space Invaders HTML 138.55 → **145.03 t/s**, code prompt 137.94 → **142.94 t/s**.
   fullDescription: |
     NVIDIA Nemotron 3 Nano 4B (hybrid Mamba-2 + Transformer) served via llama.cpp — optimized for Olares One.
@@ -59,22 +49,26 @@ spec:
     - text: NVIDIA Open Model License
       url: https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Nano-4B-BF16/blob/main/LICENSE
 
-  limitedCpu: 8
-  requiredCpu: 2
-  requiredDisk: 10Gi
-  limitedDisk: 20Gi
-  limitedMemory: 16Gi
-  requiredMemory: 8Gi
-  requiredGpu: 1Gi
-  limitedGpu: 24Gi
 
   supportArch:
     - amd64
+  accelerator:
+    - mode: nvidia
+      supportMultiCard: false
+      supportMultiNodes: false
+      requiredCpu: "2"
+      limitedCpu: "8"
+      requiredMemory: 8Gi
+      limitedMemory: 16Gi
+      requiredDisk: 10Gi
+      limitedDisk: 20Gi
+      requiredGPUMemory: 23Gi
+      limitedGPUMemory: 23Gi
 permission:
   appData: true
 options:
   apiTimeout: 0
   dependencies:
     - name: olares
-      version: '>=1.12.3-0'
+      version: '>=1.12.6-0'
       type: system

@@ -1,0 +1,17 @@
+# Bento card config (scripts/generate-bento.js). Kept out of OlaresManifest.yaml:
+# the apiVersion v3 schema rejects unknown metadata fields.
+family: gemma
+size_label: "12B"
+badge: 262K · KVarN · vision
+hero:
+  value: "87.8 t/s"
+  label: "262K full native ctx · KVarN4 KV · BeeLlama"
+specs:
+  - { label: "context", value: "262K" }
+  - { label: "vram", value: "12 GB" }
+capabilities:
+  tool_calling: true
+  vision:       true
+  audio:        false
+  mtp:          { enabled: false }
+stack: "BeeLlama v0.3.2-preview · QAT UD-Q4_K_XL · KVarN4 KV + vision"

@@ -1,1 +1,3 @@
-{}
+workloads:
+  llamacppgemma426ba4bone:
+    replicaCount: 1

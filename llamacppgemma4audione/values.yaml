@@ -1,1 +1,3 @@
-{}
+workloads:
+  llamacppgemma4audione:
+    replicaCount: 1

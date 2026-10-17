@@ -1,32 +1,20 @@
 ---
-olaresManifest.version: '0.10.0'
+olaresManifest.version: '0.12.0'
 olaresManifest.type: app
-apiVersion: 'v2'
+apiVersion: 'v3'
+
+workloadReplicas:
+  llamacppglm47flash: 1
+
 metadata:
   name: llamacppglm47flash
   icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacppglm47flash.png
   description: "GLM-4.7-Flash 30B-A3B via llama.cpp — optimized for Olares One"
   appid: llamacppglm47flash
   title: GLM-4.7-Flash (Olares One)
-  version: '1.0.12'
+  version: '1.1.1'
   categories:
     - LLM Chat
-  bento:
-    family: other
-    size_label: "Flash"
-    badge: glm
-    hero:
-      value: "GLM-4.7"
-      label: "zhipu flash"
-    specs:
-      - { label: "context", value: "128K" }
-      - { label: "vram", value: "18 GB" }
-    capabilities:
-      tool_calling: true
-      vision:       false
-      audio:        false
-      mtp:          { enabled: false }
-    stack: "llama.cpp · GLM-4.7-Flash"
 entrances:
   - name: llamacppglm47flash
     port: 8080
@@ -36,8 +24,10 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.0.12'
+  versionName: '1.1.1'
   upgradeDescription: |
+    v1.1.1: **Olares 1.12.6+ compatibility: manifest migrated to apiVersion v3.** Olares 1.12.6 deprecated apiVersion v2 apps: installed v2 versions keep running but can no longer be upgraded ("This app version has been deprecated and cannot be upgraded") or installed. If you run a previous version, **uninstall it and install 1.1.1**; model files in the shared model folder are kept. No change to the inference stack. Requires Olares >= 1.12.6.
+
     v1.0.7: llama.cpp b8234 → b8667 (compute graph rework +30-40%, Hadamard rotation). KV cache q4_0 (with Hadamard rotation) → q4_0 (2x compression).
   fullDescription: |
     GLM-4.7-Flash (MoE, 30B total / 3B active) served via llama.cpp — optimized for Olares One.
@@ -58,22 +48,26 @@ spec:
     - text: MIT
       url: https://github.com/THUDM/GLM-4/blob/main/LICENSE
 
-  limitedCpu: 16
-  requiredCpu: 4
-  requiredDisk: 25Gi
-  limitedDisk: 40Gi
-  limitedMemory: 40Gi
-  requiredMemory: 20Gi
-  requiredGpu: 1Gi
-  limitedGpu: 24Gi
 
   supportArch:
     - amd64
+  accelerator:
+    - mode: nvidia
+      supportMultiCard: false
+      supportMultiNodes: false
+      requiredCpu: "4"
+      limitedCpu: "16"
+      requiredMemory: 20Gi
+      limitedMemory: 40Gi
+      requiredDisk: 25Gi
+      limitedDisk: 40Gi
+      requiredGPUMemory: 23Gi
+      limitedGPUMemory: 23Gi
 permission:
   appData: true
 options:
   apiTimeout: 0
   dependencies:
     - name: olares
-      version: '>=1.12.3-0'
+      version: '>=1.12.6-0'
       type: system
