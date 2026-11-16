@@ -1,0 +1,135 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aerisstudio
+  namespace: "{{ .Release.Namespace }}"
+  labels:
+    io.kompose.service: aerisstudio
+spec:
+  replicas: {{ .Values.workloads.aerisstudio.replicaCount }}
+  selector:
+    matchLabels:
+      io.kompose.service: aerisstudio
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        io.kompose.service: aerisstudio
+    spec:
+      serviceAccountName: aerisstudio
+      initContainers:
+        # trusted image, runs as root: the server runs as uid 1000 and needs to write its data and models
+        - name: permissions
+          image: "docker.io/beclab/aboveos-busybox:1.37.0"
+          securityContext:
+            runAsUser: 0
+          command: ["sh", "-c"]
+          args:
+            - |
+              mkdir -p /data/app /data/models /data/engine
+              chown 1000:1000 /data/app /data/models /data/engine
+              [ -f /data/engine/nodes.json ] && chown 1000:1000 /data/engine/nodes.json || true
+              for d in checkpoints loras vae clip clip_vision diffusion_models controlnet upscale_models \
+                       latent_upscale_models style_models embeddings audio_encoders model_patches; do
+                mkdir -p /data/models/$d && chown 1000:1000 /data/models/$d
+              done
+          volumeMounts:
+            - name: data
+              mountPath: /data/app
+            - name: models
+              mountPath: /data/models
+            - name: engine
+              mountPath: /data/engine
+      containers:
+        - name: server
+          image: "docker.io/aamsellem/aeris-studio:0.4.44"
+          env:
+            - name: AERIS_VERSION
+              value: "{{ .Chart.AppVersion }}"
+            - name: AERIS_COMFY_URL
+              value: "http://aerisengine-svc:8188"
+            - name: AERIS_PORT
+              value: "8080"
+            - name: AERIS_API_PORT
+              value: "8081"
+            - name: AERIS_VOICE_URL
+              value: "http://aerisvoice-svc:8090"
+            - name: AERIS_ENGINE_DIR
+              value: "/data/engine"
+            - name: AERIS_GPU_NAME
+              value: "RTX 5090M"
+            - name: AERIS_GPU_VRAM_GB
+              value: "24"
+            - name: HF_ENDPOINT
+              value: "{{ .Values.olaresEnv.HUGGINGFACE_SERVICE }}"
+            - name: HF_TOKEN
+              value: "{{ .Values.olaresEnv.HUGGINGFACE_TOKEN }}"
+          ports:
+            - containerPort: 8080
+            - containerPort: 8081
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 8080
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 8080
+            periodSeconds: 20
+            failureThreshold: 6
+          resources:
+            requests:
+              cpu: "1"
+              memory: 512Mi
+            limits:
+              cpu: "2"
+              memory: 6Gi   # exporting a 1440p film (ffmpeg, in this container) needs more than 2 Gi: it was OOM-killed
+          volumeMounts:
+            - name: data
+              mountPath: /data/app
+            - name: models
+              mountPath: /data/models
+            - name: engine
+              mountPath: /data/engine
+      volumes:
+        - name: data
+          hostPath:
+            path: "{{ .Values.userspace.appData }}/app"
+            type: DirectoryOrCreate
+        - name: models
+          hostPath:
+            path: "{{ .Values.userspace.appCommon }}/comfyui/model"
+            type: DirectoryOrCreate
+        - name: engine
+          hostPath:
+            path: "{{ .Values.userspace.appData }}/engine"
+            type: DirectoryOrCreate
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: aerisstudio-svc
+  namespace: "{{ .Release.Namespace }}"
+spec:
+  selector:
+    io.kompose.service: aerisstudio
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: aerisstudio-api
+  namespace: "{{ .Release.Namespace }}"
+spec:
+  selector:
+    io.kompose.service: aerisstudio
+  ports:
+    - name: http
+      port: 8081
+      targetPort: 8081

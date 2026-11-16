@@ -1,0 +1,20 @@
+# Seeded by the Olares app: models come from Olares Router (no key inside your Olares).
+# Settings → Models in the Web UI can change all of this; the app never overwrites it again.
+- id: llm-pi-ai
+  config:
+    providers:
+      olares:
+        displayName: Olares Router
+        api: openai-completions
+        baseURL: !!js process.env.ROUTER_BASE_URL || 'http://3a77b15d.shared.olares.com/v1'
+        apiKeyEnv: ROUTER_API_KEY
+        defaultContextWindow: 131072
+        defaultMaxTokens: 32768
+        defaultInput: [text, image]
+        models:
+          - id: default-chat
+            name: Router default chat model
+- id: agent-default-model
+  config:
+    provider: olares
+    model: default-chat

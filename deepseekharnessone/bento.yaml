@@ -1,0 +1,17 @@
+# Bento card config (scripts/generate-bento.js). Kept out of OlaresManifest.yaml:
+# the apiVersion v3 schema rejects unknown metadata fields.
+family: deepseek
+size_label: "Agent"
+badge: router
+hero:
+  value: "13 s"
+  label: "three bugs fixed, tests green, on a local model"
+specs:
+  - { label: "model", value: "Router", sub: "default-chat, local" }
+  - { label: "ram", value: "~1 GB" }
+capabilities:
+  tool_calling: true
+  vision:       true
+  audio:        false
+  mtp:          { enabled: false }
+stack: "DeepSeek Harness 0.2.2-rc.3 · Web UI · Olares Router"

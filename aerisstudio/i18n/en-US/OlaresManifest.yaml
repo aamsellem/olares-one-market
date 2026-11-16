@@ -1,0 +1,14 @@
+metadata:
+  title: Aeris Studio
+  description: "Local AI image and video studio: references with @mentions, storyboards, takes, REST API"
+
+spec:
+  fullDescription: |
+    Aeris Studio turns your Olares One into an image and video studio.
+
+    - Create: describe a scene, cite your characters, places and voice with @ (they become the model's references).
+    - Projects: write the storyboard with the language model of your choice, then generate every shot with N takes.
+    - Models: install workflows from the Store; model files are downloaded once into the shared library.
+    - API: everything the UI does is available over REST (API keys in Settings, docs at /api/docs).
+
+    The ComfyUI engine (installed on first start, ~5 minutes) stays warm on the GPU between renders.

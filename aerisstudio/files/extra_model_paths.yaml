@@ -1,0 +1,22 @@
+# Shared Olares model library (also used by FlowStudio): files already downloaded are reused.
+aeris:
+  base_path: /data/models/
+  checkpoints: checkpoints
+  loras: loras
+  vae: vae
+  clip: clip
+  text_encoders: clip
+  clip_vision: clip_vision
+  diffusion_models: diffusion_models
+  unet: diffusion_models
+  controlnet: controlnet
+  embeddings: embeddings
+  upscale_models: upscale_models
+  style_models: style_models
+  latent_upscale_models: latent_upscale_models
+  audio_encoders: audio_encoders
+  model_patches: model_patches
+  vae_approx: vae_approx
+  hypernetworks: hypernetworks
+  photomaker: photomaker
+  gligen: gligen

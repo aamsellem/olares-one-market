@@ -1,0 +1,103 @@
+olaresManifest.version: '0.12.0'
+olaresManifest.type: app
+apiVersion: 'v3'
+
+workloadReplicas:
+  deepseekharnessone: 1
+
+metadata:
+  name: deepseekharnessone
+  icon: https://orales-one-market.aamsellem.workers.dev/icons/deepseekharnessone.png
+  description: "DeepSeek's open-source coding agent in your browser, running on your local models through Olares Router"
+  appid: deepseekharnessone
+  title: DeepSeek Harness
+  version: '1.0.2'
+  categories:
+    - Coding
+    - AI Agents
+  tags:
+    - agent
+    - coding
+entrances:
+  - name: deepseekharness
+    port: 3000
+    host: deepseekharness-svc
+    title: DeepSeek Harness
+    icon: https://orales-one-market.aamsellem.workers.dev/icons/deepseekharnessone.png
+    openMethod: window
+    authLevel: private
+spec:
+  versionName: '0.2.2-rc.3'
+  upgradeDescription: |
+    v1.0.2: new projects made from the Web UI go into the Code folder of your Home, where the Files app shows
+    them (before, they landed in the app's data). Projects made with 1.0.1 stay in the app's data under `user`.
+    Subagents run on the same model as the agent: no more failed subagent starts asking for a reasoning level
+    without a model.
+    v1.0.1: Olares shows the app as running only once DeepSeek Harness answers (the first start installs it
+    first).
+    v1.0.0: first release. DeepSeek Harness 0.2.2-rc.3, Web UI, Olares Router as the model provider.
+  fullDescription: |
+    DeepSeek Harness (deepseek-ai/deepseek-harness, MIT) is the open-source coding agent from DeepSeek: it reads
+    your code, edits files, runs commands and tests, and keeps a history of its sessions. This app serves its Web UI
+    on your Olares and connects it to **Olares Router**, so the agent runs on your own local models: no cloud key,
+    nothing leaves your Olares.
+
+    How it is set up:
+    - Model: Router's `default-chat`, the model Router picks as default (for example Anaelith Qwen38 Flash Next
+      One). Change it in Router, or add other providers and models in the agent's Settings → Models.
+    - Workspace: the `Code` folder of your Home (the same one Code Server uses). The agent works and runs commands
+      there; it asks before writing outside it.
+    - The Web UI opens straight from the Olares entrance, which already requires your Olares sign-in.
+    - DeepSeek's telemetry is turned off.
+
+    Measured on the Olares One with Anaelith Qwen38 Flash Next One behind Router: asked to fix three bugs in a small
+    Python module without touching its tests, the agent read the files, fixed them, ran the tests and finished in
+    13 s, all six tests passing.
+
+    The first start installs DeepSeek Harness (about 1.2 GB) into the app's data and takes a few minutes; the next
+    starts take seconds. DeepSeek Harness is a preview release (0.2.2-rc.3): the app pins that version.
+
+    Needs a chat model in Olares Router with tool calling (any Router-ready model app, local or cloud).
+
+  developer: aamsellem
+  website: https://github.com/aamsellem/olares-one-market
+  sourceCode: https://github.com/deepseek-ai/deepseek-harness
+  submitter: aamsellem
+  locale:
+    - en-US
+  license:
+    - text: MIT
+      url: https://github.com/deepseek-ai/deepseek-harness/blob/main/LICENSE
+  requiredMemory: 1Gi
+  limitedMemory: 8Gi
+  requiredDisk: 3Gi
+  limitedDisk: 30Gi
+  requiredCpu: "1"
+  limitedCpu: "8"
+  supportArch:
+    - amd64
+permission:
+  appData: true
+  userData:
+    - Home
+options:
+  apiTimeout: 0
+  dependencies:
+    - name: olares
+      version: '>=1.12.7-0'
+      type: system
+envs:
+  - envName: ROUTER_BASE_URL
+    required: false
+    type: string
+    editable: true
+    applyOnChange: true
+    default: "http://3a77b15d.shared.olares.com/v1"
+    description: "OpenAI-compatible base URL of the models. The default is Olares Router inside your Olares. Read when the agent's model settings were never edited in its Web UI."
+  - envName: ROUTER_API_KEY
+    required: false
+    type: password
+    editable: true
+    applyOnChange: true
+    default: "none"
+    description: "API key for that URL. Router needs none inside your Olares."

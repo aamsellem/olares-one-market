@@ -1,0 +1,316 @@
+---
+olaresManifest.version: '0.12.0'
+olaresManifest.type: app
+apiVersion: 'v3'
+
+workloadReplicas:
+  aerisstudio: 1
+  aerisengine: 1
+  aerisvoice: 1
+
+metadata:
+  name: aerisstudio
+  icon: https://orales-one-market.aamsellem.workers.dev/icons/aerisstudio.png
+  description: "Local AI image and video studio: references with @mentions, storyboards, takes, REST API"
+  appid: aerisstudio
+  title: Aeris Studio
+  version: '0.4.44'
+  categories:
+    - Creativity
+    - AI
+entrances:
+  - name: aerisstudio
+    port: 8080
+    host: aerisstudio-svc
+    title: Aeris Studio
+    icon: https://orales-one-market.aamsellem.workers.dev/icons/aerisstudio.png
+    openMethod: window
+    authLevel: private
+  - name: aerisapi
+    port: 8081
+    host: aerisstudio-api
+    title: Aeris Studio API
+    icon: https://orales-one-market.aamsellem.workers.dev/icons/aerisstudio.png
+    invisible: true
+    authLevel: internal
+spec:
+  versionName: '0.4.44'
+  upgradeDescription: |
+    0.4.44: manga panels drawn with MiniMax H3 Image no longer add passers-by or a second character that the scene
+    does not describe; a page's place is drawn without inviting extra figures.
+
+    0.4.43: manga panels drawn with MiniMax H3 Image are one single shot: no more inset panels, characters drawn twice
+    or prompt text written on screens in close-ups. A close-up keeps its framing, with the page's place behind.
+
+    0.4.42: Mangas drawn with MiniMax H3 Image no longer get an empty white strip at the top of panels with dialogue,
+    and screens or papers in a panel never show readable stray text. Black-and-white mangas print in true greys (no
+    colour tint), and a speech bubble never sits higher than the line before it.
+
+    0.4.41: new engine (ComfyUI v0.45.0) and MiniMax H3 Image, MiniMax's open image model: "Text to image" (up to 16
+    megapixels in 6 steps) and "Image edit" (up to 8 references). Mangas: a « Drawing » choice draws the panels with
+    MiniMax H3 Image (real staging, full backgrounds) or Qwen Image Edit; each page has a « Place » where its panels are
+    drawn when they name none. Speech bubbles sit next to whoever speaks, in reading order, off every face and figure,
+    their tail pointing at the speaker's mouth: the characters are found in each drawn panel by Qwen3-VL. A character
+    drawn twice is flagged. The storyboard follows the manga craft: short bubbles, an establishing panel at each new
+    place, a hook before each page turn. MiniMax H3 Image licence: the EU, the UK, South Korea and the USA need
+    MiniMax's written authorization.
+
+    0.4.40: new workflow "MOSS Image · Realistic photo": text to image with a very natural photographic look (skin,
+    light, candid poses), natively at 2 MP, about 30 s (OpenMOSS MOSS Image base, Apache-2.0). New 18+ workflow "MOSS
+    Image · Amateur photo", listed only when adult content is allowed; for every 18+ workflow, a prompt that refers to a
+    minor is refused. Exporting a film in 1440p no longer stops the server (its memory limit goes from 2 to 6 GB).
+
+    0.4.38: MiniMax H3 renders about twice as fast. Every H3 workflow now uses Comfy Kitchen's INT8 attention by
+    default (a 5 s 480p Reference → Video: 22 → 11 min on the Olares One), with no visible change at the same seed. A
+    workflow that picks its own attention backend keeps it.
+
+    0.4.37: new engine (ComfyUI of 2026-11-05) and a new workflow, "Video upscale · RelayVSR ×2": doubles a video's
+    resolution in seconds, trained on MiniMax H3 clips, keeps the sound. The first start of the engine installs the new
+    ComfyUI (a few minutes); the previous one stays on disk.
+
+    0.4.36: Viggle Remake. Two new video workflows re-shoot a clip and keep its motion, camera, timing and sound:
+    "Replace a character" (a frame of the clip repainted with the new character is enough) and "Edit a video" (remove,
+    add, relight, night instead of day). Powered by Viggle Remake, MiniMax H3 Community License. New "Adult content
+    (18+)" setting, off by default: off, 18+ workflows are hidden and refused; on (after an age confirmation), their
+    renders are blurred in the grids. Mangas: characters face whoever they fight or talk to, and only the characters a
+    panel cites appear in it. Interface: renders of manga panels and character sheets get readable captions, phones get
+    five tabs plus "More", a manga shows its cast first, the pages count goes up to 50, ingredient descriptions read as
+    text.
+
+    0.4.35: manga fixes from a real test. Panels no longer draw empty speech bubbles, close-ups of objects no longer
+    grow an animal paw, every panel knows the story's setting (no more blank backgrounds), shout bubbles stay inside
+    their panel and every bubble tail and spike gets its black outline. "Manga version" draws a truly manga-styled
+    character (manga eyes, inked hair) instead of a realistic pencil portrait.
+
+    0.4.34: an @mention followed by an apostrophe ("@Fur's paw", "@Lea’s house") now cites the ingredient; before, it
+    was taken as an unknown name and the reference was left out.
+
+    0.4.33: manga characters stay single. The first time a character is used in a manga, Aéris draws once a clean
+    full-length figure of it from its reference (often a sheet with many poses) and draws the panels from that figure:
+    no more panels copying a whole character sheet. The figure shows in the ingredient preview ("For mangas").
+
+    0.4.32: manga panels draw one scene with each character once. When a character's reference is a model sheet, the
+    panels no longer copy the sheet (several poses, colour swatches, props); each panel knows who its characters are
+    (their description), close-ups of a paw or hand keep the character's species, backgrounds are always drawn, and
+    the built-in storyboard writes concrete scenes.
+
+    0.4.31: proper manga lettering. Round speech bubbles sized to their lines with a curved tail that merges into the
+    outline, cloud-shaped thoughts, spiky shouts (new "Shout" kind), narration boxes in the corner, sound effects kept
+    inside their panel, smooth edges and a comic lettering font (Shantell Sans); punctuation never wraps alone. Click
+    an ingredient to preview it large (picture or video, photo / sheet, voice), with Cite, Edit and Download.
+
+    0.4.30: new **Mangas** space. A manga has volumes, a volume has pages, a page has panels. Write the storyboard of a
+    volume (with your language model, or a built-in page rhythm): each page gets a layout (splash, tiers, 4-koma,
+    action, grids) and each panel a shot, what it shows with your @ingredients, and its speech bubbles, thoughts,
+    captions and sound effects. Panels are drawn by Qwen Image Edit with your characters and places as references, in
+    black and white with screentones, in colour or as a webtoon; pages are laid out with the bubbles, right-to-left or
+    left-to-right, and each volume exports as PDF or CBZ. Ingredients can be marked "for mangas", and a character
+    gets a "Manga version" button that draws its manga model sheet as a new ingredient.
+
+    0.4.29: fixes 0.4.28, which stopped long 720p MiniMax H3 renders (15 s) by mistake. Those clips run part of the model
+    from system RAM and are slower, about 4 minutes a step, but they finish: they now run to the end. Only a render that
+    shows no progress at all for 25 minutes is stopped and started again once.
+
+    0.4.28: no more stuck renders. The engine could keep a big model in the graphics card's memory and run the next
+    video entirely from system RAM: a render then took hours, or never ended. Heavy renders now start on an emptied
+    engine, and a render left in RAM, or showing no progress for 25 minutes, is stopped and started again once on its
+    own (then reported clearly if it happens twice).
+
+    0.4.27: **continue a take** with MiniMax H3. A shot linked to the previous one with the Extended transition now
+    really picks up where that shot's chosen take ends: its last 1.6 s (picture and sound) open the new clip, so
+    positions, motion and voices carry on with no visible join. While the previous take renders, the shot waits and
+    starts on its own. Also as a workflow, MiniMax H3 · Continue a take: drop a take, describe what comes next, get the
+    continuation and the joined clip.
+
+    0.4.26: new **MOSS-Image Edit** workflows (Turbo, 4 steps, and Quality, 12 steps): edit a photo with one sentence
+    ("Change only the denim jacket to a red leather jacket. Keep …"), about twice as fast as Qwen Image Edit. The engine
+    moves to ComfyUI 0.43.2 (it installs itself at the first start, a few minutes). The On-screen text of a shot is now
+    burned as a banner at the bottom of that shot in the exported film.
+
+    0.4.25: graphic shots now appear in the exported film: their text (the Graphic field, or the shot title) becomes a
+    full-screen title card for the shot's duration. Before, they were silently left out.
+
+    0.4.24: voices in .ogg, .m4a, .flac (and audio-only .webm recordings) are accepted again; before, they were refused
+    with "a voice takes an audio file".
+
+    0.4.23: every camera-move card now plays its preview as soon as you hover it (before, only the selected one moved).
+
+    0.4.22: the camera-move cards (Static shot, Dolly in, Orbit…) play their preview on hover again on computers set to
+    reduce motion; it then plays once, a little slower.
+
+    0.4.21: a new **character sheet**, now made with Qwen Image Edit 2.1 instead of a video frame: photographic faces
+    (no more waxy skin or streaks), and the layout used by the pros: on the left the full body from the front with the
+    face erased and from the back, on the right a large portrait, so the video models copy one face only. It takes a
+    full-length photo plus, if you have one, a close-up of the face.
+
+    0.4.20: fixed a blank, inert interface after an upgrade: the browser could keep interface files from an older
+    version. Each version now loads its files from its own address, so an upgrade always takes effect at once.
+
+    0.4.19: **My renders** is now in strict chronological order: one section per day (today, yesterday, then the date),
+    newest first, read left to right, each render with its time. A render can be **hidden** (its preview is blurred
+    everywhere, revealed on demand in the viewer, handy for sensitive content) or **deleted** with its files. The short forms accept an optional **place, style and voice**
+    from your ingredients. A video character offered in a photo field now gives its first image. The talking
+    character form asks the model to clearly articulate the line, and its example now really talks.
+    Fixed: after an upgrade the browser could keep old interface files and leave every button inert; the interface
+    files are now always revalidated.
+
+    0.4.17: an ingredient can now be a **video** (a character, a place or a style): mentioned with @, it is sent as a
+    reference video to the models that take them (H3, Pika) and as its first image to the others. A 360° video or a
+    character sheet can be added to your ingredients in one click from its render. The video forms (extend, replace a
+    person) offer your latest video renders. An uploaded photo or video now shows as a preview, not its file name.
+
+    0.4.16: each card of the home now opens a **short form** asking only what that use case needs: a photo for the
+    360° video, a photo and a line for a talking character, a video and a photo to replace someone… no prompt to
+    write (the full composer stays one click away). **My renders** shows the render queue at the top: what is rendering,
+    its step and time left, what waits, with a cancel button. The **360° character video** is now in 1080p.
+
+    0.4.15: much faster pages: creations, projects and characters now show light previews instead of the full-size
+    files (often several megabytes each); a video only loads when you hover it or open it.
+
+    0.4.14: the **360° character video** is now a split screen: the face in close-up on the left and the whole body on
+    a turntable on the right turn all the way round together, without walking. Start it from a photo of the character.
+
+    0.4.13: new **H3 · 360° character video**: your character turns all the way round on a grey backdrop, a turnaround
+    board in the best quality (768p by default); it has its own card on the home.
+
+    0.4.12: a new home, **"What do you want to do?"**: one card per use case (image, edit, text to video, a talking
+    character, keyframes, extend a video, replace a person, character sheet, film from a storyboard), each with an
+    example; a card opens the right tool with an example prompt to adapt. All your renders now live on their own page,
+    **My renders**. Fixed: a finished render could occasionally come back without its video.
+
+    0.4.11: the character **Sheet** is now three studio photos side by side on grey: face close-up, full body from
+    the front and from the back (optional: bodies without the head), cropped to the panels.
+
+    0.4.10: **Test connection** (Settings → Language models) now checks the providers as you typed them, before
+    saving: it used to test the saved list, so a new provider always showed "0 models". Olares browser addresses of an
+    LLM app work too; the shared-address tip only shows when a test fails.
+
+    0.4.9: a **Sheet** button on every character: Aéris turns the photo into a reference sheet (large face front,
+    three-quarter and profile, body front, side and back without the head) that becomes the character's reference;
+    the photo is kept and you can switch back. New **Pika H3 Flex · Reference to Video**: Pika's post-trained H3,
+    references in 6 steps (about 2.5x faster than the 20-step mode).
+
+    0.4.8: new **MiniMax H3 · Character sheet**: one to five photos of a person become an 8-view reference sheet
+    (front, three-quarter, profile, back, face and upper-body close-ups) in about a minute. Clearer messages when the
+    GPU runs out of memory or a keyframe falls after the end of the video.
+
+    0.4.7: **Export the film** from a project's menu: the chosen take of every shot, in order, in one MP4 with its
+    sound. Time left on a render now follows past renders of the same kind (right for two-pass workflows).
+
+    0.4.6: new **H3 · Extend a video**: drop a clip and describe what happens next; FastH3 continues it from its last
+    second (motion and sound) and joins both (about 75 s for 5 more seconds in 480p). Every video in your creations
+    now has an **Extend** button.
+
+    0.4.5: new **MiniMax H3 · Keyframes**: up to four images on the timeline, H3 animates from one to the next with
+    synced sound (storyboard frames → one shot). Motion transfer is sharper (pose strength 0.85). A creation now shows
+    the prompt the workflow wrote itself (Openjutsu's Qwen3-VL description). Settings show the app version. Store
+    listing fixed when a source mixes ranked and unranked workflows.
+
+    0.4.4: an update or restart no longer loses a running creation: Aéris picks up what the engine was rendering and
+    collects the result, instead of marking it failed and rendering it again. Brief engine outages requeue the job.
+
+    0.4.3: **H3 · Regenerate HD** now renders in 1080p or 2K (2560×1440, about 13 min for 5 s). New **MiniMax H3 ·
+    Motion transfer (pose)**: a driving video's poses animate your character from a reference image, with synced
+    sound (Fun ControlNet-Union on the NVFP4 H3 model). New "Video → Video" mode in the composer (also Openjutsu).
+
+    0.4.2: **H3 · Regenerate HD 1080p** in the "Aéris · aamsellem" source: a 768p FastH3 draft re-rendered at 1080p
+    by NVIDIA's Open-H3-Regenerate refiner (about 6.5 min for a 5 s clip, draft and HD both kept). Workflows no longer
+    fail with "nodes missing" right after the engine restarts, and node packs retry their download.
+
+    0.4.1: the engine now loads LoRAs in Diffusers format for MiniMax H3 (e.g. NVIDIA's Open-H3-Regenerate), and the
+    Store can carry hidden experimental workflows. H3 NVFP4 models now download from a public mirror (the previous
+    repository became gated).
+
+    0.4.0: **workflows with extra ComfyUI nodes**: a workflow can declare the node packs it needs; Aéris installs them
+    (pinned versions) and restarts the engine on its own. First one in the "Aéris · aamsellem" source: **Openjutsu ·
+    Swap a person** (MIT, by D3voz): drop a video and a photo, the main person becomes your character, motion and
+    soundtrack kept (480p, 3 s clip in 109 s on Olares One). The composer takes files (video, image, sound) by button
+    or drag-and-drop. Seeds respect each workflow's range.
+
+    0.3.0: **English interface** (follows the browser language, switch in Settings; server messages, workflow
+    titles and settings, and the written storyboard follow too). **Workflow sources**: the Store merges the
+    Comfy-Org templates, the curated "Aéris · aamsellem" source (refreshed from the market) and any catalog URL you
+    add in Settings. Clearer storyboard-model test: it says why a provider lists no model and gives the internal
+    Olares address to use (http://sharedentrances-api.<app>-shared/v1) instead of the browser one. Groundwork for
+    workflows that need extra ComfyUI nodes (installed on demand, engine restarted automatically).
+
+    0.2.2: fix spoken shots staying "running" forever after the render (the trimming step crashed); a crash in a job
+    now marks it failed instead of leaving it stuck. Stuck jobs are re-run automatically after the upgrade.
+
+    0.2.1: spoken shots are cut to the exact length of the cloned line and the clean voice is laid back on the video
+    (H3 rounds clip length up and used to repeat the end of the line in the extra frames, e.g. "et il s'en souvient
+    et il s'en souvient").
+
+    0.2.0: **your cloned voice**. A new voice service (VoxCPM2 on CPU, chosen in a blind listening test, plus Whisper)
+    says each line with your own voice from a 10-20 s recording; the H3 lip-sync workflow then follows that audio, so
+    the clip lasts exactly the line and H3 no longer invents words. Pick it per project ("Voix des répliques") or via the
+    API (`speech: {voice, text}`). New "Fidélité du visage" setting on H3 (default Maximale: the reference photo is no
+    longer shrunk to the video size, which kept the outfit but lost facial features). Installed workflows now pick up
+    catalog fixes on restart.
+
+    0.1.2: project shots no longer prepend "Gros plan, plan fixe." to the prompt — MiniMax H3 was speaking it aloud
+    as gibberish before each line (found by transcribing a storyboard test); framing now lives inside the prompt
+    sentence. The interface retries automatically when the Olares gateway answers 502/503/504 during a restart.
+
+    0.1.1: engine fixes found on Olares One — the PyTorch image has no ensurepip (venv now driven by the system pip),
+    and ComfyUI crashed at start under GPU sharing (now uses the plain CUDA allocator without pinned memory).
+    Curated defaults (e.g. 9:16 for H3) now apply when the API call doesn't set them. Validated on Olares One:
+    Z-Image Turbo 768×1344 in 6.1 s warm (20 s cold), MiniMax H3 reference-to-video 4 s 480p with two @references in 62 s.
+
+    0.1.0: first release. ComfyUI engine kept warm on the GPU, workflow Store (Comfy-Org templates, MIT), curated
+    Olares One workflows (MiniMax H3 reference and lip-sync, FastH3, Z-Image Turbo, Qwen Image 2.1 + Edit, NVFP4),
+    projects with an AI-written storyboard (any OpenAI-compatible model), takes per shot, ingredients cited with @,
+    REST API with keys. Reuses the shared model library (Common/comfyui/model) already filled by FlowStudio.
+  fullDescription: |
+    Aeris Studio turns your Olares One into an image and video studio.
+
+    - Create: describe a scene, cite your characters, places and voice with @ (they become the model's references).
+    - Projects: write the storyboard with the language model of your choice, then generate every shot with N takes.
+    - Models: install workflows from the Store; model files are downloaded once into the shared library.
+    - API: everything the UI does is available over REST (API keys in Settings, docs at /api/docs).
+
+    The ComfyUI engine (installed on first start, ~5 minutes) stays warm on the GPU between renders.
+  developer: aamsellem
+  website: https://github.com/aamsellem/olares-one-market
+  sourceCode: https://github.com/aamsellem/olares-one-market
+  submitter: aamsellem
+  locale:
+    - en-US
+    - fr-FR
+  license:
+    - text: Apache-2.0
+      url: https://www.apache.org/licenses/LICENSE-2.0
+  supportArch:
+    - amd64
+  accelerator:
+    - mode: nvidia
+      supportMultiCard: false
+      supportMultiNodes: false
+      requiredCpu: "5"
+      limitedCpu: "28"
+      requiredMemory: 21Gi
+      limitedMemory: 86Gi   # engine 64 + voice 16 + server 6
+      requiredDisk: 10Gi
+      limitedDisk: 60Gi
+      requiredGPUMemory: 16Gi
+      limitedGPUMemory: 23Gi
+permission:
+  appData: true
+  appCommon: true
+options:
+  apiTimeout: 0
+  dependencies:
+    - name: olares
+      version: '>=1.12.6-0'
+      type: system
+envs:
+  - envName: HUGGINGFACE_SERVICE
+    required: false
+    applyOnChange: true
+    valueFrom:
+      envName: OLARES_USER_HUGGINGFACE_SERVICE
+  - envName: HUGGINGFACE_TOKEN
+    required: false
+    applyOnChange: true
+    valueFrom:
+      envName: OLARES_USER_HUGGINGFACE_TOKEN

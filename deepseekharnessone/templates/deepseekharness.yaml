@@ -1,0 +1,103 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: deepseekharness-files
+  namespace: {{ .Release.Namespace }}
+data:
+  start.sh: |
+{{ .Files.Get "files/start.sh" | indent 4 }}
+  proxy.mjs: |
+{{ .Files.Get "files/proxy.mjs" | indent 4 }}
+  router.patch.yml: |
+{{ .Files.Get "files/router.patch.yml" | indent 4 }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: deepseekharness-svc
+  namespace: {{ .Release.Namespace }}
+spec:
+  selector:
+    app: deepseekharness
+  ports:
+    - name: http
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deepseekharnessone
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: deepseekharness
+spec:
+  replicas: {{ .Values.workloads.deepseekharnessone.replicaCount }}
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: deepseekharness
+  template:
+    metadata:
+      labels:
+        app: deepseekharness
+      annotations:
+        checksum/files: {{ printf "%s%s%s" (.Files.Get "files/start.sh") (.Files.Get "files/proxy.mjs") (.Files.Get "files/router.patch.yml") | sha256sum | trunc 16 }}
+    spec:
+      initContainers:
+        - name: init-permissions
+          image: docker.io/beclab/aboveos-busybox:1.37.0
+          command: ["sh", "-ec", "chown 1000:1000 /data /workspace"]
+          securityContext:
+            runAsUser: 0
+          volumeMounts:
+            - { name: data, mountPath: /data }
+            - { name: workspace, mountPath: /workspace }
+      containers:
+        - name: deepseekharness
+          image: docker.io/library/node:24.22.3-bookworm
+          command: ["/bin/bash", "/app/start.sh"]
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+          env:
+            - name: DSH_VERSION
+              value: {{ .Values.dshVersion | quote }}
+            - name: ROUTER_BASE_URL
+              value: {{ .Values.olaresEnv.ROUTER_BASE_URL | default "http://3a77b15d.shared.olares.com/v1" | quote }}
+            - name: ROUTER_API_KEY
+              value: {{ .Values.olaresEnv.ROUTER_API_KEY | default "none" | quote }}
+          ports:
+            - containerPort: 3000
+          # Checked from inside the container: the mesh sidecar accepts TCP on the pod's port even while nothing
+          # listens behind it. Ready = the proxy and dsh both answer on loopback (first start installs dsh first).
+          startupProbe:
+            exec:
+              command: ["bash", "-c", "exec 3<>/dev/tcp/127.0.0.1/3000 && exec 4<>/dev/tcp/127.0.0.1/3080"]
+            periodSeconds: 5
+            failureThreshold: 240
+          readinessProbe:
+            exec:
+              command: ["bash", "-c", "exec 3<>/dev/tcp/127.0.0.1/3000 && exec 4<>/dev/tcp/127.0.0.1/3080"]
+            periodSeconds: 10
+          resources:
+            requests: { cpu: 500m, memory: 512Mi }
+            limits: { cpu: "8", memory: 8Gi }
+          volumeMounts:
+            - { name: files, mountPath: /app }
+            - { name: data, mountPath: /data }
+            - { name: workspace, mountPath: /workspace }
+      volumes:
+        - name: files
+          configMap:
+            name: deepseekharness-files
+        - name: data
+          hostPath:
+            type: DirectoryOrCreate
+            path: {{ .Values.userspace.appData }}/deepseekharness
+        - name: workspace
+          hostPath:
+            type: DirectoryOrCreate
+            path: {{ .Values.userspace.userData }}/Code

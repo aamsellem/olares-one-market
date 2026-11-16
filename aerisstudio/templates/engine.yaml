@@ -1,0 +1,108 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: aeris-engine
+  namespace: "{{ .Release.Namespace }}"
+data:
+  start.sh: |
+{{ .Files.Get "files/start.sh" | indent 4 }}
+  extra_model_paths.yaml: |
+{{ .Files.Get "files/extra_model_paths.yaml" | indent 4 }}
+  nodes.py: |
+{{ .Files.Get "files/nodes.py" | indent 4 }}
+  aeris_nodes.py: |
+{{ .Files.Get "files/aeris_nodes.py" | indent 4 }}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aerisengine
+  namespace: "{{ .Release.Namespace }}"
+  labels:
+    io.kompose.service: aerisengine
+  annotations:
+    applications.app.bytetrade.io/gpu-inject: "true"
+spec:
+  replicas: {{ .Values.workloads.aerisengine.replicaCount }}
+  selector:
+    matchLabels:
+      io.kompose.service: aerisengine
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        io.kompose.service: aerisengine
+      annotations:
+        checksum/engine: "{{ print (.Files.Get "files/start.sh") (.Files.Get "files/nodes.py") (.Files.Get "files/aeris_nodes.py") (.Files.Get "files/extra_model_paths.yaml") | sha256sum | trunc 16 }}"  # any engine file change restarts the engine
+    spec:
+      terminationGracePeriodSeconds: 15
+      containers:
+        - name: comfyui
+          # official PyTorch image (CUDA 13, Blackwell sm_120); ComfyUI itself is installed on first start
+          image: "docker.io/pytorch/pytorch:2.14.1-cuda13.0-cudnn9-runtime"
+          command: ["sh", "/etc/aeris/start.sh"]
+          env:
+            - name: COMFY_VERSION   # ComfyUI v0.45.0 (RelayVSR, MiniMax H3 Image); 2f89433 and 0.43.2 stay on disk
+              value: "0.45.0"
+            - name: CUDA_DEVICE_MEMORY_LIMIT_0
+              value: "30000m"
+            - name: HF_HOME
+              value: "/data/engine/hf"
+          ports:
+            - containerPort: 8188
+          startupProbe:
+            httpGet:
+              path: /system_stats
+              port: 8188
+            periodSeconds: 10
+            failureThreshold: 180
+          readinessProbe:
+            tcpSocket:
+              port: 8188
+            periodSeconds: 10
+          livenessProbe:
+            tcpSocket:
+              port: 8188
+            periodSeconds: 20
+            failureThreshold: 6
+          resources:
+            requests:
+              cpu: "2"
+              memory: 16Gi
+            limits:
+              cpu: "14"
+              memory: 64Gi
+          volumeMounts:
+            - name: engine
+              mountPath: /data/engine
+            - name: models
+              mountPath: /data/models
+            - name: config
+              mountPath: /etc/aeris
+      volumes:
+        - name: engine
+          hostPath:
+            path: "{{ .Values.userspace.appData }}/engine"
+            type: DirectoryOrCreate
+        - name: models
+          hostPath:
+            path: "{{ .Values.userspace.appCommon }}/comfyui/model"
+            type: DirectoryOrCreate
+        - name: config
+          configMap:
+            name: aeris-engine
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: aerisengine-svc
+  namespace: "{{ .Release.Namespace }}"
+spec:
+  selector:
+    io.kompose.service: aerisengine
+  ports:
+    - name: http
+      port: 8188
+      targetPort: 8188

@@ -1,0 +1,15 @@
+admin: ""
+bfl:
+  username: ""
+userspace:
+  appData: ""
+  appCache: ""
+  userData: ""
+  appCommon: ""
+workloads:
+  aerisstudio:
+    replicaCount: 1
+  aerisengine:
+    replicaCount: 1
+  aerisvoice:
+    replicaCount: 1

@@ -1,0 +1,14 @@
+dshVersion: "0.2.2-rc.3"
+bfl:
+  username: ""
+userspace:
+  appData: ""
+  userData: ""
+domain:
+  deepseekharness: ""
+olaresEnv:
+  ROUTER_BASE_URL: ""
+  ROUTER_API_KEY: ""
+workloads:
+  deepseekharnessone:
+    replicaCount: 1

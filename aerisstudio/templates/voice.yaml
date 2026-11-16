@@ -1,0 +1,74 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aerisvoice
+  namespace: "{{ .Release.Namespace }}"
+  labels:
+    io.kompose.service: aerisvoice
+spec:
+  replicas: {{ .Values.workloads.aerisvoice.replicaCount }}
+  selector:
+    matchLabels:
+      io.kompose.service: aerisvoice
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        io.kompose.service: aerisvoice
+    spec:
+      containers:
+        - name: voice
+          # voice-cloning TTS (VoxCPM2) + Whisper transcription on CPU, so the GPU stays free for video
+          image: "docker.io/aamsellem/aeris-voice:0.2.0"
+          env:
+            - name: VOICE_MODEL
+              value: "voxcpm"
+            - name: VOICE_THREADS
+              value: "12"
+            - name: HF_ENDPOINT
+              value: "{{ .Values.olaresEnv.HUGGINGFACE_SERVICE }}"
+            - name: HF_TOKEN
+              value: "{{ .Values.olaresEnv.HUGGINGFACE_TOKEN }}"
+          ports:
+            - containerPort: 8090
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8090
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8090
+            periodSeconds: 30
+            failureThreshold: 6
+          resources:
+            requests:
+              cpu: "2"
+              memory: 4Gi
+            limits:
+              cpu: "12"
+              memory: 16Gi
+          volumeMounts:
+            - name: voice
+              mountPath: /data/voice
+      volumes:
+        - name: voice
+          hostPath:
+            path: "{{ .Values.userspace.appData }}/voice"
+            type: DirectoryOrCreate
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: aerisvoice-svc
+  namespace: "{{ .Release.Namespace }}"
+spec:
+  selector:
+    io.kompose.service: aerisvoice
+  ports:
+    - name: http
+      port: 8090
+      targetPort: 8090

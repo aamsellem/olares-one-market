@@ -1,0 +1,6 @@
+apiVersion: v2
+appVersion: '0.2.2-rc.3'
+description: DeepSeek Harness, the open-source coding agent from DeepSeek, in your browser on Olares, wired to the local models of Olares Router
+name: deepseekharnessone
+type: application
+version: '1.0.2'
