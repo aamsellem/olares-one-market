@@ -31,6 +31,7 @@ const FAMILY = {
   flux:     { primary: '#FFFFFF', secondary: '#C0C0C0', mono: 'F' },
   ace:      { primary: '#00C2FF', secondary: '#5BE0FF', mono: 'A' },
   hermes:   { primary: '#1A0F2E', secondary: '#5B3B92', mono: 'H' },
+  liquid:   { primary: '#6C4FE0', secondary: '#A08CFF', mono: 'L' },
   other:    { primary: '#888888', secondary: '#BBBBBB', mono: '·' },
 }
 
@@ -117,9 +118,11 @@ function buildIcon(b, name) {
 }
 
 async function renderApp(appDir, appName) {
+  // v3 charts keep the bento block in bento.yaml (the v3 manifest schema rejects unknown metadata fields)
+  const bentoPath = join(appDir, 'bento.yaml')
   const mf = loadManifest(appDir)
-  if (!mf || !mf.metadata || !mf.metadata.bento) return { skipped: true, reason: 'no bento' }
-  const b = mf.metadata.bento
+  const b = existsSync(bentoPath) ? yaml.load(readFileSync(bentoPath, 'utf8')) : mf?.metadata?.bento
+  if (!b) return { skipped: true, reason: 'no bento' }
   const tree = buildIcon(b, appName)
   const svg = await satori(tree, { width: SIZE, height: SIZE, fonts: FONTS })
   const png = new Resvg(svg, { fitTo: { mode: 'width', value: SIZE } }).render().asPng()

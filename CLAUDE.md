@@ -160,6 +160,32 @@ env:
 
 **Important:** Without the `envs` declaration, `.Values.olaresEnv` will be empty `{}`. The user must have configured their HF token in Olares settings.
 
+### Olares Router compatibility (Olares 1.12.7+)
+
+Router (Market app `router`, the AI gateway Lares and the other apps call) lists a local model only when its app:
+
+- is a shared app: `options.shared: true` with `spec.onlyAdmin: true`; it installs in `<app>-shared`
+- sets `options.LLMGatewaySupported: true`
+- declares a `sharedEntrances` entry whose host is a Service in front of **Model Console**
+  (`docker.io/beclab/llm-init`, source `beclab/model-console`): Router reads `GET /api/model-spec` and calls `/v1/*`
+  at that entrance's root. A shared entrance that points at the engine itself leaves the model un-callable.
+
+Model Console downloads the model (`MODEL_SOURCE`), hands `model_path` and `engine_args` to the engine's wrapper
+through a shared run directory, and forwards to the engine it finds by `ENGINE_KIND` (`llamacpp` ->
+`http://llamacpp:8081`, `strata` -> `http://strata:8080`, also `vllm`, `sglang`, `ollama`). It drops the
+`Authorization` header, so the engine must not ask for a key, and rewrites `model` to the card's name, which the
+engine's `/v1/models` has to list. Reference charts: `strataqwen38swift` and `llamacppqwen3827bggufv3` in
+`beclab/apps`; ours: `basaltqwen38one` from 1.2.0. Charts without this are invisible to Router.
+
+Measured on the One (2026-11-15):
+- another namespace reaches a shared app only at `http://<hash>.shared.olares.com` (the SharedRouteRegistry's
+  `hostPatterns`); `<svc>.<app>-shared` answers 504 from outside the namespace
+- with two entrances the URLs become `<appid>0` and `<appid>1`; one entrance keeps the bare `<appid>`
+- the model card on disk (`model-spec.json` in the run directory) wins over the chart's env on later starts
+- a per-user app is not upgraded into a shared one: uninstall it first
+- an install right after a large app was removed ends `stopped` with reason `SystemMemoryPressure`: resume it with
+  `--compute-binding`
+
 ## Key References
 
 - `beclab/market` (GitHub) — Go service running locally on Olares devices, syncs from market sources

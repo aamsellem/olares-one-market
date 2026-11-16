@@ -29,6 +29,7 @@ const FONTS = [
 
 const FAMILY = {
   qwen:     { brand: '#615CEB', deep: '#3B36B0', light: '#EFEDFF', tintBg: '#E9E5FF', mono: 'Q', name: 'Qwen' },
+  aeris:    { brand: '#3A7BFD', deep: '#2A4FD6', light: '#EAF1FF', tintBg: '#DDE8FF', mono: 'A', name: 'Aéris' },
   gemma:    { brand: '#EA4335', deep: '#B12D22', light: '#FFEFEC', tintBg: '#FFE3DE', mono: 'G', name: 'Gemma' },
   nemotron: { brand: '#76B900', deep: '#558700', light: '#EEF7DC', tintBg: '#E3F2C7', mono: 'N', name: 'Nemotron' },
   deepseek: { brand: '#4D6BFE', deep: '#2B47C9', light: '#E8EEFF', tintBg: '#DCE5FF', mono: 'D', name: 'DeepSeek' },
@@ -37,6 +38,7 @@ const FAMILY = {
   voxtral:  { brand: '#FFB000', deep: '#C78800', light: '#FFF5DC', tintBg: '#FFEAB8', mono: 'V', name: 'Voxtral' },
   flux:     { brand: '#111114', deep: '#000000', light: '#EDEDEF', tintBg: '#DCDCDF', mono: 'F', name: 'FLUX' },
   ace:      { brand: '#00B2D6', deep: '#0089A8', light: '#DDF5FB', tintBg: '#C7EDF6', mono: 'A', name: 'ACE-Step' },
+  liquid:   { brand: '#6C4FE0', deep: '#4A2FB8', light: '#F0ECFF', tintBg: '#E4DCFF', mono: 'L', name: 'Liquid' },
   other:    { brand: '#5A5A66', deep: '#3A3A45', light: '#ECECF0', tintBg: '#DCDCE3', mono: '·', name: '' },
 }
 
