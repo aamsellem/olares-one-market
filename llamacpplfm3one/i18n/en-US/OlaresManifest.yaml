@@ -1,0 +1,15 @@
+metadata:
+  description: "Liquid AI LFM3 1.7B for Olares Router: a small agent model at 260 t/s with 256K context."
+  title: LFM3 1-7B One
+spec:
+  upgradeDescription: |
+    v1.0.1: the Q8_0 file and a fixed tool-call parser. The NVFP4 file damaged tool markup quoted inside arguments (it wrote `40</` for `40</parameter>`), and llama.cpp's parser cut such values at the quoted closing tag. This version serves Q8_0 and our llama.cpp b12352 build with that parser fixed (docker.io/aamsellem/llama.cpp:server-cuda13-b12352-xmlquote, one library changed). Speed: 260 t/s instead of 315.
+    v1.0.0: first release. LFM3-1.7B NVFP4 on llama.cpp b12352 behind Model Console, listed by Olares Router: 315 t/s with two slots (337 with one), 40,000 t/s prompt reading, 195 t/s at 128K.
+  fullDescription: |
+    **LFM3 1.7B** is Liquid AI's small agent model, trained in real agent harnesses, with a 256K-token context. This app serves it through Olares Router, so Lares and your other apps can call it without a key.
+
+    **Measured on the Olares One** (Q8_0): 260 t/s with two request slots, about 5 GB of GPU memory.
+
+    **Good at**: tool calls, JSON that follows a schema, quick answers (send `"chat_template_kwargs": {"enable_thinking": false}` to skip thinking). **Not for**: agentic coding or long multi-step reasoning, says Liquid; edits whose text quotes tool-call markup are fragile, above all through Router.
+
+    **License**: LFM Open License v1.0, free under 10 million USD of annual revenue.

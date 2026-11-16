@@ -1,0 +1,17 @@
+# Bento card config (scripts/generate-bento.js). Kept out of OlaresManifest.yaml:
+# the apiVersion v3 schema rejects unknown metadata fields.
+family: liquid
+size_label: "2B"
+badge: omni · voice
+hero:
+  value: "305 t/s"
+  label: "hears, sees, talks back · speech in 0.45 s"
+specs:
+  - { label: "context", value: "32K" }
+  - { label: "asr", value: "0.1 s", sub: "5 s sentence" }
+capabilities:
+  tool_calling: true
+  vision:       true
+  audio:        true
+  mtp:          { enabled: false }
+stack: "llama.cpp b12352 · LFM3-Omni-2B Q8_0 · ASR + TTS + realtime"

@@ -1,0 +1,10 @@
+bfl:
+  username: ""
+userspace:
+  appData: ""
+olaresEnv:
+  HUGGINGFACE_SERVICE: ""
+  HUGGINGFACE_TOKEN: ""
+workloads:
+  lfm3omnione:
+    replicaCount: 1

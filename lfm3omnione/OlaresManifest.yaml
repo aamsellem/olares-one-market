@@ -1,0 +1,101 @@
+---
+olaresManifest.version: '0.12.0'
+olaresManifest.type: app
+apiVersion: 'v3'
+
+workloadReplicas:
+  lfm3omnione: 1
+
+metadata:
+  name: lfm3omnione
+  icon: https://orales-one-market.aamsellem.workers.dev/icons/lfm3omnione.png
+  description: "Liquid AI LFM3 Omni 2B: hears, sees, reads and talks back. Voice chat, transcription, speech, image and video, 305 t/s on Olares One."
+  appid: lfm3omnione
+  title: LFM3 Omni One
+  version: '1.0.0'
+  categories:
+    - Audio
+    - LLM Chat
+entrances:
+  - name: lfm3omnione
+    port: 8080
+    host: lfm3omnione
+    title: LFM3 Omni One
+    icon: https://orales-one-market.aamsellem.workers.dev/icons/lfm3omnione.png
+    openMethod: window
+    authLevel: internal
+spec:
+  versionName: 'LFM3-Omni-2B Q8_0'
+  upgradeDescription: |
+    v1.0.0: first release. LiquidAI/LFM3-Omni-2B-GGUF Q8_0 with its F16 vision and audio projector, served by llama.cpp b12352 (docker.io/beclab/ggml-org-llama.cpp:server-cuda13-b12352). Measured on the Olares One: 305 t/s text generation, an image read in 1.2 s, speech transcribed in 0.1 s, a 4.6 s spoken answer generated in 0.45 s.
+  fullDescription: |
+    **LFM3 Omni 2B** is Liquid AI's small omni model: it understands text, images, video and speech, and answers in text or out loud. It runs entirely on the Olares One.
+
+    **Measured on the Olares One** (RTX 5090 Laptop GPU, llama.cpp b12352):
+    - Text generation: **305 t/s**
+    - Image question: answered in **1.2 s** (it read "177 t/s" and "128K" off a model card picture)
+    - Speech recognition: a 5 s French or English sentence transcribed in **0.1 s**, word for word
+    - Speech synthesis: a 4.6 s spoken sentence generated in **0.45 s** (24 kHz WAV, female or male voice)
+
+    **What you get**
+    - The llama.cpp web chat at this app's address, with images, audio and video as input.
+    - An OpenAI-compatible API inside the cluster at `http://lfm3omnione:8080`:
+      - `/v1/chat/completions`: text, `image_url` and `input_audio` parts
+      - `/v1/audio/transcriptions`: speech to text
+      - `/v1/audio/speech`: text to speech (`voice`: `female` or `male`)
+      - `/v1/realtime`: a WebSocket for real-time voice conversations, with tool calls
+
+    **Useful system prompts**
+    - Transcription: `Perform ASR in French.` (or any listed language)
+    - Speech: `Perform TTS in French using a male voice.`
+    - Video: `Answer questions about the video using what you see and hear.`
+
+    **Languages**: text in 16 languages including English, French, German, Spanish, Italian, Portuguese, Chinese and Japanese; speech in 19 languages and locales including French, British and American English.
+
+    **Limits**: 32K tokens of context. A 2B model: good for voice front-ends, transcription, captions and quick questions, not for long reasoning or coding. Video needs ffmpeg, which the image ships.
+
+    **License**: LFM Open License v1.0. Free for individuals and for companies under 10 million USD of annual revenue; above that, commercial use needs a license from Liquid AI.
+  developer: Liquid AI
+  website: https://www.liquid.ai/blog/lfm3
+  sourceCode: https://github.com/aamsellem/olares-one-market
+  submitter: aamsellem
+  locale:
+    - en-US
+  license:
+    - text: LFM Open License v1.0
+      url: https://huggingface.co/LiquidAI/LFM3-Omni-2B/blob/main/LICENSE
+    - text: MIT (llama.cpp)
+      url: https://github.com/ggml-org/llama.cpp/blob/master/LICENSE
+  supportArch:
+    - amd64
+  accelerator:
+    - mode: nvidia
+      supportMultiCard: false
+      supportMultiNodes: false
+      requiredCpu: "2"
+      limitedCpu: "16"
+      requiredMemory: 4Gi
+      limitedMemory: 16Gi
+      requiredDisk: 5Gi
+      limitedDisk: 10Gi
+      requiredGPUMemory: 8Gi
+      limitedGPUMemory: 8Gi
+permission:
+  appData: true
+options:
+  apiTimeout: 0
+  dependencies:
+    - name: olares
+      version: '>=1.12.6-0'
+      type: system
+envs:
+  - envName: HUGGINGFACE_SERVICE
+    required: false
+    applyOnChange: true
+    valueFrom:
+      envName: OLARES_USER_HUGGINGFACE_SERVICE
+  - envName: HUGGINGFACE_TOKEN
+    required: false
+    applyOnChange: true
+    valueFrom:
+      envName: OLARES_USER_HUGGINGFACE_TOKEN

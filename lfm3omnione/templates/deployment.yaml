@@ -1,0 +1,163 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: lfm3omni-env
+  namespace: "{{ .Release.Namespace }}"
+data:
+  MODEL_REPO: "LiquidAI/LFM3-Omni-2B-GGUF"
+  MODEL_FILE: "LFM3-Omni-2B-Q8_0.gguf"
+  MMPROJ_FILE: "mmproj-LFM3-Omni-2B-F16.gguf"
+  MODEL_ALIAS: "lfm3-omni"
+  CONTEXT_SIZE: "32768"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    io.kompose.service: lfm3omnione
+  name: lfm3omnione
+  namespace: "{{ .Release.Namespace }}"
+  annotations:
+    applications.app.bytetrade.io/gpu-inject: "true"
+spec:
+  replicas: {{ .Values.workloads.lfm3omnione.replicaCount }}
+  selector:
+    matchLabels:
+      io.kompose.service: lfm3omnione
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        io.kompose.network/chrome-default: "true"
+        io.kompose.service: lfm3omnione
+    spec:
+      initContainers:
+        # Fetches the model and its projector once; later starts find them in appData.
+        - name: model-downloader
+          image: "docker.io/alpine:3.20"
+          command:
+            - sh
+            - '-c'
+            - |
+              set -e
+              apk add --no-cache wget >/dev/null 2>&1 || true
+              # Olares hands the endpoint with a trailing slash; a double slash in the URL fails.
+              HF="${HF_ENDPOINT:-https://huggingface.co}"
+              HF="${HF%/}"
+              for f in "$MODEL_FILE" "$MMPROJ_FILE"; do
+                if [ -f "/models/$f" ]; then echo "have /models/$f"; continue; fi
+                echo "downloading $f from $HF/$MODEL_REPO"
+                if [ -n "${HF_TOKEN:-}" ]; then
+                  wget -q --header "Authorization: Bearer $HF_TOKEN" -O "/models/$f.tmp" "$HF/$MODEL_REPO/resolve/main/$f"
+                else
+                  wget -q -O "/models/$f.tmp" "$HF/$MODEL_REPO/resolve/main/$f"
+                fi
+                mv "/models/$f.tmp" "/models/$f"
+              done
+              ls -lh /models
+          envFrom:
+            - configMapRef:
+                name: lfm3omni-env
+          env:
+            - name: HF_ENDPOINT
+              value: "{{ .Values.olaresEnv.HUGGINGFACE_SERVICE }}"
+            - name: HF_TOKEN
+              value: "{{ .Values.olaresEnv.HUGGINGFACE_TOKEN }}"
+          resources:
+            limits:
+              cpu: "2"
+              memory: 512Mi
+            requests:
+              cpu: 100m
+              memory: 128Mi
+          volumeMounts:
+            - mountPath: "/models"
+              name: models
+      containers:
+        - name: llamacpp-server
+          image: "docker.io/beclab/ggml-org-llama.cpp:server-cuda13-b12352"
+          command: ["/app/llama-server"]
+          # Liquid's advice for the omni model: no reasoning, greedy text. The audio sampling lives in the GGUF.
+          args:
+            - "--host"
+            - "0.0.0.0"
+            - "--port"
+            - "8080"
+            - "--model"
+            - "/models/$(MODEL_FILE)"
+            - "--mmproj"
+            - "/models/$(MMPROJ_FILE)"
+            - "--alias"
+            - "$(MODEL_ALIAS)"
+            - "--ctx-size"
+            - "$(CONTEXT_SIZE)"
+            - "-ngl"
+            - "all"
+            - "--flash-attn"
+            - "on"
+            - "--parallel"
+            - "1"
+            - "--jinja"
+            - "--reasoning"
+            - "off"
+            - "--temp"
+            - "0"
+          envFrom:
+            - configMapRef:
+                name: lfm3omni-env
+          ports:
+            - containerPort: 8080
+          startupProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            periodSeconds: 5
+            timeoutSeconds: 5
+            failureThreshold: 120
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 3
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            periodSeconds: 30
+            timeoutSeconds: 10
+            failureThreshold: 5
+          resources:
+            limits:
+              cpu: "16"
+              memory: 16Gi
+            requests:
+              cpu: "2"
+              memory: 4Gi
+          volumeMounts:
+            - mountPath: "/models"
+              name: models
+      volumes:
+        - name: models
+          hostPath:
+            path: "{{ .Values.userspace.appData }}/models"
+            type: DirectoryOrCreate
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    io.kompose.service: lfm3omnione
+  name: lfm3omnione
+  namespace: "{{ .Release.Namespace }}"
+spec:
+  ports:
+    - name: "llamacpp"
+      port: 8080
+      targetPort: 8080
+  selector:
+    io.kompose.service: lfm3omnione

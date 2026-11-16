@@ -1,0 +1,208 @@
+olaresManifest.version: '0.12.0'
+olaresManifest.type: app
+apiVersion: 'v3'
+metadata:
+  name: llamacpplfm3one
+  icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacpplfm3one.png
+  description: "Liquid AI LFM3 1.7B for Olares Router: a small agent model at 260 t/s with 256K context."
+  appid: llamacpplfm3one
+  title: LFM3 1-7B One
+  version: '1.0.1'
+  categories:
+    - LLM Chat
+    - AI Agents
+sharedEntrances:
+  - name: llamacpplfm3one
+    host: sharedentrances-api
+    port: 0
+    title: LFM3 1-7B
+    invisible: true
+    authLevel: internal
+    icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacpplfm3one.png
+entrances:
+  - name: llamacppclient
+    port: 8090
+    host: download-svc
+    title: LFM3 1-7B One
+    icon: https://orales-one-market.aamsellem.workers.dev/icons/llamacpplfm3one.png
+    openMethod: window
+    authLevel: internal
+#   llamacpplfm3one — engine Deployment (== appid / Release.Name)
+#   llminit         — Model Console Deployment
+workloadReplicas:
+  llamacpplfm3one: 1
+  llminit: 1
+spec:
+  onlyAdmin: true
+  versionName: 'LiquidAI/LFM3-1.7B-GGUF:Q8_0'
+  upgradeDescription: |
+    v1.0.1: the Q8_0 file and a fixed tool-call parser. The NVFP4 file damaged tool markup quoted inside arguments (it wrote `40</` for `40</parameter>`), and llama.cpp's parser cut such values at the quoted closing tag. This version serves Q8_0 and our llama.cpp b12352 build with that parser fixed (docker.io/aamsellem/llama.cpp:server-cuda13-b12352-xmlquote, one library changed). Speed: 260 t/s instead of 315.
+    v1.0.0: first release. LiquidAI/LFM3-1.7B-GGUF NVFP4 on llama.cpp b12352 behind Model Console, so Olares Router lists it. Measured on the Olares One: 315 t/s generation with two request slots (337 t/s with one), 40,000 t/s prompt reading, 195 t/s with 128K tokens already in context.
+  fullDescription: |
+    **LFM3 1.7B** is Liquid AI's small agent model (October 2026): trained in real agent harnesses (Hermes Agent, Pi, OpenClaw), with a 256K-token context. This app serves it through Olares Router, so Lares and your other apps can call it without a key.
+
+    **Measured on the Olares One** (RTX 5090 Laptop GPU, llama.cpp b12352, Q8_0 file):
+    - Generation: **260 t/s** with two request slots and Liquid's sampling (285 t/s without the repeat penalty)
+    - GPU memory: about 5 GB for the full 256K window
+
+    **What it does well**: tool calls (two parallel weather calls answered in 0.9 s), JSON that follows a schema, short answers with thinking turned off. Liquid's scores: BFCL v4 71.4, IFEval 96.7, ToolSandbox 80.4.
+
+    **What it does not**: it is a 1.7B model. Liquid does not recommend it for agentic coding or long multi-step reasoning. Edits whose text quotes tool-call markup (`<parameter=...>`) are fragile: sent straight to the engine, our test edit came back right 47 times out of 49 with thinking off; through Router, which re-orders the keys of the tool schema, the model added a stray `}` to the value 8 times out of 8 with thinking off, and got it right 10 times out of 20 with thinking on.
+
+    **Thinking**: on by default. Send `"chat_template_kwargs": {"enable_thinking": false}` for direct answers.
+
+    **Preset**
+    - Model: `LiquidAI/LFM3-1.7B-GGUF:Q8_0`
+    - Engine args: `-c 262144 -ngl all -fa on --jinja -np 2 -kvu --temp 0.1 --top-k 50 --repeat-penalty 1.1` (Liquid's recommended sampling as the server default; a client's own sampling wins)
+    - GPU memory reserved: `6Gi`, so it can run next to another small GPU app
+
+    **Stack**: llama.cpp b12352 (beclab's `server-cuda13-b12352` with our fix of the XML tool-call parser) serves the model; Olares Model Console downloads it into `appCommon/huggingface`, publishes its model card and relays the OpenAI API that Router calls.
+
+    **License**: LFM Open License v1.0. Free for individuals and for companies under 10 million USD of annual revenue; above that, commercial use needs a license from Liquid AI.
+  developer: Liquid AI
+  website: https://www.liquid.ai/blog/lfm3
+  sourceCode: https://github.com/aamsellem/olares-one-market
+  submitter: aamsellem
+  locale:
+    - en-US
+  license:
+    - text: LFM Open License v1.0
+      url: https://huggingface.co/LiquidAI/LFM3-1.7B/blob/main/LICENSE
+    - text: MIT (llama.cpp)
+      url: https://github.com/ggml-org/llama.cpp/blob/master/LICENSE
+  accelerator:
+    #   Engine MEMORY_REQUEST 2Gi + Model Console 256Mi <= requiredMemory 3Gi;
+    #   MEMORY_LIMIT 8Gi + Model Console 2Gi <= limitedMemory 10Gi.
+    - mode: nvidia
+      limitedCpu: "7"
+      requiredCpu: "1"
+      requiredDisk: 50Mi
+      limitedDisk: 20Gi
+      limitedMemory: "10Gi"
+      requiredMemory: "3Gi"
+      requiredGPUMemory: "6Gi"
+      limitedGPUMemory: "6Gi"
+  supportArch:
+    - amd64
+permission:
+  appCache: true
+  appData: true
+  appCommon: true
+options:
+  apiTimeout: 0
+  LLMGatewaySupported: true
+  shared: true
+  templateOnly: false
+  dependencies:
+    - name: olares
+      version: '>=1.12.7-0'
+      type: system
+envs:
+  - envName: MODEL_SOURCE
+    required: true
+    type: string
+    editable: false
+    applyOnChange: false
+    default: "hf://LiquidAI/LFM3-1.7B-GGUF --include LFM3-1.7B-Q8_0.gguf"
+    description: "The GGUF file Model Console downloads."
+    regex: "^hf://"
+  - envName: MODEL_NAME
+    required: true
+    type: string
+    editable: false
+    applyOnChange: false
+    default: "LiquidAI/LFM3-1.7B-GGUF:Q8_0"
+    description: "The model's name, in owner/repo:quant format."
+  - envName: MODEL_MODE
+    required: true
+    type: string
+    editable: false
+    applyOnChange: false
+    default: "chat"
+    options:
+    - title: Chat
+      value: chat
+    - title: Embedding
+      value: embedding
+  - envName: MODEL_SUPPORTS
+    required: true
+    type: string
+    editable: false
+    applyOnChange: false
+    default: "thinking,tools"
+    multiSelect: true
+    splitter: ","
+    options:
+    - title: Vision
+      value: vision
+    - title: Tools
+      value: tools
+    - title: Thinking
+      value: thinking
+    - title: None
+      value: none
+    description: "The model's capabilities."
+  - envName: ENGINE_ARGS
+    required: true
+    default: "-c 262144 -ngl all -fa on --jinja -np 2 -kvu --temp 0.1 --top-k 50 --repeat-penalty 1.1"
+    type: string
+    editable: true
+    applyOnChange: true
+    description: "llama.cpp options. `-np 1` is about 7% faster for a single user; `-c` is the shared context pool."
+  - envName: LOG_LEVEL
+    required: false
+    type: string
+    editable: true
+    applyOnChange: true
+    default: "info"
+    options:
+    - title: Debug
+      value: debug
+    - title: Info
+      value: info
+    - title: Warn
+      value: warn
+    - title: Error
+      value: error
+  - envName: HF_ENDPOINT
+    required: false
+    applyOnChange: true
+    valueFrom:
+      envName: OLARES_SYSTEM_HUGGINGFACE_SERVICE
+  - envName: HF_TOKEN
+    required: false
+    applyOnChange: true
+    valueFrom:
+      envName: OLARES_SYSTEM_HUGGINGFACE_TOKEN
+  - envName: LLAMACPP_CPU_REQUEST
+    required: true
+    default: "200m"
+    type: string
+    editable: false
+    applyOnChange: false
+  - envName: LLAMACPP_MEMORY_REQUEST
+    required: true
+    default: "2Gi"
+    type: string
+    editable: false
+    applyOnChange: false
+  - envName: LLAMACPP_CPU_LIMIT
+    required: true
+    default: "6"
+    type: string
+    editable: false
+    applyOnChange: false
+  - envName: LLAMACPP_MEMORY_LIMIT
+    required: true
+    default: "8Gi"
+    type: string
+    editable: false
+    applyOnChange: false
+  - envName: LLAMACPP_REQUIRED_GPU_MEMORY
+    required: true
+    type: string
+    editable: false
+    applyOnChange: false
+    default: "6Gi"
+    description: "GPU memory reserved for the engine (nvidia.com/gpumem)."
+    regex: "^[0-9]+(Gi|Mi)?$"

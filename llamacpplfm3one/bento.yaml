@@ -1,0 +1,17 @@
+# Bento card config (scripts/generate-bento.js). Kept out of OlaresManifest.yaml:
+# the apiVersion v3 schema rejects unknown metadata fields.
+family: liquid
+size_label: "1.7B"
+badge: router · Q8_0
+hero:
+  value: "260 t/s"
+  label: "agent model for Olares Router"
+specs:
+  - { label: "context", value: "256K" }
+  - { label: "vram", value: "5 GB" }
+capabilities:
+  tool_calling: true
+  vision:       false
+  audio:        false
+  mtp:          { enabled: false }
+stack: "llama.cpp b12352 · Model Console · Olares Router · Q8_0"
