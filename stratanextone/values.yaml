@@ -1,0 +1,12 @@
+admin: ""
+bfl:
+  username: ""
+userspace:
+  appData: ""
+  appCache: ""
+  userData: ""
+olaresEnv:
+  HUGGINGFACE_TOKEN: ""
+workloads:
+  stratanextone:
+    replicaCount: 1

@@ -1,0 +1,120 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: stratadscoderone-env
+  namespace: "{{ .Release.Namespace }}"
+data:
+  FAMILY: "deepseek41"
+  MODEL: "ista-das-coder"
+  CONTEXT: "128k"
+  VISION: "off"
+  API_KEY: "olares-strata-one-local-key"
+  STRATA_SET: "experts={{ .Values.olaresEnv.DEEPSEEK_EXPERTS | default "6" }} cpu-threads={{ .Values.olaresEnv.DEEPSEEK_CPU_THREADS | default "18" }}"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    io.kompose.service: stratadscoderone
+  name: stratadscoderone
+  namespace: "{{ .Release.Namespace }}"
+  annotations:
+    applications.app.bytetrade.io/gpu-inject: "true"
+spec:
+  replicas: {{ .Values.workloads.stratadscoderone.replicaCount }}
+  selector:
+    matchLabels:
+      io.kompose.service: stratadscoderone
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        io.kompose.service: stratadscoderone
+    spec:
+      terminationGracePeriodSeconds: 120
+      initContainers:
+        - name: prepare-data
+          image: "docker.io/beclab/aboveos-busybox:1.37.0"
+          command: ["sh", "-c", "mkdir -p /data/home /data/state /data/config /data/install /data/Strata-data && chmod -R 777 /data"]
+          securityContext:
+            runAsUser: 0
+          volumeMounts:
+            - mountPath: /data
+              name: data
+      containers:
+        - name: strata
+          image: "ghcr.io/niko1221/strata:0.2.13-cuda13"
+          # The image's watchdog stops the container after 3 failed status checks 10 s apart. Under a long generation the
+          # status call can be late that often, which killed answers mid-way: allow 30 (5 minutes) before giving up.
+          command: ["/usr/bin/tini", "--", "/bin/sh", "-c"]
+          args:
+            - |
+              sed 's/"$bad" -ge 3 ]/"$bad" -ge 30 ]/' /opt/strata/entrypoint.sh > /tmp/entrypoint.sh
+              grep -q '"$bad" -ge 30 ]' /tmp/entrypoint.sh || cp /opt/strata/entrypoint.sh /tmp/entrypoint.sh
+              exec /bin/sh /tmp/entrypoint.sh run
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+          envFrom:
+            - configMapRef:
+                name: stratadscoderone-env
+          env:
+            - name: HF_TOKEN
+              value: "{{ .Values.olaresEnv.HUGGINGFACE_TOKEN }}"
+            - name: CUDA_DEVICE_MEMORY_LIMIT_0
+              value: "30000m"
+          ports:
+            - containerPort: 8080
+          startupProbe:
+            exec:
+              command: ["/opt/strata/healthcheck.sh"]
+            initialDelaySeconds: 60
+            periodSeconds: 30
+            timeoutSeconds: 10
+            failureThreshold: 960
+          # Port check only: the API check (healthcheck.sh) can time out while the engine is busy and must not restart it.
+          livenessProbe:
+            tcpSocket:
+              port: 8080
+            periodSeconds: 30
+            timeoutSeconds: 10
+            failureThreshold: 10
+          resources:
+            limits:
+              cpu: "24"
+              memory: 84Gi
+            requests:
+              cpu: "8"
+              memory: 56Gi
+          volumeMounts:
+            - mountPath: /data
+              name: data
+            - mountPath: /dev/shm
+              name: shm
+      volumes:
+        - name: data
+          hostPath:
+            path: "{{ .Values.userspace.appData }}/strata"
+            type: DirectoryOrCreate
+        - name: shm
+          emptyDir:
+            medium: Memory
+            sizeLimit: 2Gi
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    io.kompose.service: stratadscoderone
+  name: stratadscoderone
+  namespace: "{{ .Release.Namespace }}"
+spec:
+  ports:
+    - name: "strata"
+      port: 8080
+      targetPort: 8080
+  selector:
+    io.kompose.service: stratadscoderone

@@ -1,0 +1,13 @@
+admin: ""
+bfl:
+  username: ""
+userspace:
+  appData: ""
+  appCache: ""
+  userData: ""
+olaresEnv:
+  HUGGINGFACE_TOKEN: ""
+  DEEPSEEK_EXPERTS: "6"
+workloads:
+  stratadscoderone:
+    replicaCount: 1

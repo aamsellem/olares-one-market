@@ -1,0 +1,110 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: stratanextone-env
+  namespace: "{{ .Release.Namespace }}"
+data:
+  FAMILY: "qwen"
+  MODEL: "IQ3_XXS"
+  CONTEXT: "128k"
+  VISION: "off"
+  API_KEY: "olares-strata-one-local-key"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    io.kompose.service: stratanextone
+  name: stratanextone
+  namespace: "{{ .Release.Namespace }}"
+  annotations:
+    applications.app.bytetrade.io/gpu-inject: "true"
+spec:
+  replicas: {{ .Values.workloads.stratanextone.replicaCount }}
+  selector:
+    matchLabels:
+      io.kompose.service: stratanextone
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        io.kompose.service: stratanextone
+    spec:
+      terminationGracePeriodSeconds: 120
+      initContainers:
+        - name: prepare-data
+          image: "docker.io/beclab/aboveos-busybox:1.37.0"
+          command: ["sh", "-c", "mkdir -p /data/home /data/state /data/config /data/install /data/Strata-data && chmod -R 777 /data"]
+          securityContext:
+            runAsUser: 0
+          volumeMounts:
+            - mountPath: /data
+              name: data
+      containers:
+        - name: strata
+          image: "ghcr.io/niko1221/strata:0.2.13-cuda13"
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+          envFrom:
+            - configMapRef:
+                name: stratanextone-env
+          env:
+            - name: HF_TOKEN
+              value: "{{ .Values.olaresEnv.HUGGINGFACE_TOKEN }}"
+            - name: CUDA_DEVICE_MEMORY_LIMIT_0
+              value: "30000m"
+          ports:
+            - containerPort: 8080
+          startupProbe:
+            exec:
+              command: ["/opt/strata/healthcheck.sh"]
+            initialDelaySeconds: 60
+            periodSeconds: 30
+            timeoutSeconds: 10
+            failureThreshold: 960
+          livenessProbe:
+            exec:
+              command: ["/opt/strata/healthcheck.sh"]
+            periodSeconds: 60
+            timeoutSeconds: 10
+            failureThreshold: 5
+          resources:
+            limits:
+              cpu: "24"
+              memory: 84Gi
+            requests:
+              cpu: "8"
+              memory: 56Gi
+          volumeMounts:
+            - mountPath: /data
+              name: data
+            - mountPath: /dev/shm
+              name: shm
+      volumes:
+        - name: data
+          hostPath:
+            path: "{{ .Values.userspace.appData }}/strata"
+            type: DirectoryOrCreate
+        - name: shm
+          emptyDir:
+            medium: Memory
+            sizeLimit: 2Gi
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    io.kompose.service: stratanextone
+  name: stratanextone
+  namespace: "{{ .Release.Namespace }}"
+spec:
+  ports:
+    - name: "strata"
+      port: 8080
+      targetPort: 8080
+  selector:
+    io.kompose.service: stratanextone

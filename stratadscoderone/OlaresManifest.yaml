@@ -1,0 +1,121 @@
+olaresManifest.version: '0.12.0'
+olaresManifest.type: app
+apiVersion: 'v3'
+
+workloadReplicas:
+  stratadscoderone: 1
+
+metadata:
+  name: stratadscoderone
+  icon: https://orales-one-market.aamsellem.workers.dev/icons/stratadscoderone.png
+  description: "DeepSeek-V4.1-Flash ISTA-DAS Coder on Olares One with the Strata engine — 31 t/s, 128K context"
+  appid: stratadscoderone
+  title: Strata DeepSeek V41 Coder One
+  version: '1.0.1'
+  categories:
+    - LLM Chat
+    - Coding
+entrances:
+  - name: stratadscoderone
+    port: 8080
+    host: stratadscoderone
+    title: Strata DeepSeek V41 Coder
+    icon: https://orales-one-market.aamsellem.workers.dev/icons/stratadscoderone.png
+    openMethod: window
+    authLevel: internal
+spec:
+  versionName: '1.0.0'
+  upgradeDescription: |
+    v1.0.1: for long answers that ended in "network error" after a few minutes. Two checks could restart a busy
+    engine in the middle of a generation, losing the answer and the conversation: the health probe (now a plain
+    port check) and the container's own watchdog (now 5 minutes without an answer, not 30 seconds). The engine also takes 18 CPU threads
+    instead of 22, so Olares, its network sidecars and your other apps keep some CPU while DeepSeek computes:
+    set DEEPSEEK_CPU_THREADS back to 22 if you only run DeepSeek.
+    v1.0.0: first release. Strata 0.2.13 (DeepSeek engine 0.1.59) runs ISTA-DASLab's DeepSeek-V4.1-Flash Coder on the
+    Olares One. Bench on the One (warmup, then Space Invaders, a Go REST API and a B-tree explanation, 800 tokens,
+    2 rounds): decode 31.4 t/s on average with 6 experts per token, 35.2 t/s in Faster mode (DEEPSEEK_EXPERTS=5);
+    32K-token prompt read at about 950 t/s. Tool calling checked (parallel calls).
+  fullDescription: |
+    DeepSeek-V4.1-Flash ISTA-DAS Coder running on the Olares One with **Strata** (niko1221/strata, MIT), an engine
+    built to fit huge MoE models on one consumer GPU.
+
+    The Coder is ISTA-DASLab's coding version of DeepSeek-V4.1-Flash: in every layer 192 of the 384 routed experts are
+    kept, so the model is 72 GB instead of 138 GB. It is tuned for code and agent work and is weaker on prose and other
+    languages than the full model (Strata's measurement against the original: KL 0.40 overall, 0.23 on code, 0.20 on
+    agent work).
+
+    How it fits: the dense weights and 1,927 of the 7,680 experts sit on the RTX 5090M (23 GB of VRAM); the other
+    5,753 experts (49.5 GB) are copied into RAM and computed by the CPU (18 threads by default); the 111 GB n-gram table stays on
+    the SSD and is read a few rows per token.
+
+    Measured on the Olares One (128K context):
+    - decode 31.4 t/s on average (28-35) with all 6 experts per token (the default, full quality)
+    - decode 35.2 t/s (32-38) in Faster mode, 5 experts per token: set DEEPSEEK_EXPERTS to 5 in the app's settings
+      (a small quality change that Strata describes as usually not noticeable)
+    - 32K-token prompt read at about 950 t/s (first token in 34 s)
+    - tool calling (parallel calls) and reasoning; OpenAI-compatible API at /v1 and Anthropic-compatible API (Claude
+      Code: ANTHROPIC_BASE_URL without /v1) on port 8080, plus a web chat
+
+    For speed, Strata Qwen38 Flash Next One is about 4.5x faster on the same hardware; this app is for people who
+    want DeepSeek's coding model.
+
+    API key: `olares-strata-one-local-key` (the entrance stays internal to your Olares).
+
+    Needs the whole GPU and about 55 GB of RAM: stop the other GPU apps first (including Strata Qwen38 Flash Next One).
+    If Olares stops the app for memory pressure right after another large model app ran, start it again a minute
+    later: the other app's file cache is still being released.
+    The first start downloads 191 GB (72 GB of model, the 111 GB n-gram table, an 8 GB drafter) into the app's data,
+    about 35 minutes at 100 MB/s; the next starts take about two minutes.
+
+  developer: aamsellem
+  website: https://github.com/aamsellem/olares-one-market
+  sourceCode: https://github.com/aamsellem/olares-one-market
+  submitter: aamsellem
+  locale:
+    - en-US
+  license:
+    - text: MIT (Strata)
+      url: https://github.com/niko1221/strata/blob/main/LICENSE
+    - text: MIT (model)
+      url: https://huggingface.co/ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-Coder-GGUF
+  supportArch:
+    - amd64
+  accelerator:
+    - mode: nvidia
+      supportMultiCard: false
+      supportMultiNodes: false
+      requiredCpu: "8"
+      limitedCpu: "24"
+      requiredMemory: 56Gi
+      limitedMemory: 84Gi
+      requiredDisk: 200Gi
+      limitedDisk: 260Gi
+      requiredGPUMemory: 20Gi
+      limitedGPUMemory: 23Gi
+permission:
+  appData: true
+options:
+  apiTimeout: 0
+  dependencies:
+    - name: olares
+      version: '>=1.12.6-0'
+      type: system
+envs:
+  - envName: HUGGINGFACE_TOKEN
+    required: false
+    applyOnChange: true
+    valueFrom:
+      envName: OLARES_USER_HUGGINGFACE_TOKEN
+  - envName: DEEPSEEK_EXPERTS
+    required: false
+    default: "6"
+    editable: true
+    applyOnChange: true
+    description: "Experts per token: 6 = full quality (default), 5 = Faster (+12% decode on Olares One)"
+  - envName: DEEPSEEK_CPU_THREADS
+    required: false
+    default: "18"
+    editable: true
+    applyOnChange: true
+    description: "CPU threads for the experts computed on the CPU. 18 leaves room for Olares and other apps; 22 is Strata's own choice on the One."
+    regex: "^[0-9]+$"

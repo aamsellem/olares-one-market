@@ -1,0 +1,6 @@
+apiVersion: v2
+appVersion: '1.0.0'
+description: Strata — Qwen3.8-Flash-Next (~180B MoE) on Olares One, experts in RAM, hot experts cached on the RTX 5090M, MTP
+name: stratanextone
+type: application
+version: '1.0.0'

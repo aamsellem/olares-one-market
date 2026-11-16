@@ -1,0 +1,24 @@
+metadata:
+  title: Strata Qwen38 Flash Next One
+  description: "Qwen3.8-Flash-Next (~180B MoE) on Olares One with the Strata engine — 137 t/s, 128K context, tool calling"
+
+spec:
+  fullDescription: |
+    Qwen3.8-Flash-Next (~180B parameters, 24,576 experts, 10 active per token) running on the Olares One with
+    **Strata** (niko1221/strata, MIT), an engine built to fit huge MoE models on one consumer GPU.
+
+    How it fits: every expert sits in RAM; the dense part of the model and an adaptive cache of the ~10,600 most-used
+    experts sit on the RTX 5090M (17 GB of VRAM); the CPU computes the other experts at the same time; a DFlash2 drafter
+    guesses several tokens per step.
+
+    Measured on the Olares One (ISTA-DASLab IQ3_XXS pack, 128K context):
+    - decode 137.5 t/s on average (121-148), short coding and explanation prompts
+    - 36K-token prompt read at ~2,700 t/s (first token in 13 s), 112K at ~3,100 t/s (37 s)
+    - tool calling (parallel calls) and reasoning; OpenAI-compatible API at /v1 and Anthropic-compatible API (Claude
+      Code: ANTHROPIC_BASE_URL without /v1) on port 8080, plus a web chat
+
+    API key: `olares-strata-one-local-key` (the entrance stays internal to your Olares).
+
+    Needs the whole GPU and about 50 GB of RAM: stop the other GPU apps first. The first start downloads the model
+    (~76 GB) into the app's data; the next starts take about a minute.
+

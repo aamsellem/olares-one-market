@@ -1,0 +1,17 @@
+# Bento card config (scripts/generate-bento.js). Kept out of OlaresManifest.yaml:
+# the apiVersion v3 schema rejects unknown metadata fields.
+family: qwen
+size_label: "180B MoE"
+badge: strata
+hero:
+  value: "137 t/s"
+  label: "~180B model on one 24 GB GPU"
+specs:
+  - { label: "context", value: "128K", sub: "tokens of context" }
+  - { label: "ram", value: "~50 GB" }
+capabilities:
+  tool_calling: true
+  vision:       false
+  audio:        false
+  mtp:          { enabled: false }
+stack: "Strata 0.2.13 · Qwen3.8-Flash-Next IQ3_XXS · DFlash2"
