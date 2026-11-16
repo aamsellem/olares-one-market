@@ -1,0 +1,102 @@
+metadata:
+  title: Anaelith Qwen38 Flash Next One
+  description: "Qwen3.8-Flash-Next (~180B MoE) on Olares One with anaelith, our fork of the Basalt engine — 177 t/s, two conversations of 200K tokens, tool calling, vision, listed in Olares Router"
+
+spec:
+  fullDescription: |
+    Qwen3.8-Flash-Next (~180B parameters, 24,576 experts, 10 active per token) running on the Olares One with
+    **anaelith** (aamsellem/anaelith, MIT), the inference engine we develop and measure on this machine. anaelith is
+    a fork of Basalt (jesdga95/basalt, MIT), itself a fork of the Strata engine tuned for Blackwell GPUs.
+
+    How it fits: every expert sits in RAM; the dense part of the model and an adaptive cache of the most-used experts
+    sit on the RTX 5090M; the CPU computes the other experts at the same time (15 workers); speculative drafts guess
+    several tokens per step. The KV cache is int8 (the engine's author measures it lossless against fp16) and elastic:
+    it only takes from the expert cache what a conversation uses. Two conversations run at once, each with a
+    200K-token window.
+
+    **Works with Olares Router.** Model Console sits in front of the engine: it downloads the model, shows its
+    status and publishes the model to Router, which lists it as `Olares/jesdga/Qwen3.8-Flash-Next-Basalt:UD-IQ3_XXS`.
+    Apps on your Olares then reach it through Router (base URL and `default-chat`, or the full name) with no key.
+    The engine arguments (context, KV cache, RAM budget) can be changed from Router or Model Console; saving
+    restarts the engine.
+
+    Measured inside this app on the Olares One (Unsloth UD-IQ3_XXS pack, same bench as our Strata app):
+    - decode 177 t/s at temperature 0.6 (166-187), 180 t/s greedy (169-199), short coding and explanation prompts
+      (Strata on the same box: 143 t/s at temperature 0.6); the same 177 t/s when called through Model Console,
+      the path Router takes
+    - 36K-token prompt read at ~3,950 t/s (first token after 9.1 s), then decode at 185-230 t/s with that context
+    - tool calling (parallel calls), reasoning levels and JSON-schema answers (`response_format`), all held to a
+      grammar in the engine; on 40 two-step edit-and-test requests, 31 came back right (29 with 1.1.1)
+    - two requests at once: about 95 t/s each, 174 t/s together
+
+    **Reads images.** `--vision dynamic` keeps the image encoder in RAM and lends it room in the GPU's expert cache
+    only while it reads an image: an image is answered in about a second, and text runs at the same speed
+    (230.7 t/s with vision, 233.6 without, within noise). Send images as `image_url` parts, through Router or the
+    engine's API.
+
+    Two entrances: Model Console (status, settings, and the same /v1 API Router calls) and the engine's own page
+    (web chat, OpenAI-compatible API at /v1, Anthropic-compatible API for Claude Code: ANTHROPIC_BASE_URL without
+    /v1). Model id on the engine's own API: `jesdga/Qwen3.8-Flash-Next-Basalt:UD-IQ3_XXS`. No API key: both
+    entrances stay internal to your Olares.
+
+    Needs the whole GPU and about 60 GB of RAM: stop the other GPU apps first. The first start downloads the model
+    (~88 GB) into the shared Hugging Face cache, with its progress shown in Model Console; the next starts take
+    about a minute.
+
+  upgradeDescription: |
+    v1.2.7: the engine no longer stops with "timed out at layer" in the first minutes after a start. The cause was in
+    the adaptive expert swaps: a decode step waited for experts that were still being copied to the GPU, and on the
+    Olares One those copies could not run while that step was waiting, so both waited until the 20 s timeout. The
+    engine now uses new experts only once their copies have finished. Measured on the One with 15 CPU workers:
+    0 stops in 8 engine starts (about 10 in 6 before), 188 t/s on average (177 before), 84.8 % of experts found on
+    the GPU. The resume of 1.2.6 stays as a safety net.
+    v1.2.6: an answer goes on when the engine stops in the middle of it. The engine sometimes stops with "timed out
+    at layer" in the first minutes after a start; the request used to end with an error. The server now restarts the
+    engine and resumes the answer after the text already sent (up to twice per request, about 30 s of pause).
+    v1.2.5: two conversations at once, each with a 200K-token window (`--context 204800 --parallel 2`). Hermes and
+    a coding agent no longer wait for each other. Measured on the One: a single request runs at the same speed as
+    before (166-185 t/s), two requests run at about 95 t/s each (174 t/s together instead of 135 one after the
+    other), and 80 requests from two clients at once went through without an error. The KV cache stays int8 and
+    elastic: 6.2 GB at most, taken only as the conversations grow. An install that already ran keeps its saved
+    arguments: to switch, set the engine arguments in Model Console or Router to the new default.
+    v1.2.4: the first download no longer stops at once. The model file is 87.6 GB, and the Hugging Face library
+    downloads a file over 50 GB only through its xet backend, which Model Console turns off by default: the
+    download failed in a second and was never retried. The app now turns xet on (`HF_ENABLE_XET=true`). If your
+    install is stuck on "initializing", upgrade: the new Model Console starts the download again.
+    v1.2.3: the model comes back on its own after an engine crash. Before, the health check took the engine out of
+    service as soon as its engine stopped, so the request that restarts it could never arrive and Model Console
+    stayed "degraded" until the app was restarted.
+    v1.2.2: the model reads images. `--vision dynamic` is now in the engine arguments and the model card declares
+    vision: the image encoder waits in RAM and borrows room in the GPU's expert cache only while it reads an image.
+    Checked on the One through Router: the app's own card image read correctly in 1.1 s, and text speed did not
+    move (230.7 t/s with vision, 233.6 without, 8 runs each in a balanced order, within noise).
+    Upgrading from 1.2.1 keeps the model card saved on disk, so vision stays off there: add `--vision dynamic` to
+    the engine arguments in Router (the model card's Edit button) or in Model Console. New installs have it on.
+    v1.2.1: the app now works with Olares Router, and takes the name of its engine: Anaelith Qwen38 Flash Next One
+    (its id, basaltqwen38one, does not change). It installs as a shared app with Model Console in front of the
+    engine, so Router lists the model (`Olares/jesdga/Qwen3.8-Flash-Next-Basalt:UD-IQ3_XXS`), Lares and the other
+    apps can call it without a key, and the engine arguments can be changed from Router or Model Console.
+    Checked on the One with Router 1.1.3: chat, streaming, parallel tool calls, JSON-schema answers and the
+    Anthropic API all answer through Router, at 172 t/s (177 t/s straight on the engine).
+    The engine is anaelith 0.4.0-anaelith.3, our fork of Basalt 0.4.0: tool calls and JSON-schema answers are held
+    to a grammar (`response_format` requests are accepted again), and idle CPU workers sleep lightly. Measured
+    inside the app against 1.1.1: 177 t/s at temperature 0.6 (was 171), 180 t/s greedy (was 182), a 36K-token
+    prompt read at ~3,950 t/s (was ~3,750).
+    Changes for API clients that call the engine directly: its address is the app's second entrance, the model id
+    is `jesdga/Qwen3.8-Flash-Next-Basalt:UD-IQ3_XXS`, and no API key is needed (a key sent anyway is ignored).
+    Coming from 1.1.x: uninstall it first (a per-user app cannot become a shared one in place), then install this
+    version. Tick "delete data" when uninstalling, or remove the old `basalt/models` folder of the app's data
+    afterwards: Model Console downloads the pack again (~88 GB) into the shared Hugging Face cache.
+    v1.1.1: tool arguments that quote tool-call markup are read whole. A model that edits a chat template writes
+    a line such as `<parameter=limit>25</parameter>` as an argument and often skips the argument's own closing
+    tag; the server then cut the argument short. On 40 two-step edit requests on the One the edited text came out
+    wrong 13 times with the release's parser and once with this one (that once, the model wrote the tags as HTML
+    entities). Same engine (Basalt 0.4.0), same speed.
+    v1.1.0: Basalt 0.4.0 and an int8 KV cache. Measured inside the app against 1.0.1: 171 t/s at temperature 0.6
+    (was 153), 182 t/s greedy (was 172), a 36K-token prompt read at ~3,750 t/s (was ~2,470) and decoded at ~210 t/s
+    with that context (was 132). No change to the model or its pack.
+    v1.0.1: speeds measured inside the app (153 t/s at temperature 0.6, 172 t/s greedy, 36K prompt read at
+    ~2,470 t/s) instead of the earlier workbench numbers. No change to the engine or its settings.
+    v1.0.0: first release. Basalt 0.3.3 runs Qwen3.8-Flash-Next (~180B MoE) on the Olares One.
+    Bench on the One (warmup, then Space Invaders, a Go REST API and a B-tree explanation, 800 tokens, 2 rounds):
+    decode 164-168 t/s (Strata on the same box: 143 t/s); 32K-token prompt read at ~2,600 t/s.

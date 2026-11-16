@@ -1,0 +1,131 @@
+# The engine's side of Model Console's hand-over, mounted under /llm-init/wrappers in the engine container.
+# common.sh (waiting, engine arguments, restarts) comes from Model Console through the shared run directory.
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: llm-init-wrappers
+  namespace: "{{ .Release.Namespace }}"
+data:
+  basalt.sh: |
+    #!/bin/bash
+    # bash gives the engine its own process group without a terminal, which a restart needs to stop every process.
+    set -eu
+
+    ENGINE=basalt
+    WRAPPER_COMMON=${WRAPPER_COMMON:-/run/llm-init/wrappers/common.sh}
+    waited=0
+    while [ ! -f "$WRAPPER_COMMON" ] && [ "$waited" -lt "${WRAPPER_COMMON_WAIT:-3600}" ]; do
+        printf '[wrapper-basalt] waiting for %s (elapsed=%ss)\n' "$WRAPPER_COMMON" "$waited"
+        sleep 5
+        waited=$((waited + 5))
+    done
+    [ -f "$WRAPPER_COMMON" ] || { printf '[wrapper-basalt] %s never appeared\n' "$WRAPPER_COMMON" >&2; exit 1; }
+    unset waited
+    # shellcheck source=/dev/null
+    . "$WRAPPER_COMMON"
+
+    wait_for_sentinel
+    wait_for_engine_args_handoff
+    MODEL_PATH=$(read_model_path)
+    export MODEL_PATH
+
+    run_basalt() {
+        load_engine_args_from_handoff
+        export ENGINE_ARGS
+        exec /opt/basalt/.venv/bin/python3 /llm-init/wrappers/launch-basalt.py
+    }
+
+    supervise_engine run_basalt
+  launch-basalt.py: |
+    #!/usr/bin/env python3
+    """Start the Basalt server on the pack Model Console downloaded, under the model card's name and arguments."""
+    import json
+    import os
+    import shlex
+    import sys
+    from pathlib import Path
+
+    ROOT = Path(os.environ.get("BASALT_ROOT", "/opt/basalt"))
+    RUN_DIR = Path(os.environ.get("RUN_DIR", "/run/llm-init"))
+    # Set by the chart: the pack, its name, the address, and who may call. A key would shut Model Console out,
+    # which forwards requests without one.
+    MANAGED = ("--model", "--alias", "--config", "--host", "--port", "--api-key", "--allowed-host", "--mock-engine",
+               "--open")
+
+
+    def card_name() -> str:
+        """The model's name on the card, which Router registers and /v1/models has to list."""
+        try:
+            name = json.loads((RUN_DIR / "model-spec.json").read_text()).get("name")
+        except (OSError, ValueError):
+            name = None
+        return name or os.environ["MODEL_NAME"]
+
+
+    def server_args(raw: str) -> list[str]:
+        """ENGINE_ARGS as `basalt serve` takes them. Model Console reads the context window from --context and the
+        requests served at once from --parallel; the server calls the first one --max-context."""
+        out, slots = [], 1
+        args = shlex.split(raw)
+        for i, arg in enumerate(args):
+            flag, eq, value = arg.partition("=")
+            if flag in MANAGED:
+                sys.exit(f"[basalt] {flag}: set by the app, not by ENGINE_ARGS")
+            if flag == "--parallel":
+                given = value if eq else args[i + 1] if i + 1 < len(args) else ""
+                slots = int(given) if given.isdigit() else slots
+            out.append("--max-context" + eq + value if flag == "--context" else arg)
+        if slots > 1 and "--slot-full-context" not in out:
+            out.append("--slot-full-context")      # every request keeps the window the card announces
+        if not any(a.partition("=")[0] == "--crash-resume" for a in out):
+            # an engine that dies mid-answer (the verifier's "timed out at layer" stall) is restarted and the answer
+            # goes on after what was written, instead of ending the client's request with an error
+            out += ["--crash-resume", "2"]
+        return out
+
+
+    def main() -> None:
+        pack = Path(os.environ["MODEL_PATH"])
+        if not pack.is_file():
+            sys.exit(f"[basalt] {pack}: not a file; MODEL_SOURCE has to name one .basalt pack")
+        command = [str(ROOT / "bin/basalt"), "serve", str(pack), "--host", "0.0.0.0",
+                   "--port", os.environ.get("BASALT_PORT", "8080"), "--alias", card_name(),
+                   # No key, so the server checks the Host header; Olares calls it under names set per account.
+                   "--allowed-host", "*", *server_args(os.environ.get("ENGINE_ARGS", ""))]
+        os.environ["LD_LIBRARY_PATH"] = "/usr/local/cuda/lib64:" + os.environ.get("LD_LIBRARY_PATH", "")
+        print("[basalt] " + shlex.join(command), flush=True)
+        os.chdir(ROOT)
+        os.execv(command[0], command)
+
+
+    if __name__ == "__main__":
+        main()
+  basalt-healthcheck.py: |
+    #!/usr/bin/env python3
+    """Ready when the server answers and the model is loaded, or when the engine stopped after it was loaded.
+
+    The server restarts a stopped engine on the next request. Reporting not-ready then would take the pod out of its
+    Service, so no request could reach it and Model Console would stay degraded for good. Only the first load, while
+    the engine is loading, keeps the pod out.
+    """
+    import json
+    import os
+    import sys
+    import urllib.request
+
+
+    def main() -> int:
+        opener = urllib.request.build_opener(urllib.request.ProxyHandler({}))
+        url = "http://127.0.0.1:" + os.environ.get("BASALT_PORT", "8080") + "/health"
+        try:
+            with opener.open(url, timeout=3) as response:
+                state = json.load(response)
+        except (OSError, ValueError):
+            return 1
+        if not isinstance(state, dict) or state.get("status") != "ok":
+            return 1
+        return 0 if state.get("loaded") is True or state.get("loading") is False else 1
+
+
+    if __name__ == "__main__":
+        sys.exit(main())

@@ -1,0 +1,25 @@
+admin: ""
+bfl:
+  username: ""
+userspace:
+  appCache: ""
+  appCommon: ""
+domain:
+  basaltconsole: ""
+  basaltchat: ""
+olaresEnv:
+  MODEL_SOURCE: ""
+  MODEL_NAME: ""
+  MODEL_MODE: ""
+  MODEL_SUPPORTS: ""
+  MODEL_REASONING_EFFORT: ""
+  MODEL_REASONING_EFFORT_DEFAULT: ""
+  ENGINE_ARGS: ""
+  LOG_LEVEL: ""
+  HF_ENDPOINT: ""
+  HF_TOKEN: ""
+workloads:
+  basaltqwen38one:
+    replicaCount: 1
+  llminit:
+    replicaCount: 1

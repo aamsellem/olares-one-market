@@ -1,0 +1,159 @@
+{{- $oe := .Values.olaresEnv | default dict -}}
+---
+# The engine. It starts through the wrapper: wait for Model Console to finish the download, then serve the pack with
+# the model card's settings, and start again when Model Console asks for it.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    io.kompose.service: basaltqwen38one
+  name: basaltqwen38one
+  namespace: "{{ .Release.Namespace }}"
+  annotations:
+    applications.app.bytetrade.io/gpu-inject: "true"
+spec:
+  replicas: {{ .Values.workloads.basaltqwen38one.replicaCount }}
+  selector:
+    matchLabels:
+      io.kompose.service: basaltqwen38one
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        io.kompose.service: basaltqwen38one
+        # Model Console's pod follows this label onto the engine's node (the run state is a node-local path).
+        app.kubernetes.io/instance: "{{ .Release.Name }}"
+      annotations:
+        checksum/wrappers: {{ include (print $.Template.BasePath "/wrappers.yaml") . | sha256sum }}
+    spec:
+      enableServiceLinks: false
+      terminationGracePeriodSeconds: 60
+      initContainers:
+        - name: prepare-data
+          image: "docker.io/beclab/aboveos-busybox:1.37.0"
+          command: ["sh", "-c", "mkdir -p /data/home && chown -R 1000:1000 /data"]
+          securityContext:
+            runAsUser: 0
+          resources:
+            requests: {cpu: 10m, memory: 16Mi}
+            limits: {cpu: 100m, memory: 64Mi}
+          volumeMounts:
+            - mountPath: /data
+              name: data
+      containers:
+        - name: basalt
+          image: "docker.io/aamsellem/basalt:0.4.0-anaelith.3-cuda13"
+          imagePullPolicy: IfNotPresent
+          command: ["/bin/bash", "/llm-init/wrappers/basalt.sh"]
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+          env:
+            - name: WRAPPER_COMMON
+              value: /run/llm-init/wrappers/common.sh
+            - name: WRAPPER_COMMON_WAIT
+              value: "86400"
+            - name: WAIT_TIMEOUT
+              value: "86400"
+            - name: BASALT_PORT
+              value: "8080"
+            - name: HOME
+              value: /data/home
+            - name: MODEL_NAME
+              value: {{ $oe.MODEL_NAME | default "" | quote }}
+            - name: ENGINE_ARGS
+              value: {{ $oe.ENGINE_ARGS | default "" | quote }}
+            - name: CUDA_DEVICE_MEMORY_LIMIT_0
+              value: "30000m"
+          ports:
+            - containerPort: 8080
+          # Olares ends the installation on the startup probe: the wrapper is up while Model Console still downloads.
+          # Readiness follows the loaded model. No liveness probe: a relaunch asked by Model Console takes a minute.
+          startupProbe:
+            exec:
+              command: ["/bin/bash", "-ec", "kill -0 1; test -r /run/llm-init/wrappers/common.sh"]
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 8640
+          readinessProbe:
+            exec:
+              command: ["/opt/basalt/.venv/bin/python3", "/llm-init/wrappers/basalt-healthcheck.py"]
+            periodSeconds: 5
+            timeoutSeconds: 5
+            failureThreshold: 1
+          resources:
+            limits:
+              cpu: "23"
+              memory: 82Gi
+            requests:
+              cpu: 7800m
+              memory: 56Gi
+          volumeMounts:
+            - mountPath: /cache/hf/hub
+              name: hf-cache
+              readOnly: true
+            - mountPath: /run/llm-init
+              name: run-state
+              readOnly: true
+            - mountPath: /llm-init/wrappers
+              name: wrappers
+              readOnly: true
+            - mountPath: /data
+              name: data
+            - mountPath: /dev/shm
+              name: shm
+      volumes:
+        - name: hf-cache
+          hostPath:
+            path: "{{ .Values.userspace.appCommon }}/huggingface"
+            type: DirectoryOrCreate
+        - name: run-state
+          hostPath:
+            path: "{{ .Values.userspace.appCache }}/llm-init-run/{{ .Release.Name }}"
+            type: DirectoryOrCreate
+        - name: data
+          hostPath:
+            path: "{{ .Values.userspace.appCache }}/basalt"
+            type: DirectoryOrCreate
+        - name: wrappers
+          configMap:
+            name: llm-init-wrappers
+            defaultMode: 0555
+        - name: shm
+          emptyDir:
+            medium: Memory
+            sizeLimit: 2Gi
+      restartPolicy: Always
+---
+# The engine's own page and API, as the app's second entrance.
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    io.kompose.service: basaltqwen38one
+  name: basaltqwen38one
+  namespace: "{{ .Release.Namespace }}"
+spec:
+  ports:
+    - name: "basalt"
+      port: 8080
+      targetPort: 8080
+  selector:
+    io.kompose.service: basaltqwen38one
+---
+# The name Model Console looks an engine of the Strata family up under (ENGINE_KIND=strata -> http://strata:8080).
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    io.kompose.service: basaltqwen38one
+  name: strata
+  namespace: "{{ .Release.Namespace }}"
+spec:
+  ports:
+    - name: "http"
+      port: 8080
+      targetPort: 8080
+  selector:
+    io.kompose.service: basaltqwen38one

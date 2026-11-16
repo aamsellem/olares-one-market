@@ -1,0 +1,17 @@
+# Bento card config (scripts/generate-bento.js). Kept out of OlaresManifest.yaml:
+# the apiVersion v3 schema rejects unknown metadata fields.
+family: qwen
+size_label: "180B MoE"
+badge: anaelith
+hero:
+  value: "177 t/s"
+  label: "~180B model on one 24 GB GPU"
+specs:
+  - { label: "context", value: "200K", sub: "per conversation, two at once" }
+  - { label: "ram", value: "~60 GB" }
+capabilities:
+  tool_calling: true
+  vision:       true
+  audio:        false
+  mtp:          { enabled: false }
+stack: "anaelith 0.4.0 · Qwen3.8-Flash-Next UD-IQ3_XXS · Olares Router"

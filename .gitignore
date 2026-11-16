@@ -6,3 +6,4 @@ node_modules/
 charts/*.tgz
 icons/
 .claude/
+docker/basalt/*.tar.gz

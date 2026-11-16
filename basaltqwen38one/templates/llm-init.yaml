@@ -1,0 +1,219 @@
+{{- $consoleDomains := split "," (.Values.domain.basaltconsole | default "") -}}
+{{- $consoleDomain := index $consoleDomains "_0" -}}
+{{- $oe := .Values.olaresEnv | default dict -}}
+{{- $modelSource := $oe.MODEL_SOURCE | default "" -}}
+{{- /* The pack's directory in the shared Hugging Face cache, taken back to UID 1000 before the download. */ -}}
+{{- $modelDir := "" -}}
+{{- if $modelSource -}}
+{{- $repo := trimPrefix "hf://" (index (splitList " " $modelSource) 0) -}}
+{{- if contains "/" $repo -}}
+{{- $parts := splitList "/" $repo -}}
+{{- $modelDir = printf "models--%s--%s" (index $parts 0) (index $parts 1) -}}
+{{- end -}}
+{{- end -}}
+{{- /* MODEL_SUPPORTS names capability groups; Model Console wants the supports_* keys they stand for. */ -}}
+{{- $supportsGroups := dict
+      "vision" "supports_vision"
+      "tools" "supports_function_calling,supports_parallel_function_calling,supports_tool_choice"
+      "thinking" "supports_reasoning,supports_reasoning_effort"
+      "none" "" -}}
+{{- $expanded := list -}}
+{{- range $tok := splitList "," ($oe.MODEL_SUPPORTS | default "") -}}
+{{- $tok = trim $tok -}}
+{{- if $tok -}}
+{{- if hasKey $supportsGroups $tok -}}
+{{- if index $supportsGroups $tok -}}
+{{- $expanded = append $expanded (index $supportsGroups $tok) -}}
+{{- end -}}
+{{- else -}}
+{{- $expanded = append $expanded $tok -}}
+{{- end -}}
+{{- end -}}
+{{- end -}}
+{{- $modelSupports := join "," $expanded -}}
+---
+# Model Console (no GPU): downloads the pack into the shared Hugging Face cache, hands its path and the engine
+# arguments to the engine's wrapper, and serves on :8090 its status page, the model card Router reads
+# (/api/model-spec) and the /v1 API, which it forwards to the engine at http://strata:8080.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: llminit
+  namespace: "{{ .Release.Namespace }}"
+  labels:
+    io.kompose.service: llm-init
+spec:
+  replicas: {{ .Values.workloads.llminit.replicaCount }}
+  selector:
+    matchLabels:
+      io.kompose.service: llm-init
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        io.kompose.network/chrome-default: "true"
+        io.kompose.service: llm-init
+    spec:
+      restartPolicy: Always
+      enableServiceLinks: false
+      # The run state is a node-local path shared with the engine: follow the engine onto its node.
+      affinity:
+        podAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - topologyKey: kubernetes.io/hostname
+              labelSelector:
+                matchExpressions:
+                  - key: app.kubernetes.io/instance
+                    operator: In
+                    values:
+                      - "{{ .Release.Name }}"
+              namespaces:
+                - "{{ .Release.Namespace }}"
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
+      volumes:
+        - name: hf-cache
+          hostPath:
+            path: "{{ .Values.userspace.appCommon }}/huggingface"
+            type: DirectoryOrCreate
+        - name: run-state
+          hostPath:
+            path: "{{ .Values.userspace.appCache }}/llm-init-run/{{ .Release.Name }}"
+            type: DirectoryOrCreate
+      initContainers:
+        # Host paths are created root-owned; Model Console runs as UID 1000.
+        - name: init-chown
+          image: "docker.io/beclab/aboveos-busybox:1.37.0"
+          command:
+            - sh
+            - -c
+            - "mkdir -p /cache/hf/hub/.locks{{ if $modelDir }} /cache/hf/hub/{{ $modelDir }}{{ end }} && chown 1000:1000 /cache/hf/hub /cache/hf/hub/.locks /run/llm-init{{ if $modelDir }} && chown -R 1000:1000 /cache/hf/hub/{{ $modelDir }}{{ end }}"
+          securityContext:
+            runAsUser: 0
+          resources:
+            requests: {cpu: 10m, memory: 16Mi}
+            limits: {cpu: 100m, memory: 64Mi}
+          volumeMounts:
+            - name: hf-cache
+              mountPath: /cache/hf/hub
+            - name: run-state
+              mountPath: /run/llm-init
+      containers:
+        - name: llm-init
+          image: "docker.io/beclab/llm-init:v1.7.26"
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: ENGINE_KIND
+              value: strata
+            - name: MODEL_NAME
+              value: {{ $oe.MODEL_NAME | default "" | quote }}
+            - name: MODEL_SOURCE
+              value: {{ $modelSource | quote }}
+            - name: MODEL_MODE
+              value: {{ $oe.MODEL_MODE | default "chat" | quote }}
+{{- if $modelSupports }}
+            - name: MODEL_SUPPORTS
+              value: {{ $modelSupports | quote }}
+{{- end }}
+{{- if $oe.MODEL_REASONING_EFFORT }}
+            - name: MODEL_REASONING_EFFORT
+              value: {{ $oe.MODEL_REASONING_EFFORT | quote }}
+{{- end }}
+{{- if $oe.MODEL_REASONING_EFFORT_DEFAULT }}
+            - name: MODEL_REASONING_EFFORT_DEFAULT
+              value: {{ $oe.MODEL_REASONING_EFFORT_DEFAULT | quote }}
+{{- end }}
+            - name: ENGINE_ARGS
+              value: {{ $oe.ENGINE_ARGS | default "" | quote }}
+{{- if $oe.HF_ENDPOINT }}
+            - name: HF_ENDPOINT
+              value: {{ $oe.HF_ENDPOINT | quote }}
+{{- end }}
+{{- if $oe.HF_TOKEN }}
+            - name: HF_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: basaltqwen38one-secrets
+                  key: HF_TOKEN
+{{- end }}
+            - name: RUN_DIR
+              value: /run/llm-init
+            - name: PORT
+              value: "8090"
+            - name: LOG_LEVEL
+              value: {{ $oe.LOG_LEVEL | default "info" | quote }}
+            - name: LOG_FORMAT
+              value: json
+            # The model is one 87.6 GB file: huggingface_hub downloads files over 50 GB only through hf_xet,
+            # which Model Console leaves off unless asked.
+            - name: HF_ENABLE_XET
+              value: "true"
+{{- if $consoleDomain }}
+            - name: APP_URL
+              value: "https://{{ $consoleDomain }}"
+{{- end }}
+          ports:
+            - name: http
+              containerPort: 8090
+          livenessProbe:
+            httpGet:
+              path: /livez
+              port: 8090
+            periodSeconds: 30
+            timeoutSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /livez
+              port: 8090
+            initialDelaySeconds: 3
+            periodSeconds: 5
+            timeoutSeconds: 3
+            failureThreshold: 3
+          volumeMounts:
+            - name: hf-cache
+              mountPath: /cache/hf/hub
+            - name: run-state
+              mountPath: /run/llm-init
+          resources:
+            requests:
+              cpu: 200m
+              memory: 256Mi
+            limits:
+              cpu: "1"
+              memory: 2Gi
+---
+# Model Console's page, as the app's first entrance.
+apiVersion: v1
+kind: Service
+metadata:
+  name: download-svc
+  namespace: "{{ .Release.Namespace }}"
+  labels:
+    io.kompose.service: llm-init
+spec:
+  selector:
+    io.kompose.service: llm-init
+  ports:
+    - name: http
+      port: 8090
+      targetPort: 8090
+  type: ClusterIP
+---
+# The shared entrance: what Router and the other apps of this Olares call.
+apiVersion: v1
+kind: Service
+metadata:
+  name: sharedentrances-api
+  namespace: "{{ .Release.Namespace }}"
+  labels:
+    io.kompose.service: llm-init
+spec:
+  selector:
+    io.kompose.service: llm-init
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8090
+  type: ClusterIP
