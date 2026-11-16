@@ -1,6 +1,6 @@
 {
-  "hash": "84785c1269c8053af87975dc744f1355",
-  "generated_at": 1792242642477,
+  "hash": "c4f910c923fe1c570c5825bb76e76c82",
+  "generated_at": 1794867103329,
   "summaries": {
     "33102786": {
       "id": "33102786",
@@ -19,7 +19,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "e1311c4c": {
       "id": "e1311c4c",
@@ -38,7 +38,44 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
+    },
+    "b2493556": {
+      "id": "b2493556",
+      "name": "aerisstudio",
+      "version": "0.4.44",
+      "category": "Creativity",
+      "categories": [
+        "Creativity",
+        "AI"
+      ],
+      "description": "Local AI image and video studio: references with @mentions, storyboards, takes, REST API",
+      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/aerisstudio.png",
+      "screenshots": null,
+      "tags": null,
+      "metadata": null,
+      "source": 1,
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
+    },
+    "a9de90b0": {
+      "id": "a9de90b0",
+      "name": "basaltqwen38one",
+      "version": "1.2.7",
+      "category": "LLM Chat",
+      "categories": [
+        "LLM Chat",
+        "AI Agents"
+      ],
+      "description": "Qwen3.8-Flash-Next (~180B MoE) on Olares One with anaelith, our fork of the Basalt engine — 177 t/s, two conversations of 200K tokens, tool calling, vision, listed in Olares Router",
+      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/basaltqwen38one.png",
+      "screenshots": null,
+      "tags": [
+        "qwen",
+        "anaelith"
+      ],
+      "metadata": null,
+      "source": 1,
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "f9902972": {
       "id": "f9902972",
@@ -57,7 +94,27 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
+    },
+    "a5c77848": {
+      "id": "a5c77848",
+      "name": "deepseekharnessone",
+      "version": "1.0.2",
+      "category": "Coding",
+      "categories": [
+        "Coding",
+        "AI Agents"
+      ],
+      "description": "DeepSeek's open-source coding agent in your browser, running on your local models through Olares Router",
+      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/deepseekharnessone.png",
+      "screenshots": null,
+      "tags": [
+        "deepseek",
+        "router"
+      ],
+      "metadata": null,
+      "source": 1,
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "8a7e4366": {
       "id": "8a7e4366",
@@ -77,7 +134,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "cf587666": {
       "id": "cf587666",
@@ -96,7 +153,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "a4f8515c": {
       "id": "a4f8515c",
@@ -115,7 +172,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "65b82978": {
       "id": "65b82978",
@@ -135,7 +192,27 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
+    },
+    "e43aee53": {
+      "id": "e43aee53",
+      "name": "lfm3omnione",
+      "version": "1.0.0",
+      "category": "Audio",
+      "categories": [
+        "Audio",
+        "LLM Chat"
+      ],
+      "description": "Liquid AI LFM3 Omni 2B: hears, sees, reads and talks back. Voice chat, transcription, speech, image and video, 305 t/s on Olares One.",
+      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/lfm3omnione.png",
+      "screenshots": null,
+      "tags": [
+        "liquid",
+        "omni · voice"
+      ],
+      "metadata": null,
+      "source": 1,
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "3f05b625": {
       "id": "3f05b625",
@@ -156,7 +233,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "ec27bc37": {
       "id": "ec27bc37",
@@ -177,7 +254,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "6cd2129a": {
       "id": "6cd2129a",
@@ -199,7 +276,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "fff8241b": {
       "id": "fff8241b",
@@ -220,7 +297,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "2effb583": {
       "id": "2effb583",
@@ -241,7 +318,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "8c6443a7": {
       "id": "8c6443a7",
@@ -260,7 +337,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "c1ca229f": {
       "id": "c1ca229f",
@@ -279,7 +356,27 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
+    },
+    "2607d93c": {
+      "id": "2607d93c",
+      "name": "llamacpplfm3one",
+      "version": "1.0.1",
+      "category": "LLM Chat",
+      "categories": [
+        "LLM Chat",
+        "AI Agents"
+      ],
+      "description": "Liquid AI LFM3 1.7B for Olares Router: a small agent model at 260 t/s with 256K context.",
+      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacpplfm3one.png",
+      "screenshots": null,
+      "tags": [
+        "liquid",
+        "router · Q8_0"
+      ],
+      "metadata": null,
+      "source": 1,
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "491be3cd": {
       "id": "491be3cd",
@@ -298,7 +395,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "4ef430dd": {
       "id": "4ef430dd",
@@ -317,7 +414,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "a1ac4529": {
       "id": "a1ac4529",
@@ -338,7 +435,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "059cd05d": {
       "id": "059cd05d",
@@ -359,7 +456,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "6ee23f04": {
       "id": "6ee23f04",
@@ -381,7 +478,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "9ca1356f": {
       "id": "9ca1356f",
@@ -401,7 +498,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "49ed4ea2": {
       "id": "49ed4ea2",
@@ -420,7 +517,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "6a1ddcf0": {
       "id": "6a1ddcf0",
@@ -439,7 +536,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "43e83ecd": {
       "id": "43e83ecd",
@@ -458,7 +555,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "fa4ef911": {
       "id": "fa4ef911",
@@ -477,7 +574,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "6f596112": {
       "id": "6f596112",
@@ -497,7 +594,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "99dafa10": {
       "id": "99dafa10",
@@ -517,7 +614,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "e74eca98": {
       "id": "e74eca98",
@@ -536,7 +633,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "2c5c39c9": {
       "id": "2c5c39c9",
@@ -555,7 +652,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "ed18683c": {
       "id": "ed18683c",
@@ -574,7 +671,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "14fdab3c": {
       "id": "14fdab3c",
@@ -594,7 +691,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "c77813f1": {
       "id": "c77813f1",
@@ -614,7 +711,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "da30d532": {
       "id": "da30d532",
@@ -634,7 +731,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "49c5b493": {
       "id": "49c5b493",
@@ -653,7 +750,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "fff1cda2": {
       "id": "fff1cda2",
@@ -674,7 +771,47 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
+    },
+    "9098ca43": {
+      "id": "9098ca43",
+      "name": "stratadscoderone",
+      "version": "1.0.1",
+      "category": "LLM Chat",
+      "categories": [
+        "LLM Chat",
+        "Coding"
+      ],
+      "description": "DeepSeek-V4.1-Flash ISTA-DAS Coder on Olares One with the Strata engine — 31 t/s, 128K context",
+      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/stratadscoderone.png",
+      "screenshots": null,
+      "tags": [
+        "deepseek",
+        "strata"
+      ],
+      "metadata": null,
+      "source": 1,
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
+    },
+    "a473ba0d": {
+      "id": "a473ba0d",
+      "name": "stratanextone",
+      "version": "1.0.0",
+      "category": "LLM Chat",
+      "categories": [
+        "LLM Chat",
+        "AI Agents"
+      ],
+      "description": "Qwen3.8-Flash-Next (~180B MoE) on Olares One with the Strata engine — 137 t/s, 128K context, tool calling",
+      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/stratanextone.png",
+      "screenshots": null,
+      "tags": [
+        "qwen",
+        "strata"
+      ],
+      "metadata": null,
+      "source": 1,
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "35ffe672": {
       "id": "35ffe672",
@@ -696,7 +833,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "b3078d17": {
       "id": "b3078d17",
@@ -716,7 +853,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "18a6f781": {
       "id": "18a6f781",
@@ -735,7 +872,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "be32d4df": {
       "id": "be32d4df",
@@ -755,7 +892,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "285e9d99": {
       "id": "285e9d99",
@@ -774,7 +911,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "901d20e0": {
       "id": "901d20e0",
@@ -794,7 +931,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "af406293": {
       "id": "af406293",
@@ -813,7 +950,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "13db403f": {
       "id": "13db403f",
@@ -832,7 +969,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "efd72908": {
       "id": "efd72908",
@@ -851,7 +988,7 @@
       ],
       "metadata": null,
       "source": 1,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     }
   },
   "details": {
@@ -970,7 +1107,7 @@
           "appName": "llamacppqwen35iq4one",
           "version": "1.1.1",
           "versionName": "1.1.1",
-          "mergedAt": "2026-10-17T13:10:42.477000000Z",
+          "mergedAt": "2026-11-16T22:11:43.329000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -980,7 +1117,7 @@
         "long ctx"
       ],
       "metadata": null,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "e1311c4c": {
       "id": "e1311c4c",
@@ -1114,7 +1251,7 @@
           "appName": "acestepxlone",
           "version": "1.2.1",
           "versionName": "1.2.1",
-          "mergedAt": "2026-10-17T13:10:42.477000000Z",
+          "mergedAt": "2026-11-16T22:11:43.329000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -1124,7 +1261,424 @@
         "music"
       ],
       "metadata": null,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
+    },
+    "b2493556": {
+      "id": "b2493556",
+      "name": "aerisstudio",
+      "cfgType": "app",
+      "apiVersion": "v3",
+      "accelerator": [
+        {
+          "mode": "nvidia",
+          "supportMultiCard": false,
+          "supportMultiNodes": false,
+          "requiredCpu": "5",
+          "limitedCpu": "28",
+          "requiredMemory": "21Gi",
+          "limitedMemory": "86Gi",
+          "requiredDisk": "10Gi",
+          "limitedDisk": "60Gi",
+          "requiredGPUMemory": "16Gi",
+          "limitedGPUMemory": "23Gi"
+        }
+      ],
+      "envs": [
+        {
+          "envName": "HUGGINGFACE_SERVICE",
+          "required": false,
+          "applyOnChange": true,
+          "valueFrom": {
+            "envName": "OLARES_USER_HUGGINGFACE_SERVICE"
+          }
+        },
+        {
+          "envName": "HUGGINGFACE_TOKEN",
+          "required": false,
+          "applyOnChange": true,
+          "valueFrom": {
+            "envName": "OLARES_USER_HUGGINGFACE_TOKEN"
+          }
+        }
+      ],
+      "chartName": "aerisstudio-0.4.44.tgz",
+      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/aerisstudio.png",
+      "description": "Local AI image and video studio: references with @mentions, storyboards, takes, REST API",
+      "appID": "b2493556",
+      "title": "Aeris Studio",
+      "version": "0.4.44",
+      "categories": [
+        "Creativity",
+        "AI"
+      ],
+      "versionName": "0.4.44",
+      "fullDescription": "Aeris Studio turns your Olares One into an image and video studio.\n\n- Create: describe a scene, cite your characters, places and voice with @ (they become the model's references).\n- Projects: write the storyboard with the language model of your choice, then generate every shot with N takes.\n- Models: install workflows from the Store; model files are downloaded once into the shared library.\n- API: everything the UI does is available over REST (API keys in Settings, docs at /api/docs).\n\nThe ComfyUI engine (installed on first start, ~5 minutes) stays warm on the GPU between renders.\n",
+      "upgradeDescription": "0.4.44: manga panels drawn with MiniMax H3 Image no longer add passers-by or a second character that the scene\ndoes not describe; a page's place is drawn without inviting extra figures.\n\n0.4.43: manga panels drawn with MiniMax H3 Image are one single shot: no more inset panels, characters drawn twice\nor prompt text written on screens in close-ups. A close-up keeps its framing, with the page's place behind.\n\n0.4.42: Mangas drawn with MiniMax H3 Image no longer get an empty white strip at the top of panels with dialogue,\nand screens or papers in a panel never show readable stray text. Black-and-white mangas print in true greys (no\ncolour tint), and a speech bubble never sits higher than the line before it.\n\n0.4.41: new engine (ComfyUI v0.45.0) and MiniMax H3 Image, MiniMax's open image model: \"Text to image\" (up to 16\nmegapixels in 6 steps) and \"Image edit\" (up to 8 references). Mangas: a « Drawing » choice draws the panels with\nMiniMax H3 Image (real staging, full backgrounds) or Qwen Image Edit; each page has a « Place » where its panels are\ndrawn when they name none. Speech bubbles sit next to whoever speaks, in reading order, off every face and figure,\ntheir tail pointing at the speaker's mouth: the characters are found in each drawn panel by Qwen3-VL. A character\ndrawn twice is flagged. The storyboard follows the manga craft: short bubbles, an establishing panel at each new\nplace, a hook before each page turn. MiniMax H3 Image licence: the EU, the UK, South Korea and the USA need\nMiniMax's written authorization.\n\n0.4.40: new workflow \"MOSS Image · Realistic photo\": text to image with a very natural photographic look (skin,\nlight, candid poses), natively at 2 MP, about 30 s (OpenMOSS MOSS Image base, Apache-2.0). New 18+ workflow \"MOSS\nImage · Amateur photo\", listed only when adult content is allowed; for every 18+ workflow, a prompt that refers to a\nminor is refused. Exporting a film in 1440p no longer stops the server (its memory limit goes from 2 to 6 GB).\n\n0.4.38: MiniMax H3 renders about twice as fast. Every H3 workflow now uses Comfy Kitchen's INT8 attention by\ndefault (a 5 s 480p Reference → Video: 22 → 11 min on the Olares One), with no visible change at the same seed. A\nworkflow that picks its own attention backend keeps it.\n\n0.4.37: new engine (ComfyUI of 2026-11-05) and a new workflow, \"Video upscale · RelayVSR ×2\": doubles a video's\nresolution in seconds, trained on MiniMax H3 clips, keeps the sound. The first start of the engine installs the new\nComfyUI (a few minutes); the previous one stays on disk.\n\n0.4.36: Viggle Remake. Two new video workflows re-shoot a clip and keep its motion, camera, timing and sound:\n\"Replace a character\" (a frame of the clip repainted with the new character is enough) and \"Edit a video\" (remove,\nadd, relight, night instead of day). Powered by Viggle Remake, MiniMax H3 Community License. New \"Adult content\n(18+)\" setting, off by default: off, 18+ workflows are hidden and refused; on (after an age confirmation), their\nrenders are blurred in the grids. Mangas: characters face whoever they fight or talk to, and only the characters a\npanel cites appear in it. Interface: renders of manga panels and character sheets get readable captions, phones get\nfive tabs plus \"More\", a manga shows its cast first, the pages count goes up to 50, ingredient descriptions read as\ntext.\n\n0.4.35: manga fixes from a real test. Panels no longer draw empty speech bubbles, close-ups of objects no longer\ngrow an animal paw, every panel knows the story's setting (no more blank backgrounds), shout bubbles stay inside\ntheir panel and every bubble tail and spike gets its black outline. \"Manga version\" draws a truly manga-styled\ncharacter (manga eyes, inked hair) instead of a realistic pencil portrait.\n\n0.4.34: an @mention followed by an apostrophe (\"@Fur's paw\", \"@Lea’s house\") now cites the ingredient; before, it\nwas taken as an unknown name and the reference was left out.\n\n0.4.33: manga characters stay single. The first time a character is used in a manga, Aéris draws once a clean\nfull-length figure of it from its reference (often a sheet with many poses) and draws the panels from that figure:\nno more panels copying a whole character sheet. The figure shows in the ingredient preview (\"For mangas\").\n\n0.4.32: manga panels draw one scene with each character once. When a character's reference is a model sheet, the\npanels no longer copy the sheet (several poses, colour swatches, props); each panel knows who its characters are\n(their description), close-ups of a paw or hand keep the character's species, backgrounds are always drawn, and\nthe built-in storyboard writes concrete scenes.\n\n0.4.31: proper manga lettering. Round speech bubbles sized to their lines with a curved tail that merges into the\noutline, cloud-shaped thoughts, spiky shouts (new \"Shout\" kind), narration boxes in the corner, sound effects kept\ninside their panel, smooth edges and a comic lettering font (Shantell Sans); punctuation never wraps alone. Click\nan ingredient to preview it large (picture or video, photo / sheet, voice), with Cite, Edit and Download.\n\n0.4.30: new **Mangas** space. A manga has volumes, a volume has pages, a page has panels. Write the storyboard of a\nvolume (with your language model, or a built-in page rhythm): each page gets a layout (splash, tiers, 4-koma,\naction, grids) and each panel a shot, what it shows with your @ingredients, and its speech bubbles, thoughts,\ncaptions and sound effects. Panels are drawn by Qwen Image Edit with your characters and places as references, in\nblack and white with screentones, in colour or as a webtoon; pages are laid out with the bubbles, right-to-left or\nleft-to-right, and each volume exports as PDF or CBZ. Ingredients can be marked \"for mangas\", and a character\ngets a \"Manga version\" button that draws its manga model sheet as a new ingredient.\n\n0.4.29: fixes 0.4.28, which stopped long 720p MiniMax H3 renders (15 s) by mistake. Those clips run part of the model\nfrom system RAM and are slower, about 4 minutes a step, but they finish: they now run to the end. Only a render that\nshows no progress at all for 25 minutes is stopped and started again once.\n\n0.4.28: no more stuck renders. The engine could keep a big model in the graphics card's memory and run the next\nvideo entirely from system RAM: a render then took hours, or never ended. Heavy renders now start on an emptied\nengine, and a render left in RAM, or showing no progress for 25 minutes, is stopped and started again once on its\nown (then reported clearly if it happens twice).\n\n0.4.27: **continue a take** with MiniMax H3. A shot linked to the previous one with the Extended transition now\nreally picks up where that shot's chosen take ends: its last 1.6 s (picture and sound) open the new clip, so\npositions, motion and voices carry on with no visible join. While the previous take renders, the shot waits and\nstarts on its own. Also as a workflow, MiniMax H3 · Continue a take: drop a take, describe what comes next, get the\ncontinuation and the joined clip.\n\n0.4.26: new **MOSS-Image Edit** workflows (Turbo, 4 steps, and Quality, 12 steps): edit a photo with one sentence\n(\"Change only the denim jacket to a red leather jacket. Keep …\"), about twice as fast as Qwen Image Edit. The engine\nmoves to ComfyUI 0.43.2 (it installs itself at the first start, a few minutes). The On-screen text of a shot is now\nburned as a banner at the bottom of that shot in the exported film.\n\n0.4.25: graphic shots now appear in the exported film: their text (the Graphic field, or the shot title) becomes a\nfull-screen title card for the shot's duration. Before, they were silently left out.\n\n0.4.24: voices in .ogg, .m4a, .flac (and audio-only .webm recordings) are accepted again; before, they were refused\nwith \"a voice takes an audio file\".\n\n0.4.23: every camera-move card now plays its preview as soon as you hover it (before, only the selected one moved).\n\n0.4.22: the camera-move cards (Static shot, Dolly in, Orbit…) play their preview on hover again on computers set to\nreduce motion; it then plays once, a little slower.\n\n0.4.21: a new **character sheet**, now made with Qwen Image Edit 2.1 instead of a video frame: photographic faces\n(no more waxy skin or streaks), and the layout used by the pros: on the left the full body from the front with the\nface erased and from the back, on the right a large portrait, so the video models copy one face only. It takes a\nfull-length photo plus, if you have one, a close-up of the face.\n\n0.4.20: fixed a blank, inert interface after an upgrade: the browser could keep interface files from an older\nversion. Each version now loads its files from its own address, so an upgrade always takes effect at once.\n\n0.4.19: **My renders** is now in strict chronological order: one section per day (today, yesterday, then the date),\nnewest first, read left to right, each render with its time. A render can be **hidden** (its preview is blurred\neverywhere, revealed on demand in the viewer, handy for sensitive content) or **deleted** with its files. The short forms accept an optional **place, style and voice**\nfrom your ingredients. A video character offered in a photo field now gives its first image. The talking\ncharacter form asks the model to clearly articulate the line, and its example now really talks.\nFixed: after an upgrade the browser could keep old interface files and leave every button inert; the interface\nfiles are now always revalidated.\n\n0.4.17: an ingredient can now be a **video** (a character, a place or a style): mentioned with @, it is sent as a\nreference video to the models that take them (H3, Pika) and as its first image to the others. A 360° video or a\ncharacter sheet can be added to your ingredients in one click from its render. The video forms (extend, replace a\nperson) offer your latest video renders. An uploaded photo or video now shows as a preview, not its file name.\n\n0.4.16: each card of the home now opens a **short form** asking only what that use case needs: a photo for the\n360° video, a photo and a line for a talking character, a video and a photo to replace someone… no prompt to\nwrite (the full composer stays one click away). **My renders** shows the render queue at the top: what is rendering,\nits step and time left, what waits, with a cancel button. The **360° character video** is now in 1080p.\n\n0.4.15: much faster pages: creations, projects and characters now show light previews instead of the full-size\nfiles (often several megabytes each); a video only loads when you hover it or open it.\n\n0.4.14: the **360° character video** is now a split screen: the face in close-up on the left and the whole body on\na turntable on the right turn all the way round together, without walking. Start it from a photo of the character.\n\n0.4.13: new **H3 · 360° character video**: your character turns all the way round on a grey backdrop, a turnaround\nboard in the best quality (768p by default); it has its own card on the home.\n\n0.4.12: a new home, **\"What do you want to do?\"**: one card per use case (image, edit, text to video, a talking\ncharacter, keyframes, extend a video, replace a person, character sheet, film from a storyboard), each with an\nexample; a card opens the right tool with an example prompt to adapt. All your renders now live on their own page,\n**My renders**. Fixed: a finished render could occasionally come back without its video.\n\n0.4.11: the character **Sheet** is now three studio photos side by side on grey: face close-up, full body from\nthe front and from the back (optional: bodies without the head), cropped to the panels.\n\n0.4.10: **Test connection** (Settings → Language models) now checks the providers as you typed them, before\nsaving: it used to test the saved list, so a new provider always showed \"0 models\". Olares browser addresses of an\nLLM app work too; the shared-address tip only shows when a test fails.\n\n0.4.9: a **Sheet** button on every character: Aéris turns the photo into a reference sheet (large face front,\nthree-quarter and profile, body front, side and back without the head) that becomes the character's reference;\nthe photo is kept and you can switch back. New **Pika H3 Flex · Reference to Video**: Pika's post-trained H3,\nreferences in 6 steps (about 2.5x faster than the 20-step mode).\n\n0.4.8: new **MiniMax H3 · Character sheet**: one to five photos of a person become an 8-view reference sheet\n(front, three-quarter, profile, back, face and upper-body close-ups) in about a minute. Clearer messages when the\nGPU runs out of memory or a keyframe falls after the end of the video.\n\n0.4.7: **Export the film** from a project's menu: the chosen take of every shot, in order, in one MP4 with its\nsound. Time left on a render now follows past renders of the same kind (right for two-pass workflows).\n\n0.4.6: new **H3 · Extend a video**: drop a clip and describe what happens next; FastH3 continues it from its last\nsecond (motion and sound) and joins both (about 75 s for 5 more seconds in 480p). Every video in your creations\nnow has an **Extend** button.\n\n0.4.5: new **MiniMax H3 · Keyframes**: up to four images on the timeline, H3 animates from one to the next with\nsynced sound (storyboard frames → one shot). Motion transfer is sharper (pose strength 0.85). A creation now shows\nthe prompt the workflow wrote itself (Openjutsu's Qwen3-VL description). Settings show the app version. Store\nlisting fixed when a source mixes ranked and unranked workflows.\n\n0.4.4: an update or restart no longer loses a running creation: Aéris picks up what the engine was rendering and\ncollects the result, instead of marking it failed and rendering it again. Brief engine outages requeue the job.\n\n0.4.3: **H3 · Regenerate HD** now renders in 1080p or 2K (2560×1440, about 13 min for 5 s). New **MiniMax H3 ·\nMotion transfer (pose)**: a driving video's poses animate your character from a reference image, with synced\nsound (Fun ControlNet-Union on the NVFP4 H3 model). New \"Video → Video\" mode in the composer (also Openjutsu).\n\n0.4.2: **H3 · Regenerate HD 1080p** in the \"Aéris · aamsellem\" source: a 768p FastH3 draft re-rendered at 1080p\nby NVIDIA's Open-H3-Regenerate refiner (about 6.5 min for a 5 s clip, draft and HD both kept). Workflows no longer\nfail with \"nodes missing\" right after the engine restarts, and node packs retry their download.\n\n0.4.1: the engine now loads LoRAs in Diffusers format for MiniMax H3 (e.g. NVIDIA's Open-H3-Regenerate), and the\nStore can carry hidden experimental workflows. H3 NVFP4 models now download from a public mirror (the previous\nrepository became gated).\n\n0.4.0: **workflows with extra ComfyUI nodes**: a workflow can declare the node packs it needs; Aéris installs them\n(pinned versions) and restarts the engine on its own. First one in the \"Aéris · aamsellem\" source: **Openjutsu ·\nSwap a person** (MIT, by D3voz): drop a video and a photo, the main person becomes your character, motion and\nsoundtrack kept (480p, 3 s clip in 109 s on Olares One). The composer takes files (video, image, sound) by button\nor drag-and-drop. Seeds respect each workflow's range.\n\n0.3.0: **English interface** (follows the browser language, switch in Settings; server messages, workflow\ntitles and settings, and the written storyboard follow too). **Workflow sources**: the Store merges the\nComfy-Org templates, the curated \"Aéris · aamsellem\" source (refreshed from the market) and any catalog URL you\nadd in Settings. Clearer storyboard-model test: it says why a provider lists no model and gives the internal\nOlares address to use (http://sharedentrances-api.<app>-shared/v1) instead of the browser one. Groundwork for\nworkflows that need extra ComfyUI nodes (installed on demand, engine restarted automatically).\n\n0.2.2: fix spoken shots staying \"running\" forever after the render (the trimming step crashed); a crash in a job\nnow marks it failed instead of leaving it stuck. Stuck jobs are re-run automatically after the upgrade.\n\n0.2.1: spoken shots are cut to the exact length of the cloned line and the clean voice is laid back on the video\n(H3 rounds clip length up and used to repeat the end of the line in the extra frames, e.g. \"et il s'en souvient\net il s'en souvient\").\n\n0.2.0: **your cloned voice**. A new voice service (VoxCPM2 on CPU, chosen in a blind listening test, plus Whisper)\nsays each line with your own voice from a 10-20 s recording; the H3 lip-sync workflow then follows that audio, so\nthe clip lasts exactly the line and H3 no longer invents words. Pick it per project (\"Voix des répliques\") or via the\nAPI (`speech: {voice, text}`). New \"Fidélité du visage\" setting on H3 (default Maximale: the reference photo is no\nlonger shrunk to the video size, which kept the outfit but lost facial features). Installed workflows now pick up\ncatalog fixes on restart.\n\n0.1.2: project shots no longer prepend \"Gros plan, plan fixe.\" to the prompt — MiniMax H3 was speaking it aloud\nas gibberish before each line (found by transcribing a storyboard test); framing now lives inside the prompt\nsentence. The interface retries automatically when the Olares gateway answers 502/503/504 during a restart.\n\n0.1.1: engine fixes found on Olares One — the PyTorch image has no ensurepip (venv now driven by the system pip),\nand ComfyUI crashed at start under GPU sharing (now uses the plain CUDA allocator without pinned memory).\nCurated defaults (e.g. 9:16 for H3) now apply when the API call doesn't set them. Validated on Olares One:\nZ-Image Turbo 768×1344 in 6.1 s warm (20 s cold), MiniMax H3 reference-to-video 4 s 480p with two @references in 62 s.\n\n0.1.0: first release. ComfyUI engine kept warm on the GPU, workflow Store (Comfy-Org templates, MIT), curated\nOlares One workflows (MiniMax H3 reference and lip-sync, FastH3, Z-Image Turbo, Qwen Image 2.1 + Edit, NVFP4),\nprojects with an AI-written storyboard (any OpenAI-compatible model), takes per shot, ingredients cited with @,\nREST API with keys. Reuses the shared model library (Common/comfyui/model) already filled by FlowStudio.\n",
+      "promoteImage": [
+        "https://orales-one-market.aamsellem.workers.dev/screenshots/aerisstudio-bento.png"
+      ],
+      "promoteVideo": "",
+      "subCategory": "",
+      "locale": [
+        "en-US",
+        "fr-FR"
+      ],
+      "developer": "aamsellem",
+      "requiredMemory": "0",
+      "requiredDisk": "0",
+      "supportClient": {},
+      "supportArch": [
+        "amd64"
+      ],
+      "requiredGPU": "0",
+      "requiredCPU": "0",
+      "rating": 0,
+      "target": "",
+      "permission": {
+        "appData": true,
+        "appCommon": true
+      },
+      "entrances": [
+        {
+          "name": "aerisstudio",
+          "host": "aerisstudio-svc",
+          "port": 8080,
+          "title": "Aeris Studio",
+          "icon": "https://orales-one-market.aamsellem.workers.dev/icons/aerisstudio.png",
+          "authLevel": "private",
+          "invisible": false,
+          "openMethod": "window",
+          "disablePreload": false
+        },
+        {
+          "name": "aerisapi",
+          "host": "aerisstudio-api",
+          "port": 8081,
+          "title": "Aeris Studio API",
+          "icon": "https://orales-one-market.aamsellem.workers.dev/icons/aerisstudio.png",
+          "authLevel": "internal",
+          "invisible": true,
+          "openMethod": "",
+          "disablePreload": false
+        }
+      ],
+      "middleware": null,
+      "options": {
+        "apiTimeout": 0,
+        "dependencies": [
+          {
+            "name": "olares",
+            "version": ">=1.12.6-0",
+            "type": "system"
+          }
+        ]
+      },
+      "submitter": "aamsellem",
+      "doc": "",
+      "website": "https://github.com/aamsellem/olares-one-market",
+      "featuredImage": "https://orales-one-market.aamsellem.workers.dev/screenshots/aerisstudio-bento.png",
+      "sourceCode": "https://github.com/aamsellem/olares-one-market",
+      "license": [
+        {
+          "text": "Apache-2.0",
+          "url": "https://www.apache.org/licenses/LICENSE-2.0"
+        }
+      ],
+      "legal": null,
+      "i18n": {
+        "en-US": {
+          "metadata": {
+            "title": "Aeris Studio",
+            "description": "Local AI image and video studio: references with @mentions, storyboards, takes, REST API"
+          },
+          "entrances": null,
+          "spec": {
+            "fullDescription": "Aeris Studio turns your Olares One into an image and video studio.\n\n- Create: describe a scene, cite your characters, places and voice with @ (they become the model's references).\n- Projects: write the storyboard with the language model of your choice, then generate every shot with N takes.\n- Models: install workflows from the Store; model files are downloaded once into the shared library.\n- API: everything the UI does is available over REST (API keys in Settings, docs at /api/docs).\n\nThe ComfyUI engine (installed on first start, ~5 minutes) stays warm on the GPU between renders.\n",
+            "upgradeDescription": ""
+          }
+        },
+        "fr-FR": {
+          "metadata": {
+            "title": "Aeris Studio",
+            "description": "Studio d'images et de vidéos IA en local : références citées avec @, storyboards, prises, API REST"
+          },
+          "entrances": null,
+          "spec": {
+            "fullDescription": "Aeris Studio transforme ton Olares One en studio d'images et de vidéos.\n\n- Créer : décris une scène et cite tes personnages, lieux et voix avec @ (ils deviennent les références du modèle).\n- Projets : écris le storyboard avec le modèle de langage de ton choix, puis génère chaque plan en plusieurs prises.\n- Modèles : installe des workflows depuis le Store ; les fichiers modèles sont téléchargés une seule fois dans la bibliothèque partagée.\n- API : tout ce que fait l'interface est disponible en REST (clés API dans Réglages, documentation sur /api/docs).\n\nLe moteur ComfyUI (installé au premier démarrage, environ 5 minutes) reste chaud sur le GPU entre deux rendus.\n",
+            "upgradeDescription": ""
+          }
+        }
+      },
+      "namespace": "",
+      "onlyAdmin": false,
+      "lastCommitHash": "",
+      "createTime": 0,
+      "updateTime": 0,
+      "count": null,
+      "versionHistory": [
+        {
+          "appName": "aerisstudio",
+          "version": "0.4.44",
+          "versionName": "0.4.44",
+          "mergedAt": "2026-11-16T22:11:43.329000000Z",
+          "upgradeDescription": ""
+        }
+      ],
+      "screenshots": null,
+      "tags": null,
+      "metadata": null,
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
+    },
+    "a9de90b0": {
+      "id": "a9de90b0",
+      "name": "basaltqwen38one",
+      "cfgType": "app",
+      "apiVersion": "v3",
+      "accelerator": [
+        {
+          "mode": "nvidia",
+          "supportMultiCard": false,
+          "supportMultiNodes": false,
+          "requiredCpu": "8",
+          "limitedCpu": "24",
+          "requiredMemory": "57Gi",
+          "limitedMemory": "84Gi",
+          "requiredDisk": "100Gi",
+          "limitedDisk": "140Gi",
+          "requiredGPUMemory": "20Gi",
+          "limitedGPUMemory": "23Gi"
+        }
+      ],
+      "envs": [
+        {
+          "envName": "MODEL_SOURCE",
+          "required": true,
+          "type": "string",
+          "editable": false,
+          "applyOnChange": false,
+          "default": "hf://jesdga/Qwen3.8-Flash-Next-Basalt --revision 65de5a9e636e8bbe1200cbcd6eb8aa421e6a66c6 --include Qwen3.8-FN-UD-IQ3_XXS.basalt",
+          "description": "The pack Model Console downloads: one .basalt file, at a pinned revision of its Hugging Face repository."
+        },
+        {
+          "envName": "MODEL_NAME",
+          "required": true,
+          "type": "string",
+          "editable": false,
+          "applyOnChange": false,
+          "default": "jesdga/Qwen3.8-Flash-Next-Basalt:UD-IQ3_XXS",
+          "description": "The model's name in Router and on the API."
+        },
+        {
+          "envName": "MODEL_MODE",
+          "required": true,
+          "type": "string",
+          "editable": false,
+          "applyOnChange": false,
+          "default": "chat"
+        },
+        {
+          "envName": "MODEL_SUPPORTS",
+          "required": true,
+          "type": "string",
+          "editable": false,
+          "applyOnChange": false,
+          "default": "thinking,tools,vision"
+        },
+        {
+          "envName": "MODEL_REASONING_EFFORT",
+          "required": false,
+          "type": "string",
+          "editable": false,
+          "applyOnChange": false,
+          "default": "none,minimal,low,medium,high,xhigh,max",
+          "description": "The reasoning_effort values the server accepts. none and minimal turn thinking off; high, xhigh and max are the model's highest level."
+        },
+        {
+          "envName": "MODEL_REASONING_EFFORT_DEFAULT",
+          "required": false,
+          "type": "string",
+          "editable": false,
+          "applyOnChange": false,
+          "default": "xhigh",
+          "description": "The level the model uses when a request names none."
+        },
+        {
+          "envName": "ENGINE_ARGS",
+          "required": true,
+          "type": "string",
+          "editable": true,
+          "applyOnChange": true,
+          "default": "--context 204800 --parallel 2 --kv int8 --resident-budget-gib 48 --ram-reserve-mib 12288 --pool-workers 15 --fit-max-tokens --exp umwait=2 --vision dynamic",
+          "description": "Options of basalt serve. --context is each conversation's window (the server's --max-context) and --parallel the conversations served at once (each gets the whole window). --parallel 1 --context 131072 was the default before 1.2.5. The pack, the model name, the address and the access rules are set by the app. --vision dynamic lets the model read images; remove it to run text only. Add --no-grammar to stop holding tool calls and JSON answers to a grammar."
+        },
+        {
+          "envName": "LOG_LEVEL",
+          "required": false,
+          "type": "string",
+          "editable": true,
+          "applyOnChange": true,
+          "default": "info",
+          "options": [
+            {
+              "title": "Debug",
+              "value": "debug"
+            },
+            {
+              "title": "Info",
+              "value": "info"
+            },
+            {
+              "title": "Warn",
+              "value": "warn"
+            },
+            {
+              "title": "Error",
+              "value": "error"
+            }
+          ]
+        },
+        {
+          "envName": "HF_ENDPOINT",
+          "required": false,
+          "applyOnChange": true,
+          "valueFrom": {
+            "envName": "OLARES_SYSTEM_HUGGINGFACE_SERVICE"
+          }
+        },
+        {
+          "envName": "HF_TOKEN",
+          "required": false,
+          "applyOnChange": true,
+          "valueFrom": {
+            "envName": "OLARES_SYSTEM_HUGGINGFACE_TOKEN"
+          }
+        }
+      ],
+      "chartName": "basaltqwen38one-1.2.7.tgz",
+      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/basaltqwen38one.png",
+      "description": "Qwen3.8-Flash-Next (~180B MoE) on Olares One with anaelith, our fork of the Basalt engine — 177 t/s, two conversations of 200K tokens, tool calling, vision, listed in Olares Router",
+      "appID": "a9de90b0",
+      "title": "Anaelith Qwen38 Flash Next One",
+      "version": "1.2.7",
+      "categories": [
+        "LLM Chat",
+        "AI Agents"
+      ],
+      "versionName": "0.4.0-anaelith.3",
+      "fullDescription": "Qwen3.8-Flash-Next (~180B parameters, 24,576 experts, 10 active per token) running on the Olares One with\n**anaelith** (aamsellem/anaelith, MIT), the inference engine we develop and measure on this machine. anaelith is\na fork of Basalt (jesdga95/basalt, MIT), itself a fork of the Strata engine tuned for Blackwell GPUs.\n\nHow it fits: every expert sits in RAM; the dense part of the model and an adaptive cache of the most-used experts\nsit on the RTX 5090M; the CPU computes the other experts at the same time (15 workers); speculative drafts guess\nseveral tokens per step. The KV cache is int8 (the engine's author measures it lossless against fp16) and elastic:\nit only takes from the expert cache what a conversation uses. Two conversations run at once, each with a\n200K-token window.\n\n**Works with Olares Router.** Model Console sits in front of the engine: it downloads the model, shows its\nstatus and publishes the model to Router, which lists it as `Olares/jesdga/Qwen3.8-Flash-Next-Basalt:UD-IQ3_XXS`.\nApps on your Olares then reach it through Router (base URL and `default-chat`, or the full name) with no key.\nThe engine arguments (context, KV cache, RAM budget) can be changed from Router or Model Console; saving\nrestarts the engine.\n\nMeasured inside this app on the Olares One (Unsloth UD-IQ3_XXS pack, same bench as our Strata app):\n- decode 177 t/s at temperature 0.6 (166-187), 180 t/s greedy (169-199), short coding and explanation prompts\n  (Strata on the same box: 143 t/s at temperature 0.6); the same 177 t/s when called through Model Console,\n  the path Router takes\n- 36K-token prompt read at ~3,950 t/s (first token after 9.1 s), then decode at 185-230 t/s with that context\n- tool calling (parallel calls), reasoning levels and JSON-schema answers (`response_format`), all held to a\n  grammar in the engine; on 40 two-step edit-and-test requests, 31 came back right (29 with 1.1.1)\n- two requests at once: about 95 t/s each, 174 t/s together\n\n**Reads images.** `--vision dynamic` keeps the image encoder in RAM and lends it room in the GPU's expert cache\nonly while it reads an image: an image is answered in about a second, and text runs at the same speed\n(230.7 t/s with vision, 233.6 without, within noise). Send images as `image_url` parts, through Router or the\nengine's API.\n\nTwo entrances: Model Console (status, settings, and the same /v1 API Router calls) and the engine's own page\n(web chat, OpenAI-compatible API at /v1, Anthropic-compatible API for Claude Code: ANTHROPIC_BASE_URL without\n/v1). Model id on the engine's own API: `jesdga/Qwen3.8-Flash-Next-Basalt:UD-IQ3_XXS`. No API key: both\nentrances stay internal to your Olares.\n\nNeeds the whole GPU and about 60 GB of RAM: stop the other GPU apps first. The first start downloads the model\n(~88 GB) into the shared Hugging Face cache, with its progress shown in Model Console; the next starts take\nabout a minute.\n",
+      "upgradeDescription": "v1.2.7: the engine no longer stops with \"timed out at layer\" in the first minutes after a start. The cause was in\nthe adaptive expert swaps: a decode step waited for experts that were still being copied to the GPU, and on the\nOlares One those copies could not run while that step was waiting, so both waited until the 20 s timeout. The\nengine now uses new experts only once their copies have finished. Measured on the One with 15 CPU workers:\n0 stops in 8 engine starts (about 10 in 6 before), 188 t/s on average (177 before), 84.8 % of experts found on\nthe GPU. The resume of 1.2.6 stays as a safety net.\nv1.2.6: an answer goes on when the engine stops in the middle of it. The engine sometimes stops with \"timed out\nat layer\" in the first minutes after a start; the request used to end with an error. The server now restarts the\nengine and resumes the answer after the text already sent (up to twice per request, about 30 s of pause).\nv1.2.5: two conversations at once, each with a 200K-token window (`--context 204800 --parallel 2`). Hermes and\na coding agent no longer wait for each other. Measured on the One: a single request runs at the same speed as\nbefore (166-185 t/s), two requests run at about 95 t/s each (174 t/s together instead of 135 one after the\nother), and 80 requests from two clients at once went through without an error. The KV cache stays int8 and\nelastic: 6.2 GB at most, taken only as the conversations grow. An install that already ran keeps its saved\narguments: to switch, set the engine arguments in Model Console or Router to the new default.\nv1.2.4: the first download no longer stops at once. The model file is 87.6 GB, and the Hugging Face library\ndownloads a file over 50 GB only through its xet backend, which Model Console turns off by default: the\ndownload failed in a second and was never retried. The app now turns xet on (`HF_ENABLE_XET=true`). If your\ninstall is stuck on \"initializing\", upgrade: the new Model Console starts the download again.\nv1.2.3: the model comes back on its own after an engine crash. Before, the health check took the engine out of\nservice as soon as its engine stopped, so the request that restarts it could never arrive and Model Console\nstayed \"degraded\" until the app was restarted.\nv1.2.2: the model reads images. `--vision dynamic` is now in the engine arguments and the model card declares\nvision: the image encoder waits in RAM and borrows room in the GPU's expert cache only while it reads an image.\nChecked on the One through Router: the app's own card image read correctly in 1.1 s, and text speed did not\nmove (230.7 t/s with vision, 233.6 without, 8 runs each in a balanced order, within noise).\nUpgrading from 1.2.1 keeps the model card saved on disk, so vision stays off there: add `--vision dynamic` to\nthe engine arguments in Router (the model card's Edit button) or in Model Console. New installs have it on.\nv1.2.1: the app now works with Olares Router, and takes the name of its engine: Anaelith Qwen38 Flash Next One\n(its id, basaltqwen38one, does not change). It installs as a shared app with Model Console in front of the\nengine, so Router lists the model (`Olares/jesdga/Qwen3.8-Flash-Next-Basalt:UD-IQ3_XXS`), Lares and the other\napps can call it without a key, and the engine arguments can be changed from Router or Model Console.\nChecked on the One with Router 1.1.3: chat, streaming, parallel tool calls, JSON-schema answers and the\nAnthropic API all answer through Router, at 172 t/s (177 t/s straight on the engine).\nThe engine is anaelith 0.4.0-anaelith.3, our fork of Basalt 0.4.0: tool calls and JSON-schema answers are held\nto a grammar (`response_format` requests are accepted again), and idle CPU workers sleep lightly. Measured\ninside the app against 1.1.1: 177 t/s at temperature 0.6 (was 171), 180 t/s greedy (was 182), a 36K-token\nprompt read at ~3,950 t/s (was ~3,750).\nChanges for API clients that call the engine directly: its address is the app's second entrance, the model id\nis `jesdga/Qwen3.8-Flash-Next-Basalt:UD-IQ3_XXS`, and no API key is needed (a key sent anyway is ignored).\nComing from 1.1.x: uninstall it first (a per-user app cannot become a shared one in place), then install this\nversion. Tick \"delete data\" when uninstalling, or remove the old `basalt/models` folder of the app's data\nafterwards: Model Console downloads the pack again (~88 GB) into the shared Hugging Face cache.\nv1.1.1: tool arguments that quote tool-call markup are read whole. A model that edits a chat template writes\na line such as `<parameter=limit>25</parameter>` as an argument and often skips the argument's own closing\ntag; the server then cut the argument short. On 40 two-step edit requests on the One the edited text came out\nwrong 13 times with the release's parser and once with this one (that once, the model wrote the tags as HTML\nentities). Same engine (Basalt 0.4.0), same speed.\nv1.1.0: Basalt 0.4.0 and an int8 KV cache. Measured inside the app against 1.0.1: 171 t/s at temperature 0.6\n(was 153), 182 t/s greedy (was 172), a 36K-token prompt read at ~3,750 t/s (was ~2,470) and decoded at ~210 t/s\nwith that context (was 132). No change to the model or its pack.\nv1.0.1: speeds measured inside the app (153 t/s at temperature 0.6, 172 t/s greedy, 36K prompt read at\n~2,470 t/s) instead of the earlier workbench numbers. No change to the engine or its settings.\nv1.0.0: first release. Basalt 0.3.3 runs Qwen3.8-Flash-Next (~180B MoE) on the Olares One.\nBench on the One (warmup, then Space Invaders, a Go REST API and a B-tree explanation, 800 tokens, 2 rounds):\ndecode 164-168 t/s (Strata on the same box: 143 t/s); 32K-token prompt read at ~2,600 t/s.\n",
+      "promoteImage": [
+        "https://orales-one-market.aamsellem.workers.dev/screenshots/basaltqwen38one-bento.png"
+      ],
+      "promoteVideo": "",
+      "subCategory": "",
+      "locale": [
+        "en-US"
+      ],
+      "developer": "aamsellem",
+      "requiredMemory": "0",
+      "requiredDisk": "0",
+      "supportClient": {},
+      "supportArch": [
+        "amd64"
+      ],
+      "requiredGPU": "0",
+      "requiredCPU": "0",
+      "rating": 0,
+      "target": "",
+      "permission": {
+        "appCache": true,
+        "appCommon": true
+      },
+      "entrances": [
+        {
+          "name": "basaltconsole",
+          "host": "download-svc",
+          "port": 8090,
+          "title": "Anaelith Qwen38 Flash Next",
+          "icon": "https://orales-one-market.aamsellem.workers.dev/icons/basaltqwen38one.png",
+          "authLevel": "internal",
+          "invisible": false,
+          "openMethod": "window",
+          "disablePreload": false
+        },
+        {
+          "name": "basaltchat",
+          "host": "basaltqwen38one",
+          "port": 8080,
+          "title": "Anaelith Chat and API",
+          "icon": "https://orales-one-market.aamsellem.workers.dev/icons/basaltqwen38one.png",
+          "authLevel": "internal",
+          "invisible": false,
+          "openMethod": "window",
+          "disablePreload": false
+        }
+      ],
+      "middleware": null,
+      "options": {
+        "apiTimeout": 0,
+        "LLMGatewaySupported": true,
+        "shared": true,
+        "templateOnly": false,
+        "dependencies": [
+          {
+            "name": "olares",
+            "version": ">=1.12.7-0",
+            "type": "system"
+          }
+        ]
+      },
+      "submitter": "aamsellem",
+      "doc": "",
+      "website": "https://github.com/aamsellem/olares-one-market",
+      "featuredImage": "https://orales-one-market.aamsellem.workers.dev/screenshots/basaltqwen38one-bento.png",
+      "sourceCode": "https://github.com/aamsellem/anaelith",
+      "license": [
+        {
+          "text": "MIT (anaelith, Basalt)",
+          "url": "https://github.com/aamsellem/anaelith/blob/one/LICENSE"
+        },
+        {
+          "text": "Qwen license (model)",
+          "url": "https://huggingface.co/jesdga/Qwen3.8-Flash-Next-Basalt/blob/main/LICENSE"
+        }
+      ],
+      "legal": null,
+      "i18n": {
+        "en-US": {
+          "metadata": {
+            "title": "Anaelith Qwen38 Flash Next One",
+            "description": "Qwen3.8-Flash-Next (~180B MoE) on Olares One with anaelith, our fork of the Basalt engine — 177 t/s, two conversations of 200K tokens, tool calling, vision, listed in Olares Router"
+          },
+          "entrances": null,
+          "spec": {
+            "fullDescription": "Qwen3.8-Flash-Next (~180B parameters, 24,576 experts, 10 active per token) running on the Olares One with\n**anaelith** (aamsellem/anaelith, MIT), the inference engine we develop and measure on this machine. anaelith is\na fork of Basalt (jesdga95/basalt, MIT), itself a fork of the Strata engine tuned for Blackwell GPUs.\n\nHow it fits: every expert sits in RAM; the dense part of the model and an adaptive cache of the most-used experts\nsit on the RTX 5090M; the CPU computes the other experts at the same time (15 workers); speculative drafts guess\nseveral tokens per step. The KV cache is int8 (the engine's author measures it lossless against fp16) and elastic:\nit only takes from the expert cache what a conversation uses. Two conversations run at once, each with a\n200K-token window.\n\n**Works with Olares Router.** Model Console sits in front of the engine: it downloads the model, shows its\nstatus and publishes the model to Router, which lists it as `Olares/jesdga/Qwen3.8-Flash-Next-Basalt:UD-IQ3_XXS`.\nApps on your Olares then reach it through Router (base URL and `default-chat`, or the full name) with no key.\nThe engine arguments (context, KV cache, RAM budget) can be changed from Router or Model Console; saving\nrestarts the engine.\n\nMeasured inside this app on the Olares One (Unsloth UD-IQ3_XXS pack, same bench as our Strata app):\n- decode 177 t/s at temperature 0.6 (166-187), 180 t/s greedy (169-199), short coding and explanation prompts\n  (Strata on the same box: 143 t/s at temperature 0.6); the same 177 t/s when called through Model Console,\n  the path Router takes\n- 36K-token prompt read at ~3,950 t/s (first token after 9.1 s), then decode at 185-230 t/s with that context\n- tool calling (parallel calls), reasoning levels and JSON-schema answers (`response_format`), all held to a\n  grammar in the engine; on 40 two-step edit-and-test requests, 31 came back right (29 with 1.1.1)\n- two requests at once: about 95 t/s each, 174 t/s together\n\n**Reads images.** `--vision dynamic` keeps the image encoder in RAM and lends it room in the GPU's expert cache\nonly while it reads an image: an image is answered in about a second, and text runs at the same speed\n(230.7 t/s with vision, 233.6 without, within noise). Send images as `image_url` parts, through Router or the\nengine's API.\n\nTwo entrances: Model Console (status, settings, and the same /v1 API Router calls) and the engine's own page\n(web chat, OpenAI-compatible API at /v1, Anthropic-compatible API for Claude Code: ANTHROPIC_BASE_URL without\n/v1). Model id on the engine's own API: `jesdga/Qwen3.8-Flash-Next-Basalt:UD-IQ3_XXS`. No API key: both\nentrances stay internal to your Olares.\n\nNeeds the whole GPU and about 60 GB of RAM: stop the other GPU apps first. The first start downloads the model\n(~88 GB) into the shared Hugging Face cache, with its progress shown in Model Console; the next starts take\nabout a minute.\n",
+            "upgradeDescription": "v1.2.7: the engine no longer stops with \"timed out at layer\" in the first minutes after a start. The cause was in\nthe adaptive expert swaps: a decode step waited for experts that were still being copied to the GPU, and on the\nOlares One those copies could not run while that step was waiting, so both waited until the 20 s timeout. The\nengine now uses new experts only once their copies have finished. Measured on the One with 15 CPU workers:\n0 stops in 8 engine starts (about 10 in 6 before), 188 t/s on average (177 before), 84.8 % of experts found on\nthe GPU. The resume of 1.2.6 stays as a safety net.\nv1.2.6: an answer goes on when the engine stops in the middle of it. The engine sometimes stops with \"timed out\nat layer\" in the first minutes after a start; the request used to end with an error. The server now restarts the\nengine and resumes the answer after the text already sent (up to twice per request, about 30 s of pause).\nv1.2.5: two conversations at once, each with a 200K-token window (`--context 204800 --parallel 2`). Hermes and\na coding agent no longer wait for each other. Measured on the One: a single request runs at the same speed as\nbefore (166-185 t/s), two requests run at about 95 t/s each (174 t/s together instead of 135 one after the\nother), and 80 requests from two clients at once went through without an error. The KV cache stays int8 and\nelastic: 6.2 GB at most, taken only as the conversations grow. An install that already ran keeps its saved\narguments: to switch, set the engine arguments in Model Console or Router to the new default.\nv1.2.4: the first download no longer stops at once. The model file is 87.6 GB, and the Hugging Face library\ndownloads a file over 50 GB only through its xet backend, which Model Console turns off by default: the\ndownload failed in a second and was never retried. The app now turns xet on (`HF_ENABLE_XET=true`). If your\ninstall is stuck on \"initializing\", upgrade: the new Model Console starts the download again.\nv1.2.3: the model comes back on its own after an engine crash. Before, the health check took the engine out of\nservice as soon as its engine stopped, so the request that restarts it could never arrive and Model Console\nstayed \"degraded\" until the app was restarted.\nv1.2.2: the model reads images. `--vision dynamic` is now in the engine arguments and the model card declares\nvision: the image encoder waits in RAM and borrows room in the GPU's expert cache only while it reads an image.\nChecked on the One through Router: the app's own card image read correctly in 1.1 s, and text speed did not\nmove (230.7 t/s with vision, 233.6 without, 8 runs each in a balanced order, within noise).\nUpgrading from 1.2.1 keeps the model card saved on disk, so vision stays off there: add `--vision dynamic` to\nthe engine arguments in Router (the model card's Edit button) or in Model Console. New installs have it on.\nv1.2.1: the app now works with Olares Router, and takes the name of its engine: Anaelith Qwen38 Flash Next One\n(its id, basaltqwen38one, does not change). It installs as a shared app with Model Console in front of the\nengine, so Router lists the model (`Olares/jesdga/Qwen3.8-Flash-Next-Basalt:UD-IQ3_XXS`), Lares and the other\napps can call it without a key, and the engine arguments can be changed from Router or Model Console.\nChecked on the One with Router 1.1.3: chat, streaming, parallel tool calls, JSON-schema answers and the\nAnthropic API all answer through Router, at 172 t/s (177 t/s straight on the engine).\nThe engine is anaelith 0.4.0-anaelith.3, our fork of Basalt 0.4.0: tool calls and JSON-schema answers are held\nto a grammar (`response_format` requests are accepted again), and idle CPU workers sleep lightly. Measured\ninside the app against 1.1.1: 177 t/s at temperature 0.6 (was 171), 180 t/s greedy (was 182), a 36K-token\nprompt read at ~3,950 t/s (was ~3,750).\nChanges for API clients that call the engine directly: its address is the app's second entrance, the model id\nis `jesdga/Qwen3.8-Flash-Next-Basalt:UD-IQ3_XXS`, and no API key is needed (a key sent anyway is ignored).\nComing from 1.1.x: uninstall it first (a per-user app cannot become a shared one in place), then install this\nversion. Tick \"delete data\" when uninstalling, or remove the old `basalt/models` folder of the app's data\nafterwards: Model Console downloads the pack again (~88 GB) into the shared Hugging Face cache.\nv1.1.1: tool arguments that quote tool-call markup are read whole. A model that edits a chat template writes\na line such as `<parameter=limit>25</parameter>` as an argument and often skips the argument's own closing\ntag; the server then cut the argument short. On 40 two-step edit requests on the One the edited text came out\nwrong 13 times with the release's parser and once with this one (that once, the model wrote the tags as HTML\nentities). Same engine (Basalt 0.4.0), same speed.\nv1.1.0: Basalt 0.4.0 and an int8 KV cache. Measured inside the app against 1.0.1: 171 t/s at temperature 0.6\n(was 153), 182 t/s greedy (was 172), a 36K-token prompt read at ~3,750 t/s (was ~2,470) and decoded at ~210 t/s\nwith that context (was 132). No change to the model or its pack.\nv1.0.1: speeds measured inside the app (153 t/s at temperature 0.6, 172 t/s greedy, 36K prompt read at\n~2,470 t/s) instead of the earlier workbench numbers. No change to the engine or its settings.\nv1.0.0: first release. Basalt 0.3.3 runs Qwen3.8-Flash-Next (~180B MoE) on the Olares One.\nBench on the One (warmup, then Space Invaders, a Go REST API and a B-tree explanation, 800 tokens, 2 rounds):\ndecode 164-168 t/s (Strata on the same box: 143 t/s); 32K-token prompt read at ~2,600 t/s.\n"
+          }
+        }
+      },
+      "namespace": "",
+      "onlyAdmin": true,
+      "lastCommitHash": "",
+      "createTime": 0,
+      "updateTime": 0,
+      "count": null,
+      "versionHistory": [
+        {
+          "appName": "basaltqwen38one",
+          "version": "1.2.7",
+          "versionName": "0.4.0-anaelith.3",
+          "mergedAt": "2026-11-16T22:11:43.329000000Z",
+          "upgradeDescription": ""
+        }
+      ],
+      "screenshots": null,
+      "tags": [
+        "qwen",
+        "anaelith"
+      ],
+      "metadata": null,
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "f9902972": {
       "id": "f9902972",
@@ -1241,7 +1795,7 @@
           "appName": "cascade230a3bone",
           "version": "1.1.1",
           "versionName": "1.1.1",
-          "mergedAt": "2026-10-17T13:10:42.477000000Z",
+          "mergedAt": "2026-11-16T22:11:43.329000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -1251,7 +1805,143 @@
         "hybrid"
       ],
       "metadata": null,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
+    },
+    "a5c77848": {
+      "id": "a5c77848",
+      "name": "deepseekharnessone",
+      "cfgType": "app",
+      "apiVersion": "v3",
+      "accelerator": [],
+      "envs": [
+        {
+          "envName": "ROUTER_BASE_URL",
+          "required": false,
+          "type": "string",
+          "editable": true,
+          "applyOnChange": true,
+          "default": "http://3a77b15d.shared.olares.com/v1",
+          "description": "OpenAI-compatible base URL of the models. The default is Olares Router inside your Olares. Read when the agent's model settings were never edited in its Web UI."
+        },
+        {
+          "envName": "ROUTER_API_KEY",
+          "required": false,
+          "type": "password",
+          "editable": true,
+          "applyOnChange": true,
+          "default": "none",
+          "description": "API key for that URL. Router needs none inside your Olares."
+        }
+      ],
+      "chartName": "deepseekharnessone-1.0.2.tgz",
+      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/deepseekharnessone.png",
+      "description": "DeepSeek's open-source coding agent in your browser, running on your local models through Olares Router",
+      "appID": "a5c77848",
+      "title": "DeepSeek Harness",
+      "version": "1.0.2",
+      "categories": [
+        "Coding",
+        "AI Agents"
+      ],
+      "versionName": "0.2.2-rc.3",
+      "fullDescription": "DeepSeek Harness (deepseek-ai/deepseek-harness, MIT) is the open-source coding agent from DeepSeek: it reads\nyour code, edits files, runs commands and tests, and keeps a history of its sessions. This app serves its Web UI\non your Olares and connects it to **Olares Router**, so the agent runs on your own local models: no cloud key,\nnothing leaves your Olares.\n\nHow it is set up:\n- Model: Router's `default-chat`, the model Router picks as default (for example Anaelith Qwen38 Flash Next\n  One). Change it in Router, or add other providers and models in the agent's Settings → Models.\n- Workspace: the `Code` folder of your Home (the same one Code Server uses). The agent works and runs commands\n  there; it asks before writing outside it.\n- The Web UI opens straight from the Olares entrance, which already requires your Olares sign-in.\n- DeepSeek's telemetry is turned off.\n\nMeasured on the Olares One with Anaelith Qwen38 Flash Next One behind Router: asked to fix three bugs in a small\nPython module without touching its tests, the agent read the files, fixed them, ran the tests and finished in\n13 s, all six tests passing.\n\nThe first start installs DeepSeek Harness (about 1.2 GB) into the app's data and takes a few minutes; the next\nstarts take seconds. DeepSeek Harness is a preview release (0.2.2-rc.3): the app pins that version.\n\nNeeds a chat model in Olares Router with tool calling (any Router-ready model app, local or cloud).\n",
+      "upgradeDescription": "v1.0.2: new projects made from the Web UI go into the Code folder of your Home, where the Files app shows\nthem (before, they landed in the app's data). Projects made with 1.0.1 stay in the app's data under `user`.\nSubagents run on the same model as the agent: no more failed subagent starts asking for a reasoning level\nwithout a model.\nv1.0.1: Olares shows the app as running only once DeepSeek Harness answers (the first start installs it\nfirst).\nv1.0.0: first release. DeepSeek Harness 0.2.2-rc.3, Web UI, Olares Router as the model provider.\n",
+      "promoteImage": [
+        "https://orales-one-market.aamsellem.workers.dev/screenshots/deepseekharnessone-bento.png"
+      ],
+      "promoteVideo": "",
+      "subCategory": "",
+      "locale": [
+        "en-US"
+      ],
+      "developer": "aamsellem",
+      "requiredMemory": "1073741824",
+      "requiredDisk": "3221225472",
+      "supportClient": {},
+      "supportArch": [
+        "amd64"
+      ],
+      "requiredGPU": "0",
+      "requiredCPU": "1",
+      "rating": 0,
+      "target": "",
+      "permission": {
+        "appData": true,
+        "userData": [
+          "Home"
+        ]
+      },
+      "entrances": [
+        {
+          "name": "deepseekharness",
+          "host": "deepseekharness-svc",
+          "port": 3000,
+          "title": "DeepSeek Harness",
+          "icon": "https://orales-one-market.aamsellem.workers.dev/icons/deepseekharnessone.png",
+          "authLevel": "private",
+          "invisible": false,
+          "openMethod": "window",
+          "disablePreload": false
+        }
+      ],
+      "middleware": null,
+      "options": {
+        "apiTimeout": 0,
+        "dependencies": [
+          {
+            "name": "olares",
+            "version": ">=1.12.7-0",
+            "type": "system"
+          }
+        ]
+      },
+      "submitter": "aamsellem",
+      "doc": "",
+      "website": "https://github.com/aamsellem/olares-one-market",
+      "featuredImage": "https://orales-one-market.aamsellem.workers.dev/screenshots/deepseekharnessone-bento.png",
+      "sourceCode": "https://github.com/deepseek-ai/deepseek-harness",
+      "license": [
+        {
+          "text": "MIT",
+          "url": "https://github.com/deepseek-ai/deepseek-harness/blob/main/LICENSE"
+        }
+      ],
+      "legal": null,
+      "i18n": {
+        "en-US": {
+          "metadata": {
+            "title": "DeepSeek Harness",
+            "description": "DeepSeek's open-source coding agent in your browser, running on your local models through Olares Router"
+          },
+          "entrances": null,
+          "spec": {
+            "fullDescription": "DeepSeek Harness (deepseek-ai/deepseek-harness, MIT) is the open-source coding agent from DeepSeek: it reads\nyour code, edits files, runs commands and tests, and keeps a history of its sessions. This app serves its Web UI\non your Olares and connects it to **Olares Router**, so the agent runs on your own local models: no cloud key,\nnothing leaves your Olares.\n\nHow it is set up:\n- Model: Router's `default-chat`, the model Router picks as default (for example Anaelith Qwen38 Flash Next\n  One). Change it in Router, or add other providers and models in the agent's Settings → Models.\n- Workspace: the `Code` folder of your Home (the same one Code Server uses). The agent works and runs commands\n  there; it asks before writing outside it.\n- The Web UI opens straight from the Olares entrance, which already requires your Olares sign-in.\n- DeepSeek's telemetry is turned off.\n\nMeasured on the Olares One with Anaelith Qwen38 Flash Next One behind Router: asked to fix three bugs in a small\nPython module without touching its tests, the agent read the files, fixed them, ran the tests and finished in\n13 s, all six tests passing.\n\nThe first start installs DeepSeek Harness (about 1.2 GB) into the app's data and takes a few minutes; the next\nstarts take seconds. DeepSeek Harness is a preview release (0.2.2-rc.3): the app pins that version.\n\nNeeds a chat model in Olares Router with tool calling (any Router-ready model app, local or cloud).\n",
+            "upgradeDescription": "v1.0.2: new projects made from the Web UI go into the Code folder of your Home, where the Files app shows\nthem (before, they landed in the app's data). Projects made with 1.0.1 stay in the app's data under `user`.\nSubagents run on the same model as the agent: no more failed subagent starts asking for a reasoning level\nwithout a model.\nv1.0.1: Olares shows the app as running only once DeepSeek Harness answers (the first start installs it\nfirst).\nv1.0.0: first release. DeepSeek Harness 0.2.2-rc.3, Web UI, Olares Router as the model provider.\n"
+          }
+        }
+      },
+      "namespace": "",
+      "onlyAdmin": false,
+      "lastCommitHash": "",
+      "createTime": 0,
+      "updateTime": 0,
+      "count": null,
+      "versionHistory": [
+        {
+          "appName": "deepseekharnessone",
+          "version": "1.0.2",
+          "versionName": "0.2.2-rc.3",
+          "mergedAt": "2026-11-16T22:11:43.329000000Z",
+          "upgradeDescription": ""
+        }
+      ],
+      "screenshots": null,
+      "tags": [
+        "deepseek",
+        "router"
+      ],
+      "metadata": null,
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "8a7e4366": {
       "id": "8a7e4366",
@@ -1369,7 +2059,7 @@
           "appName": "devstralsmallone",
           "version": "1.1.1",
           "versionName": "1.1.1",
-          "mergedAt": "2026-10-17T13:10:42.477000000Z",
+          "mergedAt": "2026-11-16T22:11:43.329000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -1379,7 +2069,7 @@
         "swe-bench"
       ],
       "metadata": null,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "cf587666": {
       "id": "cf587666",
@@ -1513,7 +2203,7 @@
           "appName": "exl3qwen35a3bone",
           "version": "1.1.1",
           "versionName": "1.1.1",
-          "mergedAt": "2026-10-17T13:10:42.477000000Z",
+          "mergedAt": "2026-11-16T22:11:43.329000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -1523,7 +2213,7 @@
         "exl3"
       ],
       "metadata": null,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "a4f8515c": {
       "id": "a4f8515c",
@@ -1640,7 +2330,7 @@
           "appName": "gemma426ba4bone",
           "version": "1.1.1",
           "versionName": "1.1.1",
-          "mergedAt": "2026-10-17T13:10:42.477000000Z",
+          "mergedAt": "2026-11-16T22:11:43.329000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -1650,7 +2340,7 @@
         "efficient"
       ],
       "metadata": null,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "65b82978": {
       "id": "65b82978",
@@ -1768,7 +2458,7 @@
           "appName": "gemma4e2bone",
           "version": "1.1.1",
           "versionName": "1.1.1",
-          "mergedAt": "2026-10-17T13:10:42.477000000Z",
+          "mergedAt": "2026-11-16T22:11:43.329000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -1778,7 +2468,156 @@
         "voice"
       ],
       "metadata": null,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
+    },
+    "e43aee53": {
+      "id": "e43aee53",
+      "name": "lfm3omnione",
+      "cfgType": "app",
+      "apiVersion": "v3",
+      "accelerator": [
+        {
+          "mode": "nvidia",
+          "supportMultiCard": false,
+          "supportMultiNodes": false,
+          "requiredCpu": "2",
+          "limitedCpu": "16",
+          "requiredMemory": "4Gi",
+          "limitedMemory": "16Gi",
+          "requiredDisk": "5Gi",
+          "limitedDisk": "10Gi",
+          "requiredGPUMemory": "8Gi",
+          "limitedGPUMemory": "8Gi"
+        }
+      ],
+      "envs": [
+        {
+          "envName": "HUGGINGFACE_SERVICE",
+          "required": false,
+          "applyOnChange": true,
+          "valueFrom": {
+            "envName": "OLARES_USER_HUGGINGFACE_SERVICE"
+          }
+        },
+        {
+          "envName": "HUGGINGFACE_TOKEN",
+          "required": false,
+          "applyOnChange": true,
+          "valueFrom": {
+            "envName": "OLARES_USER_HUGGINGFACE_TOKEN"
+          }
+        }
+      ],
+      "chartName": "lfm3omnione-1.0.0.tgz",
+      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/lfm3omnione.png",
+      "description": "Liquid AI LFM3 Omni 2B: hears, sees, reads and talks back. Voice chat, transcription, speech, image and video, 305 t/s on Olares One.",
+      "appID": "e43aee53",
+      "title": "LFM3 Omni One",
+      "version": "1.0.0",
+      "categories": [
+        "Audio",
+        "LLM Chat"
+      ],
+      "versionName": "LFM3-Omni-2B Q8_0",
+      "fullDescription": "**LFM3 Omni 2B** is Liquid AI's small omni model: it understands text, images, video and speech, and answers in text or out loud. It runs entirely on the Olares One.\n\n**Measured on the Olares One** (RTX 5090 Laptop GPU, llama.cpp b12352):\n- Text generation: **305 t/s**\n- Image question: answered in **1.2 s** (it read \"177 t/s\" and \"128K\" off a model card picture)\n- Speech recognition: a 5 s French or English sentence transcribed in **0.1 s**, word for word\n- Speech synthesis: a 4.6 s spoken sentence generated in **0.45 s** (24 kHz WAV, female or male voice)\n\n**What you get**\n- The llama.cpp web chat at this app's address, with images, audio and video as input.\n- An OpenAI-compatible API inside the cluster at `http://lfm3omnione:8080`:\n  - `/v1/chat/completions`: text, `image_url` and `input_audio` parts\n  - `/v1/audio/transcriptions`: speech to text\n  - `/v1/audio/speech`: text to speech (`voice`: `female` or `male`)\n  - `/v1/realtime`: a WebSocket for real-time voice conversations, with tool calls\n\n**Useful system prompts**\n- Transcription: `Perform ASR in French.` (or any listed language)\n- Speech: `Perform TTS in French using a male voice.`\n- Video: `Answer questions about the video using what you see and hear.`\n\n**Languages**: text in 16 languages including English, French, German, Spanish, Italian, Portuguese, Chinese and Japanese; speech in 19 languages and locales including French, British and American English.\n\n**Limits**: 32K tokens of context. A 2B model: good for voice front-ends, transcription, captions and quick questions, not for long reasoning or coding. Video needs ffmpeg, which the image ships.\n\n**License**: LFM Open License v1.0. Free for individuals and for companies under 10 million USD of annual revenue; above that, commercial use needs a license from Liquid AI.\n",
+      "upgradeDescription": "v1.0.0: first release. LiquidAI/LFM3-Omni-2B-GGUF Q8_0 with its F16 vision and audio projector, served by llama.cpp b12352 (docker.io/beclab/ggml-org-llama.cpp:server-cuda13-b12352). Measured on the Olares One: 305 t/s text generation, an image read in 1.2 s, speech transcribed in 0.1 s, a 4.6 s spoken answer generated in 0.45 s.\n",
+      "promoteImage": [
+        "https://orales-one-market.aamsellem.workers.dev/screenshots/lfm3omnione-bento.png"
+      ],
+      "promoteVideo": "",
+      "subCategory": "",
+      "locale": [
+        "en-US"
+      ],
+      "developer": "Liquid AI",
+      "requiredMemory": "0",
+      "requiredDisk": "0",
+      "supportClient": {},
+      "supportArch": [
+        "amd64"
+      ],
+      "requiredGPU": "0",
+      "requiredCPU": "0",
+      "rating": 0,
+      "target": "",
+      "permission": {
+        "appData": true
+      },
+      "entrances": [
+        {
+          "name": "lfm3omnione",
+          "host": "lfm3omnione",
+          "port": 8080,
+          "title": "LFM3 Omni One",
+          "icon": "https://orales-one-market.aamsellem.workers.dev/icons/lfm3omnione.png",
+          "authLevel": "internal",
+          "invisible": false,
+          "openMethod": "window",
+          "disablePreload": false
+        }
+      ],
+      "middleware": null,
+      "options": {
+        "apiTimeout": 0,
+        "dependencies": [
+          {
+            "name": "olares",
+            "version": ">=1.12.6-0",
+            "type": "system"
+          }
+        ]
+      },
+      "submitter": "aamsellem",
+      "doc": "",
+      "website": "https://www.liquid.ai/blog/lfm3",
+      "featuredImage": "https://orales-one-market.aamsellem.workers.dev/screenshots/lfm3omnione-bento.png",
+      "sourceCode": "https://github.com/aamsellem/olares-one-market",
+      "license": [
+        {
+          "text": "LFM Open License v1.0",
+          "url": "https://huggingface.co/LiquidAI/LFM3-Omni-2B/blob/main/LICENSE"
+        },
+        {
+          "text": "MIT (llama.cpp)",
+          "url": "https://github.com/ggml-org/llama.cpp/blob/master/LICENSE"
+        }
+      ],
+      "legal": null,
+      "i18n": {
+        "en-US": {
+          "metadata": {
+            "title": "LFM3 Omni One",
+            "description": "Liquid AI LFM3 Omni 2B: hears, sees, reads and talks back. Voice chat, transcription, speech, image and video, 305 t/s on Olares One."
+          },
+          "entrances": null,
+          "spec": {
+            "fullDescription": "**LFM3 Omni 2B** is Liquid AI's small omni model: it understands text, images, video and speech, and answers in text or out loud. It runs entirely on the Olares One.\n\n**Measured on the Olares One** (RTX 5090 Laptop GPU, llama.cpp b12352): 305 t/s text generation, an image question answered in 1.2 s, a 5 s sentence transcribed in 0.1 s, a 4.6 s spoken sentence generated in 0.45 s.\n\n**What you get**: the llama.cpp web chat at this app's address, and an OpenAI-compatible API inside the cluster at `http://lfm3omnione:8080` (`/v1/chat/completions` with image and audio parts, `/v1/audio/transcriptions`, `/v1/audio/speech`, and the `/v1/realtime` WebSocket for voice conversations with tool calls).\n\n**Limits**: 32K tokens of context; a 2B model for voice front-ends, transcription and quick questions, not long reasoning or coding.\n\n**License**: LFM Open License v1.0, free under 10 million USD of annual revenue.\n",
+            "upgradeDescription": "v1.0.0: first release. LFM3-Omni-2B Q8_0 with its F16 projector on llama.cpp b12352: 305 t/s, image in 1.2 s, transcription in 0.1 s, speech in 0.45 s.\n"
+          }
+        }
+      },
+      "namespace": "",
+      "onlyAdmin": false,
+      "lastCommitHash": "",
+      "createTime": 0,
+      "updateTime": 0,
+      "count": null,
+      "versionHistory": [
+        {
+          "appName": "lfm3omnione",
+          "version": "1.0.0",
+          "versionName": "b12352",
+          "mergedAt": "2026-11-16T22:11:43.329000000Z",
+          "upgradeDescription": ""
+        }
+      ],
+      "screenshots": null,
+      "tags": [
+        "liquid",
+        "omni · voice"
+      ],
+      "metadata": null,
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "3f05b625": {
       "id": "3f05b625",
@@ -1906,7 +2745,7 @@
           "appName": "llamacppcodernext40bone",
           "version": "1.2.1",
           "versionName": "1.2.1",
-          "mergedAt": "2026-10-17T13:10:42.477000000Z",
+          "mergedAt": "2026-11-16T22:11:43.329000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -1916,7 +2755,7 @@
         "long context · 262K"
       ],
       "metadata": null,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "ec27bc37": {
       "id": "ec27bc37",
@@ -2044,7 +2883,7 @@
           "appName": "llamacppcodernextq4one",
           "version": "1.1.1",
           "versionName": "1.1.1",
-          "mergedAt": "2026-10-17T13:10:42.477000000Z",
+          "mergedAt": "2026-11-16T22:11:43.329000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -2054,7 +2893,7 @@
         "Q4 · code quality"
       ],
       "metadata": null,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "6cd2129a": {
       "id": "6cd2129a",
@@ -2183,7 +3022,7 @@
           "appName": "llamacppgemma412blcone",
           "version": "1.1.0",
           "versionName": "1.1.0",
-          "mergedAt": "2026-10-17T13:10:42.477000000Z",
+          "mergedAt": "2026-11-16T22:11:43.329000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -2193,7 +3032,7 @@
         "262K · KVarN · vision"
       ],
       "metadata": null,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "fff8241b": {
       "id": "fff8241b",
@@ -2321,7 +3160,7 @@
           "appName": "llamacppgemma412bone",
           "version": "1.1.0",
           "versionName": "1.1.0",
-          "mergedAt": "2026-10-17T13:10:42.477000000Z",
+          "mergedAt": "2026-11-16T22:11:43.329000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -2331,7 +3170,7 @@
         "QAT · upstream MTP · 170 t/s"
       ],
       "metadata": null,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "2effb583": {
       "id": "2effb583",
@@ -2463,7 +3302,7 @@
           "appName": "llamacppgemma426ba4bone",
           "version": "1.1.0",
           "versionName": "1.1.0",
-          "mergedAt": "2026-10-17T13:10:42.477000000Z",
+          "mergedAt": "2026-11-16T22:11:43.329000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -2473,7 +3312,7 @@
         "QAT · MoE · MTP 91%"
       ],
       "metadata": null,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "8c6443a7": {
       "id": "8c6443a7",
@@ -2594,7 +3433,7 @@
           "appName": "llamacppgemma4audione",
           "version": "1.2.0",
           "versionName": "1.2.0",
-          "mergedAt": "2026-10-17T13:10:42.477000000Z",
+          "mergedAt": "2026-11-16T22:11:43.329000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -2604,7 +3443,7 @@
         "audio · MTP 76%"
       ],
       "metadata": null,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "c1ca229f": {
       "id": "c1ca229f",
@@ -2721,7 +3560,7 @@
           "appName": "llamacppglm47flash",
           "version": "1.1.1",
           "versionName": "1.1.1",
-          "mergedAt": "2026-10-17T13:10:42.477000000Z",
+          "mergedAt": "2026-11-16T22:11:43.329000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -2731,7 +3570,302 @@
         "glm"
       ],
       "metadata": null,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
+    },
+    "2607d93c": {
+      "id": "2607d93c",
+      "name": "llamacpplfm3one",
+      "cfgType": "app",
+      "apiVersion": "v3",
+      "accelerator": [
+        {
+          "mode": "nvidia",
+          "limitedCpu": "7",
+          "requiredCpu": "1",
+          "requiredDisk": "50Mi",
+          "limitedDisk": "20Gi",
+          "limitedMemory": "10Gi",
+          "requiredMemory": "3Gi",
+          "requiredGPUMemory": "6Gi",
+          "limitedGPUMemory": "6Gi"
+        }
+      ],
+      "envs": [
+        {
+          "envName": "MODEL_SOURCE",
+          "required": true,
+          "type": "string",
+          "editable": false,
+          "applyOnChange": false,
+          "default": "hf://LiquidAI/LFM3-1.7B-GGUF --include LFM3-1.7B-Q8_0.gguf",
+          "description": "The GGUF file Model Console downloads.",
+          "regex": "^hf://"
+        },
+        {
+          "envName": "MODEL_NAME",
+          "required": true,
+          "type": "string",
+          "editable": false,
+          "applyOnChange": false,
+          "default": "LiquidAI/LFM3-1.7B-GGUF:Q8_0",
+          "description": "The model's name, in owner/repo:quant format."
+        },
+        {
+          "envName": "MODEL_MODE",
+          "required": true,
+          "type": "string",
+          "editable": false,
+          "applyOnChange": false,
+          "default": "chat",
+          "options": [
+            {
+              "title": "Chat",
+              "value": "chat"
+            },
+            {
+              "title": "Embedding",
+              "value": "embedding"
+            }
+          ]
+        },
+        {
+          "envName": "MODEL_SUPPORTS",
+          "required": true,
+          "type": "string",
+          "editable": false,
+          "applyOnChange": false,
+          "default": "thinking,tools",
+          "multiSelect": true,
+          "splitter": ",",
+          "options": [
+            {
+              "title": "Vision",
+              "value": "vision"
+            },
+            {
+              "title": "Tools",
+              "value": "tools"
+            },
+            {
+              "title": "Thinking",
+              "value": "thinking"
+            },
+            {
+              "title": "None",
+              "value": "none"
+            }
+          ],
+          "description": "The model's capabilities."
+        },
+        {
+          "envName": "ENGINE_ARGS",
+          "required": true,
+          "default": "-c 262144 -ngl all -fa on --jinja -np 2 -kvu --temp 0.1 --top-k 50 --repeat-penalty 1.1",
+          "type": "string",
+          "editable": true,
+          "applyOnChange": true,
+          "description": "llama.cpp options. `-np 1` is about 7% faster for a single user; `-c` is the shared context pool."
+        },
+        {
+          "envName": "LOG_LEVEL",
+          "required": false,
+          "type": "string",
+          "editable": true,
+          "applyOnChange": true,
+          "default": "info",
+          "options": [
+            {
+              "title": "Debug",
+              "value": "debug"
+            },
+            {
+              "title": "Info",
+              "value": "info"
+            },
+            {
+              "title": "Warn",
+              "value": "warn"
+            },
+            {
+              "title": "Error",
+              "value": "error"
+            }
+          ]
+        },
+        {
+          "envName": "HF_ENDPOINT",
+          "required": false,
+          "applyOnChange": true,
+          "valueFrom": {
+            "envName": "OLARES_SYSTEM_HUGGINGFACE_SERVICE"
+          }
+        },
+        {
+          "envName": "HF_TOKEN",
+          "required": false,
+          "applyOnChange": true,
+          "valueFrom": {
+            "envName": "OLARES_SYSTEM_HUGGINGFACE_TOKEN"
+          }
+        },
+        {
+          "envName": "LLAMACPP_CPU_REQUEST",
+          "required": true,
+          "default": "200m",
+          "type": "string",
+          "editable": false,
+          "applyOnChange": false
+        },
+        {
+          "envName": "LLAMACPP_MEMORY_REQUEST",
+          "required": true,
+          "default": "2Gi",
+          "type": "string",
+          "editable": false,
+          "applyOnChange": false
+        },
+        {
+          "envName": "LLAMACPP_CPU_LIMIT",
+          "required": true,
+          "default": "6",
+          "type": "string",
+          "editable": false,
+          "applyOnChange": false
+        },
+        {
+          "envName": "LLAMACPP_MEMORY_LIMIT",
+          "required": true,
+          "default": "8Gi",
+          "type": "string",
+          "editable": false,
+          "applyOnChange": false
+        },
+        {
+          "envName": "LLAMACPP_REQUIRED_GPU_MEMORY",
+          "required": true,
+          "type": "string",
+          "editable": false,
+          "applyOnChange": false,
+          "default": "6Gi",
+          "description": "GPU memory reserved for the engine (nvidia.com/gpumem).",
+          "regex": "^[0-9]+(Gi|Mi)?$"
+        }
+      ],
+      "chartName": "llamacpplfm3one-1.0.1.tgz",
+      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacpplfm3one.png",
+      "description": "Liquid AI LFM3 1.7B for Olares Router: a small agent model at 260 t/s with 256K context.",
+      "appID": "2607d93c",
+      "title": "LFM3 1-7B One",
+      "version": "1.0.1",
+      "categories": [
+        "LLM Chat",
+        "AI Agents"
+      ],
+      "versionName": "LiquidAI/LFM3-1.7B-GGUF:Q8_0",
+      "fullDescription": "**LFM3 1.7B** is Liquid AI's small agent model (October 2026): trained in real agent harnesses (Hermes Agent, Pi, OpenClaw), with a 256K-token context. This app serves it through Olares Router, so Lares and your other apps can call it without a key.\n\n**Measured on the Olares One** (RTX 5090 Laptop GPU, llama.cpp b12352, Q8_0 file):\n- Generation: **260 t/s** with two request slots and Liquid's sampling (285 t/s without the repeat penalty)\n- GPU memory: about 5 GB for the full 256K window\n\n**What it does well**: tool calls (two parallel weather calls answered in 0.9 s), JSON that follows a schema, short answers with thinking turned off. Liquid's scores: BFCL v4 71.4, IFEval 96.7, ToolSandbox 80.4.\n\n**What it does not**: it is a 1.7B model. Liquid does not recommend it for agentic coding or long multi-step reasoning. Edits whose text quotes tool-call markup (`<parameter=...>`) are fragile: sent straight to the engine, our test edit came back right 47 times out of 49 with thinking off; through Router, which re-orders the keys of the tool schema, the model added a stray `}` to the value 8 times out of 8 with thinking off, and got it right 10 times out of 20 with thinking on.\n\n**Thinking**: on by default. Send `\"chat_template_kwargs\": {\"enable_thinking\": false}` for direct answers.\n\n**Preset**\n- Model: `LiquidAI/LFM3-1.7B-GGUF:Q8_0`\n- Engine args: `-c 262144 -ngl all -fa on --jinja -np 2 -kvu --temp 0.1 --top-k 50 --repeat-penalty 1.1` (Liquid's recommended sampling as the server default; a client's own sampling wins)\n- GPU memory reserved: `6Gi`, so it can run next to another small GPU app\n\n**Stack**: llama.cpp b12352 (beclab's `server-cuda13-b12352` with our fix of the XML tool-call parser) serves the model; Olares Model Console downloads it into `appCommon/huggingface`, publishes its model card and relays the OpenAI API that Router calls.\n\n**License**: LFM Open License v1.0. Free for individuals and for companies under 10 million USD of annual revenue; above that, commercial use needs a license from Liquid AI.\n",
+      "upgradeDescription": "v1.0.1: the Q8_0 file and a fixed tool-call parser. The NVFP4 file damaged tool markup quoted inside arguments (it wrote `40</` for `40</parameter>`), and llama.cpp's parser cut such values at the quoted closing tag. This version serves Q8_0 and our llama.cpp b12352 build with that parser fixed (docker.io/aamsellem/llama.cpp:server-cuda13-b12352-xmlquote, one library changed). Speed: 260 t/s instead of 315.\nv1.0.0: first release. LiquidAI/LFM3-1.7B-GGUF NVFP4 on llama.cpp b12352 behind Model Console, so Olares Router lists it. Measured on the Olares One: 315 t/s generation with two request slots (337 t/s with one), 40,000 t/s prompt reading, 195 t/s with 128K tokens already in context.\n",
+      "promoteImage": [
+        "https://orales-one-market.aamsellem.workers.dev/screenshots/llamacpplfm3one-bento.png"
+      ],
+      "promoteVideo": "",
+      "subCategory": "",
+      "locale": [
+        "en-US"
+      ],
+      "developer": "Liquid AI",
+      "requiredMemory": "0",
+      "requiredDisk": "0",
+      "supportClient": {},
+      "supportArch": [
+        "amd64"
+      ],
+      "requiredGPU": "0",
+      "requiredCPU": "0",
+      "rating": 0,
+      "target": "",
+      "permission": {
+        "appCache": true,
+        "appData": true,
+        "appCommon": true
+      },
+      "entrances": [
+        {
+          "name": "llamacppclient",
+          "host": "download-svc",
+          "port": 8090,
+          "title": "LFM3 1-7B One",
+          "icon": "https://orales-one-market.aamsellem.workers.dev/icons/llamacpplfm3one.png",
+          "authLevel": "internal",
+          "invisible": false,
+          "openMethod": "window",
+          "disablePreload": false
+        }
+      ],
+      "middleware": null,
+      "options": {
+        "apiTimeout": 0,
+        "LLMGatewaySupported": true,
+        "shared": true,
+        "templateOnly": false,
+        "dependencies": [
+          {
+            "name": "olares",
+            "version": ">=1.12.7-0",
+            "type": "system"
+          }
+        ]
+      },
+      "submitter": "aamsellem",
+      "doc": "",
+      "website": "https://www.liquid.ai/blog/lfm3",
+      "featuredImage": "https://orales-one-market.aamsellem.workers.dev/screenshots/llamacpplfm3one-bento.png",
+      "sourceCode": "https://github.com/aamsellem/olares-one-market",
+      "license": [
+        {
+          "text": "LFM Open License v1.0",
+          "url": "https://huggingface.co/LiquidAI/LFM3-1.7B/blob/main/LICENSE"
+        },
+        {
+          "text": "MIT (llama.cpp)",
+          "url": "https://github.com/ggml-org/llama.cpp/blob/master/LICENSE"
+        }
+      ],
+      "legal": null,
+      "i18n": {
+        "en-US": {
+          "metadata": {
+            "title": "LFM3 1-7B One",
+            "description": "Liquid AI LFM3 1.7B for Olares Router: a small agent model at 260 t/s with 256K context."
+          },
+          "entrances": null,
+          "spec": {
+            "fullDescription": "**LFM3 1.7B** is Liquid AI's small agent model, trained in real agent harnesses, with a 256K-token context. This app serves it through Olares Router, so Lares and your other apps can call it without a key.\n\n**Measured on the Olares One** (Q8_0): 260 t/s with two request slots, about 5 GB of GPU memory.\n\n**Good at**: tool calls, JSON that follows a schema, quick answers (send `\"chat_template_kwargs\": {\"enable_thinking\": false}` to skip thinking). **Not for**: agentic coding or long multi-step reasoning, says Liquid; edits whose text quotes tool-call markup are fragile, above all through Router.\n\n**License**: LFM Open License v1.0, free under 10 million USD of annual revenue.\n",
+            "upgradeDescription": "v1.0.1: the Q8_0 file and a fixed tool-call parser. The NVFP4 file damaged tool markup quoted inside arguments (it wrote `40</` for `40</parameter>`), and llama.cpp's parser cut such values at the quoted closing tag. This version serves Q8_0 and our llama.cpp b12352 build with that parser fixed (docker.io/aamsellem/llama.cpp:server-cuda13-b12352-xmlquote, one library changed). Speed: 260 t/s instead of 315.\nv1.0.0: first release. LFM3-1.7B NVFP4 on llama.cpp b12352 behind Model Console, listed by Olares Router: 315 t/s with two slots (337 with one), 40,000 t/s prompt reading, 195 t/s at 128K.\n"
+          }
+        }
+      },
+      "namespace": "",
+      "onlyAdmin": true,
+      "lastCommitHash": "",
+      "createTime": 0,
+      "updateTime": 0,
+      "count": null,
+      "versionHistory": [
+        {
+          "appName": "llamacpplfm3one",
+          "version": "1.0.1",
+          "versionName": "b12352",
+          "mergedAt": "2026-11-16T22:11:43.329000000Z",
+          "upgradeDescription": ""
+        }
+      ],
+      "screenshots": null,
+      "tags": [
+        "liquid",
+        "router · Q8_0"
+      ],
+      "metadata": null,
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "491be3cd": {
       "id": "491be3cd",
@@ -2848,7 +3982,7 @@
           "appName": "llamacppnemotron30a3bone",
           "version": "1.1.1",
           "versionName": "1.1.1",
-          "mergedAt": "2026-10-17T13:10:42.477000000Z",
+          "mergedAt": "2026-11-16T22:11:43.329000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -2858,7 +3992,7 @@
         "nano"
       ],
       "metadata": null,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "4ef430dd": {
       "id": "4ef430dd",
@@ -2975,7 +4109,7 @@
           "appName": "llamacppqwen35a3bone",
           "version": "1.1.1",
           "versionName": "1.1.1",
-          "mergedAt": "2026-10-17T13:10:42.477000000Z",
+          "mergedAt": "2026-11-16T22:11:43.329000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -2985,7 +4119,7 @@
         "classic"
       ],
       "metadata": null,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "a1ac4529": {
       "id": "a1ac4529",
@@ -3113,7 +4247,7 @@
           "appName": "llamacppqwen36a3bdflashone",
           "version": "1.1.1",
           "versionName": "1.1.1",
-          "mergedAt": "2026-10-17T13:10:42.477000000Z",
+          "mergedAt": "2026-11-16T22:11:43.329000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -3123,7 +4257,7 @@
         "dflash · upstream"
       ],
       "metadata": null,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "059cd05d": {
       "id": "059cd05d",
@@ -3251,7 +4385,7 @@
           "appName": "llamacppqwen36a3bone",
           "version": "2.1.1",
           "versionName": "2.1.1",
-          "mergedAt": "2026-10-17T13:10:42.477000000Z",
+          "mergedAt": "2026-11-16T22:11:43.329000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -3261,7 +4395,7 @@
         "champion vision"
       ],
       "metadata": null,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "6ee23f04": {
       "id": "6ee23f04",
@@ -3390,7 +4524,7 @@
           "appName": "llamacppqwen36abliteratedone",
           "version": "1.1.1",
           "versionName": "1.1.1",
-          "mergedAt": "2026-10-17T13:10:42.477000000Z",
+          "mergedAt": "2026-11-16T22:11:43.329000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -3400,7 +4534,7 @@
         "abliterated + claude · Q4_K"
       ],
       "metadata": null,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "9ca1356f": {
       "id": "9ca1356f",
@@ -3527,7 +4661,7 @@
           "appName": "llamacppqwen36beellamaone",
           "version": "1.1.1",
           "versionName": "1.1.1",
-          "mergedAt": "2026-10-17T13:10:42.477000000Z",
+          "mergedAt": "2026-11-16T22:11:43.329000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -3537,7 +4671,7 @@
         "beellama"
       ],
       "metadata": null,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "49ed4ea2": {
       "id": "49ed4ea2",
@@ -3663,7 +4797,7 @@
           "appName": "llamacppqwen36dflashone",
           "version": "1.1.1",
           "versionName": "1.1.1",
-          "mergedAt": "2026-10-17T13:10:42.477000000Z",
+          "mergedAt": "2026-11-16T22:11:43.329000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -3673,7 +4807,7 @@
         "dflash"
       ],
       "metadata": null,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "6a1ddcf0": {
       "id": "6a1ddcf0",
@@ -3799,7 +4933,7 @@
           "appName": "llamacppqwen36heretic27bone",
           "version": "1.1.1",
           "versionName": "1.1.1",
-          "mergedAt": "2026-10-17T13:10:42.477000000Z",
+          "mergedAt": "2026-11-16T22:11:43.329000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -3809,7 +4943,7 @@
         "long ctx"
       ],
       "metadata": null,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "43e83ecd": {
       "id": "43e83ecd",
@@ -3935,7 +5069,7 @@
           "appName": "llamacppqwen36mtpone",
           "version": "1.1.1",
           "versionName": "1.1.1",
-          "mergedAt": "2026-10-17T13:10:42.477000000Z",
+          "mergedAt": "2026-11-16T22:11:43.329000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -3945,7 +5079,7 @@
         "long ctx"
       ],
       "metadata": null,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "fa4ef911": {
       "id": "fa4ef911",
@@ -4062,7 +5196,7 @@
           "appName": "nemotron3nano4bone",
           "version": "1.1.1",
           "versionName": "1.1.1",
-          "mergedAt": "2026-10-17T13:10:42.477000000Z",
+          "mergedAt": "2026-11-16T22:11:43.329000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -4072,7 +5206,7 @@
         "nano"
       ],
       "metadata": null,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "6f596112": {
       "id": "6f596112",
@@ -4199,7 +5333,7 @@
           "appName": "nemotrondiffusion14bone",
           "version": "1.1.1",
           "versionName": "1.1.1",
-          "mergedAt": "2026-10-17T13:10:42.477000000Z",
+          "mergedAt": "2026-11-16T22:11:43.329000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -4209,7 +5343,7 @@
         "diffusion"
       ],
       "metadata": null,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "99dafa10": {
       "id": "99dafa10",
@@ -4344,7 +5478,7 @@
           "appName": "nemotronlabselastic30bnvfp4one",
           "version": "1.1.1",
           "versionName": "1.1.1",
-          "mergedAt": "2026-10-17T13:10:42.477000000Z",
+          "mergedAt": "2026-11-16T22:11:43.329000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -4354,7 +5488,7 @@
         "nvfp4"
       ],
       "metadata": null,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "e74eca98": {
       "id": "e74eca98",
@@ -4471,7 +5605,7 @@
           "appName": "omnivoiceone",
           "version": "1.2.1",
           "versionName": "1.2.1",
-          "mergedAt": "2026-10-17T13:10:42.477000000Z",
+          "mergedAt": "2026-11-16T22:11:43.329000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -4481,7 +5615,7 @@
         "tts"
       ],
       "metadata": null,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "2c5c39c9": {
       "id": "2c5c39c9",
@@ -4598,7 +5732,7 @@
           "appName": "qwen35a3bvisionone",
           "version": "1.1.1",
           "versionName": "1.1.1",
-          "mergedAt": "2026-10-17T13:10:42.477000000Z",
+          "mergedAt": "2026-11-16T22:11:43.329000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -4608,7 +5742,7 @@
         "vision"
       ],
       "metadata": null,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "ed18683c": {
       "id": "ed18683c",
@@ -4725,7 +5859,7 @@
           "appName": "qwen35iq4visionone",
           "version": "1.1.1",
           "versionName": "1.1.1",
-          "mergedAt": "2026-10-17T13:10:42.477000000Z",
+          "mergedAt": "2026-11-16T22:11:43.329000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -4735,7 +5869,7 @@
         "vision long"
       ],
       "metadata": null,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "14fdab3c": {
       "id": "14fdab3c",
@@ -4853,7 +5987,7 @@
           "appName": "qwen36a3bvisionone",
           "version": "1.1.1",
           "versionName": "1.1.1",
-          "mergedAt": "2026-10-17T13:10:42.477000000Z",
+          "mergedAt": "2026-11-16T22:11:43.329000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -4863,7 +5997,7 @@
         "vision"
       ],
       "metadata": null,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "c77813f1": {
       "id": "c77813f1",
@@ -4990,7 +6124,7 @@
           "appName": "qwen36beellamavisionone",
           "version": "1.1.1",
           "versionName": "1.1.1",
-          "mergedAt": "2026-10-17T13:10:42.477000000Z",
+          "mergedAt": "2026-11-16T22:11:43.329000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -5000,7 +6134,7 @@
         "vision"
       ],
       "metadata": null,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "da30d532": {
       "id": "da30d532",
@@ -5118,7 +6252,7 @@
           "appName": "qwen3coder30a3bone",
           "version": "1.1.1",
           "versionName": "1.1.1",
-          "mergedAt": "2026-10-17T13:10:42.477000000Z",
+          "mergedAt": "2026-11-16T22:11:43.329000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -5128,7 +6262,7 @@
         "coder"
       ],
       "metadata": null,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "49c5b493": {
       "id": "49c5b493",
@@ -5245,7 +6379,7 @@
           "appName": "qwen3ttstone",
           "version": "1.1.0",
           "versionName": "1.1.0",
-          "mergedAt": "2026-10-17T13:10:42.477000000Z",
+          "mergedAt": "2026-11-16T22:11:43.329000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -5255,7 +6389,7 @@
         "tts"
       ],
       "metadata": null,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "fff1cda2": {
       "id": "fff1cda2",
@@ -5383,7 +6517,7 @@
           "appName": "racka4bhuone",
           "version": "1.1.0",
           "versionName": "1.1.0",
-          "mergedAt": "2026-10-17T13:10:42.477000000Z",
+          "mergedAt": "2026-11-16T22:11:43.329000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -5393,7 +6527,306 @@
         "hungarian · special request"
       ],
       "metadata": null,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
+    },
+    "9098ca43": {
+      "id": "9098ca43",
+      "name": "stratadscoderone",
+      "cfgType": "app",
+      "apiVersion": "v3",
+      "accelerator": [
+        {
+          "mode": "nvidia",
+          "supportMultiCard": false,
+          "supportMultiNodes": false,
+          "requiredCpu": "8",
+          "limitedCpu": "24",
+          "requiredMemory": "56Gi",
+          "limitedMemory": "84Gi",
+          "requiredDisk": "200Gi",
+          "limitedDisk": "260Gi",
+          "requiredGPUMemory": "20Gi",
+          "limitedGPUMemory": "23Gi"
+        }
+      ],
+      "envs": [
+        {
+          "envName": "HUGGINGFACE_TOKEN",
+          "required": false,
+          "applyOnChange": true,
+          "valueFrom": {
+            "envName": "OLARES_USER_HUGGINGFACE_TOKEN"
+          }
+        },
+        {
+          "envName": "DEEPSEEK_EXPERTS",
+          "required": false,
+          "default": "6",
+          "editable": true,
+          "applyOnChange": true,
+          "description": "Experts per token: 6 = full quality (default), 5 = Faster (+12% decode on Olares One)"
+        },
+        {
+          "envName": "DEEPSEEK_CPU_THREADS",
+          "required": false,
+          "default": "18",
+          "editable": true,
+          "applyOnChange": true,
+          "description": "CPU threads for the experts computed on the CPU. 18 leaves room for Olares and other apps; 22 is Strata's own choice on the One.",
+          "regex": "^[0-9]+$"
+        }
+      ],
+      "chartName": "stratadscoderone-1.0.1.tgz",
+      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/stratadscoderone.png",
+      "description": "DeepSeek-V4.1-Flash ISTA-DAS Coder on Olares One with the Strata engine — 31 t/s, 128K context",
+      "appID": "9098ca43",
+      "title": "Strata DeepSeek V41 Coder One",
+      "version": "1.0.1",
+      "categories": [
+        "LLM Chat",
+        "Coding"
+      ],
+      "versionName": "1.0.0",
+      "fullDescription": "DeepSeek-V4.1-Flash ISTA-DAS Coder running on the Olares One with **Strata** (niko1221/strata, MIT), an engine\nbuilt to fit huge MoE models on one consumer GPU.\n\nThe Coder is ISTA-DASLab's coding version of DeepSeek-V4.1-Flash: in every layer 192 of the 384 routed experts are\nkept, so the model is 72 GB instead of 138 GB. It is tuned for code and agent work and is weaker on prose and other\nlanguages than the full model (Strata's measurement against the original: KL 0.40 overall, 0.23 on code, 0.20 on\nagent work).\n\nHow it fits: the dense weights and 1,927 of the 7,680 experts sit on the RTX 5090M (23 GB of VRAM); the other\n5,753 experts (49.5 GB) are copied into RAM and computed by the CPU (18 threads by default); the 111 GB n-gram table stays on\nthe SSD and is read a few rows per token.\n\nMeasured on the Olares One (128K context):\n- decode 31.4 t/s on average (28-35) with all 6 experts per token (the default, full quality)\n- decode 35.2 t/s (32-38) in Faster mode, 5 experts per token: set DEEPSEEK_EXPERTS to 5 in the app's settings\n  (a small quality change that Strata describes as usually not noticeable)\n- 32K-token prompt read at about 950 t/s (first token in 34 s)\n- tool calling (parallel calls) and reasoning; OpenAI-compatible API at /v1 and Anthropic-compatible API (Claude\n  Code: ANTHROPIC_BASE_URL without /v1) on port 8080, plus a web chat\n\nFor speed, Strata Qwen38 Flash Next One is about 4.5x faster on the same hardware; this app is for people who\nwant DeepSeek's coding model.\n\nAPI key: `olares-strata-one-local-key` (the entrance stays internal to your Olares).\n\nNeeds the whole GPU and about 55 GB of RAM: stop the other GPU apps first (including Strata Qwen38 Flash Next One).\nIf Olares stops the app for memory pressure right after another large model app ran, start it again a minute\nlater: the other app's file cache is still being released.\nThe first start downloads 191 GB (72 GB of model, the 111 GB n-gram table, an 8 GB drafter) into the app's data,\nabout 35 minutes at 100 MB/s; the next starts take about two minutes.\n",
+      "upgradeDescription": "v1.0.1: for long answers that ended in \"network error\" after a few minutes. Two checks could restart a busy\nengine in the middle of a generation, losing the answer and the conversation: the health probe (now a plain\nport check) and the container's own watchdog (now 5 minutes without an answer, not 30 seconds). The engine also takes 18 CPU threads\ninstead of 22, so Olares, its network sidecars and your other apps keep some CPU while DeepSeek computes:\nset DEEPSEEK_CPU_THREADS back to 22 if you only run DeepSeek.\nv1.0.0: first release. Strata 0.2.13 (DeepSeek engine 0.1.59) runs ISTA-DASLab's DeepSeek-V4.1-Flash Coder on the\nOlares One. Bench on the One (warmup, then Space Invaders, a Go REST API and a B-tree explanation, 800 tokens,\n2 rounds): decode 31.4 t/s on average with 6 experts per token, 35.2 t/s in Faster mode (DEEPSEEK_EXPERTS=5);\n32K-token prompt read at about 950 t/s. Tool calling checked (parallel calls).\n",
+      "promoteImage": [
+        "https://orales-one-market.aamsellem.workers.dev/screenshots/stratadscoderone-bento.png"
+      ],
+      "promoteVideo": "",
+      "subCategory": "",
+      "locale": [
+        "en-US"
+      ],
+      "developer": "aamsellem",
+      "requiredMemory": "0",
+      "requiredDisk": "0",
+      "supportClient": {},
+      "supportArch": [
+        "amd64"
+      ],
+      "requiredGPU": "0",
+      "requiredCPU": "0",
+      "rating": 0,
+      "target": "",
+      "permission": {
+        "appData": true
+      },
+      "entrances": [
+        {
+          "name": "stratadscoderone",
+          "host": "stratadscoderone",
+          "port": 8080,
+          "title": "Strata DeepSeek V41 Coder",
+          "icon": "https://orales-one-market.aamsellem.workers.dev/icons/stratadscoderone.png",
+          "authLevel": "internal",
+          "invisible": false,
+          "openMethod": "window",
+          "disablePreload": false
+        }
+      ],
+      "middleware": null,
+      "options": {
+        "apiTimeout": 0,
+        "dependencies": [
+          {
+            "name": "olares",
+            "version": ">=1.12.6-0",
+            "type": "system"
+          }
+        ]
+      },
+      "submitter": "aamsellem",
+      "doc": "",
+      "website": "https://github.com/aamsellem/olares-one-market",
+      "featuredImage": "https://orales-one-market.aamsellem.workers.dev/screenshots/stratadscoderone-bento.png",
+      "sourceCode": "https://github.com/aamsellem/olares-one-market",
+      "license": [
+        {
+          "text": "MIT (Strata)",
+          "url": "https://github.com/niko1221/strata/blob/main/LICENSE"
+        },
+        {
+          "text": "MIT (model)",
+          "url": "https://huggingface.co/ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-Coder-GGUF"
+        }
+      ],
+      "legal": null,
+      "i18n": {
+        "en-US": {
+          "metadata": {
+            "title": "Strata DeepSeek V41 Coder One",
+            "description": "DeepSeek-V4.1-Flash ISTA-DAS Coder on Olares One with the Strata engine — 31 t/s, 128K context"
+          },
+          "entrances": null,
+          "spec": {
+            "fullDescription": "DeepSeek-V4.1-Flash ISTA-DAS Coder running on the Olares One with **Strata** (niko1221/strata, MIT), an engine\nbuilt to fit huge MoE models on one consumer GPU.\n\nThe Coder is ISTA-DASLab's coding version of DeepSeek-V4.1-Flash: in every layer 192 of the 384 routed experts are\nkept, so the model is 72 GB instead of 138 GB. It is tuned for code and agent work and is weaker on prose and other\nlanguages than the full model (Strata's measurement against the original: KL 0.40 overall, 0.23 on code, 0.20 on\nagent work).\n\nHow it fits: the dense weights and 1,927 of the 7,680 experts sit on the RTX 5090M (23 GB of VRAM); the other\n5,753 experts (49.5 GB) are copied into RAM and computed by the CPU (18 threads by default); the 111 GB n-gram table stays on\nthe SSD and is read a few rows per token.\n\nMeasured on the Olares One (128K context):\n- decode 31.4 t/s on average (28-35) with all 6 experts per token (the default, full quality)\n- decode 35.2 t/s (32-38) in Faster mode, 5 experts per token: set DEEPSEEK_EXPERTS to 5 in the app's settings\n  (a small quality change that Strata describes as usually not noticeable)\n- 32K-token prompt read at about 950 t/s (first token in 34 s)\n- tool calling (parallel calls) and reasoning; OpenAI-compatible API at /v1 and Anthropic-compatible API (Claude\n  Code: ANTHROPIC_BASE_URL without /v1) on port 8080, plus a web chat\n\nFor speed, Strata Qwen38 Flash Next One is about 4.5x faster on the same hardware; this app is for people who\nwant DeepSeek's coding model.\n\nAPI key: `olares-strata-one-local-key` (the entrance stays internal to your Olares).\n\nNeeds the whole GPU and about 55 GB of RAM: stop the other GPU apps first (including Strata Qwen38 Flash Next One).\nIf Olares stops the app for memory pressure right after another large model app ran, start it again a minute\nlater: the other app's file cache is still being released.\nThe first start downloads 191 GB (72 GB of model, the 111 GB n-gram table, an 8 GB drafter) into the app's data,\nabout 35 minutes at 100 MB/s; the next starts take about two minutes.\n",
+            "upgradeDescription": ""
+          }
+        }
+      },
+      "namespace": "",
+      "onlyAdmin": false,
+      "lastCommitHash": "",
+      "createTime": 0,
+      "updateTime": 0,
+      "count": null,
+      "versionHistory": [
+        {
+          "appName": "stratadscoderone",
+          "version": "1.0.1",
+          "versionName": "1.0.0",
+          "mergedAt": "2026-11-16T22:11:43.329000000Z",
+          "upgradeDescription": ""
+        }
+      ],
+      "screenshots": null,
+      "tags": [
+        "deepseek",
+        "strata"
+      ],
+      "metadata": null,
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
+    },
+    "a473ba0d": {
+      "id": "a473ba0d",
+      "name": "stratanextone",
+      "cfgType": "app",
+      "apiVersion": "v3",
+      "accelerator": [
+        {
+          "mode": "nvidia",
+          "supportMultiCard": false,
+          "supportMultiNodes": false,
+          "requiredCpu": "8",
+          "limitedCpu": "24",
+          "requiredMemory": "56Gi",
+          "limitedMemory": "84Gi",
+          "requiredDisk": "100Gi",
+          "limitedDisk": "140Gi",
+          "requiredGPUMemory": "20Gi",
+          "limitedGPUMemory": "23Gi"
+        }
+      ],
+      "envs": [
+        {
+          "envName": "HUGGINGFACE_TOKEN",
+          "required": false,
+          "applyOnChange": true,
+          "valueFrom": {
+            "envName": "OLARES_USER_HUGGINGFACE_TOKEN"
+          }
+        }
+      ],
+      "chartName": "stratanextone-1.0.0.tgz",
+      "icon": "https://orales-one-market.aamsellem.workers.dev/icons/stratanextone.png",
+      "description": "Qwen3.8-Flash-Next (~180B MoE) on Olares One with the Strata engine — 137 t/s, 128K context, tool calling",
+      "appID": "a473ba0d",
+      "title": "Strata Qwen38 Flash Next One",
+      "version": "1.0.0",
+      "categories": [
+        "LLM Chat",
+        "AI Agents"
+      ],
+      "versionName": "1.0.0",
+      "fullDescription": "Qwen3.8-Flash-Next (~180B parameters, 24,576 experts, 10 active per token) running on the Olares One with\n**Strata** (niko1221/strata, MIT), an engine built to fit huge MoE models on one consumer GPU.\n\nHow it fits: every expert sits in RAM; the dense part of the model and an adaptive cache of the ~10,600 most-used\nexperts sit on the RTX 5090M (17 GB of VRAM); the CPU computes the other experts at the same time; a DFlash2 drafter\nguesses several tokens per step.\n\nMeasured on the Olares One (ISTA-DASLab IQ3_XXS pack, 128K context):\n- decode 137.5 t/s on average (121-148), short coding and explanation prompts\n- 36K-token prompt read at ~2,700 t/s (first token in 13 s), 112K at ~3,100 t/s (37 s)\n- tool calling (parallel calls) and reasoning; OpenAI-compatible API at /v1 and Anthropic-compatible API (Claude\n  Code: ANTHROPIC_BASE_URL without /v1) on port 8080, plus a web chat\n\nAPI key: `olares-strata-one-local-key` (the entrance stays internal to your Olares).\n\nNeeds the whole GPU and about 50 GB of RAM: stop the other GPU apps first. The first start downloads the model\n(~76 GB) into the app's data; the next starts take about a minute.\n",
+      "upgradeDescription": "v1.0.0: first release. Strata 0.2.13 (engine 0.1.59) runs Qwen3.8-Flash-Next (~180B MoE) on the Olares One.\nBench on the One (warmup, then Space Invaders, a Go REST API and a B-tree explanation, 800 tokens, 2 rounds):\ndecode 137.5 t/s on average (121-148); 36K-token prompt read at ~2,700 t/s, 112K at ~3,100 t/s.\n",
+      "promoteImage": [
+        "https://orales-one-market.aamsellem.workers.dev/screenshots/stratanextone-bento.png"
+      ],
+      "promoteVideo": "",
+      "subCategory": "",
+      "locale": [
+        "en-US"
+      ],
+      "developer": "aamsellem",
+      "requiredMemory": "0",
+      "requiredDisk": "0",
+      "supportClient": {},
+      "supportArch": [
+        "amd64"
+      ],
+      "requiredGPU": "0",
+      "requiredCPU": "0",
+      "rating": 0,
+      "target": "",
+      "permission": {
+        "appData": true
+      },
+      "entrances": [
+        {
+          "name": "stratanextone",
+          "host": "stratanextone",
+          "port": 8080,
+          "title": "Strata Qwen38 Flash Next",
+          "icon": "https://orales-one-market.aamsellem.workers.dev/icons/stratanextone.png",
+          "authLevel": "internal",
+          "invisible": false,
+          "openMethod": "window",
+          "disablePreload": false
+        }
+      ],
+      "middleware": null,
+      "options": {
+        "apiTimeout": 0,
+        "dependencies": [
+          {
+            "name": "olares",
+            "version": ">=1.12.6-0",
+            "type": "system"
+          }
+        ]
+      },
+      "submitter": "aamsellem",
+      "doc": "",
+      "website": "https://github.com/aamsellem/olares-one-market",
+      "featuredImage": "https://orales-one-market.aamsellem.workers.dev/screenshots/stratanextone-bento.png",
+      "sourceCode": "https://github.com/aamsellem/olares-one-market",
+      "license": [
+        {
+          "text": "MIT (Strata)",
+          "url": "https://github.com/niko1221/strata/blob/main/LICENSE"
+        },
+        {
+          "text": "Qwen Community License (model)",
+          "url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next"
+        }
+      ],
+      "legal": null,
+      "i18n": {
+        "en-US": {
+          "metadata": {
+            "title": "Strata Qwen38 Flash Next One",
+            "description": "Qwen3.8-Flash-Next (~180B MoE) on Olares One with the Strata engine — 137 t/s, 128K context, tool calling"
+          },
+          "entrances": null,
+          "spec": {
+            "fullDescription": "Qwen3.8-Flash-Next (~180B parameters, 24,576 experts, 10 active per token) running on the Olares One with\n**Strata** (niko1221/strata, MIT), an engine built to fit huge MoE models on one consumer GPU.\n\nHow it fits: every expert sits in RAM; the dense part of the model and an adaptive cache of the ~10,600 most-used\nexperts sit on the RTX 5090M (17 GB of VRAM); the CPU computes the other experts at the same time; a DFlash2 drafter\nguesses several tokens per step.\n\nMeasured on the Olares One (ISTA-DASLab IQ3_XXS pack, 128K context):\n- decode 137.5 t/s on average (121-148), short coding and explanation prompts\n- 36K-token prompt read at ~2,700 t/s (first token in 13 s), 112K at ~3,100 t/s (37 s)\n- tool calling (parallel calls) and reasoning; OpenAI-compatible API at /v1 and Anthropic-compatible API (Claude\n  Code: ANTHROPIC_BASE_URL without /v1) on port 8080, plus a web chat\n\nAPI key: `olares-strata-one-local-key` (the entrance stays internal to your Olares).\n\nNeeds the whole GPU and about 50 GB of RAM: stop the other GPU apps first. The first start downloads the model\n(~76 GB) into the app's data; the next starts take about a minute.\n",
+            "upgradeDescription": ""
+          }
+        }
+      },
+      "namespace": "",
+      "onlyAdmin": false,
+      "lastCommitHash": "",
+      "createTime": 0,
+      "updateTime": 0,
+      "count": null,
+      "versionHistory": [
+        {
+          "appName": "stratanextone",
+          "version": "1.0.0",
+          "versionName": "1.0.0",
+          "mergedAt": "2026-11-16T22:11:43.329000000Z",
+          "upgradeDescription": ""
+        }
+      ],
+      "screenshots": null,
+      "tags": [
+        "qwen",
+        "strata"
+      ],
+      "metadata": null,
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "35ffe672": {
       "id": "35ffe672",
@@ -5530,7 +6963,7 @@
           "appName": "vllmgemma426ba4babliteratedone",
           "version": "1.1.1",
           "versionName": "1.1.1",
-          "mergedAt": "2026-10-17T13:10:42.477000000Z",
+          "mergedAt": "2026-11-16T22:11:43.329000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -5540,7 +6973,7 @@
         "abliterated"
       ],
       "metadata": null,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "b3078d17": {
       "id": "b3078d17",
@@ -5675,7 +7108,7 @@
           "appName": "vllmgemma426ba4bvisionone",
           "version": "1.1.1",
           "versionName": "1.1.1",
-          "mergedAt": "2026-10-17T13:10:42.477000000Z",
+          "mergedAt": "2026-11-16T22:11:43.329000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -5685,7 +7118,7 @@
         "champion vision"
       ],
       "metadata": null,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "18a6f781": {
       "id": "18a6f781",
@@ -5819,7 +7252,7 @@
           "appName": "vllmgemma4dflashone",
           "version": "1.1.1",
           "versionName": "1.1.1",
-          "mergedAt": "2026-10-17T13:10:42.477000000Z",
+          "mergedAt": "2026-11-16T22:11:43.329000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -5829,7 +7262,7 @@
         "dflash"
       ],
       "metadata": null,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "be32d4df": {
       "id": "be32d4df",
@@ -5947,7 +7380,7 @@
           "appName": "vllmgemma4e4bone",
           "version": "1.1.1",
           "versionName": "1.1.1",
-          "mergedAt": "2026-10-17T13:10:42.477000000Z",
+          "mergedAt": "2026-11-16T22:11:43.329000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -5957,7 +7390,7 @@
         "voice mtp"
       ],
       "metadata": null,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "285e9d99": {
       "id": "285e9d99",
@@ -6074,7 +7507,7 @@
           "appName": "vllmqwen3527bone",
           "version": "1.1.1",
           "versionName": "1.1.1",
-          "mergedAt": "2026-10-17T13:10:42.477000000Z",
+          "mergedAt": "2026-11-16T22:11:43.329000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -6084,7 +7517,7 @@
         "nvfp4"
       ],
       "metadata": null,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "901d20e0": {
       "id": "901d20e0",
@@ -6211,7 +7644,7 @@
           "appName": "vllmqwen36turbo27bone",
           "version": "2.6.1",
           "versionName": "2.6.1",
-          "mergedAt": "2026-10-17T13:10:42.477000000Z",
+          "mergedAt": "2026-11-16T22:11:43.329000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -6221,7 +7654,7 @@
         "turbo"
       ],
       "metadata": null,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "af406293": {
       "id": "af406293",
@@ -6338,7 +7771,7 @@
           "appName": "vllmvoxtral3bone",
           "version": "1.1.1",
           "versionName": "1.1.1",
-          "mergedAt": "2026-10-17T13:10:42.477000000Z",
+          "mergedAt": "2026-11-16T22:11:43.329000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -6348,7 +7781,7 @@
         "asr"
       ],
       "metadata": null,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "13db403f": {
       "id": "13db403f",
@@ -6465,7 +7898,7 @@
           "appName": "vllmvoxtralrt4bone",
           "version": "1.1.1",
           "versionName": "1.1.1",
-          "mergedAt": "2026-10-17T13:10:42.477000000Z",
+          "mergedAt": "2026-11-16T22:11:43.329000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -6475,7 +7908,7 @@
         "realtime"
       ],
       "metadata": null,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     },
     "efd72908": {
       "id": "efd72908",
@@ -6592,7 +8025,7 @@
           "appName": "vllmvoxtraltts4bone",
           "version": "1.1.1",
           "versionName": "1.1.1",
-          "mergedAt": "2026-10-17T13:10:42.477000000Z",
+          "mergedAt": "2026-11-16T22:11:43.329000000Z",
           "upgradeDescription": ""
         }
       ],
@@ -6602,10 +8035,16 @@
         "tts"
       ],
       "metadata": null,
-      "updated_at": "2026-10-17T13:10:42.477000000Z"
+      "updated_at": "2026-11-16T22:11:43.329000000Z"
     }
   },
   "latest": [
+    "aerisstudio",
+    "lfm3omnione",
+    "stratanextone",
+    "llamacpplfm3one",
+    "stratadscoderone",
+    "deepseekharnessone",
     "llamacppgemma412blcone",
     "llamacppgemma412bone",
     "llamacppgemma426ba4bone",
@@ -6647,187 +8086,218 @@
     "acestepxlone",
     "llamacppcodernext40bone",
     "omnivoiceone",
+    "basaltqwen38one",
     "llamacppqwen36a3bone",
     "vllmqwen36turbo27bone"
   ],
   "tops": [
     {
-      "appId": "llamacppgemma412blcone",
+      "appId": "aerisstudio",
       "rank": 1
     },
     {
-      "appId": "llamacppgemma412bone",
+      "appId": "lfm3omnione",
       "rank": 2
     },
     {
-      "appId": "llamacppgemma426ba4bone",
+      "appId": "stratanextone",
       "rank": 3
     },
     {
-      "appId": "qwen3ttstone",
+      "appId": "llamacpplfm3one",
       "rank": 4
     },
     {
-      "appId": "racka4bhuone",
+      "appId": "stratadscoderone",
       "rank": 5
     },
     {
-      "appId": "llamacppqwen35iq4one",
+      "appId": "deepseekharnessone",
       "rank": 6
     },
     {
-      "appId": "cascade230a3bone",
+      "appId": "llamacppgemma412blcone",
       "rank": 7
     },
     {
-      "appId": "devstralsmallone",
+      "appId": "llamacppgemma412bone",
       "rank": 8
     },
     {
-      "appId": "exl3qwen35a3bone",
+      "appId": "llamacppgemma426ba4bone",
       "rank": 9
     },
     {
-      "appId": "gemma426ba4bone",
+      "appId": "qwen3ttstone",
       "rank": 10
     },
     {
-      "appId": "gemma4e2bone",
+      "appId": "racka4bhuone",
       "rank": 11
     },
     {
-      "appId": "llamacppcodernextq4one",
+      "appId": "llamacppqwen35iq4one",
       "rank": 12
     },
     {
-      "appId": "llamacppglm47flash",
+      "appId": "cascade230a3bone",
       "rank": 13
     },
     {
-      "appId": "llamacppnemotron30a3bone",
+      "appId": "devstralsmallone",
       "rank": 14
     },
     {
-      "appId": "llamacppqwen35a3bone",
+      "appId": "exl3qwen35a3bone",
       "rank": 15
     },
     {
-      "appId": "llamacppqwen36a3bdflashone",
+      "appId": "gemma426ba4bone",
       "rank": 16
     },
     {
-      "appId": "llamacppqwen36abliteratedone",
+      "appId": "gemma4e2bone",
       "rank": 17
     },
     {
-      "appId": "llamacppqwen36beellamaone",
+      "appId": "llamacppcodernextq4one",
       "rank": 18
     },
     {
-      "appId": "llamacppqwen36dflashone",
+      "appId": "llamacppglm47flash",
       "rank": 19
     },
     {
-      "appId": "llamacppqwen36heretic27bone",
+      "appId": "llamacppnemotron30a3bone",
       "rank": 20
     },
     {
-      "appId": "llamacppqwen36mtpone",
+      "appId": "llamacppqwen35a3bone",
       "rank": 21
     },
     {
-      "appId": "nemotron3nano4bone",
+      "appId": "llamacppqwen36a3bdflashone",
       "rank": 22
     },
     {
-      "appId": "nemotrondiffusion14bone",
+      "appId": "llamacppqwen36abliteratedone",
       "rank": 23
     },
     {
-      "appId": "nemotronlabselastic30bnvfp4one",
+      "appId": "llamacppqwen36beellamaone",
       "rank": 24
     },
     {
-      "appId": "qwen35a3bvisionone",
+      "appId": "llamacppqwen36dflashone",
       "rank": 25
     },
     {
-      "appId": "qwen35iq4visionone",
+      "appId": "llamacppqwen36heretic27bone",
       "rank": 26
     },
     {
-      "appId": "qwen36a3bvisionone",
+      "appId": "llamacppqwen36mtpone",
       "rank": 27
     },
     {
-      "appId": "qwen36beellamavisionone",
+      "appId": "nemotron3nano4bone",
       "rank": 28
     },
     {
-      "appId": "qwen3coder30a3bone",
+      "appId": "nemotrondiffusion14bone",
       "rank": 29
     },
     {
-      "appId": "vllmgemma426ba4babliteratedone",
+      "appId": "nemotronlabselastic30bnvfp4one",
       "rank": 30
     },
     {
-      "appId": "vllmgemma426ba4bvisionone",
+      "appId": "qwen35a3bvisionone",
       "rank": 31
     },
     {
-      "appId": "vllmgemma4dflashone",
+      "appId": "qwen35iq4visionone",
       "rank": 32
     },
     {
-      "appId": "vllmgemma4e4bone",
+      "appId": "qwen36a3bvisionone",
       "rank": 33
     },
     {
-      "appId": "vllmqwen3527bone",
+      "appId": "qwen36beellamavisionone",
       "rank": 34
     },
     {
-      "appId": "vllmvoxtral3bone",
+      "appId": "qwen3coder30a3bone",
       "rank": 35
     },
     {
-      "appId": "vllmvoxtralrt4bone",
+      "appId": "vllmgemma426ba4babliteratedone",
       "rank": 36
     },
     {
-      "appId": "vllmvoxtraltts4bone",
+      "appId": "vllmgemma426ba4bvisionone",
       "rank": 37
     },
     {
-      "appId": "llamacppgemma4audione",
+      "appId": "vllmgemma4dflashone",
       "rank": 38
     },
     {
-      "appId": "acestepxlone",
+      "appId": "vllmgemma4e4bone",
       "rank": 39
     },
     {
-      "appId": "llamacppcodernext40bone",
+      "appId": "vllmqwen3527bone",
       "rank": 40
     },
     {
-      "appId": "omnivoiceone",
+      "appId": "vllmvoxtral3bone",
       "rank": 41
     },
     {
-      "appId": "llamacppqwen36a3bone",
+      "appId": "vllmvoxtralrt4bone",
       "rank": 42
     },
     {
-      "appId": "vllmqwen36turbo27bone",
+      "appId": "vllmvoxtraltts4bone",
       "rank": 43
+    },
+    {
+      "appId": "llamacppgemma4audione",
+      "rank": 44
+    },
+    {
+      "appId": "acestepxlone",
+      "rank": 45
+    },
+    {
+      "appId": "llamacppcodernext40bone",
+      "rank": 46
+    },
+    {
+      "appId": "omnivoiceone",
+      "rank": 47
+    },
+    {
+      "appId": "basaltqwen38one",
+      "rank": 48
+    },
+    {
+      "appId": "llamacppqwen36a3bone",
+      "rank": 49
+    },
+    {
+      "appId": "vllmqwen36turbo27bone",
+      "rank": 50
     }
   ],
   "categories": [
+    "AI",
     "AI Agents",
     "Audio",
     "Coding",
+    "Creativity",
     "LLM Chat",
     "Long Context",
     "Music",
