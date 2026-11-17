@@ -8,10 +8,10 @@ workloadReplicas:
 metadata:
   name: stratanextone
   icon: https://orales-one-market.aamsellem.workers.dev/icons/stratanextone.png
-  description: "Qwen3.8-Flash-Next (~180B MoE) on Olares One with the Strata engine — 137 t/s, 128K context, tool calling"
+  description: "Qwen3.8-Flash-Next (~180B MoE) on Olares One with the Strata engine — 155-167 t/s, 128K context, tool calling"
   appid: stratanextone
   title: Strata Qwen38 Flash Next One
-  version: '1.0.0'
+  version: '1.0.1'
   categories:
     - LLM Chat
     - AI Agents
@@ -24,8 +24,15 @@ entrances:
     openMethod: window
     authLevel: internal
 spec:
-  versionName: '1.0.0'
+  versionName: '1.0.1'
   upgradeDescription: |
+    v1.0.1: Strata 0.2.15 (engine 0.1.60), and the app is no longer stopped for lack of memory. The engine read its
+    26.8 GiB n-gram table through the page cache, which Kubernetes counts as used memory: on the One the app was
+    evicted during long prompts. It now reads that table directly from the disk (ple-io=direct): 49 GB of RAM instead
+    of 76. Measured on the One: an 80K-token prompt read at 3,670 t/s (3,375 with 0.2.13), 26K at 3,491; decode 167
+    t/s greedy and 155 t/s sampled (about 3 % below the page-cache setting). Strata has no official 0.2.15 Docker image
+    yet: this app runs docker.io/aamsellem/strata:0.2.15-cuda13, the 0.2.13 image with the engine and Control files of
+    the official 0.2.14 and 0.2.15 releases.
     v1.0.0: first release. Strata 0.2.13 (engine 0.1.59) runs Qwen3.8-Flash-Next (~180B MoE) on the Olares One.
     Bench on the One (warmup, then Space Invaders, a Go REST API and a B-tree explanation, 800 tokens, 2 rounds):
     decode 137.5 t/s on average (121-148); 36K-token prompt read at ~2,700 t/s, 112K at ~3,100 t/s.
@@ -37,9 +44,9 @@ spec:
     experts sit on the RTX 5090M (17 GB of VRAM); the CPU computes the other experts at the same time; a DFlash2 drafter
     guesses several tokens per step.
 
-    Measured on the Olares One (ISTA-DASLab IQ3_XXS pack, 128K context):
-    - decode 137.5 t/s on average (121-148), short coding and explanation prompts
-    - 36K-token prompt read at ~2,700 t/s (first token in 13 s), 112K at ~3,100 t/s (37 s)
+    Measured on the Olares One (ISTA-DASLab IQ3_XXS pack, 128K context, Strata 0.2.15):
+    - decode 167 t/s greedy and 155 t/s sampled on average, short coding and explanation prompts
+    - 26K-token prompt read at ~3,500 t/s (first token in 7 s), 80K at ~3,700 t/s (22 s)
     - tool calling (parallel calls) and reasoning; OpenAI-compatible API at /v1 and Anthropic-compatible API (Claude
       Code: ANTHROPIC_BASE_URL without /v1) on port 8080, plus a web chat
 

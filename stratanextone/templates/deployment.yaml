@@ -10,6 +10,8 @@ data:
   CONTEXT: "128k"
   VISION: "off"
   API_KEY: "olares-strata-one-local-key"
+  # the n-gram table is read from the disk, not through the page cache that Kubernetes counts as used memory
+  STRATA_SET: "ple-io=direct"
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -44,7 +46,7 @@ spec:
               name: data
       containers:
         - name: strata
-          image: "ghcr.io/niko1221/strata:0.2.13-cuda13"
+          image: "docker.io/aamsellem/strata:0.2.15-cuda13"
           securityContext:
             runAsUser: 1000
             runAsGroup: 1000
