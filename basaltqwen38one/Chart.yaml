@@ -1,6 +1,6 @@
 apiVersion: v2
-appVersion: '0.4.0-anaelith.3'
+appVersion: '0.4.1-anaelith.1'
 description: anaelith — Qwen3.8-Flash-Next (~180B MoE) on Olares One, our fork of the Basalt engine, experts in RAM, hot experts cached on the RTX 5090M, listed in Olares Router through Model Console
 name: basaltqwen38one
 type: application
-version: '1.2.7'
+version: '1.3.0'

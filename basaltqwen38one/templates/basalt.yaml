@@ -43,7 +43,7 @@ spec:
               name: data
       containers:
         - name: basalt
-          image: "docker.io/aamsellem/basalt:0.4.0-anaelith.3-cuda13"
+          image: "docker.io/aamsellem/basalt:0.4.1-anaelith.1-cuda13"
           imagePullPolicy: IfNotPresent
           command: ["/bin/bash", "/llm-init/wrappers/basalt.sh"]
           securityContext:

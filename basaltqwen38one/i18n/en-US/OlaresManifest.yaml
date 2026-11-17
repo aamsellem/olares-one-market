@@ -44,6 +44,12 @@ spec:
     about a minute.
 
   upgradeDescription: |
+    v1.3.0: anaelith moves to Basalt 0.4.1. With two conversations at once, an agent that sends a reply back in
+    other pieces than the tokenizer cuts it into keeps its conversation instead of reading it again (and leaving a
+    6-8 GB copy behind); the engine reads its memory limit from the container; a tool call the grammar refused no
+    longer turns the grammar off for the rest of the answer; the CPU pool can no longer miss a wake-up. Also new:
+    --reasoning-effort, /tokenize and /detokenize. Our changes (tool-call parser, crash fix, resume) carry over.
+    Measured on the One against 1.2.7, alternating: same speed (189-192 t/s), 0 stops in 48 requests each.
     v1.2.7: the engine no longer stops with "timed out at layer" in the first minutes after a start. The cause was in
     the adaptive expert swaps: a decode step waited for experts that were still being copied to the GPU, and on the
     Olares One those copies could not run while that step was waiting, so both waited until the 20 s timeout. The
@@ -78,7 +84,7 @@ spec:
     apps can call it without a key, and the engine arguments can be changed from Router or Model Console.
     Checked on the One with Router 1.1.3: chat, streaming, parallel tool calls, JSON-schema answers and the
     Anthropic API all answer through Router, at 172 t/s (177 t/s straight on the engine).
-    The engine is anaelith 0.4.0-anaelith.3, our fork of Basalt 0.4.0: tool calls and JSON-schema answers are held
+    The engine is anaelith 0.4.1-anaelith.1, our fork of Basalt 0.4.1: tool calls and JSON-schema answers are held
     to a grammar (`response_format` requests are accepted again), and idle CPU workers sleep lightly. Measured
     inside the app against 1.1.1: 177 t/s at temperature 0.6 (was 171), 180 t/s greedy (was 182), a 36K-token
     prompt read at ~3,950 t/s (was ~3,750).
